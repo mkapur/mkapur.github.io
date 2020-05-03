@@ -30,7 +30,7 @@ education:
   - course: PhD in Fisheries Sciences
     institution: University of Washington
     year: Ongoing
-  - course: MSc In Marine Biology
+  - course: MSc in Marine Biology
     institution: University of Hawaii
     year: 2016
   - course: BSc in Environmental Science
@@ -65,9 +65,9 @@ email: ""
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
-user_groups:
-- Researchers
-- Visitors
+# user_groups:
+# - Researchers
+# - Visitors
 ---
 
-I am currently a graduate student at the School of Aquatic and Fisheries science at the University of Washington in the Punt Lab.  Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and previously completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.
+I am currently a graduate student at the School of Aquatic and Fisheries science at the University of Washington in the Punt Lab.  Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and  completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.

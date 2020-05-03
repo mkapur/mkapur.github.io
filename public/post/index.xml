@@ -5,12 +5,24 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 12 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>My ggplot themes manifesto</title>
+      <link>/post/my-ggplot-themes-manifesto/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/my-ggplot-themes-manifesto/</guid>
+      <description>
+
+
+&lt;p&gt;A few months ago I tweeted about the value of creating custom ggplot2 themes for easily synchronizing the look of all your figs for a given talk or manuscript. Some folks take this to another level and effectively have a personal aesthetic (see what I did there) that they use across their work, which I find compelling. I am obviously not a graphic designer, but I love beautiful plots, and wanted to consolidate some of the best resources + starter tips for others here. These range from out-of-the-box default themes within the ggplot2 package itself, to those made by others, to resources you can use to make your own more (or less) from scratch.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Writing technical content in Academic</title>

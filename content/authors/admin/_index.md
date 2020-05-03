@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Nelson Bighetti
+title: Maia Sosa Kapur
 
 # Username (this should match the folder name)
 authors:
@@ -10,11 +10,11 @@ authors:
 superuser: true
 
 # Role/position
-role: Professor of Artificial Intelligence
+role: PhD Student
 
 # Organizations/Affiliations
 organizations:
-- name: Stanford University
+- name: University of Washington
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
@@ -44,16 +44,16 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: '#contact'  # For a direct email link, use "mailto:test@example.org".
+  link: '#contact'  # For a direct email link, use "mailto:kapurm@uw.edu".
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/GeorgeCushen
+  link: https://twitter.com/kapurmaia
 - icon: google-scholar
   icon_pack: ai
-  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+  link: https://scholar.google.com/citations?user=H6AeRamFmxUC&hl=en
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/mkapur
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -69,11 +69,5 @@ user_groups:
 - Researchers
 - Visitors
 ---
-
-This site serves as a compendium for my research on the statistical assessment of Pacific fisheries.
-
-For my master’s I performed an MSE for Hawaiian reef fish using a biophysical simulation model that incorporated oceanography and climate change (you can check out the pub in CJFAS here).  I pursue projects that involve management strategy evaluation (MSE), climate and/or spatial concerns, and have worked on a diversity of species.
-
-In addition to environmental topics, I am also interested in the development and improvement of fisheries assessment models. I am a co-developer of JABBA (Just Another Bayesian Biomass Assessment), which is a JAGS-based biomass dynamics model that enables linkage between age-structured and surplus production models. JABBA has already been used in at least 5 international RFMO assesments (including Atlantic Swordfish, and Indian Ocean Blue Shark.)
 
 I am currently a graduate student at the School of Aquatic and Fisheries science at the University of Washington in the Punt Lab.  Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and previously completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.

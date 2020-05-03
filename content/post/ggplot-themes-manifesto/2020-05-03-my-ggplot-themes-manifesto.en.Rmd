@@ -36,7 +36,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
 ```
 
 
-<!-- ![](/notheme.png) -->
+
 
 
 Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction -- fewer gridlines, less borders, you get the idea.
@@ -44,22 +44,22 @@ Here are some themes that come pre-loaded in the ggplot2 package that you can in
 # 2 theme_bw()
 Already loads better without that nasty grey background.
 
-```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   theme_bw()
 ```
-![](theme_bw.png)
+
 #3 theme_minimal()
 
 I actually prefer the bounding box to the gridlines, but some folks find this spacious and clea
-```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   theme_minimal()
 ```
 
-![](theme_minimal.png)
+
 
 
 Next up are R packages on CRAN and/or Github. If you are like me, you need a pretty compelling reason to download someone's random Github package purely for plotting needs -- doubly so if the function of interest is buried within a massive package with a different purpose (I'm looking at you, oceanography). That said, here are some that I think are definitely worth adding to your toolkit.
@@ -68,7 +68,7 @@ Next up are R packages on CRAN and/or Github. If you are like me, you need a pre
 
 To quote my friend/colleague, "Sean Anderson is the GOAT". He has brought the law of subtraction to the max with this one, which is great for presentations and homework assignments. I only wish the axis and legend text were larger (but more on how one could fix that below).
 
-```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
 remotes::install_github("seananderson/ggsidekick") ## for later R versions 
 library(ggsidekick) 
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
@@ -76,7 +76,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   ggsidekick::theme_sleek()
 ```
 
-![](theme_sleek.png)
+
 
 
 #5 hrbrthemes::theme_modern_rc()
@@ -84,6 +84,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
 Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).
 
 ```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+library(hrbrthemes)
 p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   labs(title = 'Lorem Ipsum') + 
@@ -95,14 +96,14 @@ p1 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   labs(title = 'Lorem Ipsum') + 
   theme_ft_rc()
 ```
-![](hrbrthemes.png)
+<!-- ![](hrbrthemes.png) -->
 
 #6 ggthemes
 
 This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in ggthemes::theme_solarized_2(light = FALSE) guarantees my figures will match nicely.
 
 
-```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
 p1 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   ggthemes::theme_solarized_2() 
@@ -111,7 +112,6 @@ p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   ggthemes::theme_solarized_2(light = FALSE)
 ```
 
-![](solarized.png)
 
 ggthemes also has a theme called "solid" which is literally just a background and nothing else, a la sparklines, if you are...chic?
 

@@ -586,7 +586,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    5 min read
   </span>
   
 
@@ -633,43 +633,49 @@
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot()</code></pre>
 <p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<!-- ![](/notheme.png) -->
 <p>Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction – fewer gridlines, less borders, you get the idea.</p>
 </div>
 <div id="theme_bw" class="section level1">
 <h1>2 theme_bw()</h1>
 <p>Already loads better without that nasty grey background.</p>
-<p><img src="theme_bw.png" /> #3 theme_minimal()</p>
-<p>I actually prefer the bounding box to the gridlines, but some folks find this spacious and clea</p>
-<div class="figure">
-<img src="theme_minimal.png" />
-
+<pre class="r"><code>ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  theme_bw()</code></pre>
+<p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
+<div id="theme_minimal" class="section level1">
+<h1>3 theme_minimal()</h1>
+<p>I actually prefer the bounding box to the gridlines, but some folks find this spacious and clea</p>
+<pre class="r"><code>ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  theme_minimal()</code></pre>
+<p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Next up are R packages on CRAN and/or Github. If you are like me, you need a pretty compelling reason to download someone’s random Github package purely for plotting needs – doubly so if the function of interest is buried within a massive package with a different purpose (I’m looking at you, oceanography). That said, here are some that I think are definitely worth adding to your toolkit.</p>
 </div>
 <div id="ggsidekicktheme_sleek" class="section level1">
 <h1>4 ggsidekick::theme_sleek() </h1>
 <p>To quote my friend/colleague, “Sean Anderson is the GOAT”. He has brought the law of subtraction to the max with this one, which is great for presentations and homework assignments. I only wish the axis and legend text were larger (but more on how one could fix that below).</p>
-<div class="figure">
-<img src="theme_sleek.png" />
-
-</div>
+<pre class="r"><code>remotes::install_github(&quot;seananderson/ggsidekick&quot;) ## for later R versions 
+library(ggsidekick) 
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  ggsidekick::theme_sleek()</code></pre>
+<p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="hrbrthemestheme_modern_rc" class="section level1">
 <h1>5 hrbrthemes::theme_modern_rc()</h1>
 <p>Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).</p>
-<div class="figure">
-<img src="hrbrthemes.png" />
-
-</div>
+<!-- ![](hrbrthemes.png) -->
 </div>
 <div id="ggthemes" class="section level1">
 <h1>6 ggthemes</h1>
 <p>This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in ggthemes::theme_solarized_2(light = FALSE) guarantees my figures will match nicely.</p>
-<div class="figure">
-<img src="solarized.png" />
-
-</div>
+<pre class="r"><code>p1 &lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  ggthemes::theme_solarized_2() 
+p2 &lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  ggthemes::theme_solarized_2(light = FALSE)</code></pre>
 <p>ggthemes also has a theme called “solid” which is literally just a background and nothing else, a la sparklines, if you are…chic?</p>
 <p><img src="solid.png" /> I mentioned the issue of avoiding package-burden if you’re just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that <em>would</em> be perfect, <em>if only</em> the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original <code>theme_black</code> and <code>theme_mk()</code> which I had placed on kaputils previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I’d like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. Here are some highlights:</p>
 </div>

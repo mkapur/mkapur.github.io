@@ -92,43 +92,49 @@
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;!-- ![](/notheme.png) --&gt;
 &lt;p&gt;Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction – fewer gridlines, less borders, you get the idea.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;theme_bw&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;2 theme_bw()&lt;/h1&gt;
 &lt;p&gt;Already loads better without that nasty grey background.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;theme_bw.png&#34; /&gt; #3 theme_minimal()&lt;/p&gt;
-&lt;p&gt;I actually prefer the bounding box to the gridlines, but some folks find this spacious and clea&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;theme_minimal.png&#34; /&gt;
-
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;theme_minimal&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;3 theme_minimal()&lt;/h1&gt;
+&lt;p&gt;I actually prefer the bounding box to the gridlines, but some folks find this spacious and clea&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  theme_minimal()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Next up are R packages on CRAN and/or Github. If you are like me, you need a pretty compelling reason to download someone’s random Github package purely for plotting needs – doubly so if the function of interest is buried within a massive package with a different purpose (I’m looking at you, oceanography). That said, here are some that I think are definitely worth adding to your toolkit.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;ggsidekicktheme_sleek&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;4 ggsidekick::theme_sleek() &lt;/h1&gt;
 &lt;p&gt;To quote my friend/colleague, “Sean Anderson is the GOAT”. He has brought the law of subtraction to the max with this one, which is great for presentations and homework assignments. I only wish the axis and legend text were larger (but more on how one could fix that below).&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;theme_sleek.png&#34; /&gt;
-
-&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;remotes::install_github(&amp;quot;seananderson/ggsidekick&amp;quot;) ## for later R versions 
+library(ggsidekick) 
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  ggsidekick::theme_sleek()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;hrbrthemestheme_modern_rc&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;5 hrbrthemes::theme_modern_rc()&lt;/h1&gt;
 &lt;p&gt;Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;hrbrthemes.png&#34; /&gt;
-
-&lt;/div&gt;
+&lt;!-- ![](hrbrthemes.png) --&gt;
 &lt;/div&gt;
 &lt;div id=&#34;ggthemes&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;6 ggthemes&lt;/h1&gt;
 &lt;p&gt;This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in ggthemes::theme_solarized_2(light = FALSE) guarantees my figures will match nicely.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;solarized.png&#34; /&gt;
-
-&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p1 &amp;lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  ggthemes::theme_solarized_2() 
+p2 &amp;lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  ggthemes::theme_solarized_2(light = FALSE)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;ggthemes also has a theme called “solid” which is literally just a background and nothing else, a la sparklines, if you are…chic?&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;solid.png&#34; /&gt; I mentioned the issue of avoiding package-burden if you’re just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that &lt;em&gt;would&lt;/em&gt; be perfect, &lt;em&gt;if only&lt;/em&gt; the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original &lt;code&gt;theme_black&lt;/code&gt; and &lt;code&gt;theme_mk()&lt;/code&gt; which I had placed on kaputils previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I’d like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. Here are some highlights:&lt;/p&gt;
 &lt;/div&gt;

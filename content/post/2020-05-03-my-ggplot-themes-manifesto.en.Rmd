@@ -23,7 +23,7 @@ A few months ago I tweeted about the value of creating custom ggplot2 themes for
 
 This is the ggplot2 default. Can we just agree that the grey background with nursery colors is not cute? I think Hadley did this on purpose to encourage us to find alternatives.
 
-```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=TRUE}
+```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
 require(ggplot2)
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + geom_boxplot()
 ```

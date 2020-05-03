@@ -21,10 +21,16 @@
 
 
 &lt;p&gt;A few months ago I tweeted about the value of creating custom ggplot2 themes for easily synchronizing the look of all your figs for a given talk or manuscript. Some folks take this to another level and effectively have a personal aesthetic (see what I did there) that they use across their work, which I find compelling. I am obviously not a graphic designer, but I love beautiful plots, and wanted to consolidate some of the best resources + starter tips for others here. These range from out-of-the-box default themes within the ggplot2 package itself, to those made by others, to resources you can use to make your own more (or less) from scratch.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(ggplot2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Loading required package: ggplot2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + geom_boxplot()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;straight-up-ggplot&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;1 Straight up ggplot()&lt;/h1&gt;
+&lt;p&gt;This is the ggplot2 default. Can we just agree that the grey background with nursery colors is not cute? I think Hadley did this on purpose to encourage us to find alternatives.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(ggplot2)
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + geom_boxplot()&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;./static/img/ggthemes/notheme.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

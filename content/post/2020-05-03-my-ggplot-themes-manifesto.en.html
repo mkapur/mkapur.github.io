@@ -20,3 +20,7 @@ projects: []
 
 
 <p>A few months ago I tweeted about the value of creating custom ggplot2 themes for easily synchronizing the look of all your figs for a given talk or manuscript. Some folks take this to another level and effectively have a personal aesthetic (see what I did there) that they use across their work, which I find compelling. I am obviously not a graphic designer, but I love beautiful plots, and wanted to consolidate some of the best resources + starter tips for others here. These range from out-of-the-box default themes within the ggplot2 package itself, to those made by others, to resources you can use to make your own more (or less) from scratch.</p>
+<pre class="r"><code>require(ggplot2)</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre class="r"><code>ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + geom_boxplot()</code></pre>
+<p><img src="/post/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>

@@ -40,7 +40,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
 ```
 
 
-![](../../static/img/ggthemes/notheme.png)
+![](notheme.png)
 Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction -- fewer gridlines, less borders, you get the idea.
 
 # 2 theme_bw()
@@ -51,7 +51,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   geom_boxplot() + 
   theme_bw()
 ```
-![](../../static/img/ggthemes/theme_bw.png)
+![](theme_bw.png)
 # 3 theme_minimal()
 
 I actually prefer the bounding box to the gridlines, but some folks find this spacious and clea
@@ -61,7 +61,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   theme_minimal()
 ```
 
-![](../../static/img/ggthemes/theme_minimal.png)
+![](theme_minimal.png)
 
 
 Next up are R packages on CRAN and/or Github. If you're like me, you need a pretty compelling reason to download someone's random Github package purely for plotting needs -- doubly so if the function of interest is buried within a massive package with a different purpose (I'm looking at you, oceanography). That said, here are some that I think are definitely worth adding to your toolkit.
@@ -78,7 +78,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   ggsidekick::theme_sleek()
 ```
 
-![](../../static/img/ggthemes/theme_sleek.png)
+![](theme_sleek.png)
 
 
 # 5hrbrthemes::theme_modern_rc()
@@ -97,7 +97,7 @@ p1 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   labs(title = 'Lorem Ipsum') + 
   theme_ft_rc()
 ```
-![](../../static/img/ggthemes/hrbrthemes.png)
+![](hrbrthemes.png)
 
 # 6 ggthemes
 
@@ -112,26 +112,26 @@ p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   geom_boxplot() + 
   ggthemes::theme_solarized_2(light = FALSE)
 ```
-![](../../static/img/ggthemes/solarized.png)
+![](solarized.png)
 
 ggthemes also has a theme called "solid" which is literally just a background and nothing else, a la sparklines, if you are...chic?
 
-![](../../static/img/ggthemes/solid.png)
+![](solid.png)
 I mentioned the issue of avoiding package-burden if you're just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that *would* be perfect, *if only* the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original `theme_black` and `theme_mk()` which I had placed on kaputils previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I'd like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. Here are some highlights:
 
 # 7-9: My new plotting package, `kaplot`
 ## kaplot::theme_solarized_mk()
 My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.
 
-![](../../static/img/ggthemes/theme_solarized_mk.png)
+![](theme_solarized_mk.png)
 
 ## kaplot::theme_mk()
 I have now implemented <a href = "https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3">this rather complicated method </a> to override the default color palette to the <a href = "http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/"> cbbPalette</a>, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color.
-![](../../static/img/ggthemes/theme_mk.png)
+![](theme_mk.png)
 
 ## kaplot::foundational()
 I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned...
-![](../../static/img/ggthemes/4642.jpg)
+![](4642.jpg)
 
 ## Taste the rainbow
 
@@ -156,4 +156,4 @@ p4 <- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) + geom_b
   scale_fill_viridis_c()
 ```
 
-![](../../static/img/ggthemes/starfish_mk.png)
+![](starfish_mk.png)

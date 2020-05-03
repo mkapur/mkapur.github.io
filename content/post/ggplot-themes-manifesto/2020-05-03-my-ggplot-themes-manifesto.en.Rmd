@@ -29,14 +29,16 @@ A few months ago I tweeted about the value of creating custom ggplot2 themes for
 
 This is the ggplot2 default. Can we just agree that the grey background with nursery colors is not cute? I think Hadley did this on purpose to encourage us to find alternatives.
 
-```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
 require(ggplot2)
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot()
 ```
 
 
-![](notheme.png)
+<!-- ![](/notheme.png) -->
+
+
 Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction -- fewer gridlines, less borders, you get the idea.
 
 # 2 theme_bw()
@@ -48,7 +50,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   theme_bw()
 ```
 ![](theme_bw.png)
-# 3 theme_minimal()
+#3 theme_minimal()
 
 I actually prefer the bounding box to the gridlines, but some folks find this spacious and clea
 ```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
@@ -77,7 +79,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
 ![](theme_sleek.png)
 
 
-# 5hrbrthemes::theme_modern_rc()
+#5 hrbrthemes::theme_modern_rc()
 
 Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).
 
@@ -95,7 +97,7 @@ p1 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
 ```
 ![](hrbrthemes.png)
 
-# 6 ggthemes
+#6 ggthemes
 
 This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in ggthemes::theme_solarized_2(light = FALSE) guarantees my figures will match nicely.
 
@@ -108,6 +110,7 @@ p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   geom_boxplot() + 
   ggthemes::theme_solarized_2(light = FALSE)
 ```
+
 ![](solarized.png)
 
 ggthemes also has a theme called "solid" which is literally just a background and nothing else, a la sparklines, if you are...chic?

@@ -629,12 +629,17 @@
 <div id="straight-up-ggplot" class="section level1">
 <h1>1 Straight up ggplot()</h1>
 <p>This is the ggplot2 default. Can we just agree that the grey background with nursery colors is not cute? I think Hadley did this on purpose to encourage us to find alternatives.</p>
-<p><img src="notheme.png" /> Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction – fewer gridlines, less borders, you get the idea.</p>
+<pre class="r"><code>require(ggplot2)
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot()</code></pre>
+<p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<!-- ![](/notheme.png) -->
+<p>Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction – fewer gridlines, less borders, you get the idea.</p>
 </div>
 <div id="theme_bw" class="section level1">
 <h1>2 theme_bw()</h1>
 <p>Already loads better without that nasty grey background.</p>
-<p><img src="theme_bw.png" /> # 3 theme_minimal()</p>
+<p><img src="theme_bw.png" /> #3 theme_minimal()</p>
 <p>I actually prefer the bounding box to the gridlines, but some folks find this spacious and clea</p>
 <div class="figure">
 <img src="theme_minimal.png" />
@@ -651,7 +656,7 @@
 </div>
 </div>
 <div id="hrbrthemestheme_modern_rc" class="section level1">
-<h1>5hrbrthemes::theme_modern_rc()</h1>
+<h1>5 hrbrthemes::theme_modern_rc()</h1>
 <p>Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).</p>
 <div class="figure">
 <img src="hrbrthemes.png" />

@@ -85,6 +85,7 @@
 
 
 &lt;p&gt;image: placement: 2 caption: ‘Image credit: &lt;a href=&#34;https://unsplash.com/photos/CpkOjOcXdUY&#34;&gt;&lt;strong&gt;Unsplash&lt;/strong&gt;&lt;/a&gt;’ focal_point: “” preview_only: false&lt;/p&gt;
+&lt;hr /&gt;
 &lt;p&gt;A few months ago I tweeted about the value of creating custom ggplot2 themes for easily synchronizing the look of all your figs for a given talk or manuscript. Some folks take this to another level and effectively have a personal aesthetic (see what I did there) that they use across their work, which I find compelling. I am obviously not a graphic designer, but I love beautiful plots, and wanted to consolidate some of the best resources + starter tips for others here. These range from out-of-the-box default themes within the ggplot2 package itself, to those made by others, to resources you can use to make your own more (or less) from scratch.&lt;/p&gt;
 &lt;div id=&#34;straight-up-ggplot&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;1 Straight up ggplot()&lt;/h1&gt;
@@ -140,7 +141,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;kaplottheme_mk&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;kaplot::theme_mk()&lt;/h2&gt;
-&lt;p&gt;I have now implemented &lt;a href = &#34;https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3&#34;&gt;this rather complicated method&amp;lt;&amp;gt; to override the default color palette to the &lt;a href = &#34;http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/&#34;&gt; cbbPalette&amp;lt;&amp;gt;, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color. &lt;img src=&#34;../../static/img/ggthemes/theme_mk.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I have now implemented &lt;a href = &#34;https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3&#34;&gt;this rather complicated method &lt;/a&gt; to override the default color palette to the &lt;a href = &#34;http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/&#34;&gt; cbbPalette&lt;/a&gt;, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color. &lt;img src=&#34;../../static/img/ggthemes/theme_mk.png&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;kaplotfoundational&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;kaplot::foundational()&lt;/h2&gt;
@@ -148,7 +149,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;taste-the-rainbow&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Taste the rainbow&lt;/h2&gt;
-&lt;p&gt;Aside from cbbPalette, I have several go-to color palettes from across the web which I regularly use. Fortunately the viridis() pal is default with ggplot2, but there were a couple others I wanted to bring in automatically. These include &lt;a href = &#34;https://github.com/jakelawlor/PNWColors&#34;&gt;Jake Lawlor’s PNWColors&amp;lt;&amp;gt;. &lt;/p&gt;
+&lt;p&gt;Aside from cbbPalette, I have several go-to color palettes from across the web which I regularly use. Fortunately the viridis() pal is default with ggplot2, but there were a couple others I wanted to bring in automatically. These include &lt;a href = &#34;https://github.com/jakelawlor/PNWColors&#34;&gt;Jake Lawlor’s PNWColors&lt;/a&gt;. &lt;/p&gt;
 &lt;p&gt;Now the palettes are pre-loaded and can be called just like viridis.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;../../static/img/ggthemes/starfish_mk.png&#34; /&gt;

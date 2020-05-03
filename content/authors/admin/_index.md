@@ -18,24 +18,24 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: My research interests include fisheries stock assessment, spatio-temporal modeling, and improving data science tools for ecological managers.
 
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Population Dynamics
+- Fisheries Stock Assessment & Management
+- Data Science
 
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
+  - course: PhD in Fisheries Sciences
+    institution: University of Washington
+    year: Ongoing
+  - course: MSc In Marine Biology
+    institution: University of Hawaii
+    year: 2016
+  - course: BSc in Environmental Science
+    institution: University of California, Berkeley
+    year: 2014
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons

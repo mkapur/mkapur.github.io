@@ -23,12 +23,14 @@ A few months ago I tweeted about the value of creating custom ggplot2 themes for
 
 This is the ggplot2 default. Can we just agree that the grey background with nursery colors is not cute? I think Hadley did this on purpose to encourage us to find alternatives.
 
-```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=TRUE}
 require(ggplot2)
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) 
 + geom_boxplot()
 ```
-![](../static/img/ggthemes/notheme.png)
+
+
+![](/../../static/img/ggthemes/notheme.png)
 Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction -- fewer gridlines, less borders, you get the idea.
 
 # 2 theme_bw()

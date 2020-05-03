@@ -88,7 +88,10 @@
 &lt;div id=&#34;straight-up-ggplot&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;1 Straight up ggplot()&lt;/h1&gt;
 &lt;p&gt;This is the ggplot2 default. Can we just agree that the grey background with nursery colors is not cute? I think Hadley did this on purpose to encourage us to find alternatives.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../static/img/ggthemes/notheme.png&#34; /&gt; Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction – fewer gridlines, less borders, you get the idea.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(ggplot2)
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) 
++ geom_boxplot()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/../../static/img/ggthemes/notheme.png&#34; /&gt; Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction – fewer gridlines, less borders, you get the idea.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;theme_bw&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;2 theme_bw()&lt;/h1&gt;

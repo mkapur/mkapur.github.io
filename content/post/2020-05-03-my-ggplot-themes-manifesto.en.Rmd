@@ -27,4 +27,4 @@ This is the ggplot2 default. Can we just agree that the grey background with nur
 require(ggplot2)
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + geom_boxplot()
 ```
-![](./static/img/ggthemes/notheme.png)
+![](img/ggthemes/notheme.png)

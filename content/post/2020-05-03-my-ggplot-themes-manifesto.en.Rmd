@@ -25,6 +25,16 @@ This is the ggplot2 default. Can we just agree that the grey background with nur
 
 ```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
 require(ggplot2)
-ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + geom_boxplot()
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) 
++ geom_boxplot()
 ```
-![](/static/img/ggthemes/notheme.png)
+![](../static/img/ggthemes/notheme.png)
+Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction -- fewer gridlines, less borders, you get the idea.
+
+# 2 theme_bw()
+Already loads better without that nasty grey background.
+
+```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + geom_boxplot() + theme_bw()
+```
+

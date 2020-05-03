@@ -70,6 +70,10 @@ user_groups:
 - Visitors
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+This site serves as a compendium for my research on the statistical assessment of Pacific fisheries.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+For my master’s I performed an MSE for Hawaiian reef fish using a biophysical simulation model that incorporated oceanography and climate change (you can check out the pub in CJFAS here).  I pursue projects that involve management strategy evaluation (MSE), climate and/or spatial concerns, and have worked on a diversity of species.
+
+In addition to environmental topics, I am also interested in the development and improvement of fisheries assessment models. I am a co-developer of JABBA (Just Another Bayesian Biomass Assessment), which is a JAGS-based biomass dynamics model that enables linkage between age-structured and surplus production models. JABBA has already been used in at least 5 international RFMO assesments (including Atlantic Swordfish, and Indian Ocean Blue Shark.)
+
+I am currently a graduate student at the School of Aquatic and Fisheries science at the University of Washington in the Punt Lab.  Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and previously completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.

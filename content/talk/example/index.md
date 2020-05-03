@@ -11,8 +11,7 @@ address:
   postcode: '94305'
   country: United States
 
-summary: An example talk using Academic's Markdown slides feature.
-abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam."
+summary: Overview of draft operating model for NE Pacific Sablefish Management Strategy Evaluation, presented to my team during the week of Apr 27, 2020.
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
@@ -37,10 +36,10 @@ links:
 - icon: twitter
   icon_pack: fab
   name: Follow
-  url: https://twitter.com/georgecushen
-url_code: ""
+  url: https://twitter.com/kapurmaia
+url_code: "https://github.com/mkapur/sab-mse"
 url_pdf: ""
-url_slides: ""
+url_slides: "https://mkapur.github.io/sab-mse/slides/Kapur_OM_PSTAT-Apr2020.html#1"
 url_video: ""
 
 # Markdown Slides (optional).

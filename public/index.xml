@@ -78,12 +78,13 @@
     
     <item>
       <title>My ggplot themes manifesto</title>
-      <link>/post/my-ggplot-themes-manifesto/</link>
+      <link>/post/ggplot-themes-manifesto/my-ggplot-themes-manifesto/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      <guid>/post/my-ggplot-themes-manifesto/</guid>
+      <guid>/post/ggplot-themes-manifesto/my-ggplot-themes-manifesto/</guid>
       <description>
 
 
+&lt;p&gt;image: placement: 2 caption: ‘Image credit: &lt;a href=&#34;https://unsplash.com/photos/CpkOjOcXdUY&#34;&gt;&lt;strong&gt;Unsplash&lt;/strong&gt;&lt;/a&gt;’ focal_point: “” preview_only: false&lt;/p&gt;
 &lt;p&gt;A few months ago I tweeted about the value of creating custom ggplot2 themes for easily synchronizing the look of all your figs for a given talk or manuscript. Some folks take this to another level and effectively have a personal aesthetic (see what I did there) that they use across their work, which I find compelling. I am obviously not a graphic designer, but I love beautiful plots, and wanted to consolidate some of the best resources + starter tips for others here. These range from out-of-the-box default themes within the ggplot2 package itself, to those made by others, to resources you can use to make your own more (or less) from scratch.&lt;/p&gt;
 &lt;div id=&#34;straight-up-ggplot&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;1 Straight up ggplot()&lt;/h1&gt;

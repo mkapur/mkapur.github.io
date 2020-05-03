@@ -16,6 +16,7 @@ image:
   preview_only: no
 projects: []
 ---
+
 A few months ago I tweeted about the value of creating custom ggplot2 themes for easily synchronizing the look of all your figs for a given talk or manuscript. Some folks take this to another level and effectively have a personal aesthetic (see what I did there) that they use across their work, which I find compelling. I am obviously not a graphic designer, but I love beautiful plots, and wanted to consolidate some of the best resources + starter tips for others here. These range from out-of-the-box default themes within the ggplot2 package itself, to those made by others, to resources you can use to make your own more (or less) from scratch.
 
 
@@ -23,20 +24,127 @@ A few months ago I tweeted about the value of creating custom ggplot2 themes for
 
 This is the ggplot2 default. Can we just agree that the grey background with nursery colors is not cute? I think Hadley did this on purpose to encourage us to find alternatives.
 
-```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=TRUE}
+```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
 require(ggplot2)
-ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) 
-+ geom_boxplot()
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot()
 ```
 
 
-![](/../../static/img/ggthemes/notheme.png)
+![](../../static/img/ggthemes/notheme.png)
 Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction -- fewer gridlines, less borders, you get the idea.
 
 # 2 theme_bw()
 Already loads better without that nasty grey background.
 
 ```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
-ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + geom_boxplot() + theme_bw()
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  theme_bw()
+```
+![](../../static/img/ggthemes/theme_bw.png)
+# 3 theme_minimal()
+
+I actually prefer the bounding box to the gridlines, but some folks find this spacious and clea
+```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  theme_minimal()
 ```
 
+![](../../static/img/ggthemes/theme_minimal.png)
+
+
+Next up are R packages on CRAN and/or Github. If you're like me, you need a pretty compelling reason to download someone's random Github package purely for plotting needs -- doubly so if the function of interest is buried within a massive package with a different purpose (I'm looking at you, oceanography). That said, here are some that I think are definitely worth adding to your toolkit.
+
+#4 ggsidekick::theme_sleek() 
+
+To quote my friend/colleague, "Sean Anderson is the GOAT". He has brought the law of subtraction to the max with this one, which is great for presentations and homework assignments. I only wish the axis and legend text were larger (but more on how one could fix that below).
+
+```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+remotes::install_github("seananderson/ggsidekick") ## for later R versions 
+library(ggsidekick) 
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  ggsidekick::theme_sleek()
+```
+
+![](../../static/img/ggthemes/theme_sleek.png)
+
+
+# 5hrbrthemes::theme_modern_rc()
+
+Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).
+
+```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  labs(title = 'Lorem Ipsum') + 
+  scale_fill_ipsum() + 
+  theme_ipsum() 
+
+p1 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  labs(title = 'Lorem Ipsum') + 
+  theme_ft_rc()
+```
+![](../../static/img/ggthemes/hrbrthemes.png)
+
+# 6 ggthemes
+
+This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in ggthemes::theme_solarized_2(light = FALSE) guarantees my figures will match nicely.
+
+
+```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+p1 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  ggthemes::theme_solarized_2() 
+p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + 
+  ggthemes::theme_solarized_2(light = FALSE)
+```
+![](../../static/img/ggthemes/solarized.png)
+
+ggthemes also has a theme called "solid" which is literally just a background and nothing else, a la sparklines, if you are...chic?
+
+![](../../static/img/ggthemes/solid.png)
+I mentioned the issue of avoiding package-burden if you're just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that *would* be perfect, *if only* the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original `theme_black` and `theme_mk()` which I had placed on kaputils previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I'd like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. Here are some highlights:
+
+# 7-9: My new plotting package, `kaplot`
+## kaplot::theme_solarized_mk()
+My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.
+
+![](../../static/img/ggthemes/theme_solarized_mk.png)
+
+## kaplot::theme_mk()
+I have now implemented <a href = "https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3">this rather complicated method<\a> to override the default color palette to the <a href = "http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/"> cbbPalette<\a>, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color.
+![](../../static/img/ggthemes/theme_mk.png)
+
+## kaplot::foundational()
+I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned...
+![](../../static/img/ggthemes/4642.jpg)
+
+## Taste the rainbow
+
+Aside from cbbPalette, I have several go-to color palettes from across the web which I regularly use. Fortunately the viridis() pal is default with ggplot2, but there were a couple others I wanted to bring in automatically. These include <a href = "https://github.com/jakelawlor/PNWColors">Jake Lawlor's PNWColors<\a>. 
+
+Now the palettes are pre-loaded and can be called just like viridis.
+
+```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+p1 <- ggplot(ToothGrowth, aes(x = len, y = dose, fill = supp)) + 
+  geom_boxplot() + 
+  kaplot::theme_mk() + 
+  kaplot::scale_fill_starfish() 
+p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + kaplot::theme_mk() + 
+  kaplot::scale_fill_sunset() 
+p3 <- ggplot(mtcars[1:9,], aes(x = mpg, y = qsec, fill = rownames(mtcars[1:9,]))) + geom_bar(stat='identity') + 
+  kaplot::theme_mk() + 
+  kaplot::scale_fill_ipsum() 
+
+p4 <- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) + geom_bar(stat='identity') + 
+  kaplot::theme_mk() + 
+  scale_fill_viridis_c()
+```
+
+![](../../static/img/ggthemes/starfish_mk.png)

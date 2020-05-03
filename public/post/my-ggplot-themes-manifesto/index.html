@@ -586,7 +586,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    4 min read
   </span>
   
 
@@ -629,14 +629,72 @@
 <div id="straight-up-ggplot" class="section level1">
 <h1>1 Straight up ggplot()</h1>
 <p>This is the ggplot2 default. Can we just agree that the grey background with nursery colors is not cute? I think Hadley did this on purpose to encourage us to find alternatives.</p>
-<pre class="r"><code>require(ggplot2)
-ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) 
-+ geom_boxplot()</code></pre>
-<p><img src="/../../static/img/ggthemes/notheme.png" /> Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction – fewer gridlines, less borders, you get the idea.</p>
+<p><img src="../../static/img/ggthemes/notheme.png" /> Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction – fewer gridlines, less borders, you get the idea.</p>
 </div>
 <div id="theme_bw" class="section level1">
 <h1>2 theme_bw()</h1>
 <p>Already loads better without that nasty grey background.</p>
+<p><img src="../../static/img/ggthemes/theme_bw.png" /> # 3 theme_minimal()</p>
+<p>I actually prefer the bounding box to the gridlines, but some folks find this spacious and clea</p>
+<div class="figure">
+<img src="../../static/img/ggthemes/theme_minimal.png" />
+
+</div>
+<p>Next up are R packages on CRAN and/or Github. If you’re like me, you need a pretty compelling reason to download someone’s random Github package purely for plotting needs – doubly so if the function of interest is buried within a massive package with a different purpose (I’m looking at you, oceanography). That said, here are some that I think are definitely worth adding to your toolkit.</p>
+</div>
+<div id="ggsidekicktheme_sleek" class="section level1">
+<h1>4 ggsidekick::theme_sleek() </h1>
+<p>To quote my friend/colleague, “Sean Anderson is the GOAT”. He has brought the law of subtraction to the max with this one, which is great for presentations and homework assignments. I only wish the axis and legend text were larger (but more on how one could fix that below).</p>
+<div class="figure">
+<img src="../../static/img/ggthemes/theme_sleek.png" />
+
+</div>
+</div>
+<div id="hrbrthemestheme_modern_rc" class="section level1">
+<h1>5hrbrthemes::theme_modern_rc()</h1>
+<p>Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).</p>
+<div class="figure">
+<img src="../../static/img/ggthemes/hrbrthemes.png" />
+
+</div>
+</div>
+<div id="ggthemes" class="section level1">
+<h1>6 ggthemes</h1>
+<p>This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in ggthemes::theme_solarized_2(light = FALSE) guarantees my figures will match nicely.</p>
+<div class="figure">
+<img src="../../static/img/ggthemes/solarized.png" />
+
+</div>
+<p>ggthemes also has a theme called “solid” which is literally just a background and nothing else, a la sparklines, if you are…chic?</p>
+<p><img src="../../static/img/ggthemes/solid.png" /> I mentioned the issue of avoiding package-burden if you’re just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that <em>would</em> be perfect, <em>if only</em> the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original <code>theme_black</code> and <code>theme_mk()</code> which I had placed on kaputils previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I’d like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. Here are some highlights:</p>
+</div>
+<div id="my-new-plotting-package-kaplot" class="section level1">
+<h1>7-9: My new plotting package, <code>kaplot</code></h1>
+<div id="kaplottheme_solarized_mk" class="section level2">
+<h2>kaplot::theme_solarized_mk()</h2>
+<p>My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.</p>
+<div class="figure">
+<img src="../../static/img/ggthemes/theme_solarized_mk.png" />
+
+</div>
+</div>
+<div id="kaplottheme_mk" class="section level2">
+<h2>kaplot::theme_mk()</h2>
+<p>I have now implemented <a href = "https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3">this rather complicated method&lt;&gt; to override the default color palette to the <a href = "http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/"> cbbPalette&lt;&gt;, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color. <img src="../../static/img/ggthemes/theme_mk.png" /></p>
+</div>
+<div id="kaplotfoundational" class="section level2">
+<h2>kaplot::foundational()</h2>
+<p>I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned… <img src="../../static/img/ggthemes/4642.jpg" /></p>
+</div>
+<div id="taste-the-rainbow" class="section level2">
+<h2>Taste the rainbow</h2>
+<p>Aside from cbbPalette, I have several go-to color palettes from across the web which I regularly use. Fortunately the viridis() pal is default with ggplot2, but there were a couple others I wanted to bring in automatically. These include <a href = "https://github.com/jakelawlor/PNWColors">Jake Lawlor’s PNWColors&lt;&gt;. </p>
+<p>Now the palettes are pre-loaded and can be called just like viridis.</p>
+<div class="figure">
+<img src="../../static/img/ggthemes/starfish_mk.png" />
+
+</div>
+</div>
 </div>
 
     </div>

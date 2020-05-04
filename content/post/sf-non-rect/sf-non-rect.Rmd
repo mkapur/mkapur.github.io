@@ -2,7 +2,7 @@
 title: Non-rectangular bounding boxes with the sf package
 author: Kapur
 date: '2020-05-01'
-slug: my-ggplot-themes-manifesto
+slug: sf-non-rect
 categories: []
 tags: []
 subtitle: ''

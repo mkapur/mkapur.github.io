@@ -20,7 +20,7 @@ projects: []
 
 This is in the "so I don't forget" category.
 
-For plotting, I wanted to clip an irregular shapefile (namely the EEZ off BC, Canada) based on a sloped line transect -- meaning the simple approach of `sf_crop()` and passing the bounds of a rectangle were insufficient. < a href = "https://r-spatial.github.io/sf/reference/st.html"> This link helped.</a>
+For plotting, I wanted to clip an irregular shapefile (namely the EEZ off BC, Canada) based on a sloped line transect -- meaning the simple approach of `sf_crop()` and passing the bounds of a rectangle were insufficient. <a href = "https://r-spatial.github.io/sf/reference/st.html"> This link helped.</a>
 
 I accomplished this once I recognize that one can define a bounding box using a matrix with coordinates at each of the vertices of the desired shape; the terminal entry in the matrix should match the first, effectively outlining the shape you'd like to make. Keep in mind that the coordinates should be on the same scale (even pre-projection) as the shapefile which is going to be clipped with this polygon -- hence the + 360 calls.
 
@@ -30,18 +30,18 @@ On the left is the EEZ; on the right show the two different clips I'd like to ma
 require(sf) xmin = -140 + 360 xmax = -125 + 360 ymin = 45 ymax = 55 xdomain <- seq(xmin,xmax, length.out = 100) outerLower <- matrix(c(xmin, ymin,xmax,ymin,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) pts = list(outerLower) pl1 = st_polygon(pts) outerUpper <- matrix(c(xmin, ymin,xmin, ymax,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) ## note the switching of vertices pts = list(outerUpper) p12 = st_polygon(pts)
 ```
 
-![](BCeez.png)
+![](../../../static/img/BCeez.png)
 
 The clip step actually uses `sf::st_intersection(`). To simplify things I pass the first argument as a subset of all the regions that includes the shapefile for only BC's EEZ. This can then be plotted within ggplot2.
 
 ```{r eval = FALSE}
 BCangle_geom <- st_sfc(list(p12), crs = "+proj=longlat +datum=WGS84 +no_defs") BCangle_shape <- st_sf(BCangle_geom) B1 <- st_intersection(BCreg,BCangle_shape) BCangle_geom <- st_sfc(list(pl1), crs = "+proj=longlat +datum=WGS84 +no_defs") BCangle_shape <- st_sf(BCangle_geom) B2 <- st_intersection(BCreg,BCangle_shape) ggplot() + geom_sf(data = B1, fill = cbbPalette[5], alpha = 0.5, color = NA) + geom_sf(data = B2, fill = cbbPalette[4], alpha = 0.5, color = NA) + geom_sf(lwd = 1, col = 'black', fill = NA) + coord_sf(xlim = c(220, 240), ylim = c(30, 65)) + labs(x ="",y="")+ theme_classic(base_size = 14)
 ```
-![](BCeez2.png)
+![](../../../static/img/BCeez2.png)
 The bathy maps at right were made with marmap.
 
 
 
 
 Other crops throughout the domain, which rely only on purely vertical OR horizontal lines, can be accomplished using a simple call to `sf::st_crop()`. This takes the arguments of lat-long borders of a rectangle, hence:
-![](map-regions_orthogonal.png)
+![](../../../static/img/featured.png)

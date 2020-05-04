@@ -17,7 +17,7 @@ tags: []
 featured: true
 
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
+  caption: ' '
   focal_point: Right
 
 links:
@@ -27,7 +27,7 @@ links:
   url: https://twitter.com/kapurmaia
 url_code: "https://github.com/mkapur/sneak"
 url_pdf: ""
-url_slides: "slides: sneak_quantsem"
+url_slides: "slides: quantsem15may"
 url_video: ""
 
 ---

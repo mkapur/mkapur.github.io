@@ -28,6 +28,12 @@ On the left is the EEZ; on the right show the two different clips I'd like to ma
 
 ```{r eval = FALSE}
 require(sf) 
+require(ggplot2)
+require(dplyr)
+
+load("eez_nepac_regions.rda")
+regions <- eez_nepac_regions
+
 xmin = -140 + 360
 xmax = -125 + 360 
 ymin = 45 
@@ -37,22 +43,70 @@ outerLower <- matrix(c(xmin, ymin,xmax,ymin,xmax,ymax,xmin, ymin), ncol=2, byrow
 pts = list(outerLower) 
 pl1 = st_polygon(pts)
 
-outerUpper <- matrix(c(xmin, ymin,xmin, ymax,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) ## note the switching of vertices pts = list(outerUpper) p12 = st_polygon(pts)
+## note the point-switching
+outerUpper <- matrix(c(xmin, ymin,xmin, ymax,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) 
+pts = list(outerUpper)
+p12 = st_polygon(pts)
+
+BCreg <- regions %>% filter(Region_Name == 'British Columbia')
+
+par(mfrow = c(1,2))
+plot(BCreg$geometry)
+plot(pl1, col = 'gold')
+plot(p12, add = TRUE, col = 'blue')
 ```
 
-![](/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/BCeez.png)
 The clip step actually uses `sf::st_intersection(`). To simplify things I pass the first argument as a subset of all the regions that includes the shapefile for only BC's EEZ. This can then be plotted within ggplot2.
 
-```{r eval = FALSE}
-BCangle_geom <- st_sfc(list(p12), crs = "+proj=longlat +datum=WGS84 +no_defs") BCangle_shape <- st_sf(BCangle_geom) B1 <- st_intersection(BCreg,BCangle_shape) BCangle_geom <- st_sfc(list(pl1), crs = "+proj=longlat +datum=WGS84 +no_defs") BCangle_shape <- st_sf(BCangle_geom) B2 <- st_intersection(BCreg,BCangle_shape) ggplot() + geom_sf(data = B1, fill = cbbPalette[5], alpha = 0.5, color = NA) + geom_sf(data = B2, fill = cbbPalette[4], alpha = 0.5, color = NA) + geom_sf(lwd = 1, col = 'black', fill = NA) + coord_sf(xlim = c(220, 240), ylim = c(30, 65)) + labs(x ="",y="")+ theme_classic(base_size = 14)
+```{r eval = TRUE, message = FALSE, warning = FALSE}
+require(ggplot2)
+BCangle_geom <- st_sfc(list(p12), crs = "+proj=longlat +datum=WGS84 +no_defs") 
+BCangle_shape <- st_sf(BCangle_geom) 
+B1 <- st_intersection(BCreg,BCangle_shape) 
+
+BCangle_geom <- st_sfc(list(pl1), crs = "+proj=longlat +datum=WGS84 +no_defs") 
+BCangle_shape <- st_sf(BCangle_geom) 
+B2 <- st_intersection(BCreg,BCangle_shape)
+
+require(marmap)
+BCbath <- getNOAA.bathy(lon1 = -140, lon2 = -120,
+                        lat1 = 45, lat2 = 65, resolution = 4)
+
+splitLat <- function(sample_x = 25, xmin, xmax, ymin, ymax){
+  ydiff = ymax - ymin
+  xdiff = xmax - xmin
+  int = ymin - ydiff/xdiff * xmin
+  # split_y <- (ydiff/xdiff)*sample_x + int
+  return(list(ydiff, xdiff, int))
+}
+xmin = -140
+xmax = -125 
+ydif = splitLat(sample_x = 25, xmin, xmax, ymin, ymax)[[1]]
+xdif = splitLat(sample_x = 25, xmin, xmax, ymin, ymax)[[2]]
+int = splitLat(sample_x = 25, xmin, xmax, ymin, ymax)[[3]]
+
+p1 <- ggplot(data = regions) +
+  geom_sf(data = B1, fill = "gold", alpha = 0.5, color = NA) +
+  geom_sf(data = B2, fill= "blue", alpha = 0.5, color = NA) +
+  geom_sf(lwd = 1, col = 'black', fill = NA) +
+  coord_sf(xlim = c(220, 240), ylim = c(30, 65)) +
+  labs(x ="",y="")+
+  theme_classic(base_size = 14)
+p2 <- autoplot(BCbath, geom=c("r", "c"), colour="white", size=0.05) + 
+  scale_fill_etopo() +
+  geom_abline(slope = ydif/xdif, intercept = int, col = 'red', lwd = 1.1) +
+  
+  labs(x ="",y="")+
+  theme_classic(base_size = 14)
+require(patchwork)
+p1 |p2
 ```
 
-![](/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/BCeez2.png)
+
 
 The bathy maps at right were made with marmap.
 
 
 
 
-Other crops throughout the domain, which rely only on purely vertical OR horizontal lines, can be accomplished using a simple call to `sf::st_crop()`. This takes the arguments of lat-long borders of a rectangle, hence:
-![](/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/featured.png)
+Other crops throughout the domain, which rely only on purely vertical OR horizontal lines, can be accomplished using a simple call to `sf::st_crop()`. This takes the arguments of lat-long borders of a rectangle.

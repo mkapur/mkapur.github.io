@@ -109,10 +109,11 @@ Rmisc::multiplot(p1,p2)
 
 #6 ggthemes
 
-This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in ggthemes::theme_solarized_2(light = FALSE) guarantees my figures will match nicely.
+This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in `ggthemes::theme_solarized_2(light = FALSE)` guarantees my figures will match nicely.
 
 
 ```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
+
 p1 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   ggthemes::theme_solarized_2() 
@@ -121,6 +122,7 @@ p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   ggthemes::theme_solarized_2(light = FALSE)
 
 library(patchwork)
+
 p1/p2
 ```
 
@@ -136,7 +138,7 @@ ggplot(mtcars, aes(x = mpg, y = qsec)) +
 
 # Going beyond: your own themes/packages
 
-I mentioned the issue of avoiding package-burden if you're just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that *would* be perfect, *if only* the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original `theme_black` and `theme_mk()` which I had placed on `kaputils` previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I'd like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. 
+I mentioned the issue of avoiding package-burden if you're just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that *would* be perfect, *if only* the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called `kaplot`, which includes the original `theme_black` and `theme_mk()` which I had placed on `kaputils` previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I'd like them. Going forward I will probably make themes in there specific to given publications. 
 
 If you aren't ready to commit to a full package, I recommend editing a basic ggplot template (try <a href = "https://gist.github.com/jslefche/eff85ef06b4705e6efbc">theme_black() here </a>) and simply source()ing that script when you make your plots.
 

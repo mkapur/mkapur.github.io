@@ -141,6 +141,38 @@ p4 &amp;lt;- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) +
     </item>
     
     <item>
+      <title>sf-non-rect</title>
+      <link>/post/sf-non-rect/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/sf-non-rect/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Non-rectangular bounding boxes with the sf package</title>
+      <link>/post/sf-non-rect/my-ggplot-themes-manifesto/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/sf-non-rect/my-ggplot-themes-manifesto/</guid>
+      <description>
+
+
+&lt;p&gt;This is in the “so I don’t forget” category.&lt;/p&gt;
+&lt;p&gt;For plotting, I wanted to clip an irregular shapefile (namely the EEZ off BC, Canada) based on a sloped line transect – meaning the simple approach of &lt;code&gt;sf_crop()&lt;/code&gt; and passing the bounds of a rectangle were insufficient. &amp;lt; a href = “&lt;a href=&#34;https://r-spatial.github.io/sf/reference/st.html&#34; class=&#34;uri&#34;&gt;https://r-spatial.github.io/sf/reference/st.html&lt;/a&gt;”&amp;gt; This link helped.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I accomplished this once I recognize that one can define a bounding box using a matrix with coordinates at each of the vertices of the desired shape; the terminal entry in the matrix should match the first, effectively outlining the shape you’d like to make. Keep in mind that the coordinates should be on the same scale (even pre-projection) as the shapefile which is going to be clipped with this polygon – hence the + 360 calls.&lt;/p&gt;
+&lt;p&gt;On the left is the EEZ; on the right show the two different clips I’d like to make (blue and white). In the code, the blue and white triangles are the p11 and p12 objects, respectively. They haven’t yet been projected or changed into polygons.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(sf) xmin = -140 + 360 xmax = -125 + 360 ymin = 45 ymax = 55 xdomain &amp;lt;- seq(xmin,xmax, length.out = 100) outerLower &amp;lt;- matrix(c(xmin, ymin,xmax,ymin,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) pts = list(outerLower) pl1 = st_polygon(pts) outerUpper &amp;lt;- matrix(c(xmin, ymin,xmin, ymax,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) ## note the switching of vertices pts = list(outerUpper) p12 = st_polygon(pts)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;BCeez.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;The clip step actually uses &lt;code&gt;sf::st_intersection(&lt;/code&gt;). To simplify things I pass the first argument as a subset of all the regions that includes the shapefile for only BC’s EEZ. This can then be plotted within ggplot2.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BCangle_geom &amp;lt;- st_sfc(list(p12), crs = &amp;quot;+proj=longlat +datum=WGS84 +no_defs&amp;quot;) BCangle_shape &amp;lt;- st_sf(BCangle_geom) B1 &amp;lt;- st_intersection(BCreg,BCangle_shape) BCangle_geom &amp;lt;- st_sfc(list(pl1), crs = &amp;quot;+proj=longlat +datum=WGS84 +no_defs&amp;quot;) BCangle_shape &amp;lt;- st_sf(BCangle_geom) B2 &amp;lt;- st_intersection(BCreg,BCangle_shape) ggplot() + geom_sf(data = B1, fill = cbbPalette[5], alpha = 0.5, color = NA) + geom_sf(data = B2, fill = cbbPalette[4], alpha = 0.5, color = NA) + geom_sf(lwd = 1, col = &amp;#39;black&amp;#39;, fill = NA) + coord_sf(xlim = c(220, 240), ylim = c(30, 65)) + labs(x =&amp;quot;&amp;quot;,y=&amp;quot;&amp;quot;)+ theme_classic(base_size = 14)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;BCeez2.png&#34; /&gt; The bathy maps at right were made with marmap.&lt;/p&gt;
+&lt;p&gt;Other crops throughout the domain, which rely only on purely vertical OR horizontal lines, can be accomplished using a simple call to &lt;code&gt;sf::st_crop()&lt;/code&gt;. This takes the arguments of lat-long borders of a rectangle, hence: &lt;img src=&#34;map-regions_orthogonal.png&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Writing technical content in Academic</title>
       <link>/post/writing-technical-content/</link>
       <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
@@ -420,34 +452,6 @@ date: 2019-09-01
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
 &lt;p&gt;This post was created with Jupyter. The orginal files can be found at &lt;a href=&#34;https://github.com/gcushen/hugo-academic/tree/master/exampleSite/content/post/jupyter&#34;&gt;https://github.com/gcushen/hugo-academic/tree/master/exampleSite/content/post/jupyter&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>A Plain Markdown Post</title>
-      <link>/post/2016-12-30-hello-markdown/</link>
-      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
-      <guid>/post/2016-12-30-hello-markdown/</guid>
-      <description>&lt;p&gt;This is a post written in plain Markdown (&lt;code&gt;*.md&lt;/code&gt;) instead of R Markdown (&lt;code&gt;*.Rmd&lt;/code&gt;). The major differences are:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (&lt;code&gt;```{r}&lt;/code&gt;);&lt;/li&gt;
-&lt;li&gt;A plain Markdown post is rendered through 
-&lt;a href=&#34;https://gohugo.io/overview/configuration/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Blackfriday&lt;/a&gt;, and an R Markdown document is compiled by 
-&lt;a href=&#34;http://rmarkdown.rstudio.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;rmarkdown&lt;/strong&gt;&lt;/a&gt; and 
-&lt;a href=&#34;http://pandoc.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pandoc&lt;/a&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown. For example, you can write a task list with Blackfriday but not with Pandoc:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Write an R package.&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Write a book.&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &amp;hellip;&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Profit!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Similarly, Blackfriday does not support LaTeX math and Pandoc does. I have added the MathJax support to this theme (
-&lt;a href=&#34;https://github.com/yihui/hugo-lithium&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hugo-lithium&lt;/a&gt;) but there is a caveat for plain Markdown posts: you have to include math expressions in a pair of backticks (inline: &lt;code&gt;`$ $`&lt;/code&gt;; display style: &lt;code&gt;`$$ $$`&lt;/code&gt;), e.g., &lt;code&gt;$S_n = \sum_{i=1}^n X_i$&lt;/code&gt;.^[This is because we have to protect the math expressions from being interpreted as Markdown. You may not need the backticks if your math expression does not contain any special Markdown syntax such as underscores or asterisks, but it is always a safer choice to use backticks. When you happen to have a pair of literal dollar signs inside the same element, you can escape one dollar sign, e.g., &lt;code&gt;\$50 and $100&lt;/code&gt; renders &amp;ldquo;$50 and $100&amp;rdquo;.] For R Markdown posts, you do not need the backticks, because Pandoc can identify and process math expressions.&lt;/p&gt;
-&lt;p&gt;When creating a new post, you have to decide whether the post format is Markdown or R Markdown, and this can be done via the &lt;code&gt;ext&lt;/code&gt; argument of the function &lt;code&gt;blogdown::new_post()&lt;/code&gt;, e.g.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;blogdown::new_post(&amp;quot;Post Title&amp;quot;, ext = &#39;.Rmd&#39;)
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

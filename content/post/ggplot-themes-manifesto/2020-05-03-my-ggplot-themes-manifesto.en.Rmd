@@ -150,7 +150,7 @@ Here are some highlights.
 My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.
 
 ```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
-remotes::install_github("mkapur/kaplot")
+remotes::install_github("mkapur/kaplot", dependencies = FALSE)
 library(kaplot)
 
 p1 <- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
@@ -185,7 +185,7 @@ Aside from cbbPalette, I have several go-to color palettes from across the web w
 
 Now the palettes are pre-loaded and can be called just like viridis.
 
-```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
 p1 <- ggplot(ToothGrowth, aes(x = len, y = dose, fill = supp)) + 
   geom_boxplot() + 
   kaplot::theme_mk() + 
@@ -203,5 +203,5 @@ p4 <- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) + geom_b
 
 (p1  |p2) /(p3  |p4)
 ```
-![](starfish_mk.png)
+<!-- ![](starfish_mk.png) -->
 

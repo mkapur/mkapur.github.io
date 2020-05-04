@@ -55,24 +55,27 @@
     </item>
     
     <item>
-      <title>Example Talk</title>
+      <title>Operating Model for Pacific Sablefish Transboundary MSE</title>
       <link>/talk/example/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
       <guid>/talk/example/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+      <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;div-classalert-alert-note&#34;&gt;&lt;div class=&#34;alert alert-note&#34;&gt;&lt;/h1&gt;
   &lt;div&gt;
-    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+    &lt;h1 id=&#34;click-on-the-slides-button-above-to-view-the-built-in-slides-feature&#34;&gt;Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.&lt;/h1&gt;
+&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+&lt;h1 id=&#34;heading-1&#34;&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;slides-can-be-added-in-a-few-ways&#34;&gt;Slides can be added in a few ways:&lt;/h1&gt;
+&lt;h1 id=&#34;heading-2&#34;&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;--create-slides-using-academics-slideshttpssourcethemescomacademicdocsmanaging-contentcreate-slides-feature-and-link-using-slides-parameter-in-the-front-matter-of-the-talk-file&#34;&gt;- &lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s 
+&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/h1&gt;
+&lt;h1 id=&#34;--upload-an-existing-slide-deck-to-static-and-link-using-url_slides-parameter-in-the-front-matter-of-the-talk-file&#34;&gt;- &lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/h1&gt;
+&lt;h1 id=&#34;--embed-your-slides-eg-google-slides-or-presentation-video-on-this-page-using-shortcodeshttpssourcethemescomacademicdocswriting-markdown-latex&#34;&gt;- &lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using 
+&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcodes&lt;/a&gt;.&lt;/h1&gt;
+&lt;h1 id=&#34;heading-3&#34;&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;further-talk-details-can-easily-be-added-to-this-page-using-markdown-and-rm-latex-math-code&#34;&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/h1&gt;
 </description>
     </item>
     
@@ -120,50 +123,119 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   geom_boxplot() + 
   ggsidekick::theme_sleek()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;hrbrthemestheme_modern_rc&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;5 hrbrthemes::theme_modern_rc()&lt;/h1&gt;
+&lt;div id=&#34;hrbrthemestheme_modern_rc&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;5 hrbrthemes::theme_modern_rc()&lt;/h2&gt;
 &lt;p&gt;Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).&lt;/p&gt;
-&lt;!-- ![](hrbrthemes.png) --&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;ggthemes&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;6 ggthemes&lt;/h1&gt;
-&lt;p&gt;This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in ggthemes::theme_solarized_2(light = FALSE) guarantees my figures will match nicely.&lt;/p&gt;
+&lt;p&gt;This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in &lt;code&gt;ggthemes::theme_solarized_2(light = FALSE)&lt;/code&gt; guarantees my figures will match nicely.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p1 &amp;lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   ggthemes::theme_solarized_2() 
 p2 &amp;lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
-  ggthemes::theme_solarized_2(light = FALSE)&lt;/code&gt;&lt;/pre&gt;
+  ggthemes::theme_solarized_2(light = FALSE)
+
+library(patchwork)
+
+p1/p2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;ggthemes also has a theme called “solid” which is literally just a background and nothing else, a la sparklines, if you are…chic?&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;solid.png&#34; /&gt; I mentioned the issue of avoiding package-burden if you’re just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that &lt;em&gt;would&lt;/em&gt; be perfect, &lt;em&gt;if only&lt;/em&gt; the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original &lt;code&gt;theme_black&lt;/code&gt; and &lt;code&gt;theme_mk()&lt;/code&gt; which I had placed on kaputils previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I’d like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. Here are some highlights:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(mtcars)
+ggplot(mtcars, aes(x = mpg, y = qsec)) +
+  geom_line(lwd = 1.1) +
+  ggthemes::theme_solid()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;going-beyond-your-own-themespackages&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Going beyond: your own themes/packages&lt;/h1&gt;
+&lt;p&gt;I mentioned the issue of avoiding package-burden if you’re just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that &lt;em&gt;would&lt;/em&gt; be perfect, &lt;em&gt;if only&lt;/em&gt; the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called &lt;code&gt;kaplot&lt;/code&gt;, which includes the original &lt;code&gt;theme_black&lt;/code&gt; and &lt;code&gt;theme_mk()&lt;/code&gt; which I had placed on &lt;code&gt;kaputils&lt;/code&gt; previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I’d like them. Going forward I will probably make themes in there specific to given publications.&lt;/p&gt;
+&lt;p&gt;If you aren’t ready to commit to a full package, I recommend editing a basic ggplot template (try &lt;a href = &#34;https://gist.github.com/jslefche/eff85ef06b4705e6efbc&#34;&gt;theme_black() here &lt;/a&gt;) and simply source()ing that script when you make your plots.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;my-new-plotting-package-kaplot&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;7-9: My new plotting package, &lt;code&gt;kaplot&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;Here are some highlights.&lt;/p&gt;
 &lt;div id=&#34;kaplottheme_solarized_mk&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;kaplot::theme_solarized_mk()&lt;/h2&gt;
 &lt;p&gt;My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;theme_solarized_mk.png&#34; /&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;remotes::install_github(&amp;quot;mkapur/kaplot&amp;quot;, dependencies = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   
+  
+  
+   checking for file &amp;#39;C:\Users\mkapur\AppData\Local\Temp\RtmpaQa367\remotes62743b775560\mkapur-kaplot-398e95c/DESCRIPTION&amp;#39; ...
+  
+v  checking for file &amp;#39;C:\Users\mkapur\AppData\Local\Temp\RtmpaQa367\remotes62743b775560\mkapur-kaplot-398e95c/DESCRIPTION&amp;#39;
+## 
+  
+  
+  
+-  preparing &amp;#39;kaplot&amp;#39;:
+##    checking DESCRIPTION meta-information ...
+  
+   checking DESCRIPTION meta-information ... 
+  
+v  checking DESCRIPTION meta-information
+## 
+  
+  
+  
+-  checking for LF line-endings in source and make files and shell scripts
+## 
+  
+-  checking for empty or unneeded directories
+## 
+  
+  
+  
+-  building &amp;#39;kaplot_0.1.0.tar.gz&amp;#39;
+## 
+  
+   
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(kaplot)
 
-&lt;/div&gt;
+p1 &amp;lt;- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
+  geom_boxplot() +
+  kaplot::theme_solarized_mk(base_size = 14, light = TRUE)
+
+p2 &amp;lt;- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
+  geom_boxplot() +
+  kaplot::theme_solarized_mk(base_size = 14, light = FALSE)
+
+p1 | p2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt; &lt;img src=&#34;theme_solarized_mk.png&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;kaplottheme_mk&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;kaplot::theme_mk()&lt;/h2&gt;
-&lt;p&gt;I have now implemented &lt;a href = &#34;https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3&#34;&gt;this rather complicated method &lt;/a&gt; to override the default color palette to the &lt;a href = &#34;http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/&#34;&gt; cbbPalette&lt;/a&gt;, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color. &lt;img src=&#34;theme_mk.png&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;kaplotfoundational&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;kaplot::foundational()&lt;/h2&gt;
-&lt;p&gt;I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned… &lt;img src=&#34;4642.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I have now implemented &lt;a href = &#34;https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3&#34;&gt;this rather complicated method &lt;/a&gt; to override the default color palette to the &lt;a href = &#34;http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/&#34;&gt; cbbPalette&lt;/a&gt;, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
+  geom_boxplot() + 
+  kaplot::theme_mk()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt; &lt;img src=&#34;theme_mk.png&#34; /&gt; ## kaplot::foundational() I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned… &lt;img src=&#34;4642.jpg&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;taste-the-rainbow&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Taste the rainbow&lt;/h2&gt;
 &lt;p&gt;Aside from cbbPalette, I have several go-to color palettes from across the web which I regularly use. Fortunately the viridis() pal is default with ggplot2, but there were a couple others I wanted to bring in automatically. These include &lt;a href = &#34;https://github.com/jakelawlor/PNWColors&#34;&gt;Jake Lawlor’s PNWColors&lt;/a&gt;. &lt;/p&gt;
 &lt;p&gt;Now the palettes are pre-loaded and can be called just like viridis.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;starfish_mk.png&#34; /&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p1 &amp;lt;- ggplot(ToothGrowth, aes(x = len, y = dose, fill = supp)) + 
+  geom_boxplot() + 
+  kaplot::theme_mk() + 
+  kaplot::scale_fill_starfish() 
+p2 &amp;lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + kaplot::theme_mk() + 
+  kaplot::scale_fill_sunset() 
+p3 &amp;lt;- ggplot(mtcars[1:9,], aes(x = mpg, y = qsec, fill = rownames(mtcars[1:9,]))) + geom_bar(stat=&amp;#39;identity&amp;#39;) + 
+  kaplot::theme_mk() + 
+  kaplot::scale_fill_ipsum() 
 
-&lt;/div&gt;
+p4 &amp;lt;- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) + geom_bar(stat=&amp;#39;identity&amp;#39;) + 
+  kaplot::theme_mk() + 
+  scale_fill_viridis_c()
+
+(p1  |p2) /(p3  |p4)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt; &lt;!-- ![](starfish_mk.png) --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

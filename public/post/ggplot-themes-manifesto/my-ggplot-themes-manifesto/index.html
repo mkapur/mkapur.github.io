@@ -586,7 +586,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    6 min read
   </span>
   
 
@@ -661,50 +661,119 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   geom_boxplot() + 
   ggsidekick::theme_sleek()</code></pre>
 <p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-</div>
-<div id="hrbrthemestheme_modern_rc" class="section level1">
-<h1>5 hrbrthemes::theme_modern_rc()</h1>
+<div id="hrbrthemestheme_modern_rc" class="section level2">
+<h2>5 hrbrthemes::theme_modern_rc()</h2>
 <p>Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).</p>
-<!-- ![](hrbrthemes.png) -->
+</div>
 </div>
 <div id="ggthemes" class="section level1">
 <h1>6 ggthemes</h1>
-<p>This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in ggthemes::theme_solarized_2(light = FALSE) guarantees my figures will match nicely.</p>
+<p>This is maintained by the ggplot2 folks and has lots of useful themes worth exploring. My favorite is solarized, which also has a light/dark option. I typically use the solarized-dark css from xaringanthemer for my slides, so popping in <code>ggthemes::theme_solarized_2(light = FALSE)</code> guarantees my figures will match nicely.</p>
 <pre class="r"><code>p1 &lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   ggthemes::theme_solarized_2() 
 p2 &lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
-  ggthemes::theme_solarized_2(light = FALSE)</code></pre>
+  ggthemes::theme_solarized_2(light = FALSE)
+
+library(patchwork)
+
+p1/p2</code></pre>
+<p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>ggthemes also has a theme called “solid” which is literally just a background and nothing else, a la sparklines, if you are…chic?</p>
-<p><img src="solid.png" /> I mentioned the issue of avoiding package-burden if you’re just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that <em>would</em> be perfect, <em>if only</em> the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original <code>theme_black</code> and <code>theme_mk()</code> which I had placed on kaputils previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I’d like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. Here are some highlights:</p>
+<pre class="r"><code>attach(mtcars)
+ggplot(mtcars, aes(x = mpg, y = qsec)) +
+  geom_line(lwd = 1.1) +
+  ggthemes::theme_solid()</code></pre>
+<p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="going-beyond-your-own-themespackages" class="section level1">
+<h1>Going beyond: your own themes/packages</h1>
+<p>I mentioned the issue of avoiding package-burden if you’re just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that <em>would</em> be perfect, <em>if only</em> the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called <code>kaplot</code>, which includes the original <code>theme_black</code> and <code>theme_mk()</code> which I had placed on <code>kaputils</code> previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I’d like them. Going forward I will probably make themes in there specific to given publications.</p>
+<p>If you aren’t ready to commit to a full package, I recommend editing a basic ggplot template (try <a href = "https://gist.github.com/jslefche/eff85ef06b4705e6efbc">theme_black() here </a>) and simply source()ing that script when you make your plots.</p>
 </div>
 <div id="my-new-plotting-package-kaplot" class="section level1">
 <h1>7-9: My new plotting package, <code>kaplot</code></h1>
+<p>Here are some highlights.</p>
 <div id="kaplottheme_solarized_mk" class="section level2">
 <h2>kaplot::theme_solarized_mk()</h2>
 <p>My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.</p>
-<div class="figure">
-<img src="theme_solarized_mk.png" />
+<pre class="r"><code>remotes::install_github(&quot;mkapur/kaplot&quot;, dependencies = FALSE)</code></pre>
+<pre><code>##   
+  
+  
+   checking for file &#39;C:\Users\mkapur\AppData\Local\Temp\RtmpaQa367\remotes62743b775560\mkapur-kaplot-398e95c/DESCRIPTION&#39; ...
+  
+v  checking for file &#39;C:\Users\mkapur\AppData\Local\Temp\RtmpaQa367\remotes62743b775560\mkapur-kaplot-398e95c/DESCRIPTION&#39;
+## 
+  
+  
+  
+-  preparing &#39;kaplot&#39;:
+##    checking DESCRIPTION meta-information ...
+  
+   checking DESCRIPTION meta-information ... 
+  
+v  checking DESCRIPTION meta-information
+## 
+  
+  
+  
+-  checking for LF line-endings in source and make files and shell scripts
+## 
+  
+-  checking for empty or unneeded directories
+## 
+  
+  
+  
+-  building &#39;kaplot_0.1.0.tar.gz&#39;
+## 
+  
+   
+## </code></pre>
+<pre class="r"><code>library(kaplot)
 
-</div>
+p1 &lt;- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
+  geom_boxplot() +
+  kaplot::theme_solarized_mk(base_size = 14, light = TRUE)
+
+p2 &lt;- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
+  geom_boxplot() +
+  kaplot::theme_solarized_mk(base_size = 14, light = FALSE)
+
+p1 | p2</code></pre>
+<p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-8-1.png" width="672" /> <img src="theme_solarized_mk.png" /></p>
 </div>
 <div id="kaplottheme_mk" class="section level2">
 <h2>kaplot::theme_mk()</h2>
-<p>I have now implemented <a href = "https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3">this rather complicated method </a> to override the default color palette to the <a href = "http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/"> cbbPalette</a>, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color. <img src="theme_mk.png" /></p>
-</div>
-<div id="kaplotfoundational" class="section level2">
-<h2>kaplot::foundational()</h2>
-<p>I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned… <img src="4642.jpg" /></p>
+<p>I have now implemented <a href = "https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3">this rather complicated method </a> to override the default color palette to the <a href = "http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/"> cbbPalette</a>, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color.</p>
+<pre class="r"><code>ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
+  geom_boxplot() + 
+  kaplot::theme_mk()</code></pre>
+<p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-9-1.png" width="672" /> <img src="theme_mk.png" /> ## kaplot::foundational() I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned… <img src="4642.jpg" /></p>
 </div>
 <div id="taste-the-rainbow" class="section level2">
 <h2>Taste the rainbow</h2>
 <p>Aside from cbbPalette, I have several go-to color palettes from across the web which I regularly use. Fortunately the viridis() pal is default with ggplot2, but there were a couple others I wanted to bring in automatically. These include <a href = "https://github.com/jakelawlor/PNWColors">Jake Lawlor’s PNWColors</a>. </p>
 <p>Now the palettes are pre-loaded and can be called just like viridis.</p>
-<div class="figure">
-<img src="starfish_mk.png" />
+<pre class="r"><code>p1 &lt;- ggplot(ToothGrowth, aes(x = len, y = dose, fill = supp)) + 
+  geom_boxplot() + 
+  kaplot::theme_mk() + 
+  kaplot::scale_fill_starfish() 
+p2 &lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
+  geom_boxplot() + kaplot::theme_mk() + 
+  kaplot::scale_fill_sunset() 
+p3 &lt;- ggplot(mtcars[1:9,], aes(x = mpg, y = qsec, fill = rownames(mtcars[1:9,]))) + geom_bar(stat=&#39;identity&#39;) + 
+  kaplot::theme_mk() + 
+  kaplot::scale_fill_ipsum() 
 
-</div>
+p4 &lt;- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) + geom_bar(stat=&#39;identity&#39;) + 
+  kaplot::theme_mk() + 
+  scale_fill_viridis_c()
+
+(p1  |p2) /(p3  |p4)</code></pre>
+<p><img src="/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-10-1.png" width="672" /> <!-- ![](starfish_mk.png) --></p>
 </div>
 </div>
 

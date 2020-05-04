@@ -55,14 +55,6 @@
     </item>
     
     <item>
-      <title>Operating Model for Pacific Sablefish Transboundary MSE</title>
-      <link>/talk/pstat_om_apr2020/</link>
-      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>/talk/pstat_om_apr2020/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Sneaking Up on a Well-Specified Model; Quantitative Seminar, May 15, 2020</title>
       <link>/talk/sneak_quantsem_may2020/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
@@ -196,6 +188,14 @@ p4 &amp;lt;- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) +
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Operating Model for Pacific Sablefish Transboundary MSE</title>
+      <link>/talk/pstat_om_apr2020/</link>
+      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/talk/pstat_om_apr2020/</guid>
+      <description></description>
     </item>
     
     <item>

@@ -26,7 +26,7 @@ I accomplished this once I recognize that one can define a bounding box using a 
 
 On the left is the EEZ; on the right show the two different clips I'd like to make (blue and white). In the code, the blue and white triangles are the p11 and p12 objects, respectively. They haven't yet been projected or changed into polygons.
 
-```{r eval = FALSE}
+```{r eval = TRUE, warning = FALSE, message = FALSE}
 require(sf) 
 require(ggplot2)
 require(dplyr)
@@ -58,13 +58,13 @@ plot(p12, add = TRUE, col = 'blue')
 
 The clip step actually uses `sf::st_intersection(`). To simplify things I pass the first argument as a subset of all the regions that includes the shapefile for only BC's EEZ. This can then be plotted within ggplot2.
 
-```{r eval = TRUE, message = FALSE, warning = FALSE}
+```{r eval = TRUE, warning = FALSE, message = FALSE}
 require(ggplot2)
-BCangle_geom <- st_sfc(list(p12), crs = "+proj=longlat +datum=WGS84 +no_defs") 
+BCangle_geom <- sf::st_sfc(list(p12), crs = "+proj=longlat +datum=WGS84 +no_defs") 
 BCangle_shape <- st_sf(BCangle_geom) 
 B1 <- st_intersection(BCreg,BCangle_shape) 
 
-BCangle_geom <- st_sfc(list(pl1), crs = "+proj=longlat +datum=WGS84 +no_defs") 
+BCangle_geom <- sf::st_sfc(list(pl1), crs = "+proj=longlat +datum=WGS84 +no_defs") 
 BCangle_shape <- st_sf(BCangle_geom) 
 B2 <- st_intersection(BCreg,BCangle_shape)
 
@@ -102,11 +102,7 @@ require(patchwork)
 p1 |p2
 ```
 
-
-
 The bathy maps at right were made with marmap.
-
-
 
 
 Other crops throughout the domain, which rely only on purely vertical OR horizontal lines, can be accomplished using a simple call to `sf::st_crop()`. This takes the arguments of lat-long borders of a rectangle.

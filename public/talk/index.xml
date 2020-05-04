@@ -5,12 +5,20 @@
     <link>/talk/</link>
       <atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 02 Jun 2020 13:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Recent &amp; Upcoming Talks</title>
       <link>/talk/</link>
     </image>
+    
+    <item>
+      <title>Maia S Kapur General Exam, 02 June 2020</title>
+      <link>/talk/kapur_genex/</link>
+      <pubDate>Tue, 02 Jun 2020 13:00:00 +0000</pubDate>
+      <guid>/talk/kapur_genex/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Sneaking Up on a Well-Specified Model; Quantitative Seminar, May 15, 2020</title>

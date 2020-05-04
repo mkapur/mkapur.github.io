@@ -27,21 +27,32 @@ I accomplished this once I recognize that one can define a bounding box using a 
 On the left is the EEZ; on the right show the two different clips I'd like to make (blue and white). In the code, the blue and white triangles are the p11 and p12 objects, respectively. They haven't yet been projected or changed into polygons.
 
 ```{r eval = FALSE}
-require(sf) xmin = -140 + 360 xmax = -125 + 360 ymin = 45 ymax = 55 xdomain <- seq(xmin,xmax, length.out = 100) outerLower <- matrix(c(xmin, ymin,xmax,ymin,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) pts = list(outerLower) pl1 = st_polygon(pts) outerUpper <- matrix(c(xmin, ymin,xmin, ymax,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) ## note the switching of vertices pts = list(outerUpper) p12 = st_polygon(pts)
+require(sf) 
+xmin = -140 + 360
+xmax = -125 + 360 
+ymin = 45 
+ymax = 55 
+xdomain <- seq(xmin,xmax, length.out = 100) 
+outerLower <- matrix(c(xmin, ymin,xmax,ymin,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) 
+pts = list(outerLower) 
+pl1 = st_polygon(pts)
+
+outerUpper <- matrix(c(xmin, ymin,xmin, ymax,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) ## note the switching of vertices pts = list(outerUpper) p12 = st_polygon(pts)
 ```
 
-![](../../../static/img/BCeez.png)
-
+![](/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/BCeez.png)
 The clip step actually uses `sf::st_intersection(`). To simplify things I pass the first argument as a subset of all the regions that includes the shapefile for only BC's EEZ. This can then be plotted within ggplot2.
 
 ```{r eval = FALSE}
 BCangle_geom <- st_sfc(list(p12), crs = "+proj=longlat +datum=WGS84 +no_defs") BCangle_shape <- st_sf(BCangle_geom) B1 <- st_intersection(BCreg,BCangle_shape) BCangle_geom <- st_sfc(list(pl1), crs = "+proj=longlat +datum=WGS84 +no_defs") BCangle_shape <- st_sf(BCangle_geom) B2 <- st_intersection(BCreg,BCangle_shape) ggplot() + geom_sf(data = B1, fill = cbbPalette[5], alpha = 0.5, color = NA) + geom_sf(data = B2, fill = cbbPalette[4], alpha = 0.5, color = NA) + geom_sf(lwd = 1, col = 'black', fill = NA) + coord_sf(xlim = c(220, 240), ylim = c(30, 65)) + labs(x ="",y="")+ theme_classic(base_size = 14)
 ```
-![](../../../static/img/BCeez2.png)
+
+![](/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/BCeez2.png)
+
 The bathy maps at right were made with marmap.
 
 
 
 
 Other crops throughout the domain, which rely only on purely vertical OR horizontal lines, can be accomplished using a simple call to `sf::st_crop()`. This takes the arguments of lat-long borders of a rectangle, hence:
-![](../../../static/img/featured.png)
+![](/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/featured.png)

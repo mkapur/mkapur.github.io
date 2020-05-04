@@ -4,11 +4,11 @@ summary: This talk is under construction. The fourth chapter of my disseration, 
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "20320-05-15T13:00:00Z"
+date: "2020-05-15T13:00:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2020-05-14T00:00:00Z"
+publishDate: "2020-05-03T00:00:00Z"
 
 authors: []
 tags: []
@@ -27,7 +27,7 @@ links:
   url: https://twitter.com/kapurmaia
 url_code: "https://github.com/mkapur/sneak"
 url_pdf: ""
-url_slides: "slides: sneak_quantsem"
+url_slides: "https://mkapur.netlifty.app/slides/quantsem15may#1"
 url_video: ""
 
 ---

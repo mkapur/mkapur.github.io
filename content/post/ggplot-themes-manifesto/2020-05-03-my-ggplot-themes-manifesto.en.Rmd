@@ -79,22 +79,31 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
 
 
 
-#5 hrbrthemes::theme_modern_rc()
+## 5 hrbrthemes::theme_modern_rc()
 
 Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).
 
 ```{r, eval = FALSE, warning = FALSE, message = FALSE, echo=FALSE}
+library(extrafont)
 library(hrbrthemes)
-p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
-  geom_boxplot() + 
-  labs(title = 'Lorem Ipsum') + 
-  scale_fill_ipsum() + 
-  theme_ipsum() 
+# extrafont::font_import() ## takes a long time to run
+import_roboto_condensed()
+extrafont::loadfonts(device= 'win' ) ## must be run once each session
+## restart R
+p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
+  geom_boxplot() +
+  labs(title = 'Lorem Ipsum') +
+  scale_fill_ipsum() +
+  theme_ipsum()
 
-p1 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
-  geom_boxplot() + 
-  labs(title = 'Lorem Ipsum') + 
+p1 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
+  geom_boxplot() +
+  labs(title = 'Lorem Ipsum') +
   theme_ft_rc()
+
+Rmisc::multiplot(p1,p2)
+
+
 ```
 <!-- ![](hrbrthemes.png) -->
 
@@ -110,23 +119,50 @@ p1 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
 p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   ggthemes::theme_solarized_2(light = FALSE)
+
+require(patchwork)
+(p1)/(p2)
 ```
 
 
 ggthemes also has a theme called "solid" which is literally just a background and nothing else, a la sparklines, if you are...chic?
 
-![](solid.png)
+```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
+ggplot(mtcars, aes(x = mpg, y = qsec)) +
+  geom_line(lwd = 1.1) +
+  ggthemes::theme_solid()
+```
+
+
 I mentioned the issue of avoiding package-burden if you're just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that *would* be perfect, *if only* the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original `theme_black` and `theme_mk()` which I had placed on kaputils previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I'd like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. Here are some highlights:
 
 # 7-9: My new plotting package, `kaplot`
 ## kaplot::theme_solarized_mk()
 My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.
+```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
 
-![](theme_solarized_mk.png)
+remotes::install_github("mkapur/kaplot")
+library(kaplot)
+
+p1 <- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
+  geom_boxplot() +
+  theme_solarized_mk(base_size = 14, light = TRUE)
+p2 <- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
+  geom_boxplot() +
+  theme_solarized_mk(base_size = 14, light = FALSE)
+
+p1 | p2
+```
 
 ## kaplot::theme_mk()
 I have now implemented <a href = "https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3">this rather complicated method </a> to override the default color palette to the <a href = "http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/"> cbbPalette</a>, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color.
-![](theme_mk.png)
+
+```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
+
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
+  geom_boxplot() + 
+  kaplot::theme_mk()
+```
 
 ## kaplot::foundational()
 I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned...
@@ -153,6 +189,7 @@ p3 <- ggplot(mtcars[1:9,], aes(x = mpg, y = qsec, fill = rownames(mtcars[1:9,]))
 p4 <- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) + geom_bar(stat='identity') + 
   kaplot::theme_mk() + 
   scale_fill_viridis_c()
+
+(p1  |p2) /(p3  |p4)
 ```
 
-![](starfish_mk.png)

@@ -199,14 +199,6 @@ p4 &amp;lt;- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) +
     </item>
     
     <item>
-      <title>sf-non-rect</title>
-      <link>/post/sf-non-rect/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      <guid>/post/sf-non-rect/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Non-rectangular bounding boxes with the sf package</title>
       <link>/post/sf-non-rect/sf-non-rect/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>

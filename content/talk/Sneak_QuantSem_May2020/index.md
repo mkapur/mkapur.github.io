@@ -27,7 +27,7 @@ links:
   url: https://twitter.com/kapurmaia
 url_code: "https://github.com/mkapur/sneak"
 url_pdf: ""
-url_slides: "https://mkapur.netlify.app/slides/quantsem15may#1"
+url_slides: "slides: sneak_quantsem"
 url_video: ""
 
 ---

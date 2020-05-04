@@ -14,8 +14,6 @@ image:
   placement: 2
   focal_point: ""
   preview_only: false
-  
-  
 projects: []
 ---
 
@@ -151,15 +149,16 @@ Here are some highlights.
 My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.
 
 ```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
-remotes::install_github("mkapur/kaplot")
+# remotes::install_github("mkapur/kaplot")
 library(kaplot)
 
 p1 <- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
   geom_boxplot() +
-  theme_solarized_mk(base_size = 14, light = TRUE)
+theme_solarized_mk(base_size = 14, light = TRUE)
+
 p2 <- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
   geom_boxplot() +
-  theme_solarized_mk(base_size = 14, light = FALSE)
+  kaplot::theme_solarized_mk(base_size = 14, light = FALSE)
 
 p1 | p2
 ```
@@ -168,7 +167,6 @@ p1 | p2
 I have now implemented <a href = "https://community.rstudio.com/t/adding-ggplot-themes-and-color-palettes-to-a-package/2418/3">this rather complicated method </a> to override the default color palette to the <a href = "http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/"> cbbPalette</a>, which is colorblind friendly and greyscale-compatible. The whole goal is to reduce the number of lines I need to write for each figure. See below for a final note on color.
 
 ```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
-
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   geom_boxplot() + 
   kaplot::theme_mk()

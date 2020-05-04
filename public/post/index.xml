@@ -93,40 +93,6 @@ ggplot(mtcars, aes(x = mpg, y = qsec)) +
 &lt;div id=&#34;kaplottheme_solarized_mk&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;kaplot::theme_solarized_mk()&lt;/h2&gt;
 &lt;p&gt;My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;remotes::install_github(&amp;quot;mkapur/kaplot&amp;quot;, dependencies = FALSE)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   
-  
-  
-   checking for file &amp;#39;C:\Users\mkapur\AppData\Local\Temp\RtmpaQa367\remotes62743b775560\mkapur-kaplot-398e95c/DESCRIPTION&amp;#39; ...
-  
-v  checking for file &amp;#39;C:\Users\mkapur\AppData\Local\Temp\RtmpaQa367\remotes62743b775560\mkapur-kaplot-398e95c/DESCRIPTION&amp;#39;
-## 
-  
-  
-  
--  preparing &amp;#39;kaplot&amp;#39;:
-##    checking DESCRIPTION meta-information ...
-  
-   checking DESCRIPTION meta-information ... 
-  
-v  checking DESCRIPTION meta-information
-## 
-  
-  
-  
--  checking for LF line-endings in source and make files and shell scripts
-## 
-  
--  checking for empty or unneeded directories
-## 
-  
-  
-  
--  building &amp;#39;kaplot_0.1.0.tar.gz&amp;#39;
-## 
-  
-   
-## &lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(kaplot)
 
 p1 &amp;lt;- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +

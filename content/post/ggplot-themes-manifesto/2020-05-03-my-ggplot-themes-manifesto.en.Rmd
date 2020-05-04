@@ -128,15 +128,23 @@ p1/p2
 ggthemes also has a theme called "solid" which is literally just a background and nothing else, a la sparklines, if you are...chic?
 
 ```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
+attach(mtcars)
 ggplot(mtcars, aes(x = mpg, y = qsec)) +
   geom_line(lwd = 1.1) +
   ggthemes::theme_solid()
 ```
 
+# Going beyond: your own themes/packages
 
-I mentioned the issue of avoiding package-burden if you're just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that *would* be perfect, *if only* the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original `theme_black` and `theme_mk()` which I had placed on kaputils previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I'd like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. Here are some highlights:
+I mentioned the issue of avoiding package-burden if you're just interested in a nice plotting function. Relatedly, sometimes another person has already made a cool ggtheme that *would* be perfect, *if only* the font were bigger/colors brighter/legend placed differently. That leads me to the most involved, yet most rewarding approach, which is to write and save your own ggplot themes! I have compiled all my faves into a new package called kaplot, which includes the original `theme_black` and `theme_mk()` which I had placed on `kaputils` previously. Since kaputils is more of a simulation and data science toolkit (for me), I wanted a lighterweight pacakge with only my plotting stuff. The material ranges from mostly original to downright plagarized, and basically involves me tweaking pre-existing themes to be exactly as I'd like them. Going forward I will probably make themes in there specific to given publications so they can be quickly re-done. 
+
+If you aren't ready to commit to a full package, I recommend editing a basic ggplot template (try <a href = "https://gist.github.com/jslefche/eff85ef06b4705e6efbc">theme_black() here </a>) and simply source()ing that script when you make your plots.
+
 
 # 7-9: My new plotting package, `kaplot`
+
+Here are some highlights.
+
 ## kaplot::theme_solarized_mk()
 My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.
 

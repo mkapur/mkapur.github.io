@@ -163,7 +163,7 @@ p2 <- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
 
 p1 | p2
 ```
-![](theme_solarized_mk.png)
+<!-- ![](theme_solarized_mk.png) -->
 
 
 ## kaplot::theme_mk()
@@ -174,7 +174,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   geom_boxplot() + 
   kaplot::theme_mk()
 ```
-![](theme_mk.png)
+<!-- ![](theme_mk.png) -->
 ## kaplot::foundational()
 I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned...
 ![](4642.jpg)

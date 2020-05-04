@@ -1,0 +1,261 @@
+---
+title: "Sneaking up on a Well-specified Model"
+date: "15 May 2020"
+author: "M Sosa Kapur kapurm@uw.edu"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [solarized-dark.css]
+    nature:
+      ratio: "16:9.5"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE,fig.align='center',
+                      fig.width = 4, fig.height = 5, 
+                      comment = NA, rows.print = 16)
+```
+layout: true
+.header[`r icon::fa('github')` @mkapur/sneak]
+
+---
+background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
+background-size: cover
+
+--
+
+<br><Br><bR>
+# .inverse[ Mis-specification]
+
+???
+1yo gave this talk, cassini mission from Netflix show to introduce concept of misspecification
+Basically show had rocket scientists obsessed w 20s v 2 mins on accuracy but it was wild bc goal was to blow up rocket
+I work on a diff type of model (stock ass used for mgmt.) but spend a lot of time thinking about the causes and ocnsequences of our errors, 
+for us 20s may be 20000 mt w  flow on effects for livelihoos
+Regardless of whether u saw my talk last year, Hope to leave you with understanding : 
+Fated that i picked this, because much of the story ended up being about “space” – not outer space but still
+straightfwd decisions can have enormous consequences on model estimates
+Doing these studies is very involved, which is why it isn’t  done
+
+---
+
+background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
+background-size: cover
+
+
+# .inverse[ Mis-specification]
+
+<Br><Br><Br><br>
+.darktext[ 
++ You did something wrong.
++ Model (wrong selectivity form)
++ Process (wrong stock-recruit)
++ Data (amount or quality)
++ And more!
+]
+
+
+
+---
+
+## Mis-specification: What Happens?
+
+.pull-left[
++ Estimates are biased/imprecise
++ You fixed something, but…
++ something important still incorrect
+]
+
+
+.pull-right[
+![](ikea.jpg)
+]
+
+---
+
+# Research Questions
+
++ Do we need to fix every mis-spec before the model performs “well”? 
+
++ Are certain mis-specifications more or less influential on model bias? 
+
+---
+
+# Simulation Study
+
++ Statistical catch-at-age operating model
+
++ Iteratively create and ‘correct’ mis-specifications
+
++ Calculate comparative statistics on derived quantities
+
+
+---
+background-image: url("Screenshot (1).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (2).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (3).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (4).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (5).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (6).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (7).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (8).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (9).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (10).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (11).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (12).png")
+background-position: center
+background-size: cover
+---
+
+### 1) Do we need to fix every mis-spec before the model performs “well”? 
+
+```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE, fig.width=8, fig.height=6, fig.align='center',fig.retina=2}
+require(ggplot2)
+require(ggsidekick)
+require(ggthemes)
+require(kaplot)
+dat <- data.frame("NMISSPEC" = 1:6, "ABSRELE" = sort(runif(6,0,1)))
+ggplot(dat, aes(x = NMISSPEC, y = ABSRELE)) +
+  kaplot::theme_solarized_mk(base_size = 14, light = FALSE) +
+  theme(axis.ticks.length = unit(0, "pt")) +
+  labs(x = "# of Misspecifications", y = "Absolute Relative Error") +
+  scale_x_reverse(labels = 6:1, breaks = 6:1) +
+  scale_y_continuous(limits = c(0,1)) +
+  geom_bar(stat = 'identity', fill = 'gold') 
+```
+
+---
+### 2) Are certain mis-specifications more or less influential on model bias? 
+
+```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE, fig.width=8, fig.height=6, fig.align='center', fig.retina=2}
+dat <- data.frame("SPECID" = letters[1:6], "ABSRELE" = runif(6,0,1))
+ggplot(dat, aes(x = SPECID, y = ABSRELE, fill = SPECID)) +
+  kaplot::theme_solarized_mk(base_size = 14, light = FALSE) +
+  labs(x = "Identity of Corrected Misspecification", y = "Absolute Relative Error", fill = "") +
+  scale_y_continuous(limits = c(0,1)) +
+  scale_fill_manual(values = c('black','gold','orange','dodgerblue2','white','pink')) +
+  geom_bar(stat = 'identity', color = 'white') 
+```
+
+---
+
+## Why this hasn't been done before...
+```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE, fig.width=8, fig.height=6,  fig.align='center',fig.retina=2}
+dat <- data.frame("NMISSPEC" = 1:6, "ABSRELE" = sort(runif(6,0,1)))
+
+ggplot(dat, aes(x = NMISSPEC, y = ABSRELE)) +
+  kaplot::theme_solarized_mk(base_size = 14, light = FALSE) +
+  labs(x = "# of Misspecifications", y = "Absolute Relative Error") +
+  # scale_x_continuous(labels = paste(6:1), breaks = 6:1)+
+  scale_x_reverse(labels = paste(6:1), breaks = 6:1) +
+  scale_y_continuous(limits = c(0,1)) +
+  geom_bar(stat = 'identity', fill = 'gold') 
+```
+
+--
+
+.inverse[5! unique “strings” of ordered mis-specs]
+
+---
+background-image: url("Screenshot (26).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (27).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (28).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (13).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (14).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (15).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (17).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (18).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (19).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (20).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (21).png")
+background-position: center
+background-size: cover
+---
+# Performance Metrics
++ Estimated recruitment over time
++ Estimated stock spawning biomass over time
++ Both quantities within last 10 years
+---
+background-image: url("Screenshot (22).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (23).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (24).png")
+background-position: center
+background-size: cover
+---
+background-image: url("Screenshot (25).png")
+background-position: center
+background-size: cover
+---

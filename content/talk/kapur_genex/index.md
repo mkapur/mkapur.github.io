@@ -1,6 +1,6 @@
 ---
 title: Maia S Kapur General Exam, 02 June 2020
-summary: Overview of Committee-Approved Doctoral Dissertation Proposal
+summary: Overview of Doctoral Dissertation Proposal
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
@@ -25,9 +25,9 @@ links:
   icon_pack: fab
   name: Follow
   url: https://twitter.com/kapurmaia
-url_code: "https://github.com/mkapur/sneak"
+url_code: "https://github.com/mkapur/sab-mse"
 url_pdf: ""
-url_slides: "slides: kapur_genex"
+url_slides: "slides/kapur_genex"
 url_video: ""
 
 ---

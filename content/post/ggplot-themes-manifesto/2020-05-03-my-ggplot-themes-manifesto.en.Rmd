@@ -154,7 +154,7 @@ library(kaplot)
 
 p1 <- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
   geom_boxplot() +
-theme_solarized_mk(base_size = 14, light = TRUE)
+  kaplot::theme_solarized_mk(base_size = 14, light = TRUE)
 
 p2 <- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
   geom_boxplot() +

@@ -105,7 +105,7 @@ Rmisc::multiplot(p1,p2)
 
 
 ```
-<!-- ![](hrbrthemes.png) -->
+
 
 #6 ggthemes
 
@@ -120,8 +120,8 @@ p2 <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   geom_boxplot() + 
   ggthemes::theme_solarized_2(light = FALSE)
 
-require(patchwork)
-(p1)/(p2)
+library(patchwork)
+p1/p2
 ```
 
 
@@ -139,8 +139,8 @@ I mentioned the issue of avoiding package-burden if you're just interested in a 
 # 7-9: My new plotting package, `kaplot`
 ## kaplot::theme_solarized_mk()
 My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.
-```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
 
+```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=TRUE}
 remotes::install_github("mkapur/kaplot")
 library(kaplot)
 

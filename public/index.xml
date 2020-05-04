@@ -154,7 +154,7 @@ p2 &amp;lt;- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
   kaplot::theme_solarized_mk(base_size = 14, light = FALSE)
 
 p1 | p2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt; &lt;img src=&#34;theme_solarized_mk.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt; &lt;!-- ![](theme_solarized_mk.png) --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;kaplottheme_mk&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;kaplot::theme_mk()&lt;/h2&gt;
@@ -162,7 +162,7 @@ p1 | p2&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   geom_boxplot() + 
   kaplot::theme_mk()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt; &lt;img src=&#34;theme_mk.png&#34; /&gt; ## kaplot::foundational() I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned… &lt;img src=&#34;4642.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt; &lt;!-- ![](theme_mk.png) --&gt; ## kaplot::foundational() I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned… &lt;img src=&#34;4642.jpg&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;taste-the-rainbow&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Taste the rainbow&lt;/h2&gt;

@@ -26,6 +26,8 @@ projects: []
 <p>On the left is the EEZ; on the right show the two different clips I’d like to make (blue and white). In the code, the blue and white triangles are the p11 and p12 objects, respectively. They haven’t yet been projected or changed into polygons.</p>
 <pre class="r"><code>require(sf) 
 require(ggplot2)
+require(dplyr)
+
 load(&quot;eez_nepac_regions.rda&quot;)
 regions &lt;- eez_nepac_regions
 
@@ -41,26 +43,57 @@ pl1 = st_polygon(pts)
 ## note the point-switching
 outerUpper &lt;- matrix(c(xmin, ymin,xmin, ymax,xmax,ymax,xmin, ymin), ncol=2, byrow=TRUE) 
 pts = list(outerUpper)
-p12 = st_polygon(pts)</code></pre>
-<p><img src="/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/BCeez.png" /> The clip step actually uses <code>sf::st_intersection(</code>). To simplify things I pass the first argument as a subset of all the regions that includes the shapefile for only BC’s EEZ. This can then be plotted within ggplot2.</p>
-<pre class="r"><code>BCangle_geom &lt;- st_sfc(list(p12), crs = &quot;+proj=longlat +datum=WGS84 +no_defs&quot;) 
+p12 = st_polygon(pts)
+
+BCreg &lt;- regions %&gt;% filter(Region_Name == &#39;British Columbia&#39;)
+
+par(mfrow = c(1,2))
+plot(BCreg$geometry)
+plot(pl1, col = &#39;gold&#39;)
+plot(p12, add = TRUE, col = &#39;blue&#39;)</code></pre>
+<p><img src="/post/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>The clip step actually uses <code>sf::st_intersection(</code>). To simplify things I pass the first argument as a subset of all the regions that includes the shapefile for only BC’s EEZ. This can then be plotted within ggplot2.</p>
+<pre class="r"><code>require(ggplot2)
+BCangle_geom &lt;- sf::st_sfc(list(p12), crs = &quot;+proj=longlat +datum=WGS84 +no_defs&quot;) 
 BCangle_shape &lt;- st_sf(BCangle_geom) 
 B1 &lt;- st_intersection(BCreg,BCangle_shape) 
 
-BCangle_geom &lt;- st_sfc(list(pl1), crs = &quot;+proj=longlat +datum=WGS84 +no_defs&quot;) 
+BCangle_geom &lt;- sf::st_sfc(list(pl1), crs = &quot;+proj=longlat +datum=WGS84 +no_defs&quot;) 
 BCangle_shape &lt;- st_sf(BCangle_geom) 
 B2 &lt;- st_intersection(BCreg,BCangle_shape)
 
-ggplot() + 
-  geom_sf(data = B1, fill = cbbPalette[5], alpha = 0.5, color = NA) + 
-  geom_sf(data = B2, fill = cbbPalette[4], alpha = 0.5, color = NA) + 
-  geom_sf(lwd = 1, col = &#39;black&#39;, fill = NA) + 
-  coord_sf(xlim = c(220, 240), ylim = c(30, 65)) + 
-  labs(x =&quot;&quot;,y=&quot;&quot;)+ 
-  theme_classic(base_size = 14)</code></pre>
-<div class="figure">
-<img src="/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/BCeez2.png" />
+require(marmap)
+BCbath &lt;- getNOAA.bathy(lon1 = -140, lon2 = -120,
+                        lat1 = 45, lat2 = 65, resolution = 4)
 
-</div>
+splitLat &lt;- function(sample_x = 25, xmin, xmax, ymin, ymax){
+  ydiff = ymax - ymin
+  xdiff = xmax - xmin
+  int = ymin - ydiff/xdiff * xmin
+  # split_y &lt;- (ydiff/xdiff)*sample_x + int
+  return(list(ydiff, xdiff, int))
+}
+xmin = -140
+xmax = -125 
+ydif = splitLat(sample_x = 25, xmin, xmax, ymin, ymax)[[1]]
+xdif = splitLat(sample_x = 25, xmin, xmax, ymin, ymax)[[2]]
+int = splitLat(sample_x = 25, xmin, xmax, ymin, ymax)[[3]]
+
+p1 &lt;- ggplot(data = regions) +
+  geom_sf(data = B1, fill = &quot;gold&quot;, alpha = 0.5, color = NA) +
+  geom_sf(data = B2, fill= &quot;blue&quot;, alpha = 0.5, color = NA) +
+  geom_sf(lwd = 1, col = &#39;black&#39;, fill = NA) +
+  coord_sf(xlim = c(220, 240), ylim = c(30, 65)) +
+  labs(x =&quot;&quot;,y=&quot;&quot;)+
+  theme_classic(base_size = 14)
+p2 &lt;- autoplot(BCbath, geom=c(&quot;r&quot;, &quot;c&quot;), colour=&quot;white&quot;, size=0.05) + 
+  scale_fill_etopo() +
+  geom_abline(slope = ydif/xdif, intercept = int, col = &#39;red&#39;, lwd = 1.1) +
+  
+  labs(x =&quot;&quot;,y=&quot;&quot;)+
+  theme_classic(base_size = 14)
+require(patchwork)
+p1 |p2</code></pre>
+<p><img src="/post/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>The bathy maps at right were made with marmap.</p>
-<p>Other crops throughout the domain, which rely only on purely vertical OR horizontal lines, can be accomplished using a simple call to <code>sf::st_crop()</code>. This takes the arguments of lat-long borders of a rectangle, hence: <img src="/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/featured.png" /></p>
+<p>Other crops throughout the domain, which rely only on purely vertical OR horizontal lines, can be accomplished using a simple call to <code>sf::st_crop()</code>. This takes the arguments of lat-long borders of a rectangle.</p>

@@ -27,10 +27,10 @@
   
     
   
-  <meta name="description" content="This talk is under construction. The fourth chapter of my disseration, 1 year after presenting the project proposal at Think Tank. The code is still private as we are nearing submission for peer-preview.">
+  <meta name="description" content="My first CPUE standardization code was several hundred lines long. By hand, I fit individual glm models with different combinations of predictor variables, laboriously checking the AIC values of each added step and starting a new chunk of tested models based on the best one.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/talk/sneak_quantsem_may2020/">
+  <link rel="alternate" hreflang="en-us" href="/post/tidycpue/tidycpue/">
 
   
 
@@ -217,7 +217,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/talk/sneak_quantsem_may2020/">
+  <link rel="canonical" href="/post/tidycpue/tidycpue/">
 
   
   
@@ -227,28 +227,34 @@
   
   
     
+    
   
   
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Maia Sosa Kapur">
-  <meta property="og:url" content="/talk/sneak_quantsem_may2020/">
-  <meta property="og:title" content="Sneaking Up on a Well-Specified Model; Quantitative Seminar, May 15, 2020 | Maia Sosa Kapur">
-  <meta property="og:description" content="This talk is under construction. The fourth chapter of my disseration, 1 year after presenting the project proposal at Think Tank. The code is still private as we are nearing submission for peer-preview."><meta property="og:image" content="/talk/sneak_quantsem_may2020/featured.png">
-  <meta property="twitter:image" content="/talk/sneak_quantsem_may2020/featured.png"><meta property="og:locale" content="en-us">
+  <meta property="og:url" content="/post/tidycpue/tidycpue/">
+  <meta property="og:title" content="Tidyverse for simple CPUE standardizations | Maia Sosa Kapur">
+  <meta property="og:description" content="My first CPUE standardization code was several hundred lines long. By hand, I fit individual glm models with different combinations of predictor variables, laboriously checking the AIC values of each added step and starting a new chunk of tested models based on the best one."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2020-05-14T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2020-01-23T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2020-05-15T13:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-05-06T15:36:27-07:00">
   
 
   
 
 
-
-  
     
+
+
+
+
+
+
+  
 
 
 
@@ -256,43 +262,48 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Event",
+  "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/talk/sneak_quantsem_may2020/"
+    "@id": "/post/tidycpue/tidycpue/"
   },
-  "name": "Sneaking Up on a Well-Specified Model; Quantitative Seminar, May 15, 2020",
+  "headline": "Tidyverse for simple CPUE standardizations",
   
+  "datePublished": "2020-01-23T00:00:00Z",
+  "dateModified": "2020-05-06T15:36:27-07:00",
   
-  "image": [
-    "/talk/sneak_quantsem_may2020/featured.png"
-  ],
-  
-  "startDate": "2020-05-15T13:00:00Z",
-  
-  
-  "performer": {
+  "author": {
     "@type": "Person",
     "name": "Maia Sosa Kapur"
   },
   
-  "description": "This talk is under construction. The fourth chapter of my disseration, 1 year after presenting the project proposal at Think Tank. The code is still private as we are nearing submission for peer-preview."
+  "publisher": {
+    "@type": "Organization",
+    "name": "Maia Sosa Kapur",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "My first CPUE standardization code was several hundred lines long. By hand, I fit individual glm models with different combinations of predictor variables, laboriously checking the AIC values of each added step and starting a new chunk of tested models based on the best one."
 }
 </script>
 
   
 
-
   
 
 
   
 
 
+  
 
 
 
-  <title>Sneaking Up on a Well-Specified Model; Quantitative Seminar, May 15, 2020 | Maia Sosa Kapur</title>
+
+
+  <title>Tidyverse for simple CPUE standardizations | Maia Sosa Kapur</title>
 
 </head>
 
@@ -413,7 +424,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/talk/"><span>Talks</span></a>
+          <a class="nav-link " href="/talk/"><span>Talks</span></a>
         </li>
 
         
@@ -512,7 +523,7 @@
 </nav>
 
 
-  <div class="pub">
+  <article class="article">
 
   
 
@@ -527,26 +538,18 @@
 
 
 
-
-
-
-
-
-
-
+  
 
   
+  
+  
+<div class="article-container pt-3">
+  <h1>Tidyverse for simple CPUE standardizations</h1>
+
+  
+
   
     
-  
-
-
-<div class="article-container pt-3">
-  <h1>Sneaking Up on a Well-Specified Model; Quantitative Seminar, May 15, 2020</h1>
-
-  
-
-  
 
 
 <div class="article-metadata">
@@ -555,9 +558,24 @@
   
 
   
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    May 6, 2020
+  </span>
+  
 
   
 
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
   
 
   
@@ -569,45 +587,7 @@
 
 </div>
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="btn-links mb-3">
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-  
     
-  
-<a class="btn btn-outline-primary my-1 mr-1" href="https://github.com/mkapur/sneak" target="_blank" rel="noopener">
-  Code
-</a>
 
 
 
@@ -616,13 +596,6 @@
 
 
 
-  
-  
-    
-  
-<a class="btn btn-outline-primary my-1 mr-1" href="/slides/sneak_quantsem" target="_blank" rel="noopener">
-  Slides
-</a>
 
 
 
@@ -630,65 +603,84 @@
 
 
   
-  
-  
-    
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary my-1 mr-1" href="https://twitter.com/kapurmaia" target="_blank" rel="noopener">
-    <i class="fab fa-twitter mr-1"></i>
-    Follow
-  </a>
-
-
-</div>
-
-
-</div>
-
-
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 982px;">
-  <div style="position: relative">
-    <img src="/talk/sneak_quantsem_may2020/featured_hue8ed1598cee56f607b854ea81fddf3a4_652927_720x0_resize_lanczos_2.png" alt="" class="featured-image">
-    <span class="article-header-caption"></span>
-  </div>
 </div>
 
 
 
   <div class="article-container">
 
-    
-      <br>
-    
-
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-12 col-md-3 pub-row-heading">Date</div>
-          <div class="col-12 col-md-9">
-            May 15, 2020 1:00 PM
-          </div>
-        </div>
-      </div>
-      <div class="col-md-1"></div>
-    </div>
-    <div class="d-md-none space-below"></div>
-
-    
-
-    
-
-    <div class="space-below"></div>
-
     <div class="article-style">
       
+
+
+<p>My first CPUE standardization code was several hundred lines long. By hand, I fit individual glm models with different combinations of predictor variables, laboriously checking the AIC values of each added step and starting a new chunk of tested models based on the best one. I knew even then that some of this work could have been automated using something like MuMIn::dredge(), but that did not inspect the order of predictors added and interaction terms, among other things.</p>
+<p>From here at <code>rstudio::conf(2020)</code> where I’m happy to be attending as a Diversity Scholar, I whipped up a tidyverse solution to these qualms. Max Kuhn et al have extensive dox explaining how this very basic (i.e. fixed effects) framework can be re-framed into a mixed-effects or stan setup. The code below is effectively a tenth of what I did before, and automates the checking of many models specified via fit_with using or ignoring interactive terms. At the end I use purrr::map to calculate AIC on all at once, extract and plot outputs. I load a few packages up top but really you could do this with fewer if you plotted in base and had your own AIC function.</p>
+<p>If you look into the cpue_fits object, you get a neat summary of every model specified, no for-loops required</p>
+<p>Disclaimer: this data is totally fake, and the point here isn’t whether or not the model makes the most sense from a CPUE standpoint. I fudged it a bit so the CPUE actually tracks fairly well with catch.</p>
+<div class="figure">
+<img src="../tidycpue.png" />
+
+</div>
+<pre class="r"><code>## Tidy CPUE
+require(lunar)
+require(MuMIn)
+require(ggplot2)
+require(modelr)
+require(tidyverse)
+require(parsnip)
+
+## generate fake data ----
+landings &lt;-  data.frame(expand.grid(YEAR = seq(1956,2015,1),  
+                                    VESSEL = c(&#39;Ariel&#39;,&#39;Jasmine&#39;,&#39;Cinderella&#39;,&#39;Elsa&#39;))) %&gt;%
+  arrange(.,YEAR) %&gt;%
+  mutate(LBS = c(rnorm(0.5*nrow(.),44,4),rnorm(0.1*nrow(.),24,4),
+                 rnorm(0.1*nrow(.),34,4),rnorm(0.3*nrow(.),30,4)),
+         HOOKS = c(rnorm(0.5*nrow(.),65,4),rnorm(0.1*nrow(.),55,4),
+                   rnorm(0.1*nrow(.),70,4),rnorm(0.3*nrow(.),80,4)),
+         WIND_SPEED = c(rnorm(0.5*nrow(.),8.5,2),rnorm(0.5*nrow(.),5,4)),
+         MOON_PHASE = rep(lunar::lunar.8phases,nrow(.)/8),
+         MEAN_TEMP = c(rnorm(0.5*nrow(.),14,4),rnorm(0.1*nrow(.),40,4),
+                       rnorm(0.1*nrow(.),20,4),rnorm(0.3*nrow(.),25,4)))
+
+## modelr::fit_with
+cpue_fits &lt;- landings %&gt;% 
+  modelr::fit_with(lm, formulas(~LBS,
+                                base = ~YEAR + VESSEL ,
+                                interaction = ~VESSEL * MEAN_TEMP,
+                                phase = add_predictors(base, ~MOON_PHASE),
+                                full_no_int = add_predictors(base, ~.),
+                                full_int = add_predictors(interaction,~.)
+))
+
+purrr::map(cpue_fits, parsnip::predict.model_fit, type = &#39;conf_int&#39;)
+
+## extract formula one with the lowest AIC
+best_formula &lt;- cpue_fits[[which.min(purrr::map(cpue_fits,AIC))]][&#39;call&#39;][[1]]
+best_mod &lt;- linear_reg() %&gt;% set_engine(&quot;lm&quot;) %&gt;%
+  fit(formula(best_formula), data = landings)
+predict(lm_fit, landings, type = &quot;conf_int&quot;)
+
+## bind predicts and CI to original df
+pred_df &lt;- landings %&gt;%
+  bind_cols(.,PREDICTS = predict(best_mod, landings)) %&gt;%
+  bind_cols(., predict(best_mod ,landings, type = &quot;conf_int&quot;)) 
+
+## clean the DF to get mean annual values
+
+pred_df_clean &lt;- pred_df %&gt;% group_by(YEAR) %&gt;% 
+  summarise(meanLBS = mean(LBS), meanCPUE = mean(.pred),
+            meanCPUE.lwr = mean(.pred_lower),
+            meanCPUE.upr = mean(.pred_upper))
+
+
+ggplot(pred_df_clean, aes(x = YEAR)) +
+  theme_minimal()+
+  geom_line(aes(y = meanLBS), col = &#39;black&#39;, lwd = 1.2) +
+  geom_point(aes(y = meanCPUE),col = &#39;dodgerblue&#39; ) + 
+  geom_errorbar(aes(ymin = meanCPUE.lwr, ymax =meanCPUE.upr),
+                col = &#39;dodgerblue&#39; ) +
+  labs(x = &#39;Year&#39;, y = &#39;Catch (lbs, black line) or CPUE (blue points and 95%CI&#39;)</code></pre>
+
     </div>
 
     
@@ -710,7 +702,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/talk/sneak_quantsem_may2020/&amp;text=Sneaking%20Up%20on%20a%20Well-Specified%20Model;%20Quantitative%20Seminar,%20May%2015,%202020" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/tidycpue/tidycpue/&amp;text=Tidyverse%20for%20simple%20CPUE%20standardizations" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -723,7 +715,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/talk/sneak_quantsem_may2020/&amp;t=Sneaking%20Up%20on%20a%20Well-Specified%20Model;%20Quantitative%20Seminar,%20May%2015,%202020" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/tidycpue/tidycpue/&amp;t=Tidyverse%20for%20simple%20CPUE%20standardizations" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -736,7 +728,7 @@
       
       
       <li>
-        <a href="mailto:?subject=Sneaking%20Up%20on%20a%20Well-Specified%20Model;%20Quantitative%20Seminar,%20May%2015,%202020&amp;body=/talk/sneak_quantsem_may2020/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Tidyverse%20for%20simple%20CPUE%20standardizations&amp;body=/post/tidycpue/tidycpue/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -749,7 +741,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/talk/sneak_quantsem_may2020/&amp;title=Sneaking%20Up%20on%20a%20Well-Specified%20Model;%20Quantitative%20Seminar,%20May%2015,%202020" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/tidycpue/tidycpue/&amp;title=Tidyverse%20for%20simple%20CPUE%20standardizations" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -762,7 +754,7 @@
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=Sneaking%20Up%20on%20a%20Well-Specified%20Model;%20Quantitative%20Seminar,%20May%2015,%202020%20/talk/sneak_quantsem_may2020/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=Tidyverse%20for%20simple%20CPUE%20standardizations%20/post/tidycpue/tidycpue/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -775,7 +767,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/talk/sneak_quantsem_may2020/&amp;title=Sneaking%20Up%20on%20a%20Well-Specified%20Model;%20Quantitative%20Seminar,%20May%2015,%202020" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/post/tidycpue/tidycpue/&amp;title=Tidyverse%20for%20simple%20CPUE%20standardizations" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -910,7 +902,7 @@
 
 
   </div>
-</div>
+</article>
 
       
 

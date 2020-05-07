@@ -229,6 +229,84 @@ p1 |p2&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Tidyverse for simple CPUE standardizations</title>
+      <link>/post/tidycpue/tidycpue/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/post/tidycpue/tidycpue/</guid>
+      <description>
+
+
+&lt;p&gt;My first CPUE standardization code was several hundred lines long. By hand, I fit individual glm models with different combinations of predictor variables, laboriously checking the AIC values of each added step and starting a new chunk of tested models based on the best one. I knew even then that some of this work could have been automated using something like MuMIn::dredge(), but that did not inspect the order of predictors added and interaction terms, among other things.&lt;/p&gt;
+&lt;p&gt;From here at &lt;code&gt;rstudio::conf(2020)&lt;/code&gt; where I’m happy to be attending as a Diversity Scholar, I whipped up a tidyverse solution to these qualms. Max Kuhn et al have extensive dox explaining how this very basic (i.e. fixed effects) framework can be re-framed into a mixed-effects or stan setup. The code below is effectively a tenth of what I did before, and automates the checking of many models specified via fit_with using or ignoring interactive terms. At the end I use purrr::map to calculate AIC on all at once, extract and plot outputs. I load a few packages up top but really you could do this with fewer if you plotted in base and had your own AIC function.&lt;/p&gt;
+&lt;p&gt;If you look into the cpue_fits object, you get a neat summary of every model specified, no for-loops required&lt;/p&gt;
+&lt;p&gt;Disclaimer: this data is totally fake, and the point here isn’t whether or not the model makes the most sense from a CPUE standpoint. I fudged it a bit so the CPUE actually tracks fairly well with catch.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;../tidycpue.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Tidy CPUE
+require(lunar)
+require(MuMIn)
+require(ggplot2)
+require(modelr)
+require(tidyverse)
+require(parsnip)
+
+## generate fake data ----
+landings &amp;lt;-  data.frame(expand.grid(YEAR = seq(1956,2015,1),  
+                                    VESSEL = c(&amp;#39;Ariel&amp;#39;,&amp;#39;Jasmine&amp;#39;,&amp;#39;Cinderella&amp;#39;,&amp;#39;Elsa&amp;#39;))) %&amp;gt;%
+  arrange(.,YEAR) %&amp;gt;%
+  mutate(LBS = c(rnorm(0.5*nrow(.),44,4),rnorm(0.1*nrow(.),24,4),
+                 rnorm(0.1*nrow(.),34,4),rnorm(0.3*nrow(.),30,4)),
+         HOOKS = c(rnorm(0.5*nrow(.),65,4),rnorm(0.1*nrow(.),55,4),
+                   rnorm(0.1*nrow(.),70,4),rnorm(0.3*nrow(.),80,4)),
+         WIND_SPEED = c(rnorm(0.5*nrow(.),8.5,2),rnorm(0.5*nrow(.),5,4)),
+         MOON_PHASE = rep(lunar::lunar.8phases,nrow(.)/8),
+         MEAN_TEMP = c(rnorm(0.5*nrow(.),14,4),rnorm(0.1*nrow(.),40,4),
+                       rnorm(0.1*nrow(.),20,4),rnorm(0.3*nrow(.),25,4)))
+
+## modelr::fit_with
+cpue_fits &amp;lt;- landings %&amp;gt;% 
+  modelr::fit_with(lm, formulas(~LBS,
+                                base = ~YEAR + VESSEL ,
+                                interaction = ~VESSEL * MEAN_TEMP,
+                                phase = add_predictors(base, ~MOON_PHASE),
+                                full_no_int = add_predictors(base, ~.),
+                                full_int = add_predictors(interaction,~.)
+))
+
+purrr::map(cpue_fits, parsnip::predict.model_fit, type = &amp;#39;conf_int&amp;#39;)
+
+## extract formula one with the lowest AIC
+best_formula &amp;lt;- cpue_fits[[which.min(purrr::map(cpue_fits,AIC))]][&amp;#39;call&amp;#39;][[1]]
+best_mod &amp;lt;- linear_reg() %&amp;gt;% set_engine(&amp;quot;lm&amp;quot;) %&amp;gt;%
+  fit(formula(best_formula), data = landings)
+predict(lm_fit, landings, type = &amp;quot;conf_int&amp;quot;)
+
+## bind predicts and CI to original df
+pred_df &amp;lt;- landings %&amp;gt;%
+  bind_cols(.,PREDICTS = predict(best_mod, landings)) %&amp;gt;%
+  bind_cols(., predict(best_mod ,landings, type = &amp;quot;conf_int&amp;quot;)) 
+
+## clean the DF to get mean annual values
+
+pred_df_clean &amp;lt;- pred_df %&amp;gt;% group_by(YEAR) %&amp;gt;% 
+  summarise(meanLBS = mean(LBS), meanCPUE = mean(.pred),
+            meanCPUE.lwr = mean(.pred_lower),
+            meanCPUE.upr = mean(.pred_upper))
+
+
+ggplot(pred_df_clean, aes(x = YEAR)) +
+  theme_minimal()+
+  geom_line(aes(y = meanLBS), col = &amp;#39;black&amp;#39;, lwd = 1.2) +
+  geom_point(aes(y = meanCPUE),col = &amp;#39;dodgerblue&amp;#39; ) + 
+  geom_errorbar(aes(ymin = meanCPUE.lwr, ymax =meanCPUE.upr),
+                col = &amp;#39;dodgerblue&amp;#39; ) +
+  labs(x = &amp;#39;Year&amp;#39;, y = &amp;#39;Catch (lbs, black line) or CPUE (blue points and 95%CI&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Writing technical content in Academic</title>
       <link>/post/writing-technical-content/</link>
       <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>

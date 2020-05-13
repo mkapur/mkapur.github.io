@@ -28,14 +28,15 @@ layout: true
 background-image: url("Screenshot (43).png")
 background-size: contain
 ???
-work today is colabo
+Collab & 4th chapter
+- Familiar faces
+- Exactly 1 yo when project was starting out gave think tank on this
 ---
 background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
 background-size: contain
 
 ???
-- Familiar faces
-- Exactly 1 yo when project was starting out gave think tank on this
+
 - at that time I used an analogy from this netflix documentary series to introduce concept of misspecification
 
 
@@ -80,29 +81,27 @@ background-size: contain
 
 .pull-left[
 + Estimates are biased/imprecise
-+ You fixed something, but…
-+ something important still incorrect
 ]
 
-
+--
 .pull-right[
 ![](ikea.jpg)
 ]
 
 ???
-Why do we care -- what is the outcome?
-For this talk I don't want to get way into weeds of specific stock assessment outputs
-instead focus on core concern.
+- Why do we care -- what is the outcome?
+- Not concerned w fishery/assessment specifics bc thrust @ IPM @ large
+- core concern is that misspec = estimates that are biased/imprecise
+- Fisheries outcomes feed into mgmt
+- other systems make decisions like whether ESA or determine siting of closed area 
 
-most importantly, what comes out of hte model is biased or imprecise, meaning you feed bad things to mgmt procedure
 
-in stock assessment they feed direclty in, but even outside they are used to do things like ESA
-siting of protected area or perhaps an oil field
-
-pic on the right  is kindof silly, but as i worked on this project I came to see model building much like ikea furniture
-over the next several slides, nitty-gritty of sim study design, particularly for ppl no in modeling,
-think of this like we are examining all the wayst to misspec or wrongly assesmble a chair, 
-and compare how easy it is to sit in
+- pause to address non-modelers
+- next slides nitty-gritty moving parts
+- as i worked on this ikea analogy
+- if you start to get lost, come back to think of study as all ways to wrongly assemble chair
+- and how easy to sit in it
+- will circle back to metaphor
 
 
 ---
@@ -114,8 +113,8 @@ and compare how easy it is to sit in
 + Are certain mis-specifications more or less influential on model bias? 
 
 ???
-guiding questions: quantity and identity
-
+- guiding questions: quantity and identity
+- second is like asking are putting the legs on right more important than the back?
 
 ---
 
@@ -127,6 +126,9 @@ guiding questions: quantity and identity
 
 + Calculate comparative statistics on derived quantities
 
+???
+
+- let's go through some schematics to illustrate how this looks
 
 ---
 background-image: url("Screenshot (1).png")
@@ -134,29 +136,48 @@ background-position: center
 background-size: contain
 
 ???
-t
-OM is like manual version of ikea
-pop quantities like biomass in system etc
+- start with OM
+- OM is like manual version of ikea, truth about pop dynamics, params, structure
+- "gold standard"
+- pop quantities like biomass in system etc
 ---
 background-image: url("Screenshot (2).png")
 background-position: center
 background-size: contain
+???
+- take om, data that it generates and tweak it a little bit to build EM (green)
+- the EM can be iether similar to or very different from the OM
+
 ---
 background-image: url("Screenshot (3).png")
 background-position: center
 background-size: contain
+???
+- but what it does do is also print population quantities
+- of course the values in those vectors are diff because it underwent some misspec
+- now can make a comparison and basically determine how much worse off we are
 ---
 background-image: url("Screenshot (4).png")
 background-position: center
 background-size: contain
+???
+- go thru again but more detail
+- start w OM, build em fully misspec everything wrong
+- say we build a second EM with one fewer misspec, or one correction
 ---
 background-image: url("Screenshot (5).png")
 background-position: center
 background-size: contain
+???
+- now we have three sets of pop quants
+- and two relative errors, bc we always compare the chair we built (em) to the manual (OM)
 ---
 background-image: url("Screenshot (6).png")
 background-position: center
 background-size: contain
+???
+- other cool thing that arises is we keep track of IDENTITY  what we went in and corrected
+- meaning we can write down the change in relative error, or improvement associated with that misspec
 ---
 background-image: url("Screenshot (7).png")
 background-position: center
@@ -360,7 +381,8 @@ for example E2 allows us to ask, if you got everything else right, is it really 
 + Estimated stock spawning biomass over time
 + Both quantities within last 10 years
 
-
+---
+# .inverse[Results]
 
 ---
 background-image: url("SSB_error_panel_E1_dark.png")
@@ -396,11 +418,7 @@ background-size: contain
 amazingly the exact inverse trend was found for e2
 this plot is structured the same way, with the labeled letters tellin you what's wrong with this model
 as we expect, we do see the model getting more oand more correct with fewer misspecs, but we never get into the "yellow zone" until space is cleared up.
----
-background-image: url("SSB_Terminal_Tile_E2.png")
-background-position: center
-background-size: contain
-???
+
 Another interesting thing we can see from this plot is what besides space seems to have a possitive effect
 
 point out clusters of lighter things, in this second column we are only correcting one thing
@@ -431,7 +449,12 @@ background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jp
 background-size: contain
 ## .inverse[ Making sense of a massive study]
 
-
+???
+if there is one takeaway, it is that i was psychic when i picked the casini space misison
+as the analogy last year,
+because actually at the time of thinktank weren't considering space
+because too hard to implement (but alas grad school)
+the reason it was so wild is that...
 ---
 background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
 background-size: cover
@@ -447,6 +470,13 @@ background-size: cover
 
 .pull-right[
 ![](rocketfish.jpg)]
+
+???
+first technical takehoms 
+spatial structure ended up having the most outsize influence on model estimates
+and incredibly this held true regardless of whether or not every other imporant thing was right
+as wee saw from the colored tileplots from both experiments
+whether space was corrected first or last, you got the most bang for your buck
 
 ---
 background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
@@ -465,6 +495,16 @@ background-size: cover
 
 .pull-right[
 ![](rocketfish.jpg)]
+
+???
+
+there were also interesting sub-findings of this work
+which was that even once you got spatial structure right,
+having misspec M will guarantee that your model outputs are biased,
+and we can even predict the direction depending whether M is hi or low.
+
+finally exp 2 revaled that while space is most important, the quickest reduction in
+relerr came from correcting growth and selex early on.
 
 ---
 
@@ -485,6 +525,13 @@ background-size: contain
 ![](rocketfish.jpg)]
 
 ???
+now for some more big picture takeaways
+what we've done here is produce a huge and detailed dataset
+the analysis i've done here is pretty straightforward, just summing/averaging relErr
+i feel that is the easiest to digest for broad audience
+and i'll be the first to say that as i worked up results i sense that this is hungry for optimization
+algo, so i'd be realy happy to collab on subsequent publications with folks with experience in those areas because i think there is more to be mined from it
+
 Potential for ML algorithm, lots of data exploration etc
 ---
 background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
@@ -503,7 +550,8 @@ background-size: contain
 .pull-right[
 ![](rocketfish.jpg)]
 ???
-Imagine if you could nail M, Linf?
+the final thing is really directed towards the folks working on the research that directly informs 
+our params. if you are someone cutting up fish heads to nail Linf, or perhaps doing genetic work to determine if there is >1 stock in an area, my hope is you can point to this work to re-emphasize the direct, specific contribution your findings will have on the accuracy of our management science.
 
 ---
 <Br>

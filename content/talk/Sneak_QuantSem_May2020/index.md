@@ -4,11 +4,11 @@ summary: This talk is under construction. The fourth chapter of my disseration, 
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2020-05-15T13:00:00Z"
+date: "2020-05-15T12:30:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2020-05-12T00:00:00Z"
+publishDate: "2020-05-15T00:00:00Z"
 
 authors: []
 tags: []

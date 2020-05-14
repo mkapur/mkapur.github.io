@@ -25,7 +25,7 @@ layout: true
 
 ???
 ---
-background-image: url("Screenshot (43).png")
+background-image: url("titleslide.png")
 background-size: contain
 ???
 Collab & 4th chapter
@@ -47,7 +47,7 @@ background-size: contain
 # .inverse[ Mis-specification]
 ???
 - show had rocket scientists obsessed w 20s v 2 mins on accuracy 
-- wild bc goal was to blow up rocket
+- which would make diff of whether the mission was accomplished or went hurtling into abyss
 - I work on a diff type of model (stock ass used for mgmt.) 
 - but spend a lot of time thinking about the causes and ocnsequences of misspecification, 
 - for us 20s may be 20000 mt w  flow on effects for livelihoods
@@ -66,7 +66,6 @@ background-size: contain
 
 <Br><Br><Br><br>
 .darktext[ 
-+ You did something wrong.
 + Model (wrong selectivity form)
 + Process (wrong stock-recruit)
 + Data (amount or quality)
@@ -131,7 +130,7 @@ background-size: contain
 - let's go through some schematics to illustrate how this looks
 
 ---
-background-image: url("Screenshot (1).png")
+background-image: url("method1.png")
 background-position: center
 background-size: contain
 
@@ -139,77 +138,91 @@ background-size: contain
 - start with OM
 - OM is like manual version of ikea, truth about pop dynamics, params, structure
 - "gold standard"
-- pop quantities like biomass in system etc
+
 ---
-background-image: url("Screenshot (2).png")
+background-image: url("method2.png")
+background-position: center
+background-size: contain
+???
+- pop quantities like biomass in system etc
+
+---
+background-image: url("method3.png")
 background-position: center
 background-size: contain
 ???
 - take om, data that it generates and tweak it a little bit to build EM (green)
 - the EM can be iether similar to or very different from the OM
 
+
 ---
-background-image: url("Screenshot (3).png")
+background-image: url("method4.png")
 background-position: center
 background-size: contain
 ???
 - but what it does do is also print population quantities
 - of course the values in those vectors are diff because it underwent some misspec
 - now can make a comparison and basically determine how much worse off we are
+
 ---
-background-image: url("Screenshot (4).png")
+background-image: url("method5.png")
 background-position: center
 background-size: contain
 ???
 - go thru again but more detail
-- start w OM, build em fully misspec everything wrong
-- say we build a second EM with one fewer misspec, or one correction
+
+
 ---
-background-image: url("Screenshot (5).png")
+background-image: url("method6.png")
+background-position: center
+background-size: contain
+???
+- start w OM, build em fully misspec everything wrong
+
+---
+background-image: url("method7.png")
+background-position: center
+background-size: contain
+???
+- say we build a second EM with one fewer misspec, or one correction
+
+
+---
+background-image: url("method8.png")
 background-position: center
 background-size: contain
 ???
 - now we have three sets of pop quants
 - and two relative errors, bc we always compare the chair we built (em) to the manual (OM)
+
 ---
-background-image: url("Screenshot (6).png")
+background-image: url("method9.png")
 background-position: center
 background-size: contain
 ???
 - other cool thing that arises is we keep track of IDENTITY  what we went in and corrected
 - meaning we can write down the change in relative error, or improvement associated with that misspec
 ---
-background-image: url("Screenshot (7).png")
+background-image: url("method10.png")
 background-position: center
 background-size: contain
----
-background-image: url("Screenshot (8).png")
-background-position: center
-background-size: contain
-
 ???
-we take th EM w everything wrong you'd possibly want
-then make another EM which is slightly less wrong, 
-has one misspecification correted
-now we have 3 sets of pop quants
-and two relerrs, because recall taht we compare the estimation models
-or wrongly built chairs to the om, the truth
-
+- how this looks for real
+- OM is just this little white box
+- stack of 6 green boxes each em, numbers mean misspecs
+- the sixths totally corrected
 ---
-background-image: url("Screenshot (10).png")
+background-image: url("method11.png")
 background-position: center
 background-size: contain
----
-background-image: url("Screenshot (11).png")
-background-position: center
-background-size: contain
----
-background-image: url("Screenshot (12).png")
-background-position: center
-background-size: contain
+???
+- and get relerr on each
+- let's look at how this study design can enable us to answer research questions
 ---
 <Br><Br>
 ##.inverse[1) Do we need to fix every mis-spec <br> before the model performs “well”? ]
+???
+recall, quantity
 ---
 background-image: url("exOM1_E1.png")
 background-position: center
@@ -222,6 +235,7 @@ y axis is relative error, x is # of misspecifications present,
 good news for this fake example is that with fewer misspecs the error goes down
 doesnt appear to be that great until about XX
 
+
 ---
 background-image: url("exOM2_E1.png")
 background-position: center
@@ -233,6 +247,8 @@ Now this data is not my real results, this is completely fake for illustration
 y axis is relative error, x is # of misspecifications present,
 good news for this fake example is that with fewer misspecs the error goes down
 doesnt appear to be that great until about XX
+
+Explain this from 0 - 5
 
 ---
 background-image: url("exOM3_E1.png")
@@ -252,17 +268,15 @@ good news for this fake example is that with fewer misspecs the error goes down
 doesnt appear to be that great until about XX
 
 ---
-
-
-##.inverse[2) Are certain mis-specifications <Br> more or less influential on model bias?  ]
-
+### .inverse[2) Are certain mis-specifications <Br> more or less influential on model performance?  ]
 ```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE, fig.width=8, fig.height=6, fig.align='center', fig.retina=2}
-dat <- data.frame("SPECID" = letters[1:5], "ABSRELE" = sort(c(runif(2,0.5,0.75),
-                                                     runif(3,0.15,0.6))))
+dat <-
+  data.frame("SPECID" = toupper(letters[1:5]), "ABSRELE" = c(runif(2, 0.6, 0.85),
+  runif(3, 0.15, 0.4)))
 idrel <- ggplot(dat, aes(x = SPECID, y = ABSRELE, fill = SPECID)) +
-  ggsidekick::theme_sleek(base_size = 16)+
-  labs(x = "Identity of Corrected Misspecification", y = "Absolute Decline in Relative Error", fill = "") +
-  scale_y_continuous(limits = c(0,1)) +
+kaplot::theme_solarized_mk(light = FALSE,base_size = 20)+
+  labs(x = "What Got Corrected", y = "Decrease in Relative Error", fill = "") +
+  # scale_y_continuous(limits = c(0,1)) +
   scale_fill_manual(values = c('black','gold','orange','dodgerblue2','pink')) +
   geom_bar(stat = 'identity', color = 'white') 
 idrel
@@ -283,19 +297,17 @@ knitr::include_graphics("exOM3_E1.png")
 
 <Br><Br>
 .large[
-.inverse[N! unique “strings” of ordered mis-specs]
+.inverse[N! = all unique, ordered combinations of N misspecs]
 ]
 
 ---
-background-image: url("Screenshot (26).png")
-background-position: center
-background-size: contain
+
+# .inverse[Misspecifications Explored]
 
 ???
 let's talk about misspecs we explored
 there are 380+ in a given model
 and also keep combinations low bc factorial contrib
-
 but wanted to look at those that are commonly used in IPMs, or have analogies
 these terms might be fisheries specific but basically any ipm will have
 params representing how animals grow, survive, and their reproductivity
@@ -307,14 +319,13 @@ for this group, generally process, misspec straightfwd, fix at wrong value
 
 
 ---
-background-image: url("Screenshot (27).png")
+background-image: url("pars1.png")
 background-position: center
 background-size: contain
 ---
-background-image: url("Screenshot (28).png")
+background-image: url("pars2.png")
 background-position: center
 background-size: contain
-
 
 ???
 -final one is most interesting to me and that is sptl structure 
@@ -325,49 +336,36 @@ background-size: contain
 -but particularly interested in seeing how impactful this aspect is in context of other important processes
 
 -NOTE COLORED SQUARES
+
 ---
-background-image: url("Screenshot (13).png")
+background-image: url("exp1.png")
 background-position: center
 background-size: contain
-
 ???
 So what i've done here is taken a figure from a few slides back
 - with OM little square on left
 - stack of 6 ems on right, now having colored squares representing the EMs
 
-
----
-background-image: url("Screenshot (14).png")
-background-position: center
-background-size: contain
-
-???
--rotate this graphic and showing it again in at the top
--what this row represents is the 6 ems corresponding to a unique order of correction
+- rotate this graphic and showing it again in at the top
+- what this row represents is the 6 ems corresponding to a unique order of correction
 - with space fixed first, growth (black) second, and so on
----
-background-image: url("Screenshot (15).png")
-background-position: center
-background-size: contain
-???
 - fixing space first every time, that leaves us with 4! combos of the remaining misspecs
 
 
 ---
-background-image: url("Screenshot (16).png")
+background-image: url("exp2.png")
 background-position: center
 background-size: contain
 
 --
 
-<br><br><br><br><Br><Br><br><br><br><br><Br><Br>
-
+<Br><br><br><Br><Br><Br><Br><br><br><br><Br><br>
 .pull-left[
-14,400 = 50 OM replicates <Br>
-x 2 Experiments <Br>
+14,400 EMS= <br>
+2 Experiments <Br>
 x 24 "strings" <br>
-x 6 EMs
-
+x 6 EMs <Br>
+x 50 bootstrapped OMs
 ]
 
 ???
@@ -383,52 +381,85 @@ for example E2 allows us to ask, if you got everything else right, is it really 
 
 ---
 # .inverse[Results]
+.pull-center[
+![](ikea2.jpg)
+]
+
+
+???
+- I will walk through the hilites of results, 
+- as you can imagine there is a lot to wade thru with 14,000 model outputs
 
 ---
 background-image: url("SSB_error_panel_E1_dark.png")
 background-position: center
 background-size: contain
-
 ???
-I will walk through the hilites of results, as you can imagine there is a lot to wade thru with 14,000 model outputs
-these are from E1. we are seeing what we would expec
-as misspecs go down so does rel err, with the most correct model being
+- these are from E1. 
+- we are seeing what we would expec
+- as misspecs go down so does rel err, with the most correct model being
 the most correct
 ---
 background-image: url("SSB_Terminal_Tile_E1.png")
 background-position: center
 background-size: contain
+
+```{r echo = FALSE, fig.align = 'left', out.height="10%", out.width="10%",fig.retina = 2}
+knitr::include_graphics("legend3.png")
+```
+<Br><Br><br><br><Br><Br><br>
+<Br><Br><br><br><Br><Br><br>
+```{r echo = FALSE, fig.align = 'left', out.height="25%", out.width="25%",fig.retina = 2}
+knitr::include_graphics("legend2.png")
+```
+
 ???
-the more interesteing question is, what is the identity of those misspecs that give us the most bang for our buck?
-this plot is averaged across OMs etc and shows the abs relative error... etc
-the x axis has the # of misspecs aka the panels on previous
-and the colors are the amt of relative error for the last 10 years SSB
-the labels tell you what is misspecified in the model
-the more yellow, the better
-what we see here is that going from 5 to 4 misspecs has an outsize pos effect on rel err,
-which is interesting because in every single case that was where we fixed spatial structure
-improvements continue after that, but the biggest decline happens at that initial step
+- the more interesteing question is, what is the identity of those misspecs that give us the most bang for our buck?
+- this plot is averaged across OMs etc and shows the abs relative error... etc
+- the x axis has the # of misspecs aka the panels on previous
+- and the colors are the amt of relative error for the last 10 years SSB
+- the labels tell you what is misspecified in the model
+- the more yellow, the better
+- what we see here is that going from 5 to 4 misspecs has an outsize pos effect on rel err,
+- which is interesting because in every single case that was where we fixed spatial structure
+- improvements continue after that, but the biggest decline happens at that initial step
+- this result is especially striking, because...
 ---
 background-image: url("SSB_Terminal_Tile_E2.png")
 background-position: center
 background-size: contain
-
+<Br><Br><br><br><Br><Br><br>
+<Br><Br><br><br><Br><Br><br><Br>
+```{r echo = FALSE, fig.align = 'left', out.height="25%", out.width="25%",fig.retina = 2}
+knitr::include_graphics("legend2.png")
+```
 ???
 
-amazingly the exact inverse trend was found for e2
-this plot is structured the same way, with the labeled letters tellin you what's wrong with this model
-as we expect, we do see the model getting more oand more correct with fewer misspecs, but we never get into the "yellow zone" until space is cleared up.
 
-Another interesting thing we can see from this plot is what besides space seems to have a possitive effect
+- the exact same was found for exp 2, where spatial structure wasn't corrected until after all else
+- this plot is setup the same way, with the labeled letters tellin you what's wrong with this model
+- as we expect, we do see the model getting more oand more correct with fewer misspecs, but we never get into the "yellow zone" until space is cleared up.
 
-point out clusters of lighter things, in this second column we are only correcting one thing
-and it appears that having X and L right we get a bigger jump
+- Another interesting thing we can see from this plot is what besides space seems to have a possitive effect
+- on the left side of this image we are looking at models with only one or two correctiongs
+- say we were only interested in correcting one thing, moving from 5 to 4 misspecs,
+- we see these clusters of lighter areas that seem to have done better
+- what they have in common is these were EMs which corrected L (asymp length) or X (selex)
 ---
-![](ID_boxplot_E2.png)
+background-image: url("ID_boxplot_E2.png")
+background-position: center
+background-size: contain
+
+```{r echo = FALSE, fig.align = 'left', out.height="25%", out.width="25%",fig.retina = 2}
+knitr::include_graphics("legend4.png")
+```
 ???
-can show these results in the format i introduced at the beginning, where we see the spread 
-of absolute changes in relErr accodring to identity.
-What is cool is that for this experiment, space wasn't corrected till the very end but STILL had the largest impact on relative error (this is delta-prev)
+- can show these results from the previousin the format i introduced at the beginning, 
+- where we see the spread of absolute changes in relErr accodring to identity.
+- here i have two panels now, the right hand is biomass which is the same as the plot we saw before
+- and right is recruitment
+- What is cool is that for this experiment, space wasn't corrected till the very end but STILL had the largest impact on relative error 
+- NOTE TO SELF: the variation comes from the fact that we're compiling any poss location where X,L etc were corrected, hence the spread. interesting that the trend persists even though there were equivalent # of models which were run with L last etc
 
 ---
 background-image: url("Rec_error_panel_E1_dark.png")
@@ -436,25 +467,33 @@ background-position: center
 background-size: contain
 
 ???
-one other interesting result to share
-hree is E1 again but for recruitment
-same general idea but whacky banding
+- one other interesting result to share
+- here is E1 again but for recruitment
+- as I'd expect, mag/var in rel err goes way up as we increase number of misspecs
+- some of this is due to div small numbers, but still
+- weirdest thing was this strange banding, which suggests 
+- that there are clusters of EMs which are mostly pos or neg biased
+- so i took this plot, and re-colored it...
 ---
-
 background-image: url("Rec_error_M_E1_dark.png")
 background-position: center
 background-size: contain
+???
+- to illustrate what value of natural mortality was used within the EMs
+- here, blue means the EM was misspecified using a natM above than the OM, and gold was below
+- we only start to see white lines up to number 3, because models with 4 or 5 misspecs for E1 only have space misspeced
+- the outcome here is that only those models with M and SPACE right are hanging out around the zero line,
+- and we can effectively predict the direction of bias in your recruit estimates depending on whether natM is low or hi
 ---
 background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
 background-size: contain
-## .inverse[ Making sense of a massive study]
+## .inverse[ Making sense of a massive study I]
 
 ???
-if there is one takeaway, it is that i was psychic when i picked the casini space misison
-as the analogy last year,
-because actually at the time of thinktank weren't considering space
-because too hard to implement (but alas grad school)
-the reason it was so wild is that...
+- one takeaway is my precience @ think tank last year in used the casini sp mission in intro
+- because actually at the time of thinktank weren't considering space
+- because too hard to implement (but alas grad school)
+- proved fitting i picked space example, because..
 ---
 background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
 background-size: cover
@@ -472,11 +511,10 @@ background-size: cover
 ![](rocketfish.jpg)]
 
 ???
-first technical takehoms 
-spatial structure ended up having the most outsize influence on model estimates
-and incredibly this held true regardless of whether or not every other imporant thing was right
-as wee saw from the colored tileplots from both experiments
-whether space was corrected first or last, you got the most bang for your buck
+- spatial structure ended up having the most outsize influence on model estimates
+- and incredibly this held true regardless of whether or not every other imporant thing was right
+- we saw from the colored tileplots from both experiments
+- whether space was corrected first or last, you got the most bang for your buck by correctly specifying
 
 ---
 background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
@@ -487,8 +525,8 @@ background-size: cover
 .large[
 .inverse[
 + Space matters most for both biomass & recruitment
-+ Natural mortality induces systematic bias in recruitment
-+ For biomass, having growth & selectivity right first is key
++ For biomass, growth & selectivity are early winners
++ For recruitment, Natural mortality induces systematic bias 
 ]
 ]
 ]
@@ -498,13 +536,14 @@ background-size: cover
 
 ???
 
-there were also interesting sub-findings of this work
-which was that even once you got spatial structure right,
-having misspec M will guarantee that your model outputs are biased,
-and we can even predict the direction depending whether M is hi or low.
+- there were also interesting sub-findings of this work
+- which was that even if you started with correct spatial structure,
+- having misspec M will guarantee that your model outputs are biased,
+- and we can even predict the direction depending whether M is hi or low.
 
-finally exp 2 revaled that while space is most important, the quickest reduction in
-relerr came from correcting growth and selex early on.
+- finally exp 2 revaled that while space is most important, the quickest reduction in
+- relerr for biomass otherwise came from correcting growth and selex early on.
+- so some of your prioritization among these things would depend on if you were more interested in SSB and recruitment
 
 ---
 
@@ -525,14 +564,16 @@ background-size: contain
 ![](rocketfish.jpg)]
 
 ???
-now for some more big picture takeaways
-what we've done here is produce a huge and detailed dataset
-the analysis i've done here is pretty straightforward, just summing/averaging relErr
-i feel that is the easiest to digest for broad audience
-and i'll be the first to say that as i worked up results i sense that this is hungry for optimization
-algo, so i'd be realy happy to collab on subsequent publications with folks with experience in those areas because i think there is more to be mined from it
+- now for some more big picture takeaways
+- the analysis i've done here is pretty straightforward, just summing and averaging relErr
+- i feel that is the easiest to digest for broad audience
+- what we've done here is produce a huge and detailed dataset
+- i'll be the first to say that as i worked up results i sense that this is hungry for optimization
+algo, 
+- so i'd be realy happy to collab on subsequent publications with folks with experience in those areas 
+- because i think there are hidden patterns that we can't do justice for
 
-Potential for ML algorithm, lots of data exploration etc
+
 ---
 background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
 background-size: contain
@@ -550,8 +591,12 @@ background-size: contain
 .pull-right[
 ![](rocketfish.jpg)]
 ???
-the final thing is really directed towards the folks working on the research that directly informs 
-our params. if you are someone cutting up fish heads to nail Linf, or perhaps doing genetic work to determine if there is >1 stock in an area, my hope is you can point to this work to re-emphasize the direct, specific contribution your findings will have on the accuracy of our management science.
+- directed towards the folks working on the research that directly informs 
+our params.
+- if you are someone cutting up fish heads to nail asymp L
+- or perhaps doing genetic work to determine stock structure in a managed area,
+- my hope is you can point to this work to re-emphasize the direct, 
+- specific contribution your findings will have on the accuracy of our management science.
 
 ---
 <Br>
@@ -559,8 +604,10 @@ our params. if you are someone cutting up fish heads to nail Linf, or perhaps do
 kapurm@uw.edu
 
 ![](rocketfish.jpg)
----
 
+(yes, I just googled "outer space fish")
+---
+# .inverse[extra slides]
 ---
 background-image: url("SSB_error_M_E1.png")
 background-position: center

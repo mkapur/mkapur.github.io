@@ -15,15 +15,14 @@ output:
 ---
 ```{r setup, include=FALSE}
 library(icon)
+library(ggplot2)
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(warning = FALSE, message = FALSE,fig.align='center',
                       fig.width = 4, fig.height = 5, 
                       comment = NA, rows.print = 16)
 ```
-layout: true
-.header[`r icon::fa('github')` @mkapur/sneak]
 
-???
+
 ---
 background-image: url("titleslide.png")
 background-size: contain
@@ -215,25 +214,23 @@ background-size: contain
 background-image: url("method11.png")
 background-position: center
 background-size: contain
+
 ???
 - and get relerr on each
-
-
-
 ---
 
 # .inverse[Misspecifications Explored]
 
 ???
-let's talk about misspecs we explored
-there are 380+ in a given model
-and also keep combinations low bc factorial contrib
-but wanted to look at those that are commonly used in IPMs, or have analogies
-these terms might be fisheries specific but basically any ipm will have
-params representing how animals grow, survive, and their reproductivity
+- let's talk about misspecs we explored
+- there are 380+ in a given model
+- and also keep combinations low bc factorial contrib
+- but wanted to look at those that are commonly used in IPMs, or have analogies
+- these terms might be fisheries specific but basically any ipm will have
+- params representing how animals grow, survive, and their reproductivity
 
 
-for this group, generally process, misspec straightfwd, fix at wrong value
+
 
 
 
@@ -242,6 +239,10 @@ for this group, generally process, misspec straightfwd, fix at wrong value
 background-image: url("pars1.png")
 background-position: center
 background-size: contain
+
+???
+- for this group, generally process, misspec straightfwd, fix at wrong value
+
 ---
 background-image: url("pars2.png")
 background-position: center
@@ -256,6 +257,13 @@ background-size: contain
 -but particularly interested in seeing how impactful this aspect is in context of other important processes
 
 -NOTE COLORED SQUARES
+---
+# Performance Metrics
++ Estimated recruitment over time
++ Estimated stock spawning biomass over time
++ Both quantities within last 10 years
+???
+- let's look at how this study design can enable us to answer research questions
 
 ---
 <Br><Br>
@@ -268,12 +276,10 @@ background-position: center
 background-size: contain
 ???
 
-=This is question of quantity - do wee need too...
-Now this data is not my real results, this is completely fake for illustration
-y axis is relative error, x is # of misspecifications present,
-good news for this fake example is that with fewer misspecs the error goes down
-doesnt appear to be that great until about XX
-- let's look at how this study design can enable us to answer research questions
+- This is question of quantity - do wee need too...
+- Now this data is not my real results, this is completely fake for illustration
+- y axis is relative error, i have set up panels with the same numbers as in greenboxes
+- at first i'm plotting OM, which of course is gold standard, not misspeced and therefore the same each time
 
 
 ---
@@ -282,14 +288,11 @@ background-position: center
 background-size: contain
 ???
 
-This is question of quantity - do wee need too...
-Now this data is not my real results, this is completely fake for illustration
-y axis is relative error, x is # of misspecifications present,
-good news for this fake example is that with fewer misspecs the error goes down
-doesnt appear to be that great until about XX
-
-Explain this from 0 - 5
-
+- we run our misspecified EMs and plot on top
+- we'd expect to see that with increasing numbers of misspecs, the error gets larger
+- aka the green line not so much like the white
+- there's a simple way of looking at this, which is instead of plotting raw data, just 
+- calc the relative error in each yeaer and plot that
 ---
 background-image: url("exOM3_E1.png")
 background-position: center
@@ -298,14 +301,12 @@ background-size: contain
 --
 
 # .inverse[Models do better with fewer misspecs `r emo::ji("shrug")`]
+
 ???
-
-
-This is question of quantity - do wee need too...
-Now this data is not my real results, this is completely fake for illustration
-y axis is relative error, x is # of misspecifications present,
-good news for this fake example is that with fewer misspecs the error goes down
-doesnt appear to be that great until about XX
+- which is what i've done here. 
+- the white line at zero is now representin gthe oM
+- so this is what we'd expect to see, and frankly the idea that models do better with 
+- less things wrong isn't exaclty a shocker...
 
 ---
 ### .inverse[2) Are certain mis-specifications <Br> more or less influential on model performance?  ]
@@ -321,9 +322,13 @@ kaplot::theme_solarized_mk(light = FALSE,base_size = 20)+
   geom_bar(stat = 'identity', color = 'white') 
 idrel
 ```
+
 ???
-recall that each EM has a correction, and that enables us to detect what happened when something was corrected
-again this is fake
+- which is why we are especially interested in this second question, all about IDENTITY
+- recall that each EM has a correction, and that enables us to detect what happened when something was corrected
+- again this is fake data. the way this plot works is the x axis is the IDENTITY of a corrected model component
+- and the y is the DECLINE in relative error, in other words how much the model improved once we corrected that
+- in this fake example, X/Y seem to give the biggest bang for buck
 ---
 
 ### Why this hasn't been done before...
@@ -339,6 +344,8 @@ knitr::include_graphics("exOM3_E1.png")
 .large[
 .inverse[N! = all unique, ordered combinations of N misspecs]
 ]
+???
+- Folks could probably do this in one weekend
 
 
 ---
@@ -377,11 +384,6 @@ x 50 bootstrapped OMs
 - the reason we did it this way is two fold; wanted to avoid going in and changing the spatial structure of the model multiple times
 - also were interested in the precedence of this feautre which is so widely studied.
 for example E2 allows us to ask, if you got everything else right, is it really so great to get space done?
----
-# Performance Metrics
-+ Estimated recruitment over time
-+ Estimated stock spawning biomass over time
-+ Both quantities within last 10 years
 
 ---
 # .inverse[Results]
@@ -405,15 +407,15 @@ background-size: contain
 the most correct
 ---
 background-image: url("SSB_Terminal_Tile_E1.png")
-background-position: center
+background-position: top
 background-size: contain
 
-```{r echo = FALSE, fig.align = 'left', out.height="10%", out.width="10%",fig.retina = 2}
+```{r echo = FALSE, fig.align = 'left', out.height="5%", out.width="5%",fig.retina = 2}
 knitr::include_graphics("legend3.png")
 ```
-<Br><Br><br><br><Br><Br><br>
-<Br><Br><br><br><Br><Br><br>
-```{r echo = FALSE, fig.align = 'left', out.height="25%", out.width="25%",fig.retina = 2}
+<Br><Br><br><br><Br><Br><Br><Br>
+<Br><Br><br><br><Br><Br><br><br>
+```{r echo = FALSE, fig.align = 'left', out.height="15%", out.width="25%",fig.retina = 2}
 knitr::include_graphics("legend2.png")
 ```
 
@@ -430,11 +432,11 @@ knitr::include_graphics("legend2.png")
 - this result is especially striking, because...
 ---
 background-image: url("SSB_Terminal_Tile_E2.png")
-background-position: center
+background-position: top
 background-size: contain
-<Br><Br><br><br><Br><Br><br>
-<Br><Br><br><br><Br><Br><br><Br>
-```{r echo = FALSE, fig.align = 'left', out.height="25%", out.width="25%",fig.retina = 2}
+<Br><Br><br><br><Br><Br><Br><Br>
+<Br><Br><br><br><Br><Br><br><br>
+```{r echo = FALSE, fig.align = 'left', out.height="15%", out.width="25%",fig.retina = 2}
 knitr::include_graphics("legend2.png")
 ```
 ???

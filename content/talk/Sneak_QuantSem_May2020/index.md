@@ -1,6 +1,6 @@
 ---
 title: Sneaking Up on a Well-Specified Model; Quantitative Seminar, May 15, 2020
-summary: This talk is under construction. The fourth chapter of my disseration, 1 year after presenting the project proposal at Think Tank. The code is still private as we are nearing submission for peer-preview.
+summary: The fourth chapter of my disseration, 1 year after presenting the project proposal at Think Tank. The code is still private as we are nearing submission for peer-preview, but will be released ASAP.
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.

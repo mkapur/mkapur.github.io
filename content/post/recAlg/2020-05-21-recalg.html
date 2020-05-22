@@ -19,27 +19,33 @@ projects: []
 
 
 
-<p>I often find myself revisiting the various “re-arrangements” of the Beverton-Holt stock-recruitment relationship, particularly when moving between equilibrium quantities. I wanted to centralize some algebra for myself and anyone else who uses this relationship with some regularity.</p>
-<div id="part-1-the-srr-and-equilibrium-concepts" class="section level1">
-<h1>Part 1: The SRR, and equilibrium concepts</h1>
+<p>I often find myself revisiting the various “re-arrangements” of the Beverton-Holt stock-recruitment relationship, particularly when moving between equilibrium quantities. I wanted to centralize some algebra for myself and anyone else who uses this relationship regularly.</p>
+<div id="the-bev-holt-srr" class="section level2">
+<h2>The Bev-Holt SRR</h2>
 <p>Let’s start with some working definitions.</p>
-<p><span class="math display">\[ \begin{align}R_0 \quad virgin, \quad unfished \quad recruitment \\ SBPR_0 \quad virgin, \quad unfished \quad spawner \quad biomass-per-recruit \\ SSB_0 \quad virgin, \quad unfished \quad spawning \quad biomass \\ SBPR_F \quad  \quad biomass-per-recruit \quad at \quad F \neq 0 \\ SSB_F \quad spawning \quad biomass  \quad at \quad F \neq 0 \\ YPR_F \quad yield-per-recruit \quad at \quad F \neq 0 \\ \end{align} \]</span></p>
-<p>First, let’s illustrate how one strings these quantities together in an age-structured model <em>assuming a stock-recruit relationship</em> to derive equilibrium quantities. + 1) Find <span class="math inline">\(SBPR\)</span> and <span class="math inline">\(YPR\)</span> at your <span class="math inline">\(F\)</span> value of interest, and also calculate these values when <span class="math inline">\(F = 0\)</span>. This will vary slightly depending on the setup of your model, but in pseudo-math: <span class="math display">\[
+<p><span class="math display">\[ \begin{align*}R_0 \quad virgin, \quad unfished \quad recruitment \\ SBPR_0 \quad virgin, \quad unfished \quad spawner \quad biomass-per-recruit \\ SSB_0 \quad virgin, \quad unfished \quad spawning \quad biomass \\ SBPR_F \quad  \quad biomass-per-recruit \quad at \quad F \neq 0 \\ SSB_F \quad spawning \quad biomass  \quad at \quad F \neq 0 \\ YPR_F \quad yield-per-recruit \quad at \quad F \neq 0 \\ \end{align*} \]</span></p>
+<p>First, let’s illustrate how one strings these quantities together in an age-structured model <em>assuming a stock-recruit relationship</em> to derive equilibrium quantities.</p>
+</div>
+<div id="yield-per-recruit-quantities-at-various-f" class="section level2">
+<h2>Yield-per-Recruit quantities at various F</h2>
+<ol style="list-style-type: decimal">
+<li>Find <span class="math inline">\(SBPR\)</span> and <span class="math inline">\(YPR\)</span> at your <span class="math inline">\(F\)</span> value of interest, and also calculate these values when <span class="math inline">\(F = 0\)</span>. This will vary slightly depending on the setup of your model, but in pseudo-math: <span class="math display">\[
 YPR = \large \Sigma_a \small Fs_aN_aw_a
-\]</span></p>
+\]</span></li>
+</ol>
 <p>Where <span class="math inline">\(N_a\)</span> is a proportional expected number-at-age, <span class="math inline">\(w_a\)</span> is the expected weight-at-age, and <span class="math inline">\(s_a\)</span> is fishery selectivity. <span class="math display">\[
-SBPR = = \large \Sigma_a \small E_aN_aw_a
+SBPR = \large \Sigma_a \small E_aN_aw_a
 \]</span> Here <span class="math inline">\(E_a\)</span> is some measure of your population’s fecundity at age. The resultant <span class="math inline">\(SBPR\)</span> is going to vary with <span class="math inline">\(F\)</span> because <span class="math inline">\(N_a\)</span> will decline faster when <span class="math inline">\(F\)</span> is greater than zero.</p>
-<ul>
-<li>2a) Look at your stock-recruitment relationship. <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are parameters of the Beverton-Holt SRR. We also leverage the definition of equilibrium stock spawning biomass as the product of unfished SBPR and REcruitment. You can confirm this makes sense by describing the equation with words: the virgin/unfished spawning biomass is the expected spawning biomass for one virgin/unfished recruit times the number of recruits. The same relationship will apply for equilibrium biomass.</li>
-</ul>
+</div>
+<div id="srr-in-terms-of-sbpr" class="section level2">
+<h2>SRR in terms of SBPR</h2>
+<p>2a) Look at your stock-recruitment relationship. <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are parameters of the Beverton-Holt SRR. We also leverage the definition of equilibrium stock spawning biomass as the product of unfished SBPR and REcruitment. You can confirm this makes sense by describing the equation with words: the virgin/unfished spawning biomass is the expected spawning biomass for one virgin/unfished recruit times the number of recruits. The same relationship will apply for equilibrium biomass.</p>
 <p><span class="math display">\[ \begin{align}
 R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
 SSB_0 = SBPR_0 \times R_0 \\
 SSB_eq = SBPR_{eq} \times R_{eq} \\
 \end{align} \]</span></p>
-<ul>
-<li><p>2b) Re-arrange the SRR to be in terms of <span class="math inline">\(SBPR\)</span>. You will need to pick a number (or estimate) <span class="math inline">\(R_0\)</span>. We do this by substitution: <span class="math display">\[ \begin{align}
+<p>2b) Re-arrange the SRR to be in terms of <span class="math inline">\(SBPR\)</span>. You will need to pick a number (or estimate) <span class="math inline">\(R_0\)</span>. We do this by substitution: <span class="math display">\[ \begin{align}
 R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
 SSB_{eq} = SBPR_{eq} \times R_{eq} \\
 R_{eq} =  \frac{SBPR_{eq} \times R_{eq} }{\alpha + \beta ( SBPR_{eq} \times R_{eq} )} \\
@@ -47,11 +53,12 @@ R_{eq}(\alpha + \beta ( SBPR_{eq} \times R_{eq} )) =  SBPR_{eq} \times R_{eq}  \
 \alpha + \beta ( SBPR_{eq} \times R_{eq} ) =  SBPR_{eq}   \\
 \beta ( SBPR_{eq} \times R_{eq} ) =  SBPR_{eq} - \alpha  \\
  R_{eq}  = \frac{ SBPR_{eq} - \alpha}{\beta \times SBPR_{eq} }  \\
-\end{align} \]</span></p></li>
-<li><ol start="3" style="list-style-type: decimal">
+\end{align} \]</span></p>
+<div id="alpha-beta-in-terms-of-steepness-recruitment" class="section level3">
+<h3>Alpha &amp; Beta in terms of steepness &amp; recruitment</h3>
+<ol start="3" style="list-style-type: decimal">
 <li>Sweet, now we need a nice definition for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Spoiler: these only vary by <span class="math inline">\(R_0\)</span> and steepness, <span class="math inline">\(h\)</span>, which is defined as the expected recruitment at 20% of <span class="math inline">\(SSB_0\)</span> (hence the 0.2s). Here’s the derivation of those values. Recall that <span class="math inline">\(SSB_0 = SBPR_0 \times R_0\)</span>, meaning <span class="math inline">\(SBPR_0\)</span> can be substituted for <span class="math inline">\(\frac{SSB_0}{R_0}\)</span>. Let’s start with beta:</li>
-</ol></li>
-</ul>
+</ol>
 <p><span class="math display">\[
 \begin{array}
 {cc}
@@ -80,11 +87,20 @@ h - 0.8hR_0\beta = 0.2 &amp; div \quad SSB_0 \\
 \alpha = SBPR_0 \langle \frac{1-h}{4h}\rangle &amp; rearrange   \\
 \end{array}
 \]</span></p>
-<em>Bonus Round</em>: Ever wonder where the Beverton-Holt syntax in the Stock Synthesis manual comes from? It is simply the substitution &amp; rearrangement of our derived values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> into the original stock-recruit relationship. The “trick” (not really) is just leaving the equation for <span class="math inline">\(\alpha\)</span> in terms of virigin biomass and recruitment. $$
-<span class="math display">\[\begin{align}
+</div>
+</div>
+<div id="bonus-round-stock-synthesis-recruitment-syntax" class="section level2">
+<h2>Bonus Round: Stock Synthesis Recruitment Syntax</h2>
+<p>Ever wonder where the Beverton-Holt syntax in the Stock Synthesis manual comes from? It is simply the substitution &amp; rearrangement of our derived values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> into the original stock-recruit relationship. The “trick” (not really) is just leaving the equation for <span class="math inline">\(\alpha\)</span> in terms of virigin biomass and recruitment. <span class="math display">\[ 
+\begin{align}
 R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
-R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad substitute\\
-
-\end{align}\]</span>
-<p>$$</p>
+R_F = \frac{SSB_F}{\frac{SSB_0}{R_0} \langle \frac{1-h}{4h}\rangle + \frac{5h-1}{4hR_0} SSB_F} \quad substitute\\
+R_F = \frac{SSB_F 4hR_0}{SSB_0(  1-h)+ SSB_F(5h-1)} \quad flip \quad denom\\
+\end{align} 
+\]</span> ## Yield and Surplus Production Curves 4) We are almost done. We have equations for equilibrium recruitment, and the definitions for the parameters of that equation. Note that equilibrium recruitment <em>will change</em> with <span class="math inline">\(F\)</span> because <span class="math inline">\(SPBR_F\)</span> changes, whereas alpha and beta will not (this is important later). We can now write down equations for our resultant equilibrium spawning biomass, and equilibrium yields: <span class="math display">\[ 
+\begin{align}
+SSB_{eq} = R_{eq} \times {SBPR_F} \\
+Yield_{eq} = R_{eq} \times {YPRR_F}
+\end{align} 
+\]</span> The “yield curve” is simply obtained by re-calculating these values across a range of Fs and plotting the results against input <span class="math inline">\(F\)</span> and/or resultant <span class="math inline">\(SSB\)</span>. The height of the resultant dome is dependent on the value of <span class="math inline">\(h\)</span> used, and the skewness is related to selectivity. For the yield curve specifically, the peak occurs at the point just before natural mortality eclipses somatic growth, and the descending limb will be more “bendy” if you are selecting fish far before they mature. Another way of saying this is that the descending limb will accordingly change in height depending at the age of first capture.</p>
 </div>

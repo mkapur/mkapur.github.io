@@ -24,7 +24,7 @@
 &lt;div id=&#34;the-bev-holt-srr&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;The Bev-Holt SRR&lt;/h2&gt;
 &lt;p&gt;Let’s start with some working definitions.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \begin{align*}R_0 \quad virgin, \quad unfished \quad recruitment \\ SBPR_0 \quad virgin, \quad unfished \quad spawner \quad biomass-per-recruit \\ SSB_0 \quad virgin, \quad unfished \quad spawning \quad biomass \\ SBPR_F \quad  \quad biomass-per-recruit \quad at \quad F \neq 0 \\ SSB_F \quad spawning \quad biomass  \quad at \quad F \neq 0 \\ YPR_F \quad yield-per-recruit \quad at \quad F \neq 0 \\ \end{align*} \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \begin{flushleft} R_0 \quad virgin, \quad unfished \quad recruitment \\ SBPR_0 \quad virgin, \quad unfished \quad spawner \quad biomass-per-recruit \\ SSB_0 \quad virgin, \quad unfished \quad spawning \quad biomass \\ SBPR_F \quad  \quad biomass-per-recruit \quad at \quad F \neq 0 \\ SSB_F \quad spawning \quad biomass  \quad at \quad F \neq 0 \\ YPR_F \quad yield-per-recruit \quad at \quad F \neq 0 \\ \end{flushleft} \]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;First, let’s illustrate how one strings these quantities together in an age-structured model &lt;em&gt;assuming a stock-recruit relationship&lt;/em&gt; to derive equilibrium quantities.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;yield-per-recruit-quantities-at-various-f&#34; class=&#34;section level2&#34;&gt;
@@ -98,12 +98,15 @@ R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
 R_F = \frac{SSB_F}{\frac{SSB_0}{R_0} \langle \frac{1-h}{4h}\rangle + \frac{5h-1}{4hR_0} SSB_F} \quad substitute\\
 R_F = \frac{SSB_F 4hR_0}{SSB_0(  1-h)+ SSB_F(5h-1)} \quad flip \quad denom\\
 \end{align} 
-\]&lt;/span&gt; ## Yield and Surplus Production Curves 4) We are almost done. We have equations for equilibrium recruitment, and the definitions for the parameters of that equation. Note that equilibrium recruitment &lt;em&gt;will change&lt;/em&gt; with &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; because &lt;span class=&#34;math inline&#34;&gt;\(SPBR_F\)&lt;/span&gt; changes, whereas alpha and beta will not (this is important later). We can now write down equations for our resultant equilibrium spawning biomass, and equilibrium yields: &lt;span class=&#34;math display&#34;&gt;\[ 
+\]&lt;/span&gt; ## Yield and Surplus Production Curves&lt;/p&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We are almost done. We have equations for equilibrium recruitment, and the definitions for the parameters of that equation. Note that equilibrium recruitment &lt;em&gt;will change&lt;/em&gt; with &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; because &lt;span class=&#34;math inline&#34;&gt;\(SPBR_F\)&lt;/span&gt; changes, whereas alpha and beta will not (this is important later). We can now write down equations for our resultant equilibrium spawning biomass, and equilibrium yields: &lt;span class=&#34;math display&#34;&gt;\[ 
 \begin{align}
 SSB_{eq} = R_{eq} \times {SBPR_F} \\
-Yield_{eq} = R_{eq} \times {YPRR_F}
+Yield_{eq} = R_{eq} \times {YPR_F}
 \end{align} 
-\]&lt;/span&gt; The “yield curve” is simply obtained by re-calculating these values across a range of Fs and plotting the results against input &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; and/or resultant &lt;span class=&#34;math inline&#34;&gt;\(SSB\)&lt;/span&gt;. The height of the resultant dome is dependent on the value of &lt;span class=&#34;math inline&#34;&gt;\(h\)&lt;/span&gt; used, and the skewness is related to selectivity. For the yield curve specifically, the peak occurs at the point just before natural mortality eclipses somatic growth, and the descending limb will be more “bendy” if you are selecting fish far before they mature. Another way of saying this is that the descending limb will accordingly change in height depending at the age of first capture.&lt;/p&gt;
+\]&lt;/span&gt; The “yield curve” is simply obtained by re-calculating these values across a range of Fs and plotting the results against input &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; and/or resultant &lt;span class=&#34;math inline&#34;&gt;\(SSB\)&lt;/span&gt;. The height of the resultant dome is dependent on the value of &lt;span class=&#34;math inline&#34;&gt;\(h\)&lt;/span&gt; used, and the skewness is related to selectivity. For the yield curve specifically, the peak occurs at the point just before natural mortality eclipses somatic growth, and the descending limb will be more “bendy” if you are selecting fish far before they mature. Another way of saying this is that the descending limb will accordingly change in height depending at the age of first capture.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>

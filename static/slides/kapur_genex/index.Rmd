@@ -1,14 +1,14 @@
 ---
 title: "M.S. Kapur General Exam"
 author: "Committee: Haltuch, Branch, Essington"
-date: "02 Jun 2020, via Zoom"
+date: "02 Jun 2020 12-3pm, via Zoom"
 subtitle: "Chair: André Punt | GSR: Jon Wakefield"
 output:
   xaringan::moon_reader:
     lib_dir: libs
     css: [solarized-dark.css]
     nature:
-      ratio: "16:9"
+      ratio: "16:11.25"
       beforeInit: "https://platform.twitter.com/widgets.js"
       highlightStyle: github
       highlightLines: true
@@ -27,10 +27,13 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE,
 # Dissertation Goals
 .large[
 + Provide needed science evaluating alternative
-spatial management strategies for stock assessment
-+ Title: **Implications of Spatial Mis-specification in
+spatial management strategies for stock assessment <Br>
+
+Working Title:
+
+.inverse[Implications of Spatial Mis-specification in
 Management Strategy Evaluation for North
-Pacific Sablefish**]
+Pacific Sablefish]]
 ---
 # .inverse[ Motivation I: Sablefish]
 ---
@@ -67,19 +70,26 @@ and more importantly what effects those choices have on resultant management est
 #.inverse[ Motiviation II: Science]
 ---
 
-background-image: url("Puntetal2015.png")
-background-position: right
-background-size: contain
-
 .pull-left[
 + A fair bit has been done on spatial mis-match vs. estimation uncertainty.
 
-+ Lesser work on how spatial misspecification flows into HCR performance
-
++ Less work on how spatial misspecification flows into HCR performance
 ]
+
+
+.pull-right[
+![](Puntetal2015b_fulldat.png)
+]
+
 ???
 
-explain what we do know -- summarize major research
+this figure is from one of andre's papers which was a simulation study looking at various degrees
+of a sptl assessment model. the study was pretty involved, but here he is showing rel err of tot bio
+across various setups. what is worth pointing out is these two; ths bzsa is a fairly simple spatial 
+assessment (by zone) with only add'l catchability
+and the full matches the OM completely. as we might expect, the full model is the least biased;
+but these add'l spatial models are actually both biased and imprecise;
+the takeaway from this paper is perhaps intermediate approaches might be best.
 
 will show slide later with actual questions but whant to acknolwege
 that this is using sab as case study and aims to encompass tradeoffs between 
@@ -173,7 +183,7 @@ knitr::include_graphics(c("demog_dark.jpg","BLACK_Figure5_no130.png"))
 .header[`r icon::fa('github')` @mkapur/sab-growth]
 ## Chapter 1: Spatial Growth Variation
 ```{r, echo = FALSE, out.width="50%", fig.show="hold"}
-knitr::include_graphics(c("demog_dark.jpg","OMGrowthCurves_BLACK_2020-05-11.png"))
+knitr::include_graphics(c("demog_dark.jpg","OMGrowthCurves_BLACK_2020-05-11.PNG"))
 ```
 ---
 .header[`r icon::fa('github')` @mkapur/sab-growth]
@@ -251,11 +261,12 @@ background-size: contain
 .header[`r icon::fa('github')` @mkapur/sab-mse]
 ## Important OM Equations
 ### .small[Numbers at Age]
+.small[
 $N_{y+1,\gamma,a}^i=\left\{\begin{matrix}0.5R_{y+1}^i & \text{if}\ a = 0 \newline \sum_{i\neq j}\left[\left(1-\textbf{X}_a^{i,j}\right)\left.\ {N_{y,\gamma,a-1}^ie}^{-Z_{y,\gamma,a-1}^i}\right.+\textbf{X}_a^{j,i}{N_{y,\gamma,a-1}^je}^{-Z_{y,\gamma,a-1}^i}\right] & \text{if}\ 1 \leq a <A\\\sum_{i\neq j}{\left[\left(1-\textbf{X}_a^{i,j}\right)(\left.{N_{y,\gamma,A-1}^ie}^{-Z_{y,\gamma,A-1}^i}\right.\left.+{N_{y,\gamma,A-1}^ie}^{-Z_{y,\gamma,A-1}^i}\right.)\right.\ } & \text{if}\ a = A \\\ldots+\left.\textbf{X}_a^{j,i}\left({N_{y,\gamma,A}^je}^{-Z_{y,\gamma,A}^j}+{N_{y,\gamma,A-1}^je}^{-Z_{y,\gamma,A-1}^j}\right)\right]\\\end{matrix}\right.$
 + Yearly timestep
 + Monitored by sub-area $i$
 + Movement defined by $\textbf{X}^{i,j}_a$
-
+]
 
 
 ---
@@ -266,7 +277,7 @@ $R_y^k=\frac{4h^kR_0^kS_y^k}{S_0^k\left(1-h^k\right)+S_y^k(5h^k-1)}e^{-0.5\sigma
 
 $S_y^k=\sum_{a}{\phi_{ik}N_{y,\gamma=female,a}^iw_{y,\gamma=female,a}^kE_a^k}$ 
 
-+ Density dependence spatial Bev-Holt at stock level $k$
++ Spatialpatial Bev-Holt at stock level $k$
 + SSB in $k$ is summation over $i$ in $k$ (invoke the magic of $\phi_{ik}$)
 
 ---
@@ -349,7 +360,7 @@ background-size: cover
 ]
 
 .pull-right[
-![](ikea.jpg
+![](ikea.jpg)]
 
 
 ---
@@ -363,9 +374,239 @@ background-size: cover
 ???
 - guiding questions: quantity and identity
 - second is like asking are putting the legs on right more important than the back?
+
 ---
+background-image: url("pars1.png")
+background-position: center
+background-size: contain
+
+???
+- for this group, generally process, misspec straightfwd, fix at wrong value
+
+---
+background-image: url("method10.png")
+background-position: center
+background-size: contain
+???
+- how this looks for real
+- OM is just this little white box
+- stack of 6 green boxes each em, numbers mean misspecs
+- the sixths totally corrected
+
+---
+# .inverse[Results]
+.pull-center[
+![](ikea2.jpg)
+]
+
+
+???
+- I will walk through the hilites of results, 
+- as you can imagine there is a lot to wade thru with 14,000 model outputs
+
+---
+background-image: url("SSB_error_panel_E1_dark.png")
+background-position: center
+background-size: contain
+???
+- these are from E1. 
+- we are seeing what we would expec
+- as misspecs go down so does rel err, with the most correct model being
+the most correct
+---
+background-image: url("SSB_Terminal_Tile_E1.png")
+background-position: top
+background-size: contain
+<Br><Br><br><br><Br><Br><Br><Br><br>
+<Br><Br><br><br><Br><Br><br><br><br>
+```{r echo = FALSE, fig.align = 'left', out.height="10%", out.width="25%",fig.retina = 2}
+knitr::include_graphics("legend2.png")
+```
+
+???
+- the more interesting question is: what is the identity of those misspecs that give us the most bang for our buck?
+- this plot is averaged across OMs etc and shows the abs relative error... etc
+- the x axis has the # of misspecs aka the panels on previous
+- and the colors are the amt of relative error for the last 10 years SSB
+- the labels tell you what is misspecified in the model
+- the more yellow, the better
+- what we see here is that going from 5 to 4 misspecs has an outsize pos effect on rel err,
+- which is interesting because in every single case that was where we fixed spatial structure
+- improvements continue after that, but the biggest decline happens at that initial step
+- this result is especially striking, because...
+---
+background-image: url("SSB_Terminal_Tile_E2.png")
+background-position: top
+background-size: contain
+<Br><Br><br><br><Br><Br><Br><Br><br>
+<Br><Br><br><br><Br><Br><br><br><br>
+```{r echo = FALSE, fig.align = 'left', out.height="10%", out.width="25%",fig.retina = 2}
+knitr::include_graphics("legend2.png")
+```
+???
+
+
+- the exact same was found for exp 2, where spatial structure wasn't corrected until after all else
+- this plot is setup the same way, with the labeled letters tellin you what's wrong with this model
+- as we expect, we do see the model getting more oand more correct with fewer misspecs, but we never get into the "yellow zone" until space is cleared up.
+
+- Another interesting thing we can see from this plot is what besides space seems to have a possitive effect
+- on the left side of this image we are looking at models with only one or two correctiongs
+- say we were only interested in correcting one thing, moving from 5 to 4 misspecs,
+- we see these clusters of lighter areas that seem to have done better
+- what they have in common is these were EMs which corrected L (asymp length) or X (selex)
+---
+background-image: url("ID_boxplot_E2.png")
+background-position: center
+background-size: contain
+```{r echo = FALSE, fig.align = 'left', out.height="25%", out.width="25%",fig.retina = 2}
+knitr::include_graphics("legend4.png")
+```
+???
+- can show these results from the previousin the format i introduced at the beginning, 
+- where we see the spread of absolute changes in relErr accodring to identity.
+- here i have two panels now, the right hand is biomass which is the same as the plot we saw before
+- and right is recruitment
+- What is cool is that for this experiment, space wasn't corrected till the very end but STILL had the largest impact on relative error 
+- NOTE TO SELF: the variation comes from the fact that we're compiling any poss location where X,L etc were corrected, hence the spread. interesting that the trend persists even though there were equivalent # of models which were run with L last etc
+
+---
+background-image: url("Rec_error_panel_E1_dark.png")
+background-position: center
+background-size: contain
+???
+- one other interesting result to share
+- here is E1 again but for recruitment
+- as I'd expect, mag/var in rel err goes way up as we increase number of misspecs
+- some of this is due to div small numbers, but still
+- weirdest thing was this strange banding, which suggests 
+- that there are clusters of EMs which are mostly pos or neg biased
+- so i took this plot, and re-colored it...
+---
+background-image: url("Rec_error_M_E1_dark.png")
+background-position: center
+background-size: contain
+???
+- to illustrate what value of natural mortality was used within the EMs
+- here, blue means the EM was misspecified using a natM above than the OM, and gold was below
+- we only start to see white lines up to number 3, because models with 4 or 5 misspecs for E1 only have space misspeced
+- the outcome here is that only those models with M and SPACE right are hanging out around the zero line,
+- and we can effectively predict the direction of bias in your recruit estimates depending on whether natM is low or hi
+---
+background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
+background-size: contain
+## .inverse[ Making sense of a massive study I]
+
+???
+- one takeaway is my precience @ think tank last year in used the casini sp mission in intro
+- because actually at the time of thinktank weren't considering space
+- because too hard to implement (but alas grad school)
+- proved fitting i picked space example, because..
+---
+background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
+background-size: cover
+## .inverse[ Making sense of a massive study I]
+
+--
+
+.pull-left[
+.large[
+.inverse[
++ Space matters most for both biomass & recruitment
+]]]
+
+.pull-right[
+![](rocketfish.jpg)]
+
+???
+- spatial structure ended up having the most outsize influence on model estimates
+- and incredibly this held true regardless of whether or not every other imporant thing was right
+- we saw from the colored tileplots from both experiments
+- whether space was corrected first or last, you got the most bang for your buck by correctly specifying
+
+---
+background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
+background-size: cover
+## .inverse[ Making sense of a massive study I]
+
+.pull-left[
+.large[
+.inverse[
++ Space matters most for both biomass & recruitment
++ For biomass, growth & selectivity are early winners
++ For recruitment, Natural mortality induces systematic bias 
+]
+]
+]
+
+.pull-right[
+![](rocketfish.jpg)]
+
+???
+
+- there were also interesting sub-findings of this work
+- which was that even if you started with correct spatial structure,
+- having misspec M will guarantee that your model outputs are biased,
+- and we can even predict the direction depending whether M is hi or low.
+
+- finally exp 2 revaled that while space is most important, the quickest reduction in
+- relerr for biomass otherwise came from correcting growth and selex early on.
+- so some of your prioritization among these things would depend on if you were more interested in SSB and recruitment
+
+---
+
+background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
+background-size: contain
+
+## .inverse[ Making sense of a complex study II]
+
+.pull-left[
+.inverse[
+.large[
++ These studies are...very involved 
+]
+]
+]
+
+.pull-right[
+![](rocketfish.jpg)]
+
+???
+- now for some more big picture takeaways
+- the analysis i've done here is pretty straightforward, just summing and averaging relErr
+- i feel that is the easiest to digest for broad audience
+- what we've done here is produce a huge and detailed dataset
+- i'll be the first to say that as i worked up results i sense that this is hungry for optimization
+algo, 
+- so i'd be realy happy to collab on subsequent publications with folks with experience in those areas 
+- because i think there are hidden patterns that we can't do justice for
+
+
+---
+background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
+background-size: contain
+## .inverse[ Making sense of a massive study II]
+
+.pull-left[
+.inverse[
+.large[
++ These studies are...very involved 
++ Basic changes = enormous consequences on model estimates
++ Empirical research is worth a lot!
+]
+] 
+]
+.pull-right[
+![](rocketfish.jpg)]
+???
+- directed towards the folks working on the research that directly informs 
+our params.
+- if you are someone cutting up fish heads to nail asymp L
+- or perhaps doing genetic work to determine stock structure in a managed area,
+- my hope is you can point to this work to re-emphasize the direct, 
+- specific contribution your findings will have on the accuracy of our management science.
+
 ---
 # .inverse[extra material]
 ---
-paste in some OM equations
-validation of method from CH1
+

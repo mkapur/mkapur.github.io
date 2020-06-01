@@ -27,10 +27,10 @@
   
     
   
-  <meta name="description" content="I often find myself revisiting the various “re-arrangements” of the Beverton-Holt stock-recruitment relationship, particularly when moving between equilibrium quantities. I wanted to centralize some algebra for myself and anyone else who uses this relationship regularly.">
+  <meta name="description" content="I am finally a PhD Candidate! You may want to check out my “How I studied for my PhD Quals” post, which detailed my prep for a 5-day written examination I took in December.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/recalg/some-rec-algebra/">
+  <link rel="alternate" hreflang="en-us" href="/post/generals/how-studied-general/">
 
   
 
@@ -220,7 +220,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/post/recalg/some-rec-algebra/">
+  <link rel="canonical" href="/post/generals/how-studied-general/">
 
   
   
@@ -236,15 +236,15 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Maia Sosa Kapur">
-  <meta property="og:url" content="/post/recalg/some-rec-algebra/">
-  <meta property="og:title" content="Some Algebra for Equilibrium Recruitment | Maia Sosa Kapur">
-  <meta property="og:description" content="I often find myself revisiting the various “re-arrangements” of the Beverton-Holt stock-recruitment relationship, particularly when moving between equilibrium quantities. I wanted to centralize some algebra for myself and anyone else who uses this relationship regularly."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:url" content="/post/generals/how-studied-general/">
+  <meta property="og:title" content="How I studied for my PhD General Exam | Maia Sosa Kapur">
+  <meta property="og:description" content="I am finally a PhD Candidate! You may want to check out my “How I studied for my PhD Quals” post, which detailed my prep for a 5-day written examination I took in December."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2020-05-21T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2020-06-03T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2020-05-20T15:36:27-07:00">
+    <meta property="article:modified_time" content="2020-06-03T15:36:27-07:00">
   
 
   
@@ -268,12 +268,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/recalg/some-rec-algebra/"
+    "@id": "/post/generals/how-studied-general/"
   },
-  "headline": "Some Algebra for Equilibrium Recruitment",
+  "headline": "How I studied for my PhD General Exam",
   
-  "datePublished": "2020-05-21T00:00:00Z",
-  "dateModified": "2020-05-20T15:36:27-07:00",
+  "datePublished": "2020-06-03T00:00:00Z",
+  "dateModified": "2020-06-03T15:36:27-07:00",
   
   "author": {
     "@type": "Person",
@@ -288,7 +288,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "I often find myself revisiting the various “re-arrangements” of the Beverton-Holt stock-recruitment relationship, particularly when moving between equilibrium quantities. I wanted to centralize some algebra for myself and anyone else who uses this relationship regularly."
+  "description": "I am finally a PhD Candidate! You may want to check out my “How I studied for my PhD Quals” post, which detailed my prep for a 5-day written examination I took in December."
 }
 </script>
 
@@ -306,7 +306,7 @@
 
 
 
-  <title>Some Algebra for Equilibrium Recruitment | Maia Sosa Kapur</title>
+  <title>How I studied for my PhD General Exam | Maia Sosa Kapur</title>
 
 </head>
 
@@ -547,7 +547,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>Some Algebra for Equilibrium Recruitment</h1>
+  <h1>How I studied for my PhD General Exam</h1>
 
   
 
@@ -568,7 +568,7 @@
           Last updated on
       
     
-    May 20, 2020
+    Jun 3, 2020
   </span>
   
 
@@ -577,7 +577,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    6 min read
   </span>
   
 
@@ -616,104 +616,31 @@
       
 
 
-<p>I often find myself revisiting the various “re-arrangements” of the Beverton-Holt stock-recruitment relationship, particularly when moving between equilibrium quantities. I wanted to centralize some algebra for myself and anyone else who uses this relationship regularly.</p>
-<div id="the-bev-holt-srr" class="section level2">
-<h2>The Bev-Holt SRR</h2>
-<p>Let’s start with some working definitions.</p>
-<p><span class="math display">\[ 
-\begin{array} 
-{rr}
-R_0 \quad virgin, \quad unfished \quad recruitment \\ SBPR_0 \quad virgin, \quad unfished \quad spawner \quad biomass-per-recruit \\ SSB_0 \quad virgin, \quad unfished \quad spawning \quad biomass \\ SBPR_F \quad  \quad biomass-per-recruit \quad at \quad F \neq 0 \\ SSB_F \quad spawning \quad biomass  \quad at \quad F \neq 0 \\ YPR_F \quad yield-per-recruit \quad at \quad F \neq 0 \\ \end{array} 
-\]</span></p>
-<p>First, let’s illustrate how one strings these quantities together in an age-structured model <em>assuming a stock-recruit relationship</em> to derive equilibrium quantities.</p>
-</div>
-<div id="yield-per-recruit-quantities-at-various-f" class="section level2">
-<h2>Yield-per-Recruit quantities at various F</h2>
+<p>I am finally a PhD Candidate! You may want to check out my <a href="https://maiakapur.netlify.app/post/quals/how-studied-quals">“How I studied for my PhD Quals”</a> post, which detailed my prep for a 5-day written examination I took in December. The General exam in my program is more about investigating 1) your preparedness and thinking regarding your proposed dissertation project, and 2) any gaps in your knowledge that should be addressed between now and your defense. This latter point was fairly disconcerting for me, as it’s hard to know if you’re doing well on a test designed to expose your shortcomings. Also, unlike the Qualifying exam, the format is an all-in-one, three-hour oral bonanza where there is no way to <del>scream into a paper bag</del> take breaks/regroup after a particularly hard question. In any case, I passed, so here are some tips that can hopefully be generalizable to others taking exams in a similar format. I’ve split these into prep tips and in-the-moment advice.</p>
+<div id="in-preparation" class="section level1">
+<h1>In Preparation <br></h1>
 <ol style="list-style-type: decimal">
-<li>Find <span class="math inline">\(SBPR\)</span> and <span class="math inline">\(YPR\)</span> at your <span class="math inline">\(F\)</span> value of interest, and also calculate these values when <span class="math inline">\(F = 0\)</span>. This will vary slightly depending on the setup of your model, but in pseudo-math: <span class="math inline">\(YPR = \large \Sigma_a \small Fs_aN_aw_a\)</span>, Where <span class="math inline">\(N_a\)</span> is a proportional expected number-at-age, <span class="math inline">\(w_a\)</span> is the expected weight-at-age, and <span class="math inline">\(s_a\)</span> is fishery selectivity. <span class="math display">\[
-SBPR = \large \Sigma_a \small E_aN_aw_a
-\]</span> Here <span class="math inline">\(E_a\)</span> is some measure of your population’s fecundity at age. The resultant <span class="math inline">\(SBPR\)</span> is going to vary with <span class="math inline">\(F\)</span> because <span class="math inline">\(N_a\)</span> will decline faster when <span class="math inline">\(F\)</span> is greater than zero.</li>
+<li><p><strong>Simplify the guessing game</strong>. Studying for this exam is a little harder because your committee may not give you any readings or additional topics to read about, leaving you to think you should know the entirety of your scientific field. Rather, your #1 priority should be to demonstrate you grasp the <em>essential concepts, assumptions and methods</em> YOU will use in your disseration work, and have a notion of how your results will <em>fit into the literature at large</em>. For that reason, I spent about 85% of my time making my proposal presentation clear and thorough, and prepared for questions like “How do you expect X to play into your results?”, “Have you considered using Y method?”, and “How is this different from work by Z?”. You’ll notice these are <em>open ended</em> and designed to check that you aren’t just following a recipe for your study.</p></li>
+<li><p><strong>The 15% basis</strong> I studied on the unempirical assumption that only 15% of the committee’s confidence in my ability to complete my project would be based on my ability to respond to technical &amp; conceptual questions about my field. I convinced myself that the <em>overwhelming factor which will convince them that I’m ready to progress on my dissertation</em> is, well, the demonstrated progress I’ve actually made to this point (writing a proposal counts, too!). In other words, the committee is not going to fail me because I get nervous, blank out, or can’t perfectly recall a concept in the moment, if I’ve otherwise demonstrated I can produce research and find answers when I need them. However, there are some “tricks” towards approaching that 15%, which I share in point #3.</p></li>
+<li><strong>The 101 Slide &amp; The “Warrants Future Research”</strong>. I recognized that the questions people fear getting – the sudden-death, “gotcha” questions regarding a specific paper/equation/idea in your field, are less terrifying if you think of them the way the faculty think of them. I find such questions invariably fall into one of two categories.
+<ol style="list-style-type: lower-alpha">
+<li>The first I call the “<strong>101 Slide</strong>”. These are questions about basic concepts in your field which a 101 (introductory) course may have dedicated a lecture or lab exercise to – and that is the degree of response they are looking for! A classic my adviser throws around is, “How do you get the highest fishing yield from a cohort?”. Your brain will instantly rat-wheel around all the things that could lead one to not know the maximum yield…but the answer, literally, is “fish when the cohort biomass is maximized.” Exactly the response that would appear on an undergrad lecture slide! Other classics (from my field) would be things like, “How does movement affect bias in spatial assessment models?” or “Why might our picture of maximum fishing effort change when using a different stock-recruit relationship?”. They are testing your ability to concisely describe how these things relate to one another.</li>
+<li>“<strong>Warrants future research</strong>” are questions likely to appear in the discussion part of (the faculty’s) recent papers, and they are not expecting you to have a definitive answer. Questions beginning with “have you thought about…” or “what is the possibility…” are hints that the topic falls into this category and they’re asking you to spectulate. <strong>When in doubt, it looks good to start mentioning extant work on that topic</strong>; the faculty may guide you towards which paper(s) they felt were conclusive, or be satisfied to know that you are aware it is an area of ongoing research. A strong response would suggest what experiments could be done to reduce speculation.</li>
+</ol></li>
 </ol>
+<p>The trick, obviously, regarding point 3 is knowing which category the question falls into given the topic. You should be generally familiar with open research questions in your field, emphasizing those <em>related directly to your project</em> and <em>pet interests of your faculty members</em>. For example, my disseration doesn’t do a lot of environmental modeling explicitly, but I am aware that there is an open debate regarding the influence of climate (environment) vs biomass on determining recruitment. I can name the folks involved in this work and what their general findings have been, and some of the challenges to implementing such research in our own context.</p>
 </div>
-<div id="srr-in-terms-of-sbpr" class="section level2">
-<h2>SRR in terms of SBPR</h2>
-<p>2a) Look at your stock-recruitment relationship. <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are parameters of the Beverton-Holt SRR. We also leverage the definition of equilibrium stock spawning biomass as the product of unfished SBPR and Recruitment. You can confirm this makes sense by describing the equation with words: the virgin/unfished spawning biomass is the expected spawning biomass for one virgin/unfished recruit times the number of recruits. The same relationship will apply for equilibrium biomass. You will need to pick a number (or estimate) <span class="math inline">\(R_0\)</span>.</p>
-<p><span class="math display">\[ 
-\begin{array} {rr}
-R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
-SSB_0 = SBPR_0 \times R_0 \\
-SSB_{eq} = SBPR_{eq} \times R_{eq} \\
-\end{array} 
-\]</span> 2b) Re-arrange the SRR to be in terms of <span class="math inline">\(SBPR\)</span>. We do this by substitution. <span class="math display">\[ 
-\begin{array}
-{rr}
-R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
-SSB_{eq} = SBPR_{eq} \times R_{eq} \\
-R_{eq} =  \frac{SBPR_{eq} \times R_{eq} }{\alpha + \beta ( SBPR_{eq} \times R_{eq} )} \\
-R_{eq}(\alpha + \beta ( SBPR_{eq} \times R_{eq} )) =  SBPR_{eq} \times R_{eq}  \\
-\alpha + \beta ( SBPR_{eq} \times R_{eq} ) =  SBPR_{eq}   \\
-\beta ( SBPR_{eq} \times R_{eq} ) =  SBPR_{eq} - \alpha  \\
- R_{eq}  = \frac{ SBPR_{eq} - \alpha}{\beta \times SBPR_{eq} }  \\
-\end{array} \]</span></p>
-<div id="alpha-beta-in-terms-of-steepness-recruitment" class="section level3">
-<h3>Alpha &amp; Beta in terms of steepness &amp; recruitment</h3>
-<ol start="3" style="list-style-type: decimal">
-<li>Sweet, now we need a nice definition for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Spoiler: these only vary by <span class="math inline">\(R_0\)</span> and steepness, <span class="math inline">\(h\)</span>, which is defined as the expected recruitment at 20% of <span class="math inline">\(SSB_0\)</span> (hence the 0.2s). Here’s the derivation of those values. Recall that <span class="math inline">\(SSB_0 = SBPR_0 \times R_0\)</span>, meaning <span class="math inline">\(SBPR_0\)</span> can be substituted for <span class="math inline">\(\frac{SSB_0}{R_0}\)</span>. Let’s start with beta:</li>
-</ol>
-<p><span class="math display">\[
-\begin{array}
-{cc}
-R_0 = \frac{SSB_0}{\alpha + \beta SSB_0} &amp; original \\
-\alpha + \beta SSB_0 = \frac{SSB_0}{R_0} &amp; rearrange, \quad sub \\
-\alpha =SBPR_0 - \beta SSB_0 &amp; alpha \\
-hR_0 = \frac{0.2SSB_0}{\alpha + 0.2 \beta SSB_0} &amp; h @ 0.2SSB_0  \\
-hR_0 = \frac{0.2SSB_0}{SBPR_0 - \beta SSB_0 + 0.2 \beta SSB_0} &amp; substitute  \\
-hR_0 = \frac{0.2SSB_0}{SBPR_0 - 0.8 \beta SSB_0} &amp; simplify \\
-hR_0SBPR_0 - 0.8hR_0\beta SSB_0= 0.2SSB_0 &amp; multiply \quad denom\\
-hSSB_0 - 0.8hR_0\beta SSB_0= 0.2SSB_0 &amp; sub \quad SSB_0 = \tilde S R_0\\
-h - 0.8hR_0\beta = 0.2 &amp; div \quad SSB_0 \\
-5h - 4hR_0\beta = 1 &amp; mult \quad 5 \\
-\frac{5h-1}{4hR_0} = \beta &amp; solve \quad \beta \\
-\end{array}
-\]</span></p>
-<p>And now for <span class="math inline">\(\alpha\)</span>, starting at the third equation from above:</p>
-<p><span class="math display">\[
-\begin{array}
-{cc}
-\alpha =SBPR_0 - \beta SSB_0 &amp; from \quad above \\
-\alpha =SBPR_0 -  \frac{5h-1}{4hR_0}SSB_0 &amp; sub \quad \beta \\
-\alpha =SBPR_0 -  \frac{5h-1}{4hR_0}SBPR_0 R_0 &amp; sub \quad SSB_0 = SBPR_0 R_0  \\
-\alpha =SBPR_0 -  \frac{5h-1}{4h}SBPR_0 &amp; cancel \quad R_0  \\
-\alpha =SBPR_0 \langle1-  \frac{5h-1}{4h}\rangle &amp; factor  \\
-\alpha = SBPR_0 \langle \frac{1-h}{4h}\rangle &amp; rearrange   \\
-\end{array}
-\]</span></p>
-<p>To recap, <span class="math inline">\(R_{eq}\)</span> and <span class="math inline">\(SBPR_{eq}\)</span> are both varying with <span class="math inline">\(F\)</span>, but alpha and beta only change with <span class="math inline">\(h\)</span> and <span class="math inline">\(R0\)</span>. <span class="math inline">\(SBPR_{F=0}\)</span> is fixed based on the life history of your species.</p>
-</div>
-</div>
-<div id="bonus-round-stock-synthesis-recruitment-syntax" class="section level2">
-<h2>Bonus Round: Stock Synthesis Recruitment Syntax</h2>
-<p>Ever wonder where the Beverton-Holt syntax in the Stock Synthesis manual comes from? It is simply the substitution &amp; rearrangement of our derived values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> into the original stock-recruit relationship. The “trick” (not really) is just leaving the equation for <span class="math inline">\(\alpha\)</span> in terms of virigin biomass and recruitment.</p>
-<p><span class="math display">\[ 
-\begin{array}
-{rr}
-R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
-R_F = \frac{SSB_F}{\frac{SSB_0}{R_0} \langle \frac{1-h}{4h}\rangle + \frac{5h-1}{4hR_0} SSB_F} \quad substitute \\
-R_F = \frac{SSB_F 4hR_0}{SSB_0(1-h)+ SSB_F(5h-1)} \quad flip \quad denom \\
-\end{array} 
-\]</span></p>
-</div>
-<div id="yield-and-surplus-production-curves" class="section level2">
-<h2>Yield and Surplus Production Curves</h2>
-<ol start="4" style="list-style-type: decimal">
-<li>We are almost done. We have equations for equilibrium recruitment, and the definitions for the parameters of that equation. Note that equilibrium recruitment <em>will change</em> with <span class="math inline">\(F\)</span> because <span class="math inline">\(SPBR_F\)</span> changes, whereas alpha and beta will not (this is important later). We can now write down equations for our resultant equilibrium spawning biomass, and equilibrium yields: <span class="math display">\[ 
-\begin{array}
-{rr}
-SSB_{eq} = R_{eq} \times {SBPR_F} \\
-Yield_{eq} = R_{eq} \times {YPR_F}
-\end{array} 
-\]</span> The “yield curve” is simply obtained by re-calculating these values across a range of Fs and plotting the results against input <span class="math inline">\(F\)</span> and/or resultant <span class="math inline">\(SSB\)</span>. The height of the resultant dome is dependent on the value of <span class="math inline">\(h\)</span> used, and the skewness in the biomass is related to selectivity. For the yield curve specifically, the peak occurs at the point just before natural mortality eclipses somatic growth, and the descending limb will be more “bendy” if you are selecting fish far before they mature. Another way of saying this is that the descending limb will accordingly change in height depending at the age of first capture.</li>
-</ol>
+<div id="in-the-moment" class="section level1">
+<h1>In the Moment</h1>
+<p>Here are some pointers – but know that nothing can calm you down come exam day like knowing you have put in the right amount of preparation.</p>
+<ul>
+<li>In my adviser’s words: “Don’t be chaotic”. This means don’t panic. Repeat the question back once asked to buy yourself some time.</li>
+<li>Any amount of silence feels way longer to you than it does to them. It looks better to pause and choose your words carefully than to ramble and hope you step on a right-answer mine.</li>
+<li>DO NOT overhydrate beforehand. You will need to be abiotic for three hours.</li>
+<li>Keep in mind you have probably read WAY more papers in depth in the last ~2 months than the faculty. Also keep in mind that while they could readily write down important equations/concepts that they <em>regularly work with</em>, they really don’t know everything and likely could not perfectly answer every question asked by the others in the room if the roles were reversed. This isn’t about being arrogant, it’s about being realistic in what actually makes for a succesful scientist.</li>
+<li>Assume they want you to pass and move on. Failing looks bad on your advisor, ultimately – so believe that this is a group that wants to see you suceeed.</li>
+<li>“I don’t know” is a valid response. If you are afraid the question falls into the category of 3a (101 Slide) and you really draw a blank, you could choose to mention how you do/do not think it super relevant to your project, hence giving a bit of cover for perhaps why you didn’t review it in depth. Silence is better than rambling here.</li>
+</ul>
 </div>
 
     </div>
@@ -737,7 +664,7 @@ Yield_{eq} = R_{eq} \times {YPR_F}
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/recalg/some-rec-algebra/&amp;text=Some%20Algebra%20for%20Equilibrium%20Recruitment" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/generals/how-studied-general/&amp;text=How%20I%20studied%20for%20my%20PhD%20General%20Exam" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -750,7 +677,7 @@ Yield_{eq} = R_{eq} \times {YPR_F}
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/recalg/some-rec-algebra/&amp;t=Some%20Algebra%20for%20Equilibrium%20Recruitment" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/generals/how-studied-general/&amp;t=How%20I%20studied%20for%20my%20PhD%20General%20Exam" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -763,7 +690,7 @@ Yield_{eq} = R_{eq} \times {YPR_F}
       
       
       <li>
-        <a href="mailto:?subject=Some%20Algebra%20for%20Equilibrium%20Recruitment&amp;body=/post/recalg/some-rec-algebra/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=How%20I%20studied%20for%20my%20PhD%20General%20Exam&amp;body=/post/generals/how-studied-general/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -776,7 +703,7 @@ Yield_{eq} = R_{eq} \times {YPR_F}
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/recalg/some-rec-algebra/&amp;title=Some%20Algebra%20for%20Equilibrium%20Recruitment" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/generals/how-studied-general/&amp;title=How%20I%20studied%20for%20my%20PhD%20General%20Exam" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -789,7 +716,7 @@ Yield_{eq} = R_{eq} \times {YPR_F}
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=Some%20Algebra%20for%20Equilibrium%20Recruitment%20/post/recalg/some-rec-algebra/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=How%20I%20studied%20for%20my%20PhD%20General%20Exam%20/post/generals/how-studied-general/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -802,7 +729,7 @@ Yield_{eq} = R_{eq} \times {YPR_F}
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/recalg/some-rec-algebra/&amp;title=Some%20Algebra%20for%20Equilibrium%20Recruitment" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/post/generals/how-studied-general/&amp;title=How%20I%20studied%20for%20my%20PhD%20General%20Exam" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>

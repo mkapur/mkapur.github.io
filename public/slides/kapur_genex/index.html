@@ -3,7 +3,7 @@
   <head>
     <title>M.S. Kapur General Exam</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Committee: Haltuch, Branch, Essington" />
+    <meta name="author" content="GSR: Jon Wakefield  Committee: Haltuch, Branch, Essington" />
     <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="solarized-dark.css" type="text/css" />
   </head>
@@ -12,8 +12,8 @@
 class: center, middle, inverse, title-slide
 
 # M.S. Kapur General Exam
-## Chair: André Punt | GSR: Jon Wakefield
-### Committee: Haltuch, Branch, Essington
+## Chair: André E. Punt
+### GSR: Jon Wakefield <Br> Committee: Haltuch, Branch, Essington
 ### 02 Jun 2020 12-3pm, via Zoom
 
 ---
@@ -23,16 +23,18 @@ class: center, middle, inverse, title-slide
 &lt;!-- .header[<i class="fab  fa-github "></i> @mkapur] --&gt;
 
 ---
-# Dissertation Goals
+# Working Title
+
+.center[
 .large[
-+ Provide needed science evaluating alternative
+.inverse[Implications of Spatial Mis-specification] &lt;Br&gt;
+.inverse[in Management Strategy Evaluation] &lt;Br&gt;
+.inverse[for North Pacific Sablefish]]]
+???
+as you might guess: Provide needed science evaluating alternative
 spatial management strategies for stock assessment &lt;Br&gt;
 
-Working Title:
-
-.inverse[Implications of Spatial Mis-specification in
-Management Strategy Evaluation for North
-Pacific Sablefish]]
+goal for pt 1 is to highlight how this work addresses both mgmt and scientific gaps
 ---
 # .inverse[ Motivation I: Sablefish]
 ---
@@ -41,7 +43,7 @@ background-position: center
 background-size: contain
 &lt;br&gt;&lt;Br&gt;&lt;br&gt;&lt;Br&gt;
 ---
-background-image: url("regional_biomass.png")
+background-image: url("regional_biomass2.png")
 background-position: center
 background-size: contain
 &lt;br&gt;&lt;Br&gt;&lt;br&gt;
@@ -65,14 +67,29 @@ and more importantly what effects those choices have on resultant management est
 --
 
 + If not, how distinct are the dynamics produced by such an operating model? 
+
+
+???
+these are sab specific, but same types of questions being asked by many stocks
 ---
 #.inverse[ Motiviation II: Science]
 ---
+#.inverse[ Motiviation II: Science]
+
+.pull-left[
++ A fair bit has been done on spatial mis-match vs. estimation uncertainty.
+]
+
+.pull-right[
+![](Puntetal2015b_fulldat.png)]
+---
+#.inverse[ Motiviation II: Science]
 
 .pull-left[
 + A fair bit has been done on spatial mis-match vs. estimation uncertainty.
 
-+ Less work on how spatial misspecification flows into HCR performance
++ Less work on how spatial misspecification flows into harvest control rule (HCR) performance
+
 ]
 
 
@@ -81,19 +98,24 @@ and more importantly what effects those choices have on resultant management est
 ]
 
 ???
+- study enabled by strong basis of extant work examining the mismatch between spp and assessment structure
+- figure from AEP paper but there are many for generalized or specific fisheries
+- what was done is build spatially explicity OM and assess using frameworks which either ignore or acct for 
+- sptl structure w varying degree of accuracy (panels)
+- takeaway here, corroborated elsewhere, is that if you ignore space completely you get bias garanz (top rows)
+- also spatial models typically less precise (sample size, npar)
+- ALSO there are intermediate approximations which perform decently
 
-this figure is from one of andre's papers which was a simulation study looking at various degrees
-of a sptl assessment model. the study was pretty involved, but here he is showing rel err of tot bio
-across various setups. what is worth pointing out is these two; ths bzsa is a fairly simple spatial 
-assessment (by zone) with only add'l catchability
-and the full matches the OM completely. as we might expect, the full model is the least biased;
-but these add'l spatial models are actually both biased and imprecise;
-the takeaway from this paper is perhaps intermediate approaches might be best.
+- this means we are fairly confident that our impost assessment framework is introducing bias in SAB
+- no need to write the post about that
+- question arises about the feedback, or interplay, between the degree of bias and our control rules
+- used to determine catch.
+- to date most work fixes a level of F either a sub-area or system wide scale and investigates depl
 
-will show slide later with actual questions but whant to acknolwege
-that this is using sab as case study and aims to encompass tradeoffs between 
-spatial strucutre at both the operational and estimation levels, as well as evaluate performance of various
-alternative HCRs
+
+
+
+
 
 
 ---
@@ -107,13 +129,26 @@ alternative HCRs
 
 + Are there combinations of HCRs/Spatial assessment frameworks which *reduce undesirable outcomes for the sablefish fishery or population*?
 
+???
+will show slide later with actual questions but whant to acknolwege
+that this is using sab as case study and aims to encompass tradeoffs between 
+spatial strucutre at both the operational and estimation levels, as well as evaluate performance of various
+alternative HCRs
+---
+# Quick overview: Chapters &amp; Status
+
+--
+
++ CH1: Spatial Variation in sablefish growth 
++ CH2: An Operating Model for NE Pacific Sablefish 
++ CH3: A Management Strategy Evaluation for NE Pacific Sablefish 
++ CH4: Sneaking up on a well-specified model 
 ---
 # Quick overview: Chapters &amp; Status
 + CH1: Spatial Variation in sablefish growth **(published)**
 + CH2: An Operating Model for NE Pacific Sablefish **(document ~finalized)**
 + CH3: A Management Strategy Evaluation for NE Pacific Sablefish 
 + CH4: Sneaking up on a well-specified model **(internal review)**
-
 ---
 .header[<i class="fab  fa-github "></i> @mkapur/sab-growth]
 # Chapter 1: Spatial Growth Variation
@@ -257,7 +292,7 @@ background-size: contain
 ## Important OM Equations
 ### .small[Numbers at Age]
 .small[
-`\(N_{y+1,\gamma,a}^i=\left\{\begin{matrix}0.5R_{y+1}^i &amp; \text{if}\ a = 0 \newline \sum_{i\neq j}\left[\left(1-\textbf{X}_a^{i,j}\right)\left.\ {N_{y,\gamma,a-1}^ie}^{-Z_{y,\gamma,a-1}^i}\right.+\textbf{X}_a^{j,i}{N_{y,\gamma,a-1}^je}^{-Z_{y,\gamma,a-1}^i}\right] &amp; \text{if}\ 1 \leq a &lt;A\\\sum_{i\neq j}{\left[\left(1-\textbf{X}_a^{i,j}\right)(\left.{N_{y,\gamma,A-1}^ie}^{-Z_{y,\gamma,A-1}^i}\right.\left.+{N_{y,\gamma,A-1}^ie}^{-Z_{y,\gamma,A-1}^i}\right.)\right.\ } &amp; \text{if}\ a = A \\\ldots+\left.\textbf{X}_a^{j,i}\left({N_{y,\gamma,A}^je}^{-Z_{y,\gamma,A}^j}+{N_{y,\gamma,A-1}^je}^{-Z_{y,\gamma,A-1}^j}\right)\right]\\\end{matrix}\right.\)`
+`\(N_{y+1,\gamma,a}^i=\left\{\begin{matrix}0.5R_{y+1}^i &amp; \text{if}\ a = 0 \newline \sum_{i\neq j}\left[\left(1-\textbf{X}_a^{i,j}\right)\left.\ {N_{y,\gamma,a-1}^ie}^{-Z_{y,\gamma,a-1}^i}\right.+\textbf{X}_a^{j,i}{N_{y,\gamma,a-1}^je}^{-Z_{y,\gamma,a-1}^i}\right] &amp; \text{if}\ 1 \leq a &lt;A\\\sum_{i\neq j}{\left[\left(1-\textbf{X}_a^{i,j}\right)(\left.{N_{y,\gamma,A}^ie}^{-Z_{y,\gamma,A}^i}\right.\left.+{N_{y,\gamma,A-1}^ie}^{-Z_{y,\gamma,A-1}^i}\right.)\right.\ } &amp; \text{if}\ a = A \\\ldots+\left.\textbf{X}_a^{j,i}\left({N_{y,\gamma,A}^je}^{-Z_{y,\gamma,A}^j}+{N_{y,\gamma,A-1}^je}^{-Z_{y,\gamma,A-1}^j}\right)\right]\\\end{matrix}\right.\)`
 + Yearly timestep
 + Monitored by sub-area `\(i\)`
 + Movement defined by `\(\textbf{X}^{i,j}_a\)`
@@ -270,31 +305,44 @@ background-size: contain
 ## Reproduction I
 `\(R_y^k=\frac{4h^kR_0^kS_y^k}{S_0^k\left(1-h^k\right)+S_y^k(5h^k-1)}e^{-0.5\sigma_R^2+{\widetilde{R}}_y^k}\)` 
 
-`\(S_y^k=\sum_{a}{\phi_{ik}N_{y,\gamma=female,a}^iw_{y,\gamma=female,a}^kE_a^k}\)` 
+`\(S_y^k=\sum_{a}{\phi^{ik}N_{y,\gamma=female,a}^iw_{y,\gamma=female,a}^kE_a^k}\)` 
 
-+ Spatialpatial Bev-Holt at stock level `\(k\)`
-+ SSB in `\(k\)` is summation over `\(i\)` in `\(k\)` (invoke the magic of `\(\phi_{ik}\)`)
++ Spatial Bev-Holt at stock level `\(k\)`
++ SSB in `\(k\)` is summation over `\(i\)` in `\(k\)` 
+
+???
+Mortality is linearly dependent on the number of fish in that cohort at any time
+Continued competition for food or other resources over the whole life of that cohort
 
 ---
 .header[<i class="fab  fa-github "></i> @mkapur/sab-mse]
 # Important OM Equations
 ## Reproduction II
 .large[
-`\(R_y^i=\tau_{ik}R_y^k\)` 
+`\(R_y^i=\tau^{ik}R_y^k\)` 
 ]
 
 + Recruitment happens at stock `\(k\)` and is partitioned into sub-area `\(i\)`
-+ `\(\tau_{ik}\)` user-defined, by geographic area
++ `\(\tau^{ik}\)` user-defined, by geographic area
+
+
+???
+you might ask why go thru this and not just model rec at i
+the reason is want to be faithful to the notion of stock as demographic engine
+if you're blind to the ecology, could also state that we are inducing spatial 
+autocorr between sub areas nested within the same stock, which are necessarily spatially adjacent
+
+
 
 ---
 .header[<i class="fab  fa-github "></i> @mkapur/sab-mse]
 # Important OM Equations
 # Retained Catches
-`\(C_y^{m,f}=\sum_{i\epsilon m}\sum_{\gamma}{\sum_{a}{\phi_{if}w}_{\gamma,a}^f\frac{s_{\gamma,a}^fF_y^f\mathrm{\Omega}_{y,\gamma,a}^f}{Z_{y,\gamma,a}^i}N_{y,\gamma,a}^i(1-e^{-Z_{y,\gamma,a}^i})}\)`
+`\(C_y^{m,f}=\sum_{i\epsilon m}\sum_{\gamma}{\sum_{a}{\phi^{if}w}_{\gamma,a}^f\frac{s_{\gamma,a}^fF_y^f\mathrm{\Omega}_{y,\gamma,a}^f}{Z_{y,\gamma,a}^i}N_{y,\gamma,a}^i(1-e^{-Z_{y,\gamma,a}^i})}\)`
 
 + Tune `\(F\)` via hybrid method
 + `\(\Omega\)` is retention function
-+ `\(\phi_{if}\)` matches sub-areas to fleets
++ `\(\phi^{if}\)` matches sub-areas to fleets
 
 ---
 ## Chapter 2: Operating Model
@@ -379,6 +427,20 @@ background-size: contain
 - for this group, generally process, misspec straightfwd, fix at wrong value
 
 ---
+background-image: url("pars2.png")
+background-position: center
+background-size: contain
+
+???
+-final one is most interesting to me and that is sptl structure 
+-om is 2 areas, with movement from one to another
+-EM misspec assesses all as 1
+-this is a rich and active area of research in IPMs &amp; fisheries assessment
+-we know that getting space wrong can be fairly detrimental to density dependence and other things
+-but particularly interested in seeing how impactful this aspect is in context of other important processes
+
+-NOTE COLORED SQUARES
+---
 background-image: url("method10.png")
 background-position: center
 background-size: contain
@@ -389,7 +451,8 @@ background-size: contain
 - the sixths totally corrected
 
 ---
-# .inverse[Results]
+# Chapter 4
+## .inverse[Results]
 .pull-center[
 ![](ikea2.jpg)
 ]
@@ -481,16 +544,7 @@ background-size: contain
 - we only start to see white lines up to number 3, because models with 4 or 5 misspecs for E1 only have space misspeced
 - the outcome here is that only those models with M and SPACE right are hanging out around the zero line,
 - and we can effectively predict the direction of bias in your recruit estimates depending on whether natM is low or hi
----
-background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
-background-size: contain
-## .inverse[ Making sense of a massive study I]
 
-???
-- one takeaway is my precience @ think tank last year in used the casini sp mission in intro
-- because actually at the time of thinktank weren't considering space
-- because too hard to implement (but alas grad school)
-- proved fitting i picked space example, because..
 ---
 background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
 background-size: cover
@@ -547,7 +601,7 @@ background-size: cover
 background-image: url("https://opuszine.us/_assets/entries/cassini-retirement.jpg")
 background-size: contain
 
-## .inverse[ Making sense of a complex study II]
+## .inverse[ Making sense of a massive study II]
 
 .pull-left[
 .inverse[
@@ -594,10 +648,46 @@ our params.
 - or perhaps doing genetic work to determine stock structure in a managed area,
 - my hope is you can point to this work to re-emphasize the direct, 
 - specific contribution your findings will have on the accuracy of our management science.
-
+---
+background-image: url("thankyou2.jpg")
+background-size: cover
+&lt;Br&gt;&lt;br&gt;&lt;Br&gt;
+# .inverse[Thank you!]
 ---
 # .inverse[extra material]
 ---
+# .small[Data Inputs: Surveys]
+
+&lt;img src="Fig2_OM_indices.png" width="600" height="400" /&gt;
+Note that these are novel "fleets" not equivalent to survey comps fleets.
+---
+# Recruitment (regional)
+
+&lt;img src="recruitment.png" width="500" height="300" /&gt;
+???
+- rangewide: ~yr lag in big pulses but could be aging error
+- long PLD
+- evidence of spawning in each region
+- BC not as much research but low temp = more productivity
+- AK a lot, use SST as a recruit index for forecasting
+- WC 2016 was a weird year, some climate stuff suggests that N/S of mendocino has effects
+- (big yrs often north heavy, failed years south empty)
+
+- w respect to the study i don't think there are major singular source sink dynamics
+---
+# Steepness Likelihood
++ `\(\beta\)`-distributed penalty on devs for mean `\(h^k\)`
++ Currently ak fixes at 1, US ~ 0.2, BC varies by OM 0.5-0.85
+`\(-log(L_h^k)=beta(h^k,\tau(1-\mu),\ \tau\mu)\)`
+`\(\tau=\frac{\left(\left(h^k-h_{min}\right){(h}_{max}-h^k)\right)}{\sigma_h^2}-1\)`
+`\(\mu=\frac{\left(h_{prior}-h_{mini}\right)}{h_{maxi}-h_{mini}}\)`
+
+&lt;img src="index_files/figure-html/H PRIOR PLOT-1.png" width="400" height="300" /&gt;
+---
+# Current HCRs
+`\(ABC = \hat B F_{MSY} (\times buffer)\)`
+`\(TAC = \hat B F_{targ}\)`
+&lt;img src="index_files/figure-html/HCR plot-1.png" width="400" height="300" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

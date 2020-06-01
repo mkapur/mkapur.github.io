@@ -5,12 +5,49 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 21 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 03 Jun 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>How I studied for my PhD General Exam</title>
+      <link>/post/generals/how-studied-general/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>/post/generals/how-studied-general/</guid>
+      <description>
+
+
+&lt;p&gt;I am finally a PhD Candidate! You may want to check out my &lt;a href=&#34;https://maiakapur.netlify.app/post/quals/how-studied-quals&#34;&gt;“How I studied for my PhD Quals”&lt;/a&gt; post, which detailed my prep for a 5-day written examination I took in December. The General exam in my program is more about investigating 1) your preparedness and thinking regarding your proposed dissertation project, and 2) any gaps in your knowledge that should be addressed between now and your defense. This latter point was fairly disconcerting for me, as it’s hard to know if you’re doing well on a test designed to expose your shortcomings. Also, unlike the Qualifying exam, the format is an all-in-one, three-hour oral bonanza where there is no way to &lt;del&gt;scream into a paper bag&lt;/del&gt; take breaks/regroup after a particularly hard question. In any case, I passed, so here are some tips that can hopefully be generalizable to others taking exams in a similar format. I’ve split these into prep tips and in-the-moment advice.&lt;/p&gt;
+&lt;div id=&#34;in-preparation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;In Preparation &lt;br&gt;&lt;/h1&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Simplify the guessing game&lt;/strong&gt;. Studying for this exam is a little harder because your committee may not give you any readings or additional topics to read about, leaving you to think you should know the entirety of your scientific field. Rather, your #1 priority should be to demonstrate you grasp the &lt;em&gt;essential concepts, assumptions and methods&lt;/em&gt; YOU will use in your disseration work, and have a notion of how your results will &lt;em&gt;fit into the literature at large&lt;/em&gt;. For that reason, I spent about 85% of my time making my proposal presentation clear and thorough, and prepared for questions like “How do you expect X to play into your results?”, “Have you considered using Y method?”, and “How is this different from work by Z?”. You’ll notice these are &lt;em&gt;open ended&lt;/em&gt; and designed to check that you aren’t just following a recipe for your study.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;The 15% basis&lt;/strong&gt; I studied on the unempirical assumption that only 15% of the committee’s confidence in my ability to complete my project would be based on my ability to respond to technical &amp;amp; conceptual questions about my field. I convinced myself that the &lt;em&gt;overwhelming factor which will convince them that I’m ready to progress on my dissertation&lt;/em&gt; is, well, the demonstrated progress I’ve actually made to this point (writing a proposal counts, too!). In other words, the committee is not going to fail me because I get nervous, blank out, or can’t perfectly recall a concept in the moment, if I’ve otherwise demonstrated I can produce research and find answers when I need them. However, there are some “tricks” towards approaching that 15%, which I share in point #3.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The 101 Slide &amp;amp; The “Warrants Future Research”&lt;/strong&gt;. I recognized that the questions people fear getting – the sudden-death, “gotcha” questions regarding a specific paper/equation/idea in your field, are less terrifying if you think of them the way the faculty think of them. I find such questions invariably fall into one of two categories.
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;The first I call the “&lt;strong&gt;101 Slide&lt;/strong&gt;”. These are questions about basic concepts in your field which a 101 (introductory) course may have dedicated a lecture or lab exercise to – and that is the degree of response they are looking for! A classic my adviser throws around is, “How do you get the highest fishing yield from a cohort?”. Your brain will instantly rat-wheel around all the things that could lead one to not know the maximum yield…but the answer, literally, is “fish when the cohort biomass is maximized.” Exactly the response that would appear on an undergrad lecture slide! Other classics (from my field) would be things like, “How does movement affect bias in spatial assessment models?” or “Why might our picture of maximum fishing effort change when using a different stock-recruit relationship?”. They are testing your ability to concisely describe how these things relate to one another.&lt;/li&gt;
+&lt;li&gt;“&lt;strong&gt;Warrants future research&lt;/strong&gt;” are questions likely to appear in the discussion part of (the faculty’s) recent papers, and they are not expecting you to have a definitive answer. Questions beginning with “have you thought about…” or “what is the possibility…” are hints that the topic falls into this category and they’re asking you to spectulate. &lt;strong&gt;When in doubt, it looks good to start mentioning extant work on that topic&lt;/strong&gt;; the faculty may guide you towards which paper(s) they felt were conclusive, or be satisfied to know that you are aware it is an area of ongoing research. A strong response would suggest what experiments could be done to reduce speculation.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The trick, obviously, regarding point 3 is knowing which category the question falls into given the topic. You should be generally familiar with open research questions in your field, emphasizing those &lt;em&gt;related directly to your project&lt;/em&gt; and &lt;em&gt;pet interests of your faculty members&lt;/em&gt;. For example, my disseration doesn’t do a lot of environmental modeling explicitly, but I am aware that there is an open debate regarding the influence of climate (environment) vs biomass on determining recruitment. I can name the folks involved in this work and what their general findings have been, and some of the challenges to implementing such research in our own context.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;in-the-moment&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;In the Moment&lt;/h1&gt;
+&lt;p&gt;Here are some pointers – but know that nothing can calm you down come exam day like knowing you have put in the right amount of preparation.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In my adviser’s words: “Don’t be chaotic”. This means don’t panic. Repeat the question back once asked to buy yourself some time.&lt;/li&gt;
+&lt;li&gt;Any amount of silence feels way longer to you than it does to them. It looks better to pause and choose your words carefully than to ramble and hope you step on a right-answer mine.&lt;/li&gt;
+&lt;li&gt;DO NOT overhydrate beforehand. You will need to be abiotic for three hours.&lt;/li&gt;
+&lt;li&gt;Keep in mind you have probably read WAY more papers in depth in the last ~2 months than the faculty. Also keep in mind that while they could readily write down important equations/concepts that they &lt;em&gt;regularly work with&lt;/em&gt;, they really don’t know everything and likely could not perfectly answer every question asked by the others in the room if the roles were reversed. This isn’t about being arrogant, it’s about being realistic in what actually makes for a succesful scientist.&lt;/li&gt;
+&lt;li&gt;Assume they want you to pass and move on. Failing looks bad on your advisor, ultimately – so believe that this is a group that wants to see you suceeed.&lt;/li&gt;
+&lt;li&gt;“I don’t know” is a valid response. If you are afraid the question falls into the category of 3a (101 Slide) and you really draw a blank, you could choose to mention how you do/do not think it super relevant to your project, hence giving a bit of cover for perhaps why you didn’t review it in depth. Silence is better than rambling here.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Some Algebra for Equilibrium Recruitment</title>
@@ -24,29 +61,33 @@
 &lt;div id=&#34;the-bev-holt-srr&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;The Bev-Holt SRR&lt;/h2&gt;
 &lt;p&gt;Let’s start with some working definitions.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \begin{array} R_0 \quad virgin, \quad unfished \quad recruitment \\ SBPR_0 \quad virgin, \quad unfished \quad spawner \quad biomass-per-recruit \\ SSB_0 \quad virgin, \quad unfished \quad spawning \quad biomass \\ SBPR_F \quad  \quad biomass-per-recruit \quad at \quad F \neq 0 \\ SSB_F \quad spawning \quad biomass  \quad at \quad F \neq 0 \\ YPR_F \quad yield-per-recruit \quad at \quad F \neq 0 \\ \end{array} \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ 
+\begin{array} 
+{rr}
+R_0 \quad virgin, \quad unfished \quad recruitment \\ SBPR_0 \quad virgin, \quad unfished \quad spawner \quad biomass-per-recruit \\ SSB_0 \quad virgin, \quad unfished \quad spawning \quad biomass \\ SBPR_F \quad  \quad biomass-per-recruit \quad at \quad F \neq 0 \\ SSB_F \quad spawning \quad biomass  \quad at \quad F \neq 0 \\ YPR_F \quad yield-per-recruit \quad at \quad F \neq 0 \\ \end{array} 
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;First, let’s illustrate how one strings these quantities together in an age-structured model &lt;em&gt;assuming a stock-recruit relationship&lt;/em&gt; to derive equilibrium quantities.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;yield-per-recruit-quantities-at-various-f&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Yield-per-Recruit quantities at various F&lt;/h2&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Find &lt;span class=&#34;math inline&#34;&gt;\(SBPR\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(YPR\)&lt;/span&gt; at your &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; value of interest, and also calculate these values when &lt;span class=&#34;math inline&#34;&gt;\(F = 0\)&lt;/span&gt;. This will vary slightly depending on the setup of your model, but in pseudo-math: &lt;span class=&#34;math display&#34;&gt;\[
-YPR = \large \Sigma_a \small Fs_aN_aw_a
-\]&lt;/span&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Where &lt;span class=&#34;math inline&#34;&gt;\(N_a\)&lt;/span&gt; is a proportional expected number-at-age, &lt;span class=&#34;math inline&#34;&gt;\(w_a\)&lt;/span&gt; is the expected weight-at-age, and &lt;span class=&#34;math inline&#34;&gt;\(s_a\)&lt;/span&gt; is fishery selectivity. &lt;span class=&#34;math display&#34;&gt;\[
+&lt;li&gt;Find &lt;span class=&#34;math inline&#34;&gt;\(SBPR\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(YPR\)&lt;/span&gt; at your &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; value of interest, and also calculate these values when &lt;span class=&#34;math inline&#34;&gt;\(F = 0\)&lt;/span&gt;. This will vary slightly depending on the setup of your model, but in pseudo-math: &lt;span class=&#34;math inline&#34;&gt;\(YPR = \large \Sigma_a \small Fs_aN_aw_a\)&lt;/span&gt;, Where &lt;span class=&#34;math inline&#34;&gt;\(N_a\)&lt;/span&gt; is a proportional expected number-at-age, &lt;span class=&#34;math inline&#34;&gt;\(w_a\)&lt;/span&gt; is the expected weight-at-age, and &lt;span class=&#34;math inline&#34;&gt;\(s_a\)&lt;/span&gt; is fishery selectivity. &lt;span class=&#34;math display&#34;&gt;\[
 SBPR = \large \Sigma_a \small E_aN_aw_a
-\]&lt;/span&gt; Here &lt;span class=&#34;math inline&#34;&gt;\(E_a\)&lt;/span&gt; is some measure of your population’s fecundity at age. The resultant &lt;span class=&#34;math inline&#34;&gt;\(SBPR\)&lt;/span&gt; is going to vary with &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; because &lt;span class=&#34;math inline&#34;&gt;\(N_a\)&lt;/span&gt; will decline faster when &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; is greater than zero.&lt;/p&gt;
+\]&lt;/span&gt; Here &lt;span class=&#34;math inline&#34;&gt;\(E_a\)&lt;/span&gt; is some measure of your population’s fecundity at age. The resultant &lt;span class=&#34;math inline&#34;&gt;\(SBPR\)&lt;/span&gt; is going to vary with &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; because &lt;span class=&#34;math inline&#34;&gt;\(N_a\)&lt;/span&gt; will decline faster when &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; is greater than zero.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 &lt;div id=&#34;srr-in-terms-of-sbpr&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;SRR in terms of SBPR&lt;/h2&gt;
-&lt;p&gt;2a) Look at your stock-recruitment relationship. &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; are parameters of the Beverton-Holt SRR. We also leverage the definition of equilibrium stock spawning biomass as the product of unfished SBPR and REcruitment. You can confirm this makes sense by describing the equation with words: the virgin/unfished spawning biomass is the expected spawning biomass for one virgin/unfished recruit times the number of recruits. The same relationship will apply for equilibrium biomass.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \begin{array}
+&lt;p&gt;2a) Look at your stock-recruitment relationship. &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; are parameters of the Beverton-Holt SRR. We also leverage the definition of equilibrium stock spawning biomass as the product of unfished SBPR and Recruitment. You can confirm this makes sense by describing the equation with words: the virgin/unfished spawning biomass is the expected spawning biomass for one virgin/unfished recruit times the number of recruits. The same relationship will apply for equilibrium biomass. You will need to pick a number (or estimate) &lt;span class=&#34;math inline&#34;&gt;\(R_0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ 
+\begin{array} {rr}
 R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
 SSB_0 = SBPR_0 \times R_0 \\
-SSB_eq = SBPR_{eq} \times R_{eq} \\
-\end{array} \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;2b) Re-arrange the SRR to be in terms of &lt;span class=&#34;math inline&#34;&gt;\(SBPR\)&lt;/span&gt;. You will need to pick a number (or estimate) &lt;span class=&#34;math inline&#34;&gt;\(R_0\)&lt;/span&gt;. We do this by substitution: &lt;span class=&#34;math display&#34;&gt;\[ \begin{array}
+SSB_{eq} = SBPR_{eq} \times R_{eq} \\
+\end{array} 
+\]&lt;/span&gt; 2b) Re-arrange the SRR to be in terms of &lt;span class=&#34;math inline&#34;&gt;\(SBPR\)&lt;/span&gt;. We do this by substitution. &lt;span class=&#34;math display&#34;&gt;\[ 
+\begin{array}
+{rr}
 R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
 SSB_{eq} = SBPR_{eq} \times R_{eq} \\
 R_{eq} =  \frac{SBPR_{eq} \times R_{eq} }{\alpha + \beta ( SBPR_{eq} \times R_{eq} )} \\
@@ -88,6 +129,7 @@ h - 0.8hR_0\beta = 0.2 &amp;amp; div \quad SSB_0 \\
 \alpha = SBPR_0 \langle \frac{1-h}{4h}\rangle &amp;amp; rearrange   \\
 \end{array}
 \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;To recap, &lt;span class=&#34;math inline&#34;&gt;\(R_{eq}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(SBPR_{eq}\)&lt;/span&gt; are both varying with &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt;, but alpha and beta only change with &lt;span class=&#34;math inline&#34;&gt;\(h\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(R0\)&lt;/span&gt;. &lt;span class=&#34;math inline&#34;&gt;\(SBPR_{F=0}\)&lt;/span&gt; is fixed based on the life history of your species.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;bonus-round-stock-synthesis-recruitment-syntax&#34; class=&#34;section level2&#34;&gt;
@@ -95,6 +137,7 @@ h - 0.8hR_0\beta = 0.2 &amp;amp; div \quad SSB_0 \\
 &lt;p&gt;Ever wonder where the Beverton-Holt syntax in the Stock Synthesis manual comes from? It is simply the substitution &amp;amp; rearrangement of our derived values for &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; into the original stock-recruit relationship. The “trick” (not really) is just leaving the equation for &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; in terms of virigin biomass and recruitment.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ 
 \begin{array}
+{rr}
 R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
 R_F = \frac{SSB_F}{\frac{SSB_0}{R_0} \langle \frac{1-h}{4h}\rangle + \frac{5h-1}{4hR_0} SSB_F} \quad substitute \\
 R_F = \frac{SSB_F 4hR_0}{SSB_0(1-h)+ SSB_F(5h-1)} \quad flip \quad denom \\
@@ -106,10 +149,11 @@ R_F = \frac{SSB_F 4hR_0}{SSB_0(1-h)+ SSB_F(5h-1)} \quad flip \quad denom \\
 &lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;We are almost done. We have equations for equilibrium recruitment, and the definitions for the parameters of that equation. Note that equilibrium recruitment &lt;em&gt;will change&lt;/em&gt; with &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; because &lt;span class=&#34;math inline&#34;&gt;\(SPBR_F\)&lt;/span&gt; changes, whereas alpha and beta will not (this is important later). We can now write down equations for our resultant equilibrium spawning biomass, and equilibrium yields: &lt;span class=&#34;math display&#34;&gt;\[ 
 \begin{array}
+{rr}
 SSB_{eq} = R_{eq} \times {SBPR_F} \\
 Yield_{eq} = R_{eq} \times {YPR_F}
 \end{array} 
-\]&lt;/span&gt; The “yield curve” is simply obtained by re-calculating these values across a range of Fs and plotting the results against input &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; and/or resultant &lt;span class=&#34;math inline&#34;&gt;\(SSB\)&lt;/span&gt;. The height of the resultant dome is dependent on the value of &lt;span class=&#34;math inline&#34;&gt;\(h\)&lt;/span&gt; used, and the skewness is related to selectivity. For the yield curve specifically, the peak occurs at the point just before natural mortality eclipses somatic growth, and the descending limb will be more “bendy” if you are selecting fish far before they mature. Another way of saying this is that the descending limb will accordingly change in height depending at the age of first capture.&lt;/li&gt;
+\]&lt;/span&gt; The “yield curve” is simply obtained by re-calculating these values across a range of Fs and plotting the results against input &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; and/or resultant &lt;span class=&#34;math inline&#34;&gt;\(SSB\)&lt;/span&gt;. The height of the resultant dome is dependent on the value of &lt;span class=&#34;math inline&#34;&gt;\(h\)&lt;/span&gt; used, and the skewness in the biomass is related to selectivity. For the yield curve specifically, the peak occurs at the point just before natural mortality eclipses somatic growth, and the descending limb will be more “bendy” if you are selecting fish far before they mature. Another way of saying this is that the descending limb will accordingly change in height depending at the age of first capture.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -406,6 +450,30 @@ ggplot(pred_df_clean, aes(x = YEAR)) +
   geom_errorbar(aes(ymin = meanCPUE.lwr, ymax =meanCPUE.upr),
                 col = &amp;#39;dodgerblue&amp;#39; ) +
   labs(x = &amp;#39;Year&amp;#39;, y = &amp;#39;Catch (lbs, black line) or CPUE (blue points and 95%CI&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How I studied for my PhD Quals</title>
+      <link>/post/quals/how-studied-quals/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/post/quals/how-studied-quals/</guid>
+      <description>
+
+
+&lt;p&gt;Yay, I got a high pass on my exam (now back to the things I neglected Autumn quarter). Before I disappear, I wanted to share how I went about studying for my exam, in hopes this can help other PhD students. Disclaimer: this is likely UW/SAFS specific, and the exam is a 5-day written format where each committee member gave me a set of readings and/or topics from which I was supposed to prepare to answer any long-format question they could give me in a single day.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Acquire materials early&lt;/strong&gt;. I actually got my readings over the summer, well before I knew exactly when I was taking the exam. This gave me a birds-eye view of the magnitude of the readings and helped me triage how much time I’d spend on each. For example, my advisor assigned two textbooks – I started reading these on the bus so when crunch-time came I was really reading them for the 2nd or 3rd time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Make a weekly gameplan&lt;/strong&gt;. This is extremely valuable. I set my exam date about 2.5 months out, and drew up a timetable of what readings or topics I was to accomplish each week, with the final two weeks dedicated to review.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Have a hardcore paper-organization system&lt;/strong&gt;. If you can do this with printed sheets, I’m in awe. Otherwise, especially since I was required to synthesize and cite papers on the fly, I developed three digital tracking regimes for my readings. Three sounds like a lot, but I found using the following method enabled me to read each paper multiple times, extract the valuable information from it, and have pre-written summaries ready to go come exam day. The basic system was this:
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Mendeley&lt;/strong&gt; (any bib software should do): Load in all the readings, sorted into folders based on which committee member assigned it. This gives you a gestalt for the topics they’re leaning towards. Inside the software, I will read, highlight, and give brief annotations to the text itself. If there are equations or figures, I will paste a comment and summarize what is being said in my own words.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Excel&lt;/strong&gt; (see my &lt;a href = &#34;https://wordpress.com/post/sosakapur.wordpress.com/495&#34;&gt;How I keep up with the Literature“&lt;/a&gt; post on my old blog). I continued my table-style tracking, but included a column for keywords that I thought may come up in the exam. For example, one comm. member gave me readings about catch-only methods, MSY, data-poor methods, and global fisheries; each of these became a keyword flag so I could sort the citations quickly depending on the question. Other columns included”claim“,”methods“,”major takeaways&amp;quot; and “larger scale conclusions”, where I connected that paper’s findings with others in that subsection.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Word&lt;/strong&gt;. This is where the magic happened. For each committee member, I would make up some generalized questions and try to answer them in a loose, outline style referring to my Excel sheet. I normally did this a day or two after my first Mendeley-Excel pass of the articles, which meant I got to do a second reading of the papers and ensured I understood them enough to comment intelligently. Good questions are things that would open a review paper or Op-Ed, not things like “What did Sekkar et al. say about X?”. Synthetic questions, such as “what have we learned about the influence of X on Y” or “Are Z considered good metrics of K?” are fruitful and will allow you to connect the readings.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Go beyond&lt;/strong&gt;. One of the best things I did during the exam prep was take a Coursera (free, online) course in Bayesian statistics. In add’n to the Bayes textbook I was assigned, the course let me get “tutored” in a condensed, low-pressure way AND the quizzes helped me test my knowledge. It wouldn’t have been realistic for me to take a formal Bayes class in the stats department this quarter (midterms and all). It’s easy to fool yourself that you “get it” after highlighting a textbook (for which the previous steps aren’t as applicable), but MOOCs like Coursera enable you to test yourself in real time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pace thyself&lt;/strong&gt;. I read a quote last fall that said, “you can either contribute to the literature, or keep up with the literature”. Some days I would be deep in my Excel-Word mode for 9+ hours, and feel strangely like I hadn’t really “accomplished” anything, but this thought must be banished. Firstly, having a foundation in the literature of your field is something you’ll always need, and if you don’t do it now, you won’t have any more time when gainfully employed.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

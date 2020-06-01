@@ -27,17 +27,16 @@ I often find myself revisiting the various "re-arrangements" of the Beverton-Hol
 ## The Bev-Holt SRR
 Let's start with some working definitions.
 
-$$ \begin{array} R_0 \quad virgin, \quad unfished \quad recruitment \\ SBPR_0 \quad virgin, \quad unfished \quad spawner \quad biomass-per-recruit \\ SSB_0 \quad virgin, \quad unfished \quad spawning \quad biomass \\ SBPR_F \quad  \quad biomass-per-recruit \quad at \quad F \neq 0 \\ SSB_F \quad spawning \quad biomass  \quad at \quad F \neq 0 \\ YPR_F \quad yield-per-recruit \quad at \quad F \neq 0 \\ \end{array} $$
+$$ 
+\begin{array} 
+{rr}
+R_0 \quad virgin, \quad unfished \quad recruitment \\ SBPR_0 \quad virgin, \quad unfished \quad spawner \quad biomass-per-recruit \\ SSB_0 \quad virgin, \quad unfished \quad spawning \quad biomass \\ SBPR_F \quad  \quad biomass-per-recruit \quad at \quad F \neq 0 \\ SSB_F \quad spawning \quad biomass  \quad at \quad F \neq 0 \\ YPR_F \quad yield-per-recruit \quad at \quad F \neq 0 \\ \end{array} 
+$$
 
 First, let's illustrate how one strings these quantities together in an age-structured model *assuming a stock-recruit relationship* to derive equilibrium quantities.
 
 ## Yield-per-Recruit quantities at various F
-1) Find $SBPR$ and $YPR$ at your $F$ value of interest, and also calculate these values when $F = 0$. This will vary slightly depending on the setup of your model, but in pseudo-math:
-$$
-YPR = \large \Sigma_a \small Fs_aN_aw_a
-$$
-
-Where $N_a$ is a proportional expected number-at-age, $w_a$ is the expected weight-at-age, and $s_a$ is fishery selectivity.
+1) Find $SBPR$ and $YPR$ at your $F$ value of interest, and also calculate these values when $F = 0$. This will vary slightly depending on the setup of your model, but in pseudo-math: $YPR = \large \Sigma_a \small Fs_aN_aw_a$, Where $N_a$ is a proportional expected number-at-age, $w_a$ is the expected weight-at-age, and $s_a$ is fishery selectivity.
 $$
 SBPR = \large \Sigma_a \small E_aN_aw_a
 $$
@@ -45,16 +44,19 @@ Here $E_a$ is some measure of your population's fecundity at age. The resultant 
 
 ## SRR in terms of SBPR
 
-2a) Look at your  stock-recruitment relationship. $\alpha$ and $\beta$ are parameters of the Beverton-Holt SRR. We also leverage the definition of equilibrium stock spawning biomass as the product of unfished SBPR and REcruitment. You can confirm this makes sense by describing the equation with words: the virgin/unfished spawning biomass is the expected spawning biomass for one virgin/unfished recruit times the number of recruits. The same relationship will apply for equilibrium biomass.
+2a) Look at your  stock-recruitment relationship. $\alpha$ and $\beta$ are parameters of the Beverton-Holt SRR. We also leverage the definition of equilibrium stock spawning biomass as the product of unfished SBPR and Recruitment. You can confirm this makes sense by describing the equation with words: the virgin/unfished spawning biomass is the expected spawning biomass for one virgin/unfished recruit times the number of recruits. The same relationship will apply for equilibrium biomass. You will need to pick a number (or estimate) $R_0$.
 
-$$ \begin{array}
+$$ 
+\begin{array} {rr}
 R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
 SSB_0 = SBPR_0 \times R_0 \\
-SSB_eq = SBPR_{eq} \times R_{eq} \\
-\end{array} $$
-
-2b) Re-arrange the SRR to be in terms of $SBPR$. You will need to pick a number (or estimate) $R_0$. We do this by substitution:
-$$ \begin{array}
+SSB_{eq} = SBPR_{eq} \times R_{eq} \\
+\end{array} 
+$$
+2b) Re-arrange the SRR to be in terms of $SBPR$. We do this by substitution. 
+$$ 
+\begin{array}
+{rr}
 R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
 SSB_{eq} = SBPR_{eq} \times R_{eq} \\
 R_{eq} =  \frac{SBPR_{eq} \times R_{eq} }{\alpha + \beta ( SBPR_{eq} \times R_{eq} )} \\
@@ -100,12 +102,15 @@ $$
 \end{array}
 $$
 
+To recap, $R_{eq}$ and $SBPR_{eq}$ are both varying with $F$, but alpha and beta only change with $h$ and $R0$. $SBPR_{F=0}$ is fixed based on the life history of your species.
+
 ## Bonus Round: Stock Synthesis Recruitment Syntax
 
 Ever wonder where the Beverton-Holt syntax in the Stock Synthesis manual comes from? It is simply the substitution & rearrangement of our derived values for $\alpha$ and $\beta$ into the original stock-recruit relationship. The "trick" (not really) is just leaving the equation for $\alpha$ in terms of virigin biomass and recruitment.
 
 $$ 
 \begin{array}
+{rr}
 R_F = \frac{SSB_F}{\alpha + \beta SSB_F} \quad Bev-Holt\\
 R_F = \frac{SSB_F}{\frac{SSB_0}{R_0} \langle \frac{1-h}{4h}\rangle + \frac{5h-1}{4hR_0} SSB_F} \quad substitute \\
 R_F = \frac{SSB_F 4hR_0}{SSB_0(1-h)+ SSB_F(5h-1)} \quad flip \quad denom \\
@@ -118,8 +123,9 @@ $$
 4) We are almost done. We have equations for equilibrium recruitment, and the definitions for the parameters of that equation. Note that equilibrium recruitment *will change* with $F$ because $SPBR_F$ changes, whereas alpha and beta will not (this is important later). We can now write down equations for our resultant equilibrium spawning biomass, and equilibrium yields:
 $$ 
 \begin{array}
+{rr}
 SSB_{eq} = R_{eq} \times {SBPR_F} \\
 Yield_{eq} = R_{eq} \times {YPR_F}
 \end{array} 
 $$
-The "yield curve" is simply obtained by re-calculating these values across a range of Fs and plotting the results against input $F$ and/or resultant $SSB$. The height of the resultant dome is dependent on the value of $h$ used, and the skewness is related to selectivity. For the yield curve specifically, the peak occurs at the point just before natural mortality eclipses somatic growth, and the descending limb will be more "bendy" if you are selecting fish far before they mature. Another way of saying this is that the descending limb will accordingly change in height depending at the age of first capture.
+The "yield curve" is simply obtained by re-calculating these values across a range of Fs and plotting the results against input $F$ and/or resultant $SSB$. The height of the resultant dome is dependent on the value of $h$ used, and the skewness in the biomass is related to selectivity. For the yield curve specifically, the peak occurs at the point just before natural mortality eclipses somatic growth, and the descending limb will be more "bendy" if you are selecting fish far before they mature. Another way of saying this is that the descending limb will accordingly change in height depending at the age of first capture.

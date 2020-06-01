@@ -704,17 +704,59 @@ Note that these are novel "fleets" not equivalent to survey comps fleets.
 `\(\mu=\frac{\left(h_{prior}-h_{mini}\right)}{h_{maxi}-h_{mini}}\)`
 
 &lt;img src="index_files/figure-html/H PRIOR PLOT-1.png" width="400" height="300" /&gt;
+???
+- Punt 'best practice in recruitment' warned against global desnity
+- but added that it's hard to est steepness
+- his toy examples showed that the model bias was reduced most when local recruitment modeled
+- corroborate goethel/berger that source-sink important
+
 ---
 # Current HCRs
 `\(ABC = \hat B F_{MSY} (\times buffer)\)`
 `\(TAC = \hat B F_{targ}\)`
 &lt;img src="index_files/figure-html/HCR plot-1.png" width="400" height="300" /&gt;
+
+---
+# Initial Conditions
+The model is initialized with A years (denoted “init”) of movement, recruitment deviations, and without fishing.
+`\(N^i_{init,\gamma,a} =  \begin{cases} 0.5\omega^i_a \tau^{ik}R^k_0  exp(-\sum_a M_a^k)  \times exp(-0.5 \sigma^2_R + \tilde R^k_{init-1}) &amp; \text{if } a &lt; A\\ \omega^i_a\frac{N^i_{init-1,\gamma,A-1}exp(-\sum_a M_a^k)}{1-exp(-M_a^k)}\times exp(-0.5 \sigma^2_R + \tilde R^k_{init-1})              &amp; \text{a = A}\end{cases}\)`
+
++ `\(\omega\)` is the eigenvector of `\(X^ij_a\)`, the movement matrix
++ `\(\tau\)` is the user-defined down-scaling of recruitment at stock level `\(k\)` to sub-area `\(i\)`
+
+---
+# Equilibrium Numbers
+Calculate unfished age distribution at the stock level and partition into sub-areas:
+
+`\(N^i_{0,\gamma,a} =  \begin{cases} 0.5\omega^i_a \tau^{ik} exp(\epsilon _{\tau_{ik}}-\sum_a M_a^k)  &amp; \text{if } a &lt; A\\\omega^i_a\frac{N^i_{\gamma,A-1}exp(-\sum_a M_a^k)}{1-exp(-M_a^k)}  &amp; \text{a = A}\end{cases}\)`
++ `\(\omega\)` is the eigenvector of `\(X^{ij}_a\)`, the movement matrix
++ `\(\tau\)` is the user-defined down-scaling of recruitment at stock level `\(k\)` to sub-area `\(i\)`
++ `\(\epsilon _{\tau_{ik}}\)` is an error term on `\(\tau\)`
+---
+# Order of Operations
+.small[
+The general workflow of the operating model is as follows:
++ 1)	Read input data, including observed retained and discarded catches, survey indices, age and length compositions
++ 2)	Establish initial values for all parameters listed in Table 3; perform transformations where applicable.
++ 3)	Run model for A years with recruitment deviates, but without fishing mortality  .
++ 4)	Loop over modeled years from 1970-2018. For each year, make calculations and generated data in the following order: &lt;Br&gt;
+    a.	Tune F, Z and selectivity given the captures taken in this year
+    b.	Update numbers-at-age matrices, and biomass in each sub-area
+    c.	Move fish among stocks via X
+    d.	Undergo growth
+    e.	Invoke system-wide recruitment following end-of-year SSB
+    f.	Conduct  survey sampling (midyear) 
+    g.	Compute expected values for all data types (note predicted catches, survey observations subject to error)
++ 6)	Contribute to respective likelihood functions 
++ 7)	Calculate and store reference points and other monitored quantities.
++ 8)	 Calculate quantities at equilibrium (no fishing).
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="https://platform.twitter.com/widgets.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:11.25",
+"ratio": "17:11",
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false

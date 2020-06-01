@@ -25,7 +25,7 @@ links:
   icon_pack: fab
   name: Follow
   url: https://twitter.com/kapurmaia
-url_code: "https://github.com/mkapur/sab-mse"
+url_code: "https://github.com/mkapur/"
 url_pdf: ""
 url_slides: "slides/kapur_genex"
 url_video: ""

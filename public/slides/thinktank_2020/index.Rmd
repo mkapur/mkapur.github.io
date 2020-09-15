@@ -1,0 +1,15 @@
+---
+title: "Sablefish Operating Model Overview"
+subtitle:  "UW SAFS Think Tank"
+date: "26 Oct 2020"
+author: "M Sosa Kapur kapurm@uw.edu"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [rstudioconf-xaringan-themer.css]
+    nature:
+      beforeInit: "https://platform.twitter.com/widgets.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---

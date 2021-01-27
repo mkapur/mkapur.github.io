@@ -2,13 +2,13 @@
 title: How Do Recruitment Deviates Work?
 author: ~
 date: '2021-01-25'
-slug: some-rec-algebra
+slug: how-rec-devs
 categories: []
 tags: []
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2021-05-20T15:36:27-07:00'
+lastmod: '2021-01-20T15:36:27-07:00'
 featured: yes
 image:
   caption: ''
@@ -48,11 +48,11 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
 <p>If <span class="math inline">\(X ~ N(\mu,\theta)\)</span> and <span class="math inline">\(Y = e^X\)</span>, the expected value of <span class="math inline">\(X\)</span> is <span class="math inline">\(\mu\)</span>, and the expected value of <span class="math inline">\(Y\)</span> will be <span class="math inline">\(e^{\mu+\theta/2}\)</span>, <em>not</em> <span class="math inline">\(e^{\mu}\)</span>.</p>
 <p>Note that <span class="math inline">\(exp(X)\)</span> is 1) never less than zero and 2) pretty asymmetrical. What this means mathematically is that the mean of <span class="math inline">\(exp(X)\)</span> <em>is in fact not the same</em> as <span class="math inline">\(exp(mean(X))\)</span>. Confirm this for yourself by testing the following. They’ve been added to the plots above as vertical dashed lines.</p>
 <pre class="r"><code>mean(X) ## should be close to 0</code></pre>
-<pre><code>## [1] 0.01604494</code></pre>
+<pre><code>## [1] -0.01505518</code></pre>
 <pre class="r"><code>exp(mean(X)) ## should be close to 1</code></pre>
-<pre><code>## [1] 1.016174</code></pre>
+<pre><code>## [1] 0.9850576</code></pre>
 <pre class="r"><code>mean(exp(X)) ## uh-oh! It&#39;s way bigger...</code></pre>
-<pre><code>## [1] 1.62119</code></pre>
+<pre><code>## [1] 1.626412</code></pre>
 <pre class="r"><code>exp(mu+sigma/2) ##... in fact, the expected value of exp(X) is ~exp(mu+sigma/2)</code></pre>
 <pre><code>## [1] 1.648721</code></pre>
 </div>
@@ -62,9 +62,9 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
 <p>Check it out:</p>
 <p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre class="r"><code>exp(mean(X)) ## should be close to 1, as above</code></pre>
-<pre><code>## [1] 1.016174</code></pre>
+<pre><code>## [1] 0.9850576</code></pre>
 <pre class="r"><code>mean(exp(X-1^2/2)) ## with bias correction, closer to 1 again!</code></pre>
-<pre><code>## [1] 0.9833017</code></pre>
+<pre><code>## [1] 0.9864687</code></pre>
 <p>One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above).</p>
 <p>Imagining we had a time series of data which encompassed all the different <span class="math inline">\(SB\)</span> values corresponding to the gold points above, we could plot the deviates through time (I randomly reordered the values):</p>
 <p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>

@@ -14,9 +14,9 @@
     
     <item>
       <title>How Do Recruitment Deviates Work?</title>
-      <link>/post/recdevs/some-rec-algebra/</link>
+      <link>/post/recdevs/how-rec-devs/</link>
       <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>/post/recdevs/some-rec-algebra/</guid>
+      <guid>/post/recdevs/how-rec-devs/</guid>
       <description>
 
 
@@ -49,11 +49,11 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
 &lt;p&gt;If &lt;span class=&#34;math inline&#34;&gt;\(X ~ N(\mu,\theta)\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y = e^X\)&lt;/span&gt;, the expected value of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; is &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;, and the expected value of &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; will be &lt;span class=&#34;math inline&#34;&gt;\(e^{\mu+\theta/2}\)&lt;/span&gt;, &lt;em&gt;not&lt;/em&gt; &lt;span class=&#34;math inline&#34;&gt;\(e^{\mu}\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Note that &lt;span class=&#34;math inline&#34;&gt;\(exp(X)\)&lt;/span&gt; is 1) never less than zero and 2) pretty asymmetrical. What this means mathematically is that the mean of &lt;span class=&#34;math inline&#34;&gt;\(exp(X)\)&lt;/span&gt; &lt;em&gt;is in fact not the same&lt;/em&gt; as &lt;span class=&#34;math inline&#34;&gt;\(exp(mean(X))\)&lt;/span&gt;. Confirm this for yourself by testing the following. They’ve been added to the plots above as vertical dashed lines.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(X) ## should be close to 0&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.01604494&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.01505518&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(mean(X)) ## should be close to 1&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.016174&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9850576&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(exp(X)) ## uh-oh! It&amp;#39;s way bigger...&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.62119&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.626412&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(mu+sigma/2) ##... in fact, the expected value of exp(X) is ~exp(mu+sigma/2)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 1.648721&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -63,14 +63,38 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
 &lt;p&gt;Check it out:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(mean(X)) ## should be close to 1, as above&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.016174&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9850576&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(exp(X-1^2/2)) ## with bias correction, closer to 1 again!&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.9833017&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9864687&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above).&lt;/p&gt;
 &lt;p&gt;Imagining we had a time series of data which encompassed all the different &lt;span class=&#34;math inline&#34;&gt;\(SB\)&lt;/span&gt; values corresponding to the gold points above, we could plot the deviates through time (I randomly reordered the values):&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;So now, the horizontal line at zero represents the deterministic or expected recruitment, and the points are the log deviations from that mean. Now you can interpret this plot intuitively, where values below zero were “worse than average years”, and vice versa. What’s more, because we are working in log space you can also get a quantitative sense of how divergent from expectation the recruits were in this year &lt;em&gt;regardless of the stock size at hand&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why do we use ln(19)?</title>
+      <link>/post/ln19/why-ln19/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>/post/ln19/why-ln19/</guid>
+      <description>
+
+
+&lt;p&gt;Have you ever noticed that sneaky &lt;span class=&#34;math inline&#34;&gt;\(log(19)\)&lt;/span&gt; in your logistic equations? What is up with that? Let’s take the eample of a basic selectivity-at-age function, which uses the parameters &lt;span class=&#34;math inline&#34;&gt;\(a_{50}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(a_{95}\)&lt;/span&gt;. These represent the ages where a fish has a probability 50% or 95% chance of being captured. &lt;em&gt;Read that again carefully.&lt;/em&gt; I took these parameters for granted for a long time, but the specific meaning of them is actually intertwined with the use of &lt;span class=&#34;math inline&#34;&gt;\(ln(19)\)&lt;/span&gt;, and if they change, so does the logged value. Here’s a selectivity plot with some made up numbers. The selectivity function I’m using is:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+S_a = \langle 1+exp(-log(19)*\frac{a-a_{50}}{a_{95}-a_{50}}) \rangle ^{-1}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ln19/2021-01-25-ln19_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Note how nicely these values extend between zero and one (on the y axis)? That’s because we’re really interested in working with the odds of being captured. Based on our parameter definitions, we need to ensure that the logistic function equals 0.95 when &lt;span class=&#34;math inline&#34;&gt;\(a = a_{95}\)&lt;/span&gt; (and similarly equalling 0.5 at a50). To achieve this, we recognize that exponent of the log odds equals the odds ratio. You can think of this as the odds ratio of the probability of your event (getting captured) happening to the probability of it not happening. We can leverage the known values of the odds ratio to force the logistic equation to scale the way we want.&lt;/p&gt;
+&lt;p&gt;Since we’ve already defined &lt;span class=&#34;math inline&#34;&gt;\(a_{95}\)&lt;/span&gt; as the age at which we have a 95% probability of getting captured, the log-odds can be defined as &lt;span class=&#34;math inline&#34;&gt;\(log(\frac{0.95}{0.05})\)&lt;/span&gt;. This could be rewritten as &lt;span class=&#34;math inline&#34;&gt;\(log(\frac{19/20}{1/20})\)&lt;/span&gt; and simplifies to &lt;span class=&#34;math inline&#34;&gt;\(log(19)\)&lt;/span&gt;. This ensures that when &lt;span class=&#34;math inline&#34;&gt;\(a = a_{95}\)&lt;/span&gt;, the equation up above indeed returns 0.95, which is the logistic function evaluated at an odds ratio of 95%.&lt;/p&gt;
+&lt;p&gt;Given this syntax you’ll see how we would never really need to correct for &lt;span class=&#34;math inline&#34;&gt;\(a_{50}\)&lt;/span&gt;, since the odds ratio of two events with 50% probability is actually zero (plug in 0.5 to see for yourself).&lt;/p&gt;
+&lt;p&gt;Two notes: 1. Sometimes to ease model fitting, we will simplify the above equation by substituting &lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; in place of the denominator (&lt;span class=&#34;math inline&#34;&gt;\(a_{95} - a_{50}\)&lt;/span&gt;), or estimate &lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; as &lt;span class=&#34;math inline&#34;&gt;\(\frac{ln(19)}{a_{95} - a_{50}}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;If you’d want to use the something like &lt;span class=&#34;math inline&#34;&gt;\(a_{75}\)&lt;/span&gt;, you’d need to update the log odds via &lt;span class=&#34;math inline&#34;&gt;\(log(\frac{0.75}{0.25})\)&lt;/span&gt; or ~ &lt;span class=&#34;math inline&#34;&gt;\(log(3)\)&lt;/span&gt;. Note that this ensures that you are getting a 75% selectivity at the corresponding age, but provides a distinct curve from before.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;/post/ln19/2021-01-25-ln19_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -2,7 +2,7 @@
 title: How Do Recruitment Deviates Work?
 author: ~
 date: '2021-01-25'
-slug: some-rec-algebra
+slug: how-rec-devs
 categories: []
 tags: []
 subtitle: ''

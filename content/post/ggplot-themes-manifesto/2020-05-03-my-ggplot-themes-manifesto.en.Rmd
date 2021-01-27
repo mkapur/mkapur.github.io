@@ -150,7 +150,7 @@ Here are some highlights.
 My tweak to ggthemes which ensures that legend key backgrounds are not white. I use the dark version of this (light = FALSE) for presentations.
 
 ```{r, eval = TRUE, warning = FALSE, message = FALSE, echo=-1}
-remotes::install_github("mkapur/kaplot", dependencies = FALSE)
+# remotes::install_github("mkapur/kaplot", dependencies = FALSE)
 library(kaplot)
 
 p1 <- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +

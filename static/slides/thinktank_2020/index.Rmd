@@ -8,7 +8,7 @@ output:
     lib_dir: libs
     css: [rstudioconf-xaringan-themer.css]
     nature:
-      beforeInit: "https://platform.twitter.com/widgets.js"
+      beforeInit: "macros.js"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -30,7 +30,7 @@ layout: true
 .inverse[Ground Floor OR the 30,000 foot view]
 + Why a transboundary, spatial OM for Sablefish?
 + Basic model structure
-+ Preliminary results & Where this is headed
++ Preliminary results & where this is headed
 
 
 --
@@ -122,7 +122,7 @@ background-size: cover
 For example, R scripts pre-process the data, but TMB code uses that data to produce an expected Numbers-at-age matrix, estimate parameters, etc, then pass back to R for plotting
 ---
 
-background-image: url("./img/Fig1_Strata_Panel.PNG")
+background-image: url("./img/map-EEZ_strata_stock.png")
 background-size: contain
 # Spatial Structure of OM
 
@@ -132,10 +132,10 @@ perhaps more complex than you expected?
 useful ot walk thru how this arose
 
 ---
-background-image: url("./img/map-EEZ.png")
+background-image: url("./img/map-EEZ_mgmt.png")
 background-size: contain
 ---
-background-image: url("./img/map-EEZ_growth.png")
+background-image: url("./img/map-EEZ_mgmt_growth.png")
 background-size: contain
 ???
 my first chapter was an analysis of spatial growth variation
@@ -153,7 +153,7 @@ background-size: contain
 so the union of these two stratifications -- the political EEZs and the demographic units,
 gives rise to the 6 modeled areas in our OM
 ---
-background-image: url("./img/map-EEZ_strata_lab.png")
+background-image: url("./img/map-EEZ_strata_lab2.png")
 background-size: contain
 --
 <Br><Br><br><Br><Br><br><Br><Br><br><Br><br>
@@ -192,14 +192,19 @@ background-size: cover
 This is figure 2
 The last thing I want to add is about survey fleets; those involved with my sptl temporal std work know that i developed a novel index usting VAST. this means that i actually have unique "survey fleets" for each region which are composites
 ---
-background-image: url("./img/Fig2_OM_indices.png")
-background-size: contain
 # .small[Data Inputs: Surveys]
----
-background-image: url("./img/OMGrowthCurves_50N.PNG")
-background-size: contain
 
+```{r, out.height = "60%",out.width = "60%", eval = TRUE, echo = FALSE}
+# Small fig.width
+knitr::include_graphics("./img/OM_indices-09-22-2020.png")
+```
+---
 # .small[Data Inputs: Growth]
+
+```{r, out.width = "75%", eval = TRUE, echo = FALSE}
+# Small fig.width
+knitr::include_graphics("./img/OMGrowthCurves_sigma.PNG")
+```
 
 ---
 # .small[Data Inputs: Movement placeholder]
@@ -208,9 +213,12 @@ background-size: contain
 
 
 ---
-background-image: url("./img/Mat_fit6.PNG")
-background-size: contain
 # .small[Data Inputs: Maturity ]
+
+```{r, out.width = "75%", eval = TRUE, echo = FALSE}
+# Small fig.width
+knitr::include_graphics("./img/om_maturity.png")
+```
 
 
 

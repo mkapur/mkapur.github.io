@@ -1,0 +1,37 @@
+---
+title: Why do we use ln(19)?
+author: ~
+date: '2021-01-04'
+slug: why-ln19
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-01-04T15:36:27-07:00'
+featured: yes
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>Have you ever noticed that sneaky <span class="math inline">\(log(19)\)</span> in your logistic equation for maturity or selectivity? What is up with that?</p>
+<p>Let’s take the example of a basic selectivity-at-age function, which uses the parameters <span class="math inline">\(a_{50}\)</span> and <span class="math inline">\(a_{95}\)</span>. These represent the ages where a fish has a probability 50% or 95% chance of being captured. <em>Read that again carefully.</em> I took these parameters for granted, but the meaning of them is intertwined with the use of <span class="math inline">\(ln(19)\)</span>, and if they change, so does the logged value.</p>
+<p>Here’s a selectivity plot with some made up numbers. The selectivity function I’m using is:</p>
+<p><span class="math display">\[
+S_a = \langle 1+exp(-log(19)*\frac{a-a_{50}}{a_{95}-a_{50}}) \rangle ^{-1}
+\]</span></p>
+<p><img src="/post/ln19/2021-01-25-ln19_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Note how nicely these values extend between zero and one (on the y axis)? That’s because we’re really interested in working with the odds of being captured. Based on our parameter definitions, we need to ensure that the logistic function equals 0.95 when <span class="math inline">\(a = a_{95}\)</span> (and similarly equals 0.5 at <span class="math inline">\(a_{50}\)</span>). To achieve this, we recognize the exponent of the log odds equals the odds ratio. You can think of the odds ratio as the probability of your event (getting captured) happening over the probability of it not happening. We can leverage this to force the logistic equation to scale the way we want.</p>
+<p>Since we’ve already defined <span class="math inline">\(a_{95}\)</span> as the age at which we have a 95% probability of getting captured, the log-odds can be defined as <span class="math inline">\(log(\frac{0.95}{0.05})\)</span>. This could be rewritten as <span class="math inline">\(log(\frac{19/20}{1/20})\)</span> and simplifies to <span class="math inline">\(log(19)\)</span>. This ensures that when <span class="math inline">\(a = a_{95}\)</span>, the equation up top indeed returns 0.95, which is the logistic function evaluated at an odds ratio of 95%.</p>
+<p>Given this syntax you’ll see how we would never really need to correct for <span class="math inline">\(a_{50}\)</span>, since the odds ratio of two events with 50% probability is actually zero (plug in 0.5 to see for yourself).</p>
+<p>Two notes:</p>
+<ol style="list-style-type: decimal">
+<li><p>Sometimes to ease model fitting, we will simplify the above equation by substituting <span class="math inline">\(\delta\)</span> in place of the denominator (<span class="math inline">\(a_{95} - a_{50}\)</span>), or estimate <span class="math inline">\(\delta\)</span> as <span class="math inline">\(\frac{ln(19)}{a_{95} - a_{50}}\)</span>.</p></li>
+<li><p>If you’d want to use the something like <span class="math inline">\(a_{75}\)</span>, you’d need to update the log odds via <span class="math inline">\(log(\frac{0.75}{0.25})\)</span> or ~ <span class="math inline">\(log(3)\)</span>. Note that this ensures that you are getting a 75% selectivity at the corresponding age, but provides a distinct curve from before.</p></li>
+</ol>
+<p><img src="/post/ln19/2021-01-25-ln19_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>

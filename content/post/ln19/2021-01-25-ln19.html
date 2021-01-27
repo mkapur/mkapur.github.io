@@ -1,0 +1,72 @@
+---
+title: How Do Recruitment Deviates Work?
+author: ~
+date: '2021-01-25'
+slug: some-rec-algebra
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-05-20T15:36:27-07:00'
+featured: yes
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>For an in-depth description of the theory and math behind recruitment deviations in assessment models, check out Methot, R.D., Taylor, I.G., Chen, Y., 2011. Adjusting for bias due to variability of estimated recruitments in fishery assessment models. Can. J. Fish. Aquat. Sci. 68, 1744–1760. <a href="https://doi.org/10.1139/f2011-092" class="uri">https://doi.org/10.1139/f2011-092</a>.</p>
+<p>Here I want to jot down the practical implementation behind the recruitment deviate for those working in Stock Synthesis or building their own models from scratch. The main topics to discuss are 1) The meaning of a recruitment deviate (abbreviated here to “rec-dev”), 2) how it plays in your dynamics equations, and 3) keeping an eye out for lognormal bias correction.</p>
+<div id="what-is-a-rec-dev" class="section level1">
+<h1>What is a rec-dev?</h1>
+<p>A recruitment deviate is how much a given year’s recruitment <em>deviates</em> from what you’d expect given a stock-recruit relationship (in this post I’ll use the Beverton-Holt as an example). The idea is that there could be many reasons for a stock to produce a number of recruits which is different from the deterministic value defined by the current stock size (among other parameters). Reasons for this deviation could be environmental, and are generally unexplained – which is why the time series of rec devs is often interpreted as process error in your system (all the extra natural noise our model can’t capture).</p>
+<p>Let’s quickly refresh what we’re talking about when we say the “mean” or expected recruitment level. Again, using the Bev-Holt as an example:</p>
+<p><span class="math display">\[ 
+R_{expected} = \frac{SSB 4hR_0}{SSB_0(1-h)+ SSB(5h-1)} 
+\]</span></p>
+<p><span class="math inline">\(h\)</span> is steepness, or the expected proportion of <span class="math inline">\(R_0\)</span> anticipated at <span class="math inline">\(0.2SSB_0\)</span>; <span class="math inline">\(R_0\)</span> and <span class="math inline">\(SSB_0\)</span> are virgin recruitment and spawning biomass, respectively.</p>
+<p>If we make up some numbers for these parameters and plug them in, the resultant relationship might look something like this:</p>
+<p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Cool. Now let’s consider that we have some notion of error around this deterministic value; this error could arise from uncertainty in the parameters of the stock recruit curve. Here, the shaded zone is the 95% confidence interval around our expected recruitment. 95% of recruitment values in a given year at a given SB should fall within that zone.</p>
+<p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Given this error, your observed recruitment in a given year may <em>deviate</em> from the black curve somewhat. The new observed recruitments are shown as gold points; the line separating each point from the expected value is the raw value of the deviate itself.</p>
+<p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Let’s think for a second. If we deal in absolutes, the raw (absolute) value of a deviate at high biomass is going to be much larger than the deviate at low biomass. This isn’t very helpful if we’re trying to quantify the degree to which our stock’s recruitment in year <span class="math inline">\(y\)</span> is diverging from expectation. For that reason, we are interested in modeling the errors, or deviates, as <em>lognormally distributed</em>. Equation-wise, here’s what that looks like. Note that <span class="math inline">\(R_{det}\)</span> is simply the deterministic value of recruitment, which could come from a Bev-Holt, Ricker, you name it.</p>
+<p><span class="math display">\[
+R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
+\]</span></p>
+<p>Now we’ll quickly refresh the idea behind the lognormal distribution and explain what’s up with that <span class="math inline">\(-\sigma^2/2\)</span>.</p>
+</div>
+<div id="refreshing-the-lognormal-distribution." class="section level1">
+<h1>Refreshing the lognormal distribution.</h1>
+<p>If our devs are normally distributed with mean zero, <span class="math inline">\(exp(\mu = 0)\)</span> is <em>lognormally</em> distributed, shown in blue below:</p>
+<p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>If <span class="math inline">\(X ~ N(\mu,\theta)\)</span> and <span class="math inline">\(Y = e^X\)</span>, the expected value of <span class="math inline">\(X\)</span> is <span class="math inline">\(\mu\)</span>, and the expected value of <span class="math inline">\(Y\)</span> will be <span class="math inline">\(e^{\mu+\theta/2}\)</span>, <em>not</em> <span class="math inline">\(e^{\mu}\)</span>.</p>
+<p>Note that <span class="math inline">\(exp(X)\)</span> is 1) never less than zero and 2) pretty asymmetrical. What this means mathematically is that the mean of <span class="math inline">\(exp(X)\)</span> <em>is in fact not the same</em> as <span class="math inline">\(exp(mean(X))\)</span>. Confirm this for yourself by testing the following. They’ve been added to the plots above as vertical dashed lines.</p>
+<pre class="r"><code>mean(X) ## should be close to 0</code></pre>
+<pre><code>## [1] 0.01604494</code></pre>
+<pre class="r"><code>exp(mean(X)) ## should be close to 1</code></pre>
+<pre><code>## [1] 1.016174</code></pre>
+<pre class="r"><code>mean(exp(X)) ## uh-oh! It&#39;s way bigger...</code></pre>
+<pre><code>## [1] 1.62119</code></pre>
+<pre class="r"><code>exp(mu+sigma/2) ##... in fact, the expected value of exp(X) is ~exp(mu+sigma/2)</code></pre>
+<pre><code>## [1] 1.648721</code></pre>
+</div>
+<div id="bias-correction-to-the-rescue" class="section level1">
+<h1>Bias correction to the rescue</h1>
+<p>Back to the recruitment example, we can pretend that <span class="math inline">\(X\)</span> here is our vector of recruitment deviates. We set the mean for <span class="math inline">\(dev_y\)</span> to 0 in hopes that, on an “average” year, we’ll be multiplying <span class="math inline">\(R_{det,y}\)</span> (deterministic recruitment) by <span class="math inline">\(exp(0) = 1\)</span>, and get the expected value back. However, because we’ve discovered that <span class="math inline">\(exp(dev_y)\)</span> is not symmetrical, we need to perform a <em>bias correction</em> to confirm that we <em>approximately</em> return the deterministic value when <span class="math inline">\(dev_y\)</span> is zero. In other words, we are adjusting how we back-transform the deviates to confirm that the mean of those deviates is roughly one, on a normal scale.</p>
+<p>Check it out:</p>
+<p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>exp(mean(X)) ## should be close to 1, as above</code></pre>
+<pre><code>## [1] 1.016174</code></pre>
+<pre class="r"><code>mean(exp(X-1^2/2)) ## with bias correction, closer to 1 again!</code></pre>
+<pre><code>## [1] 0.9833017</code></pre>
+<p>One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above).</p>
+<p>Imagining we had a time series of data which encompassed all the different <span class="math inline">\(SB\)</span> values corresponding to the gold points above, we could plot the deviates through time (I randomly reordered the values):</p>
+<p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>So now, the horizontal line at zero represents the deterministic or expected recruitment, and the points are the log deviations from that mean. Now you can interpret this plot intuitively, where values below zero were “worse than average years”, and vice versa. What’s more, because we are working in log space you can also get a quantitative sense of how divergent from expectation the recruits were in this year <em>regardless of the stock size at hand</em>.</p>
+</div>

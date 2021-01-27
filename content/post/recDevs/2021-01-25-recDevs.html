@@ -30,8 +30,6 @@ R_{expected} = \frac{SSB 4hR_0}{SSB_0(1-h)+ SSB(5h-1)}
 \]</span></p>
 <p><span class="math inline">\(h\)</span> is steepness, or the expected proportion of <span class="math inline">\(R_0\)</span> anticipated at <span class="math inline">\(0.2SSB_0\)</span>; <span class="math inline">\(R_0\)</span> and <span class="math inline">\(SSB_0\)</span> are virgin recruitment and spawning biomass, respectively.</p>
 <p>If we make up some numbers for these parameters and plug them in, the resultant relationship might look something like this:</p>
-<pre><code>## Loading required package: ggplot2</code></pre>
-<pre><code>## Loading required package: ggsidekick</code></pre>
 <p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>Cool. Now let’s consider that we have some notion of error around this deterministic value; this error could arise from uncertainty in the parameters of the stock recruit curve. Here, the shaded zone is the 95% confidence interval around our expected recruitment. 95% of recruitment values in a given year at a given SB should fall within that zone.</p>
 <p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
@@ -50,11 +48,11 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
 <p>If <span class="math inline">\(X ~ N(\mu,\theta)\)</span> and <span class="math inline">\(Y = e^X\)</span>, the expected value of <span class="math inline">\(X\)</span> is <span class="math inline">\(\mu\)</span>, and the expected value of <span class="math inline">\(Y\)</span> will be <span class="math inline">\(e^{\mu+\theta/2}\)</span>, <em>not</em> <span class="math inline">\(e^{\mu}\)</span>.</p>
 <p>Note that <span class="math inline">\(exp(X)\)</span> is 1) never less than zero and 2) pretty asymmetrical. What this means mathematically is that the mean of <span class="math inline">\(exp(X)\)</span> <em>is in fact not the same</em> as <span class="math inline">\(exp(mean(X))\)</span>. Confirm this for yourself by testing the following. They’ve been added to the plots above as vertical dashed lines.</p>
 <pre class="r"><code>mean(X) ## should be close to 0</code></pre>
-<pre><code>## [1] 0.04435645</code></pre>
+<pre><code>## [1] 0.01604494</code></pre>
 <pre class="r"><code>exp(mean(X)) ## should be close to 1</code></pre>
-<pre><code>## [1] 1.045355</code></pre>
+<pre><code>## [1] 1.016174</code></pre>
 <pre class="r"><code>mean(exp(X)) ## uh-oh! It&#39;s way bigger...</code></pre>
-<pre><code>## [1] 1.690258</code></pre>
+<pre><code>## [1] 1.62119</code></pre>
 <pre class="r"><code>exp(mu+sigma/2) ##... in fact, the expected value of exp(X) is ~exp(mu+sigma/2)</code></pre>
 <pre><code>## [1] 1.648721</code></pre>
 </div>
@@ -64,20 +62,11 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
 <p>Check it out:</p>
 <p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre class="r"><code>exp(mean(X)) ## should be close to 1, as above</code></pre>
-<pre><code>## [1] 1.045355</code></pre>
+<pre><code>## [1] 1.016174</code></pre>
 <pre class="r"><code>mean(exp(X-1^2/2)) ## with bias correction, closer to 1 again!</code></pre>
-<pre><code>## [1] 1.025193</code></pre>
+<pre><code>## [1] 0.9833017</code></pre>
 <p>One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above).</p>
 <p>Imagining we had a time series of data which encompassed all the different <span class="math inline">\(SB\)</span> values corresponding to the gold points above, we could plot the deviates through time (I randomly reordered the values):</p>
-<pre><code>## Loading required package: dplyr</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
 <p><img src="/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>So now, the horizontal line at zero represents the deterministic or expected recruitment, and the points are the log deviations from that mean. Now you can interpret this plot intuitively, where values below zero were “worse than average years”, and vice versa. What’s more, because we are working in log space you can also get a quantitative sense of how divergent from expectation the recruits were in this year <em>regardless of the stock size at hand</em>.</p>
 </div>

@@ -119,6 +119,7 @@ uci <- qnorm(0.975,0,1)*sd_theta + theta[which.min(black_nll)]
 ```
 
 Adding these values to our plot, we'd expect them to encompass the points we identified earlier but intercept precicely with the horizontal line representing the chi-sq test from before:
+
 ```{r echo = FALSE}
 ggplot(profm, 
        aes(x = theta, 

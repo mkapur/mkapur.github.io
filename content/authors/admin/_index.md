@@ -18,7 +18,7 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include fisheries stock assessment, spatio-temporal modeling, and improving data science tools for ecological managers.
+bio: My research interests include fisheries stock assessment, management strategy evaluation, spatio-temporal modeling, and improving data science tools for ecological managers.
 
 interests:
 - Population Dynamics
@@ -70,4 +70,4 @@ email: ""
 # - Visitors
 ---
 
-I am currently a graduate student at the School of Aquatic and Fisheries science at the University of Washington in the Punt Lab.  Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and  completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.
+I am currently a PhD Candidate at the School of Aquatic and Fisheries Science at the University of Washington in the Punt Lab.  Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.

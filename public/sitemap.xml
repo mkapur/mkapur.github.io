@@ -3,258 +3,197 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/courses/example/example1/</loc>
+    <loc>https://mkapur.netlify.app/courses/example/example1/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example/</loc>
+    <loc>https://mkapur.netlify.app/courses/example/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example/example2/</loc>
+    <loc>https://mkapur.netlify.app/courses/example/example2/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/recdevs/how-rec-devs/</loc>
+    <loc>https://mkapur.netlify.app/post/how-i-keep-up-with-the-literature/</loc>
+    <lastmod>2021-02-10T11:00:50-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mkapur.netlify.app/post/</loc>
+    <lastmod>2021-02-10T11:00:50-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mkapur.netlify.app/post/recdevs/how-rec-devs/</loc>
     <lastmod>2021-01-20T15:36:27-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2021-01-20T15:36:27-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/ln19/why-ln19/</loc>
+    <loc>https://mkapur.netlify.app/post/ln19/why-ln19/</loc>
     <lastmod>2021-01-04T15:36:27-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/generals/how-studied-general/</loc>
+    <loc>https://mkapur.netlify.app/post/generals/how-studied-general/</loc>
     <lastmod>2020-06-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/kapur_genex/</loc>
+    <loc>https://mkapur.netlify.app/talk/kapur_genex/</loc>
     <lastmod>2020-06-02T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/</loc>
+    <loc>https://mkapur.netlify.app/talk/</loc>
     <lastmod>2020-06-02T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/recalg/some-rec-algebra/</loc>
+    <loc>https://mkapur.netlify.app/post/recalg/some-rec-algebra/</loc>
     <lastmod>2020-05-20T15:36:27-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/sneak_quantsem_may2020/</loc>
+    <loc>https://mkapur.netlify.app/talk/sneak_quantsem_may2020/</loc>
     <lastmod>2020-05-15T12:30:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/ggplot-themes-manifesto/my-ggplot-themes-manifesto/</loc>
+    <loc>https://mkapur.netlify.app/post/ggplot-themes-manifesto/my-ggplot-themes-manifesto/</loc>
     <lastmod>2020-05-03T14:13:36-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/sf-non-rect/sf-non-rect/</loc>
+    <loc>https://mkapur.netlify.app/post/sf-non-rect/sf-non-rect/</loc>
     <lastmod>2020-05-01T14:13:36-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/pstat_om_apr2020/</loc>
+    <loc>https://mkapur.netlify.app/talk/pstat_om_apr2020/</loc>
     <lastmod>2020-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/tidycpue/tidycpue/</loc>
+    <loc>https://mkapur.netlify.app/post/tidycpue/tidycpue/</loc>
     <lastmod>2020-05-06T15:36:27-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/quals/how-studied-quals/</loc>
+    <loc>https://mkapur.netlify.app/post/quals/how-studied-quals/</loc>
     <lastmod>2020-01-01T15:36:27-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/writing-technical-content/</loc>
-    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/courses/</loc>
+    <loc>https://mkapur.netlify.app/courses/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication-type/3/</loc>
+    <loc>https://mkapur.netlify.app/publication-type/3/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/preprint/</loc>
+    <loc>https://mkapur.netlify.app/publication/preprint/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/author/maia-sosa-kapur/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/</loc>
+    <loc>https://mkapur.netlify.app/authors/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/</loc>
+    <loc>https://mkapur.netlify.app/author/maia-sosa-kapur/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tag/source-themes/</loc>
+    <loc>https://mkapur.netlify.app/publication_types/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <loc>https://mkapur.netlify.app/publication/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/jupyter/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <loc>https://mkapur.netlify.app/tag/source-themes/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+    <loc>https://mkapur.netlify.app/tags/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/privacy/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/terms/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
+    <loc>https://mkapur.netlify.app/about/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tag/deep-learning/</loc>
+    <loc>https://mkapur.netlify.app/</loc>
+    <lastmod>2016-05-05T21:48:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mkapur.netlify.app/tag/deep-learning/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tag/demo/</loc>
+    <loc>https://mkapur.netlify.app/tag/demo/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/external-project/</loc>
+    <loc>https://mkapur.netlify.app/project/external-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/internal-project/</loc>
+    <loc>https://mkapur.netlify.app/project/internal-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/</loc>
+    <loc>https://mkapur.netlify.app/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tag/academic/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/getting-started/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/category/demo/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication-type/2/</loc>
+    <loc>https://mkapur.netlify.app/publication-type/2/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/journal-article/</loc>
+    <loc>https://mkapur.netlify.app/publication/journal-article/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/author/robert-ford/</loc>
+    <loc>https://mkapur.netlify.app/author/robert-ford/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2015-07-23-r-rmarkdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tag/plot/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/category/r/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tag/r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tag/regression/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/2015-01-01-lorem-ipsum/</loc>
-    <lastmod>2015-01-01T13:09:13-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication-type/1/</loc>
+    <loc>https://mkapur.netlify.app/publication-type/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/conference-paper/</loc>
+    <loc>https://mkapur.netlify.app/publication/conference-paper/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mkapur.netlify.app/categories/</loc>
   </url>
   
 </urlset>

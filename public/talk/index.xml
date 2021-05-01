@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent &amp; Upcoming Talks | Maia Sosa Kapur</title>
-    <link>/talk/</link>
-      <atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://mkapur.netlify.app/talk/</link>
+      <atom:link href="https://mkapur.netlify.app/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 02 Jun 2020 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://mkapur.netlify.app/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Recent &amp; Upcoming Talks</title>
-      <link>/talk/</link>
+      <link>https://mkapur.netlify.app/talk/</link>
     </image>
     
     <item>
       <title>Maia S Kapur General Exam, 02 June 2020</title>
-      <link>/talk/kapur_genex/</link>
+      <link>https://mkapur.netlify.app/talk/kapur_genex/</link>
       <pubDate>Tue, 02 Jun 2020 13:00:00 +0000</pubDate>
-      <guid>/talk/kapur_genex/</guid>
+      <guid>https://mkapur.netlify.app/talk/kapur_genex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sneaking Up on a Well-Specified Model; Quantitative Seminar, May 15, 2020</title>
-      <link>/talk/sneak_quantsem_may2020/</link>
+      <link>https://mkapur.netlify.app/talk/sneak_quantsem_may2020/</link>
       <pubDate>Fri, 15 May 2020 12:30:00 +0000</pubDate>
-      <guid>/talk/sneak_quantsem_may2020/</guid>
+      <guid>https://mkapur.netlify.app/talk/sneak_quantsem_may2020/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Operating Model for Pacific Sablefish Transboundary MSE</title>
-      <link>/talk/pstat_om_apr2020/</link>
+      <link>https://mkapur.netlify.app/talk/pstat_om_apr2020/</link>
       <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/talk/pstat_om_apr2020/</guid>
+      <guid>https://mkapur.netlify.app/talk/pstat_om_apr2020/</guid>
       <description></description>
     </item>
     

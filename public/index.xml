@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maia Sosa Kapur</title>
-    <link>/</link>
-      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://mkapur.netlify.app/</link>
+      <atom:link href="https://mkapur.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <description>Maia Sosa Kapur</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 05 May 2016 21:48:51 -0700</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://mkapur.netlify.app/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Maia Sosa Kapur</title>
-      <link>/</link>
+      <link>https://mkapur.netlify.app/</link>
     </image>
     
     <item>
       <title>Example Page 1</title>
-      <link>/courses/example/example1/</link>
+      <link>https://mkapur.netlify.app/courses/example/example1/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>/courses/example/example1/</guid>
+      <guid>https://mkapur.netlify.app/courses/example/example1/</guid>
       <description>&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -35,9 +35,9 @@
     
     <item>
       <title>Example Page 2</title>
-      <link>/courses/example/example2/</link>
+      <link>https://mkapur.netlify.app/courses/example/example2/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>/courses/example/example2/</guid>
+      <guid>https://mkapur.netlify.app/courses/example/example2/</guid>
       <description>&lt;p&gt;Here are some more tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-3&#34;&gt;Tip 3&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -55,10 +55,27 @@
     </item>
     
     <item>
+      <title>How I Keep Up With the Literature</title>
+      <link>https://mkapur.netlify.app/post/how-i-keep-up-with-the-literature/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://mkapur.netlify.app/post/how-i-keep-up-with-the-literature/</guid>
+      <description>&lt;p&gt;My lab recently had a meeting where we discussed the nuts &amp;amp; bolts of performing a peer-review for a journal article, which got everyone talking about their preferred methods of reading a scientific paper. Luckily, we aren&amp;rsquo;t in bio-medicine or particle physics, but the volume of articles that emerge monthly in our field is still large, and it takes strategy to efficiently extract and scrutinize the information from a scientific article.&lt;/p&gt;
+&lt;p&gt;One of my favorite specimens of PhD advice comes from the &lt;a href=&#34;http://www.chemistry-blog.com/wp-content/uploads/2010/06/Gassman-and-Meyers.pdf&#34;&gt;Gassman and Meyers memos&lt;/a&gt;, which posess the perfect melange of condecision, tough love and &amp;ldquo;kids these days&amp;rdquo; angst &amp;ndash; the advice, nonetheless, is great. It sticks because it stings a bit. Gassman writes:&lt;/p&gt;
+&lt;blockquote&gt;It is a consistent observation on my part that people have more ideas about their research when they are writing their thesis than at any other time. This is generally due to the fact that they are finally doing the literature work they should have done early in their thesis work only at the time that they are trying to complete their dissertations. -- P.G. Gassman&lt;/blockquote&gt;
+So, don&#39;t let that be you. Here is how I approach the literature, which has proved helpful for the last few years.
+&lt;ol&gt;
+	&lt;li&gt;Have a method to centralize new articles. I used the tips on the &lt;a href=&#34;https://fraserlab.com/2013/09/28/The-Fraser-Lab-method-of-following-the-scientific-literature/&#34;&gt;Fraser Lab website&lt;/a&gt; to set up a Feedly account (there are lots of other options) and subscribed to the four main journals in my field, plus Science, Nature, and PNAS. The algorithm learns your preferences quite quickly, and your queue will show articles that fit your niche after you &#39;check&#39; them off.&lt;/li&gt;
+	&lt;li&gt;Check your centralizer every morning, and save the articles whose abstracts seem relevant as soon as you see them. It&#39;s fine to save articles on-the-fly, but I recommend scheduling &#39;deep reading&#39; periods of no less than one hour.&lt;/li&gt;
+	&lt;li&gt;Go beyond highlighting/sticky notes. I use a set of spreadsheets, stored in Google Drive and sorted by topic, to ensure that I&#39;m actually engaged with what I&#39;m reading. They all follow the same format. One example  comes from my spreadsheet for studies of spatial model structure and general model mis-specification. The headings are hard to read in the screenshot, but they are &lt;strong&gt;Citation, Species, Mis-specification, Methods, Performance Measures, Conclusions, Similarities and Differences.&lt;/strong&gt; These can be tailored to your field or project, but the last two are the most crucial. In those columns, I compare the study to my thesis work, making it easy as I write my introductions/discussions to state who has done similar studies, and where the research gaps lie.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How Do Recruitment Deviates Work?</title>
-      <link>/post/recdevs/how-rec-devs/</link>
+      <link>https://mkapur.netlify.app/post/recdevs/how-rec-devs/</link>
       <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>/post/recdevs/how-rec-devs/</guid>
+      <guid>https://mkapur.netlify.app/post/recdevs/how-rec-devs/</guid>
       <description>
 
 
@@ -73,11 +90,11 @@ R_{expected} = \frac{SSB 4hR_0}{SSB_0(1-h)+ SSB(5h-1)}
 \]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(h\)&lt;/span&gt; is steepness, or the expected proportion of &lt;span class=&#34;math inline&#34;&gt;\(R_0\)&lt;/span&gt; anticipated at &lt;span class=&#34;math inline&#34;&gt;\(0.2SSB_0\)&lt;/span&gt;; &lt;span class=&#34;math inline&#34;&gt;\(R_0\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(SSB_0\)&lt;/span&gt; are virgin recruitment and spawning biomass, respectively.&lt;/p&gt;
 &lt;p&gt;If we make up some numbers for these parameters and plug them in, the resultant relationship might look something like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Cool. Now let’s consider that we have some notion of error around this deterministic value; this error could arise from uncertainty in the parameters of the stock recruit curve. Here, the shaded zone is the 95% confidence interval around our expected recruitment. 95% of recruitment values in a given year at a given SB should fall within that zone.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Given this error, your observed recruitment in a given year may &lt;em&gt;deviate&lt;/em&gt; from the black curve somewhat. The new observed recruitments are shown as gold points; the line separating each point from the expected value is the raw value of the deviate itself.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Let’s think for a second. If we deal in absolutes, the raw (absolute) value of a deviate at high biomass is going to be much larger than the deviate at low biomass. This isn’t very helpful if we’re trying to quantify the degree to which our stock’s recruitment in year &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; is diverging from expectation. For that reason, we are interested in modeling the errors, or deviates, as &lt;em&gt;lognormally distributed&lt;/em&gt;. Equation-wise, here’s what that looks like. Note that &lt;span class=&#34;math inline&#34;&gt;\(R_{det}\)&lt;/span&gt; is simply the deterministic value of recruitment, which could come from a Bev-Holt, Ricker, you name it.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
@@ -87,7 +104,7 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
 &lt;div id=&#34;refreshing-the-lognormal-distribution.&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Refreshing the lognormal distribution.&lt;/h1&gt;
 &lt;p&gt;If our devs are normally distributed with mean zero, &lt;span class=&#34;math inline&#34;&gt;\(exp(\mu = 0)\)&lt;/span&gt; is &lt;em&gt;lognormally&lt;/em&gt; distributed, shown in blue below:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;If &lt;span class=&#34;math inline&#34;&gt;\(X ~ N(\mu,\theta)\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y = e^X\)&lt;/span&gt;, the expected value of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; is &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;, and the expected value of &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; will be &lt;span class=&#34;math inline&#34;&gt;\(e^{\mu+\theta/2}\)&lt;/span&gt;, &lt;em&gt;not&lt;/em&gt; &lt;span class=&#34;math inline&#34;&gt;\(e^{\mu}\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Note that &lt;span class=&#34;math inline&#34;&gt;\(exp(X)\)&lt;/span&gt; is 1) never less than zero and 2) pretty asymmetrical. What this means mathematically is that the mean of &lt;span class=&#34;math inline&#34;&gt;\(exp(X)\)&lt;/span&gt; &lt;em&gt;is in fact not the same&lt;/em&gt; as &lt;span class=&#34;math inline&#34;&gt;\(exp(mean(X))\)&lt;/span&gt;. Confirm this for yourself by testing the following. They’ve been added to the plots above as vertical dashed lines.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(X) ## should be close to 0&lt;/code&gt;&lt;/pre&gt;
@@ -103,14 +120,14 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
 &lt;h1&gt;Bias correction to the rescue&lt;/h1&gt;
 &lt;p&gt;Back to the recruitment example, we can pretend that &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; here is our vector of recruitment deviates. We set the mean for &lt;span class=&#34;math inline&#34;&gt;\(dev_y\)&lt;/span&gt; to 0 in hopes that, on an “average” year, we’ll be multiplying &lt;span class=&#34;math inline&#34;&gt;\(R_{det,y}\)&lt;/span&gt; (deterministic recruitment) by &lt;span class=&#34;math inline&#34;&gt;\(exp(0) = 1\)&lt;/span&gt;, and get the expected value back. However, because we’ve discovered that &lt;span class=&#34;math inline&#34;&gt;\(exp(dev_y)\)&lt;/span&gt; is not symmetrical, we need to perform a &lt;em&gt;bias correction&lt;/em&gt; to confirm that we &lt;em&gt;approximately&lt;/em&gt; return the deterministic value when &lt;span class=&#34;math inline&#34;&gt;\(dev_y\)&lt;/span&gt; is zero. In other words, we are adjusting how we back-transform the deviates to confirm that the mean of those deviates is roughly one, on a normal scale.&lt;/p&gt;
 &lt;p&gt;Check it out:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(mean(X)) ## should be close to 1, as above&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.9850576&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(exp(X-1^2/2)) ## with bias correction, closer to 1 again!&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.9864687&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above).&lt;/p&gt;
 &lt;p&gt;Imagining we had a time series of data which encompassed all the different &lt;span class=&#34;math inline&#34;&gt;\(SB\)&lt;/span&gt; values corresponding to the gold points above, we could plot the deviates through time (I randomly reordered the values):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/recDevs/2021-01-25-recDevs_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;So now, the horizontal line at zero represents the deterministic or expected recruitment, and the points are the log deviations from that mean. Now you can interpret this plot intuitively, where values below zero were “worse than average years”, and vice versa. What’s more, because we are working in log space you can also get a quantitative sense of how divergent from expectation the recruits were in this year &lt;em&gt;regardless of the stock size at hand&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </description>
@@ -118,9 +135,9 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
     
     <item>
       <title>Why do we use ln(19)?</title>
-      <link>/post/ln19/why-ln19/</link>
+      <link>https://mkapur.netlify.app/post/ln19/why-ln19/</link>
       <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>/post/ln19/why-ln19/</guid>
+      <guid>https://mkapur.netlify.app/post/ln19/why-ln19/</guid>
       <description>
 
 
@@ -130,7 +147,7 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 S_a = \langle 1+exp(-log(19)*\frac{a-a_{50}}{a_{95}-a_{50}}) \rangle ^{-1}
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ln19/2021-01-25-ln19_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ln19/2021-01-25-ln19_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Note how nicely these values extend between zero and one (on the y axis)? That’s because we’re really interested in working with the odds of being captured. Based on our parameter definitions, we need to ensure that the logistic function equals 0.95 when &lt;span class=&#34;math inline&#34;&gt;\(a = a_{95}\)&lt;/span&gt; (and similarly equals 0.5 at &lt;span class=&#34;math inline&#34;&gt;\(a_{50}\)&lt;/span&gt;). To achieve this, we recognize the exponent of the log odds equals the odds ratio. You can think of the odds ratio as the probability of your event (getting captured) happening over the probability of it not happening. We can leverage this to force the logistic equation to scale the way we want.&lt;/p&gt;
 &lt;p&gt;Since we’ve already defined &lt;span class=&#34;math inline&#34;&gt;\(a_{95}\)&lt;/span&gt; as the age at which we have a 95% probability of getting captured, the log-odds can be defined as &lt;span class=&#34;math inline&#34;&gt;\(log(\frac{0.95}{0.05})\)&lt;/span&gt;. This could be rewritten as &lt;span class=&#34;math inline&#34;&gt;\(log(\frac{19/20}{1/20})\)&lt;/span&gt; and simplifies to &lt;span class=&#34;math inline&#34;&gt;\(log(19)\)&lt;/span&gt;. This ensures that when &lt;span class=&#34;math inline&#34;&gt;\(a = a_{95}\)&lt;/span&gt;, the equation up top indeed returns 0.95, which is the logistic function evaluated at an odds ratio of 95%.&lt;/p&gt;
 &lt;p&gt;Given this syntax you’ll see how we would never really need to correct for &lt;span class=&#34;math inline&#34;&gt;\(a_{50}\)&lt;/span&gt;, since the odds ratio of two events with 50% probability is actually zero (plug in 0.5 to see for yourself).&lt;/p&gt;
@@ -139,15 +156,15 @@ S_a = \langle 1+exp(-log(19)*\frac{a-a_{50}}{a_{95}-a_{50}}) \rangle ^{-1}
 &lt;li&gt;&lt;p&gt;Sometimes to ease model fitting, we will simplify the above equation by substituting &lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; in place of the denominator (&lt;span class=&#34;math inline&#34;&gt;\(a_{95} - a_{50}\)&lt;/span&gt;), or estimate &lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; as &lt;span class=&#34;math inline&#34;&gt;\(\frac{ln(19)}{a_{95} - a_{50}}\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;If you’d want to use the something like &lt;span class=&#34;math inline&#34;&gt;\(a_{75}\)&lt;/span&gt;, you’d need to update the log odds via &lt;span class=&#34;math inline&#34;&gt;\(log(\frac{0.75}{0.25})\)&lt;/span&gt; or ~ &lt;span class=&#34;math inline&#34;&gt;\(log(3)\)&lt;/span&gt;. Note that this ensures that you are getting a 75% selectivity at the corresponding age, but provides a distinct curve from before.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ln19/2021-01-25-ln19_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ln19/2021-01-25-ln19_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>How I studied for my PhD General Exam</title>
-      <link>/post/generals/how-studied-general/</link>
+      <link>https://mkapur.netlify.app/post/generals/how-studied-general/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>/post/generals/how-studied-general/</guid>
+      <guid>https://mkapur.netlify.app/post/generals/how-studied-general/</guid>
       <description>
 
 
@@ -182,17 +199,17 @@ S_a = \langle 1+exp(-log(19)*\frac{a-a_{50}}{a_{95}-a_{50}}) \rangle ^{-1}
     
     <item>
       <title>Maia S Kapur General Exam, 02 June 2020</title>
-      <link>/talk/kapur_genex/</link>
+      <link>https://mkapur.netlify.app/talk/kapur_genex/</link>
       <pubDate>Tue, 02 Jun 2020 13:00:00 +0000</pubDate>
-      <guid>/talk/kapur_genex/</guid>
+      <guid>https://mkapur.netlify.app/talk/kapur_genex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Some Algebra for Equilibrium Recruitment</title>
-      <link>/post/recalg/some-rec-algebra/</link>
+      <link>https://mkapur.netlify.app/post/recalg/some-rec-algebra/</link>
       <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
-      <guid>/post/recalg/some-rec-algebra/</guid>
+      <guid>https://mkapur.netlify.app/post/recalg/some-rec-algebra/</guid>
       <description>
 
 
@@ -300,17 +317,17 @@ Yield_{eq} = R_{eq} \times {YPR_F}
     
     <item>
       <title>Sneaking Up on a Well-Specified Model; Quantitative Seminar, May 15, 2020</title>
-      <link>/talk/sneak_quantsem_may2020/</link>
+      <link>https://mkapur.netlify.app/talk/sneak_quantsem_may2020/</link>
       <pubDate>Fri, 15 May 2020 12:30:00 +0000</pubDate>
-      <guid>/talk/sneak_quantsem_may2020/</guid>
+      <guid>https://mkapur.netlify.app/talk/sneak_quantsem_may2020/</guid>
       <description></description>
     </item>
     
     <item>
       <title>My ggplot themes manifesto</title>
-      <link>/post/ggplot-themes-manifesto/my-ggplot-themes-manifesto/</link>
+      <link>https://mkapur.netlify.app/post/ggplot-themes-manifesto/my-ggplot-themes-manifesto/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      <guid>/post/ggplot-themes-manifesto/my-ggplot-themes-manifesto/</guid>
+      <guid>https://mkapur.netlify.app/post/ggplot-themes-manifesto/my-ggplot-themes-manifesto/</guid>
       <description>
 
 
@@ -321,7 +338,7 @@ Yield_{eq} = R_{eq} \times {YPR_F}
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(ggplot2)
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Here are some themes that come pre-loaded in the ggplot2 package that you can invoke without installing anything else. They seem to follow the rule of subtraction – fewer gridlines, less borders, you get the idea.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;theme_bw&#34; class=&#34;section level1&#34;&gt;
@@ -330,7 +347,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   theme_bw()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;theme_minimal&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;3 theme_minimal()&lt;/h1&gt;
@@ -338,7 +355,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Next up are R packages on CRAN and/or Github. If you are like me, you need a pretty compelling reason to download someone’s random Github package purely for plotting needs – doubly so if the function of interest is buried within a massive package with a different purpose (I’m looking at you, oceanography). That said, here are some that I think are definitely worth adding to your toolkit.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;ggsidekicktheme_sleek&#34; class=&#34;section level1&#34;&gt;
@@ -349,7 +366,7 @@ library(ggsidekick)
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) + 
   geom_boxplot() + 
   ggsidekick::theme_sleek()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;div id=&#34;hrbrthemestheme_modern_rc&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;5 hrbrthemes::theme_modern_rc()&lt;/h2&gt;
 &lt;p&gt;Installing this is a heavier lift due to the required fonts, but I really like the light/dark possibilities here and the emphasis on nice typefaces. Would recommend for presentations exclusively. The one issue I have is that the dark version does not automatically lighten the box borders, something I have tried to fix in my personal versions (see below).&lt;/p&gt;
@@ -368,13 +385,13 @@ p2 &amp;lt;- ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)
 library(patchwork)
 
 p1/p2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;ggthemes also has a theme called “solid” which is literally just a background and nothing else, a la sparklines, if you are…chic?&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(mtcars)
 ggplot(mtcars, aes(x = mpg, y = qsec)) +
   geom_line(lwd = 1.1) +
   ggthemes::theme_solid()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;going-beyond-your-own-themespackages&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Going beyond: your own themes/packages&lt;/h1&gt;
@@ -398,7 +415,7 @@ p2 &amp;lt;- ggplot(mtcars, aes(x = mpg, y = hp, color = factor(gear))) +
   kaplot::theme_solarized_mk(base_size = 14, light = FALSE)
 
 p1 | p2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt; &lt;!-- ![](theme_solarized_mk.png) --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt; &lt;!-- ![](theme_solarized_mk.png) --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;kaplottheme_mk&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;kaplot::theme_mk()&lt;/h2&gt;
@@ -406,7 +423,7 @@ p1 | p2&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(iris, aes(x = Petal.Length, y = Petal.Width, fill = Species)) +
   geom_boxplot() + 
   kaplot::theme_mk()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt; &lt;!-- ![](theme_mk.png) --&gt; ## kaplot::foundational() I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned… &lt;img src=&#34;4642.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt; &lt;!-- ![](theme_mk.png) --&gt; ## kaplot::foundational() I kind of like old-school figures that look like an engineering professor made them, like the one below. I put out a call on twitter to sort out how this can be done! Stay tuned… &lt;img src=&#34;4642.jpg&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;taste-the-rainbow&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Taste the rainbow&lt;/h2&gt;
@@ -428,7 +445,7 @@ p4 &amp;lt;- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) +
   scale_fill_viridis_c()
 
 (p1  |p2) /(p3  |p4)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt; &lt;!-- ![](starfish_mk.png) --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ggplot-themes-manifesto/2020-05-03-my-ggplot-themes-manifesto.en_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt; &lt;!-- ![](starfish_mk.png) --&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -436,9 +453,9 @@ p4 &amp;lt;- ggplot(USArrests, aes(x = UrbanPop, y = Murder, fill = UrbanPop)) +
     
     <item>
       <title>Non-rectangular bounding boxes with the sf package</title>
-      <link>/post/sf-non-rect/sf-non-rect/</link>
+      <link>https://mkapur.netlify.app/post/sf-non-rect/sf-non-rect/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      <guid>/post/sf-non-rect/sf-non-rect/</guid>
+      <guid>https://mkapur.netlify.app/post/sf-non-rect/sf-non-rect/</guid>
       <description>
 
 
@@ -473,7 +490,7 @@ par(mfrow = c(1,2))
 plot(BCreg$geometry)
 plot(pl1, col = &amp;#39;gold&amp;#39;)
 plot(p12, add = TRUE, col = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The clip step actually uses &lt;code&gt;sf::st_intersection(&lt;/code&gt;). To simplify things I pass the first argument as a subset of all the regions that includes the shapefile for only BC’s EEZ. This can then be plotted within ggplot2.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(ggplot2)
 BCangle_geom &amp;lt;- sf::st_sfc(list(p12), crs = &amp;quot;+proj=longlat +datum=WGS84 +no_defs&amp;quot;) 
@@ -516,7 +533,7 @@ p2 &amp;lt;- autoplot(BCbath, geom=c(&amp;quot;r&amp;quot;, &amp;quot;c&amp;quot
   theme_classic(base_size = 14)
 require(patchwork)
 p1 |p2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/sf-non-rect/2020-05-01-Non-Rectangular-Bounding-Boxes-with-the-sf-Package_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The bathy maps at right were made with marmap.&lt;/p&gt;
 &lt;p&gt;Other crops throughout the domain, which rely only on purely vertical OR horizontal lines, can be accomplished using a simple call to &lt;code&gt;sf::st_crop()&lt;/code&gt;. This takes the arguments of lat-long borders of a rectangle.&lt;/p&gt;
 </description>
@@ -524,17 +541,17 @@ p1 |p2&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Operating Model for Pacific Sablefish Transboundary MSE</title>
-      <link>/talk/pstat_om_apr2020/</link>
+      <link>https://mkapur.netlify.app/talk/pstat_om_apr2020/</link>
       <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/talk/pstat_om_apr2020/</guid>
+      <guid>https://mkapur.netlify.app/talk/pstat_om_apr2020/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tidyverse for simple CPUE standardizations</title>
-      <link>/post/tidycpue/tidycpue/</link>
+      <link>https://mkapur.netlify.app/post/tidycpue/tidycpue/</link>
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>/post/tidycpue/tidycpue/</guid>
+      <guid>https://mkapur.netlify.app/post/tidycpue/tidycpue/</guid>
       <description>
 
 
@@ -610,267 +627,33 @@ ggplot(pred_df_clean, aes(x = YEAR)) +
     
     <item>
       <title>How I studied for my PhD Quals</title>
-      <link>/post/quals/how-studied-quals/</link>
+      <link>https://mkapur.netlify.app/post/quals/how-studied-quals/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>/post/quals/how-studied-quals/</guid>
+      <guid>https://mkapur.netlify.app/post/quals/how-studied-quals/</guid>
       <description>
 
 
 &lt;p&gt;Yay, I got a high pass on my exam (now back to the things I neglected Autumn quarter). Before I disappear, I wanted to share how I went about studying for my exam, in hopes this can help other PhD students. Disclaimer: this is likely UW/SAFS specific, and the exam is a 5-day written format where each committee member gave me a set of readings and/or topics from which I was supposed to prepare to answer any long-format question they could give me in a single day.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Acquire materials early&lt;/strong&gt;. I actually got my readings over the summer, well before I knew exactly when I was taking the exam. This gave me a birds-eye view of the magnitude of the readings and helped me triage how much time I’d spend on each. For example, my advisor assigned two textbooks – I started reading these on the bus so when crunch-time came I was really reading them for the 2nd or 3rd time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Acquire materials early&lt;/strong&gt;. I actually got my readings over the summer, well before I knew exactly when I was taking the exam. This gave me a birds-eye view of the magnitude of the readings and helped me triage how much time I&#39;d spend on each. For example, my advisor assigned two textbooks -- I started reading these on the bus so when crunch-time came I was really reading them for the 2nd or 3rd time.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Make a weekly gameplan&lt;/strong&gt;. This is extremely valuable. I set my exam date about 2.5 months out, and drew up a timetable of what readings or topics I was to accomplish each week, with the final two weeks dedicated to review.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Have a hardcore paper-organization system&lt;/strong&gt;. If you can do this with printed sheets, I’m in awe. Otherwise, especially since I was required to synthesize and cite papers on the fly, I developed three digital tracking regimes for my readings. Three sounds like a lot, but I found using the following method enabled me to read each paper multiple times, extract the valuable information from it, and have pre-written summaries ready to go come exam day. The basic system was this:
+&lt;li&gt;&lt;strong&gt;Have a hardcore paper-organization system&lt;/strong&gt;. If you can do this with printed sheets, I&#39;m in awe. Otherwise, especially since I was required to synthesize and cite papers on the fly, I developed three digital tracking regimes for my readings. Three sounds like a lot, but I found using the following method enabled me to read each paper multiple times, extract the valuable information from it, and have pre-written summaries ready to go come exam day. The basic system was this:
 &lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Mendeley&lt;/strong&gt; (any bib software should do): Load in all the readings, sorted into folders based on which committee member assigned it. This gives you a gestalt for the topics they’re leaning towards. Inside the software, I will read, highlight, and give brief annotations to the text itself. If there are equations or figures, I will paste a comment and summarize what is being said in my own words.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Excel&lt;/strong&gt; (see my &lt;a href = &#34;https://sosakapur.wordpress.com/2018/12/29/how-i-keep-up-with-the-literature/&#34;&gt;How I keep up with the Literature&lt;/a&gt; post on my old blog). I continued my table-style tracking, but included a column for keywords that I thought may come up in the exam. For example, one comm. member gave me readings about catch-only methods, MSY, data-poor methods, and global fisheries; each of these became a keyword flag so I could sort the citations quickly depending on the question. Other columns included “claim”, “methods”, “major takeaways” and “larger scale conclusions”, where I connected that paper’s findings with others in that subsection.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Word&lt;/strong&gt;. This is where the magic happened. For each committee member, I would make up some generalized questions and try to answer them in a loose, outline style referring to my Excel sheet. I normally did this a day or two after my first Mendeley-Excel pass of the articles, which meant I got to do a second reading of the papers and ensured I understood them enough to comment intelligently. Good questions are things that would open a review paper or Op-Ed, not things like “What did Sekkar et al. say about X?”. Synthetic questions, such as “what have we learned about the influence of X on Y” or “Are Z considered good metrics of K?” are fruitful and will allow you to connect the readings.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mendeley&lt;/strong&gt; (any bib software should do): Load in all the readings, sorted into folders based on which committee member assigned it. This gives you a gestalt for the topics they&#39;re leaning towards. Inside the software, I will read, highlight, and give brief annotations to the text itself. If there are equations or figures, I will paste a comment and summarize what is being said in my own words.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Excel&lt;/strong&gt; (see my &lt;a href = &#34;https://maiakapur.netlify.app/post/how-i-keep-up-with-the-literature/&#34;&gt;How I keep up with the Literature&lt;/a&gt; post). I continued my table-style tracking, but included a column for keywords that I thought may come up in the exam. For example, one comm. member gave me readings about catch-only methods, MSY, data-poor methods, and global fisheries; each of these became a keyword flag so I could sort the citations quickly depending on the question. Other columns included &amp;quot;claim&amp;quot;, &amp;quot;methods&amp;quot;, &amp;quot;major takeaways&amp;quot; and &amp;quot;larger scale conclusions&amp;quot;, where I connected that paper&#39;s findings with others in that subsection.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Word&lt;/strong&gt;. This is where the magic happened. For each committee member, I would make up some generalized questions and try to answer them in a loose, outline style referring to my Excel sheet. I normally did this a day or two after my first Mendeley-Excel pass of the articles, which meant I got to do a second reading of the papers and ensured I understood them enough to comment intelligently. Good questions are things that would open a review paper or Op-Ed, not things like &amp;quot;What did Sekkar et al. say about X?&amp;quot;. Synthetic questions, such as &amp;quot;what have we learned about the influence of X on Y&amp;quot; or &amp;quot;Are Z considered good metrics of K?&amp;quot; are fruitful and will allow you to connect the readings.&lt;/li&gt;
 &lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Go beyond&lt;/strong&gt;. One of the best things I did during the exam prep was take a Coursera (free, online) course in Bayesian statistics. In add’n to the Bayes textbook I was assigned, the course let me get “tutored” in a condensed, low-pressure way AND the quizzes helped me test my knowledge. It wouldn’t have been realistic for me to take a formal Bayes class in the stats department this quarter (midterms and all). It’s easy to fool yourself that you “get it” after highlighting a textbook (for which the previous steps aren’t as applicable), but MOOCs like Coursera enable you to test yourself in real time.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Pace thyself&lt;/strong&gt;. I read a quote last fall that said, “you can either contribute to the literature, or keep up with the literature”. Some days I would be deep in my Excel-Word mode for 9+ hours, and feel strangely like I hadn’t really “accomplished” anything, but this thought must be banished. Firstly, having a foundation in the literature of your field is something you’ll always need, and if you don’t do it now, you won’t have any more time when gainfully employed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Go beyond&lt;/strong&gt;. One of the best things I did during the exam prep was take a &lt;a href = &#34;https://www.coursera.org/learn/bayesian-statistics&#34;&gt; Coursera (free, online) course in Bayesian statistics&lt;/a&gt;. In add&#39;n to the Bayes textbook I was assigned, the course let me get &amp;quot;tutored&amp;quot; in a condensed, low-pressure way AND the quizzes helped me test my knowledge. It wouldn&#39;t have been realistic for me to take a formal Bayes class in the stats department this quarter (midterms and all). It&#39;s easy to fool yourself that you &amp;quot;get it&amp;quot; after highlighting a textbook (for which the previous steps aren&#39;t as applicable), but MOOCs like Coursera enable you to test yourself in real time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pace thyself&lt;/strong&gt;. I read a quote last fall that said, &amp;quot;you can either contribute to the literature, or keep up with the literature&amp;quot;. Some days I would be deep in my Excel-Word mode for 9+ hours, and feel strangely like I hadn&#39;t really &amp;quot;accomplished&amp;quot; anything, but this thought must be banished. Firstly, having a foundation in the literature of your field is something you&#39;ll always need, and if you don&#39;t do it now, you won&#39;t have any more time when gainfully employed.&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Writing technical content in Academic</title>
-      <link>/post/writing-technical-content/</link>
-      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>/post/writing-technical-content/</guid>
-      <description>&lt;p&gt;Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Academic.&lt;/p&gt;
-&lt;h2 id=&#34;examples&#34;&gt;Examples&lt;/h2&gt;
-&lt;h3 id=&#34;code&#34;&gt;Code&lt;/h3&gt;
-&lt;p&gt;Academic supports a Markdown extension for highlighting code syntax. You can enable this feature by toggling the &lt;code&gt;highlight&lt;/code&gt; option in your &lt;code&gt;config/_default/params.toml&lt;/code&gt; file.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```python
-import pandas as pd
-data = pd.read_csv(&amp;quot;data.csv&amp;quot;)
-data.head()
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import pandas as pd
-data = pd.read_csv(&amp;quot;data.csv&amp;quot;)
-data.head()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;math&#34;&gt;Math&lt;/h3&gt;
-&lt;p&gt;Academic supports a Markdown extension for $\LaTeX$ math. You can enable this feature by toggling the &lt;code&gt;math&lt;/code&gt; option in your &lt;code&gt;config/_default/params.toml&lt;/code&gt; file.&lt;/p&gt;
-&lt;p&gt;To render &lt;em&gt;inline&lt;/em&gt; or &lt;em&gt;block&lt;/em&gt; math, wrap your LaTeX math with &lt;code&gt;$...$&lt;/code&gt; or &lt;code&gt;$$...$$&lt;/code&gt;, respectively.&lt;/p&gt;
-&lt;p&gt;Example &lt;strong&gt;math block&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;$$\gamma_{n} = \frac{ 
-\left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T 
-\left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}
-{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;p&gt;$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left |\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right |^2}$$&lt;/p&gt;
-&lt;p&gt;Example &lt;strong&gt;inline math&lt;/strong&gt; &lt;code&gt;$\nabla F(\mathbf{x}_{n})$&lt;/code&gt; renders as $\nabla F(\mathbf{x}_{n})$.&lt;/p&gt;
-&lt;p&gt;Example &lt;strong&gt;multi-line math&lt;/strong&gt; using the &lt;code&gt;\\\\&lt;/code&gt; math linebreak:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;$$f(k;p_0^*) = \begin{cases} p_0^* &amp;amp; \text{if }k=1, \\\\
-1-p_0^* &amp;amp; \text {if }k=0.\end{cases}$$
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;p&gt;$$f(k;p_0^*) = \begin{cases} p_0^* &amp;amp; \text{if }k=1, \\&lt;br&gt;
-1-p_0^* &amp;amp; \text {if }k=0.\end{cases}$$&lt;/p&gt;
-&lt;h3 id=&#34;diagrams&#34;&gt;Diagrams&lt;/h3&gt;
-&lt;p&gt;Academic supports a Markdown extension for diagrams. You can enable this feature by toggling the &lt;code&gt;diagram&lt;/code&gt; option in your &lt;code&gt;config/_default/params.toml&lt;/code&gt; file or by adding &lt;code&gt;diagram: true&lt;/code&gt; to your page front matter.&lt;/p&gt;
-&lt;p&gt;An example &lt;strong&gt;flowchart&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```mermaid
-graph TD
-A[Hard] --&amp;gt;|Text| B(Round)
-B --&amp;gt; C{Decision}
-C --&amp;gt;|One| D[Result 1]
-C --&amp;gt;|Two| E[Result 2]
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph TD
-A[Hard] --&amp;gt;|Text| B(Round)
-B --&amp;gt; C{Decision}
-C --&amp;gt;|One| D[Result 1]
-C --&amp;gt;|Two| E[Result 2]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;An example &lt;strong&gt;sequence diagram&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```mermaid
-sequenceDiagram
-Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
-loop Healthcheck
-    John-&amp;gt;&amp;gt;John: Fight against hypochondria
-end
-Note right of John: Rational thoughts!
-John--&amp;gt;&amp;gt;Alice: Great!
-John-&amp;gt;&amp;gt;Bob: How about you?
-Bob--&amp;gt;&amp;gt;John: Jolly good!
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;sequenceDiagram
-Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
-loop Healthcheck
-    John-&amp;gt;&amp;gt;John: Fight against hypochondria
-end
-Note right of John: Rational thoughts!
-John--&amp;gt;&amp;gt;Alice: Great!
-John-&amp;gt;&amp;gt;Bob: How about you?
-Bob--&amp;gt;&amp;gt;John: Jolly good!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;An example &lt;strong&gt;Gantt diagram&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```mermaid
-gantt
-section Section
-Completed :done,    des1, 2014-01-06,2014-01-08
-Active        :active,  des2, 2014-01-07, 3d
-Parallel 1   :         des3, after des1, 1d
-Parallel 2   :         des4, after des1, 1d
-Parallel 3   :         des5, after des3, 1d
-Parallel 4   :         des6, after des4, 1d
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;gantt
-section Section
-Completed :done,    des1, 2014-01-06,2014-01-08
-Active        :active,  des2, 2014-01-07, 3d
-Parallel 1   :         des3, after des1, 1d
-Parallel 2   :         des4, after des1, 1d
-Parallel 3   :         des5, after des3, 1d
-Parallel 4   :         des6, after des4, 1d
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;An example &lt;strong&gt;class diagram&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```mermaid
-classDiagram
-Class01 &amp;lt;|-- AveryLongClass : Cool
-&amp;lt;&amp;lt;interface&amp;gt;&amp;gt; Class01
-Class09 --&amp;gt; C2 : Where am i?
-Class09 --* C3
-Class09 --|&amp;gt; Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-class Class10 {
-  &amp;lt;&amp;lt;service&amp;gt;&amp;gt;
-  int id
-  size()
-}
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;classDiagram
-Class01 &amp;lt;|-- AveryLongClass : Cool
-&amp;lt;&amp;lt;interface&amp;gt;&amp;gt; Class01
-Class09 --&amp;gt; C2 : Where am i?
-Class09 --* C3
-Class09 --|&amp;gt; Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-class Class10 {
-  &amp;lt;&amp;lt;service&amp;gt;&amp;gt;
-  int id
-  size()
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;An example &lt;strong&gt;state diagram&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```mermaid
-stateDiagram
-[*] --&amp;gt; Still
-Still --&amp;gt; [*]
-Still --&amp;gt; Moving
-Moving --&amp;gt; Still
-Moving --&amp;gt; Crash
-Crash --&amp;gt; [*]
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;stateDiagram
-[*] --&amp;gt; Still
-Still --&amp;gt; [*]
-Still --&amp;gt; Moving
-Moving --&amp;gt; Still
-Moving --&amp;gt; Crash
-Crash --&amp;gt; [*]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;todo-lists&#34;&gt;Todo lists&lt;/h3&gt;
-&lt;p&gt;You can even write your todo lists in Academic too:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;- [x] Write math example
-- [x] Write diagram example
-- [ ] Do something else
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Write math example&lt;/li&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Write diagram example&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Do something else&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;tables&#34;&gt;Tables&lt;/h3&gt;
-&lt;p&gt;Represent your data in tables:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;First Header&lt;/th&gt;
-&lt;th&gt;Second Header&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Content Cell&lt;/td&gt;
-&lt;td&gt;Content Cell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Content Cell&lt;/td&gt;
-&lt;td&gt;Content Cell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;asides&#34;&gt;Asides&lt;/h3&gt;
-&lt;p&gt;Academic supports a 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcode for asides&lt;/a&gt;, also referred to as &lt;em&gt;notices&lt;/em&gt;, &lt;em&gt;hints&lt;/em&gt;, or &lt;em&gt;alerts&lt;/em&gt;. By wrapping a paragraph in &lt;code&gt;{{% alert note %}} ... {{% /alert %}}&lt;/code&gt;, it will render as an aside.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{% alert note %}}
-A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
-{{% /alert %}}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&#34;icons&#34;&gt;Icons&lt;/h3&gt;
-&lt;p&gt;Academic enables you to use a wide range of 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/#icons&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;icons from &lt;em&gt;Font Awesome&lt;/em&gt; and &lt;em&gt;Academicons&lt;/em&gt;&lt;/a&gt; in addition to 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/#emojis&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;emojis&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Here are some examples using the &lt;code&gt;icon&lt;/code&gt; shortcode to render icons:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{&amp;lt; icon name=&amp;quot;terminal&amp;quot; pack=&amp;quot;fas&amp;quot; &amp;gt;}} Terminal  
-{{&amp;lt; icon name=&amp;quot;python&amp;quot; pack=&amp;quot;fab&amp;quot; &amp;gt;}} Python  
-{{&amp;lt; icon name=&amp;quot;r-project&amp;quot; pack=&amp;quot;fab&amp;quot; &amp;gt;}} R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;p&gt;
-  &lt;i class=&#34;fas fa-terminal  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Terminal&lt;br&gt;
-
-  &lt;i class=&#34;fab fa-python  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Python&lt;br&gt;
-
-  &lt;i class=&#34;fab fa-r-project  pr-1 fa-fw&#34;&gt;&lt;/i&gt; R&lt;/p&gt;
-&lt;h3 id=&#34;did-you-find-this-page-helpful-consider-sharing-it-&#34;&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/h3&gt;
 </description>
     </item>
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>/publication/preprint/</link>
+      <link>https://mkapur.netlify.app/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>/publication/preprint/</guid>
+      <guid>https://mkapur.netlify.app/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
@@ -882,77 +665,10 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
     </item>
     
     <item>
-      <title>Display Jupyter Notebooks with Academic</title>
-      <link>/post/jupyter/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>/post/jupyter/</guid>
-      <description>&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from IPython.core.display import Image
-Image(&#39;https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;./index_1_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;Welcome to Academic!&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Welcome to Academic!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;install-python-and-jupyterlab&#34;&gt;Install Python and JupyterLab&lt;/h2&gt;
-&lt;p&gt;
-&lt;a href=&#34;https://www.anaconda.com/distribution/#download-section&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Install Anaconda&lt;/a&gt; which includes Python 3 and JupyterLab.&lt;/p&gt;
-&lt;p&gt;Alternatively, install JupyterLab with &lt;code&gt;pip3 install jupyterlab&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;create-or-upload-a-jupyter-notebook&#34;&gt;Create or upload a Jupyter notebook&lt;/h2&gt;
-&lt;p&gt;Run the following commands in your Terminal, substituting &lt;code&gt;&amp;lt;MY-WEBSITE-FOLDER&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;SHORT-POST-TITLE&amp;gt;&lt;/code&gt; with the file path to your Academic website folder and a short title for your blog post (use hyphens instead of spaces), respectively:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir -p &amp;lt;MY-WEBSITE-FOLDER&amp;gt;/content/post/&amp;lt;SHORT-POST-TITLE&amp;gt;/
-cd &amp;lt;MY-WEBSITE-FOLDER&amp;gt;/content/post/&amp;lt;SHORT-POST-TITLE&amp;gt;/
-jupyter lab index.ipynb
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;code&gt;jupyter&lt;/code&gt; command above will launch the JupyterLab editor, allowing us to add Academic metadata and write the content.&lt;/p&gt;
-&lt;h2 id=&#34;edit-your-post-metadata&#34;&gt;Edit your post metadata&lt;/h2&gt;
-&lt;p&gt;The first cell of your Jupter notebook will contain your post metadata (
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/front-matter/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;front matter&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;In Jupter, choose &lt;em&gt;Markdown&lt;/em&gt; as the type of the first cell and wrap your Academic metadata in three dashes, indicating that it is YAML front matter:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;---
-title: My post&#39;s title
-date: 2019-09-01
-
-# Put any other Academic metadata here...
----
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Edit the metadata of your post, using the 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation&lt;/a&gt; as a guide to the available options.&lt;/p&gt;
-&lt;p&gt;To set a 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#featured-image&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;featured image&lt;/a&gt;, place an image named &lt;code&gt;featured&lt;/code&gt; into your post&amp;rsquo;s folder.&lt;/p&gt;
-&lt;p&gt;For other tips, such as using math, see the guide on 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;writing content with Academic&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;convert-notebook-to-markdown&#34;&gt;Convert notebook to Markdown&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;jupyter nbconvert index.ipynb --to markdown --NbConvertApp.output_files_dir=.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
-&lt;p&gt;This post was created with Jupyter. The orginal files can be found at &lt;a href=&#34;https://github.com/gcushen/hugo-academic/tree/master/exampleSite/content/post/jupyter&#34;&gt;https://github.com/gcushen/hugo-academic/tree/master/exampleSite/content/post/jupyter&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Privacy Policy</title>
-      <link>/privacy/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>/privacy/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Terms</title>
-      <link>/terms/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>/terms/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>https://mkapur.netlify.app/about/</link>
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
-      <guid>/about/</guid>
+      <guid>https://mkapur.netlify.app/about/</guid>
       <description>&lt;p&gt;This is a &amp;ldquo;hello world&amp;rdquo; example website for the 
 &lt;a href=&#34;https://github.com/rstudio/blogdown&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;blogdown&lt;/strong&gt;&lt;/a&gt; package. The theme was forked from 
 &lt;a href=&#34;https://github.com/jrutheiser/hugo-lithium-theme&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@jrutheiser/hugo-lithium-theme&lt;/a&gt; and modified by 
@@ -962,17 +678,17 @@ date: 2019-09-01
     
     <item>
       <title>External Project</title>
-      <link>/project/external-project/</link>
+      <link>https://mkapur.netlify.app/project/external-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/project/external-project/</guid>
+      <guid>https://mkapur.netlify.app/project/external-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Internal Project</title>
-      <link>/project/internal-project/</link>
+      <link>https://mkapur.netlify.app/project/internal-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/project/internal-project/</guid>
+      <guid>https://mkapur.netlify.app/project/internal-project/</guid>
       <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
 &lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
 &lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
@@ -982,154 +698,10 @@ date: 2019-09-01
     </item>
     
     <item>
-      <title>Academic: the website builder for Hugo</title>
-      <link>/post/getting-started/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/post/getting-started/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Create a free website with Academic using Markdown, Jupyter, or RStudio. Choose a beautiful color theme and build anything with the Page Builder - over 40 &lt;em&gt;widgets&lt;/em&gt;, &lt;em&gt;themes&lt;/em&gt;, and &lt;em&gt;language packs&lt;/em&gt; included!&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;a href=&#34;https://academic-demo.netlify.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Check out the latest &lt;strong&gt;demo&lt;/strong&gt;&lt;/a&gt; of what you&amp;rsquo;ll get in less than 10 minutes, or 
-&lt;a href=&#34;https://sourcethemes.com/academic/#expo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;view the &lt;strong&gt;showcase&lt;/strong&gt;&lt;/a&gt; of personal, project, and business sites.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;👉 
-&lt;a href=&#34;#install&#34;&gt;&lt;strong&gt;Get Started&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;📚 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View the &lt;strong&gt;documentation&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;💬 
-&lt;a href=&#34;https://discourse.gohugo.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Ask a question&lt;/strong&gt; on the forum&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;👥 
-&lt;a href=&#34;https://spectrum.chat/academic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chat with the &lt;strong&gt;community&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;🐦 Twitter: 
-&lt;a href=&#34;https://twitter.com/source_themes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@source_themes&lt;/a&gt; 
-&lt;a href=&#34;https://twitter.com/GeorgeCushen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@GeorgeCushen&lt;/a&gt; 
-&lt;a href=&#34;https://twitter.com/search?q=%23MadeWithAcademic&amp;amp;src=typd&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#MadeWithAcademic&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;💡 
-&lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Request a &lt;strong&gt;feature&lt;/strong&gt; or report a &lt;strong&gt;bug&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;⬆️ &lt;strong&gt;Updating?&lt;/strong&gt; View the 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Update Guide&lt;/a&gt; and 
-&lt;a href=&#34;https://sourcethemes.com/academic/updates/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Release Notes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;❤️ &lt;strong&gt;Support development&lt;/strong&gt; of Academic:
-&lt;ul&gt;
-&lt;li&gt;☕️ 
-&lt;a href=&#34;https://paypal.me/cushen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Donate a coffee&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;💵 
-&lt;a href=&#34;https://www.patreon.com/cushen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Become a backer on &lt;strong&gt;Patreon&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;🖼️ 
-&lt;a href=&#34;https://www.redbubble.com/people/neutreno/works/34387919-academic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Decorate your laptop or journal with an Academic &lt;strong&gt;sticker&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;👕 
-&lt;a href=&#34;https://academic.threadless.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wear the &lt;strong&gt;T-shirt&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;👩‍💻 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/contribute/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Contribute&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-academic-is-mobile-first-with-a-responsive-design-to-ensure-that-your-site-looks-stunning-on-every-device&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://raw.githubusercontent.com/gcushen/hugo-academic/master/academic.png&#34; data-caption=&#34;Academic is mobile first with a responsive design to ensure that your site looks stunning on every device.&#34;&gt;
-
-
-  &lt;img src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academic/master/academic.png&#34; alt=&#34;&#34;  &gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    Academic is mobile first with a responsive design to ensure that your site looks stunning on every device.
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;Key features:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;widgets&lt;/strong&gt;&lt;/a&gt; and 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Edit any type of content&lt;/strong&gt; - Blog posts, publications, talks, slides, projects, and more!&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Create content&lt;/strong&gt; in 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt;, 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/jupyter/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Jupyter&lt;/strong&gt;&lt;/a&gt;, or 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-rstudio&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Plugin System&lt;/strong&gt; - Fully customizable 
-&lt;a href=&#34;https://sourcethemes.com/academic/themes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;color&lt;/strong&gt; and &lt;strong&gt;font themes&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Display Code and Math&lt;/strong&gt; - Code highlighting and 
-&lt;a href=&#34;https://en.wikibooks.org/wiki/LaTeX/Mathematics&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LaTeX math&lt;/a&gt; supported&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Integrations&lt;/strong&gt; - 
-&lt;a href=&#34;https://analytics.google.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Analytics&lt;/a&gt;, 
-&lt;a href=&#34;https://disqus.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Disqus commenting&lt;/a&gt;, Maps, Contact Forms, and more!&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Beautiful Site&lt;/strong&gt; - Simple and refreshing one page design&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Industry-Leading SEO&lt;/strong&gt; - Help get your website found on search engines and social media&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Media Galleries&lt;/strong&gt; - Display your images and videos with captions in a customizable gallery&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mobile Friendly&lt;/strong&gt; - Look amazing on every screen with a mobile friendly version of your site&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Multi-language&lt;/strong&gt; - 15+ language packs including English, 中文, and Português&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Multi-user&lt;/strong&gt; - Each author gets their own profile page&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Privacy Pack&lt;/strong&gt; - Assists with GDPR&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Stand Out&lt;/strong&gt; - Bring your site to life with animation, parallax backgrounds, and scroll effects&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;One-Click Deployment&lt;/strong&gt; - No servers. No databases. Only files.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
-&lt;p&gt;Academic comes with &lt;strong&gt;automatic day (light) and night (dark) mode&lt;/strong&gt; built-in. Alternatively, visitors can  choose their preferred mode - click the sun/moon icon in the top right of the 
-&lt;a href=&#34;https://academic-demo.netlify.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Demo&lt;/a&gt; to see it in action! Day/night mode can also be disabled by the site admin in &lt;code&gt;params.toml&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;
-&lt;a href=&#34;https://sourcethemes.com/academic/themes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Choose a stunning &lt;strong&gt;theme&lt;/strong&gt; and &lt;strong&gt;font&lt;/strong&gt;&lt;/a&gt; for your site. Themes are fully 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/customization/#custom-theme&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;customizable&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;ecosystem&#34;&gt;Ecosystem&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;
-&lt;a href=&#34;https://github.com/sourcethemes/academic-admin&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic Admin&lt;/a&gt;:&lt;/strong&gt; An admin tool to import publications from BibTeX or import assets for an offline site&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;
-&lt;a href=&#34;https://github.com/sourcethemes/academic-scripts&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic Scripts&lt;/a&gt;:&lt;/strong&gt; Scripts to help migrate content to new versions of Academic&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
-&lt;p&gt;You can choose from one of the following four methods to install:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-web-browser&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;one-click install using your web browser (recommended)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-git&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;install on your computer using &lt;strong&gt;Git&lt;/strong&gt; with the Command Prompt/Terminal app&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;install on your computer by downloading the &lt;strong&gt;ZIP files&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-rstudio&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;install on your computer with &lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Then 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;personalize and deploy your new site&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;updating&#34;&gt;Updating&lt;/h2&gt;
-&lt;p&gt;
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View the Update Guide&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Feel free to &lt;em&gt;star&lt;/em&gt; the project on 
-&lt;a href=&#34;https://github.com/gcushen/hugo-academic/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github&lt;/a&gt; to help keep track of 
-&lt;a href=&#34;https://sourcethemes.com/academic/updates&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;updates&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
-&lt;p&gt;Copyright 2016-present 
-&lt;a href=&#34;https://georgecushen.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;George Cushen&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Released under the 
-&lt;a href=&#34;https://github.com/gcushen/hugo-academic/blob/master/LICENSE.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>An example journal article</title>
-      <link>/publication/journal-article/</link>
+      <link>https://mkapur.netlify.app/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/publication/journal-article/</guid>
+      <guid>https://mkapur.netlify.app/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -1146,69 +718,10 @@ date: 2019-09-01
     </item>
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
-      <description>
-
-
-&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;R Markdown&lt;/h1&gt;
-&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &amp;lt;- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Including Plots&lt;/h1&gt;
-&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
-  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
-  init.angle = -50, border = NA
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: A fancy pie chart.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lorem Ipsum</title>
-      <link>/post/2015-01-01-lorem-ipsum/</link>
-      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
-      <guid>/post/2015-01-01-lorem-ipsum/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Lorem ipsum&lt;/strong&gt; dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore &lt;em&gt;magna aliqua&lt;/em&gt;. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>An example conference paper</title>
-      <link>/publication/conference-paper/</link>
+      <link>https://mkapur.netlify.app/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>/publication/conference-paper/</guid>
+      <guid>https://mkapur.netlify.app/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.

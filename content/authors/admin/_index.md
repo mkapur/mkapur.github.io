@@ -21,9 +21,10 @@ organizations:
 bio: My research interests include fisheries stock assessment, management strategy evaluation, spatio-temporal modeling, and improving data science tools for ecological managers.
 
 interests:
-- Population Dynamics
-- Fisheries Stock Assessment & Management
-- Data Science
+- Fisheries Stock Assessment
+- Management Strategy Evaluation
+- Spatial Methods
+- Environmental Data Science
 
 education:
   courses:

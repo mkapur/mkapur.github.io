@@ -71,4 +71,4 @@ email: ""
 # - Visitors
 ---
 
-I am currently a PhD Candidate at the School of Aquatic and Fisheries Science at the University of Washington in the Punt Lab.  Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.
+I am currently a PhD Candidate at the School of Aquatic and Fisheries Science at the University of Washington in the Punt Lab. My research is supported by a NMFS-Sea Grant fellowship in Population Dynamics.  Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.

@@ -10,11 +10,11 @@ authors:
 superuser: true
 
 # Role/position
-role: PhD Candidate
+role: PhD Candidate & Research Mathematical Statistician
 
 # Organizations/Affiliations
 organizations:
-- name: University of Washington
+- name: University of Washington & Alaska Fisheries Science Center (NOAA)
   url: ""
 
 # Short bio (displayed in user profile at end of posts)

@@ -1,0 +1,128 @@
+---
+title: 'Length-based Processes in an Age-Structured Model'
+author: ''
+date: '2022-05-02'
+slug: len-age-conv
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-05-02T13:58:32-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>This is in the category of “stuff I thought I understood” until I didn’t.</p>
+<p>Let’s say you have an age-based model with integer-year bins <code>a</code> thru <code>A+</code>. The model is going to keep track of the dynamics of the fish population as they step through each age, but (annoyingly, perhaps) some of your modeled processes are <em>length</em>-based. This can occur when you are working with lots of different fleets, for which gear selectivity is better specified by length, or even the simple inclusion of our favorite <span class="math inline">\(w_{l} = a l^b\)</span> calculation, which will require a notion of a fish length-at-age to play nicely within an age-structured model.</p>
+<p>Converting these length-based estimates (or quantities) into age-based estimates introduces a problem because of <strong>uncertainty in length-at-age</strong>, in other words, the fact that fish of length <span class="math inline">\(l\)</span> could be of various ages <span class="math inline">\(a\)</span>. Let’s make up some data:</p>
+<pre class="r"><code>## check out my post &quot;Why do we use ln(19)?&quot; for more info on this syntax:
+logistic &lt;- function(bin, b50, b75){
+  selage &lt;- 1/(1+exp(-(log(15))*(bin-b50)/(b75-b50)))
+  return(selage)
+} 
+
+age_bins &lt;- 0:50
+length_bins &lt;- 1:65
+sigma_length &lt;- 7.16
+
+## a logistic, length-based selectivity curve
+length_selex &lt;- sapply(length_bins, logistic, b50 = 30, b75 = 52)</code></pre>
+<p>Here’s our selectivity curve; there’s a vertical line at <code>l = 28cm</code> which we’ll use for reference throughout this post.
+<img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+So let’s say we’re interested in the selectivity at <code>l = 28cm</code>. In a length-based population dynamics model, we’d be set to just return the selectivity at <code>l = 28cm</code> for any fish within that respective bin (in 1-cm bins, fish lengths greater than 27cm and less than or equal to 28cm would all be assigned this value.)</p>
+<p>However, in an age-based model, we are instead interested in translating this curve into the expected selectivity-at-<em>age</em>. And given age <span class="math inline">\(a\)</span>, a fish could be a broad range of lengths <span class="math inline">\(l\)</span>, making it less clear which value we would “read off” the blue curve above. This variation is caused by the variable <span class="math inline">\(\sigma\)</span>, which I’ve set at ~7cm – this reflects the standard deviation in length-at-age for our stock.</p>
+<p>Here’s how it looks in practice. First, we can generate our vonB-based expected length-at-age (here I assume <span class="math inline">\(t_0\)</span> is 0, and am plotting the observed variation for 500 datasets, which should approximate the value for <code>sigma_length</code> specified above).</p>
+<pre class="r"><code>vonb &lt;- function(age, linf, kappa, sigma_length){
+  len &lt;- linf*(1-exp(-kappa*(age)))+rnorm(1,0,sigma_length)
+}
+
+## simulate some datasets
+length_at_age = matrix(NA, nrow = length(age_bins), ncol = 500)
+for(i in 1:500){
+  length_at_age[,i] &lt;- sapply(age_bins, vonb, linf = 44,
+                              kappa = 0.15, sigma_length)
+}
+length_at_age &lt;- bind_cols(age = age_bins, 
+                           meanL = rowMeans(data.frame(length_at_age)),
+                           sdL = apply(data.frame(length_at_age),1,sd))%&gt;%
+  mutate(lci = meanL-1.96*sdL, uci = meanL+1.96*sdL)
+
+ggplot(length_at_age,
+       aes(x = age_bins)) +
+  geom_line(lwd = 1.1, col = &#39;grey&#39;, aes(y = meanL)) +
+  geom_ribbon(aes(ymin = lci, ymax = uci), fill = alpha(&#39;grey&#39;,0.3))+
+  geom_hline(yintercept = 28, linetype = &#39;dotted&#39;)+
+  labs(x = &#39;age&#39;, y= &#39;length&#39;)</code></pre>
+<p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><strong>Notice how the horizontal line at 28cm corresponds to multiple ages within the confidence interval?</strong> How do we account for the fact that there is a chance that the the selectivity applicable to a given age can be characterized by the selectivity at several lengths, and how do we weight the applicability of that selectivity value given what we know about growth? Enter <span class="math inline">\(\psi_{l,a}\)</span>, the probability of being in length bin <span class="math inline">\(l\)</span> at age <span class="math inline">\(a\)</span>, a.k.a. the normal distribution <span class="math inline">\(\phi\)</span> of size-at-age.</p>
+<p><span class="math display">\[
+\begin{align}
+\psi_{al} &amp;= \begin{array} 
+   &amp; \Phi (1,\tilde l_{a}, \sigma)) &amp; if \space l = 0cm \\
+   \Phi (l+1,\tilde l_{a}, \sigma)) - \Phi (l,\tilde l, \sigma))&amp; if \space 0cm, &lt; l &lt; L+ \\
+   1-\Phi (l,\tilde l_{a}, \sigma)) &amp; if \space l = L+\\
+\end{array}
+\end{align}
+\]</span></p>
+<p>Where <span class="math inline">\(l\)</span> is the length bin in question, <span class="math inline">\(\tilde l\)</span> is the observed length-at-age, and <span class="math inline">\(\sigma\)</span> is the variation in growth.</p>
+<pre class="r"><code>## this function returns the distribution of expected length-at-age 
+## given a bin and observed length-at-age
+getP_al &lt;- function(len_bin, len_obs, length_sigma){
+  pal = NA
+  if(len_bin == 1){
+    pal &lt;- pnorm(len_bin, len_obs, length_sigma)
+  } else if (len_bin &gt; min(length_bins) &amp; len_bin &lt; max(length_bins)){
+        pal &lt;- pnorm(len_bin+1, len_obs, length_sigma) - 
+          pnorm(len_bin, len_obs, length_sigma)
+  } else{
+        pal &lt;- 1-pnorm(len_bin, len_obs, length_sigma)
+  }
+  pal
+}
+PAL &lt;- matrix(NA, nrow = length(age_bins), ncol =  length(length_bins))
+for(a in age_bins){
+  for(l in length_bins){
+    ## instead of using means, could re-do vonB with error turned off
+    PAL[a,l] &lt;- getP_al(len_bin=l,len_obs=length_at_age$meanL[a],sigma_length )
+  }
+}
+longPal &lt;- data.frame(PAL) %&gt;%
+  mutate(age_bins) %&gt;%
+  reshape2::melt(id = &#39;age_bins&#39;) %&gt;% 
+  mutate(len =as.numeric(gsub(&quot;X&quot;,&quot;&quot;,variable))) </code></pre>
+<p>Here’s a subset of what <span class="math inline">\(\psi_{al}\)</span> looks like for ages 5-10. Notice (again) how length = 28cm crosses multiple age curves. The good news is, <span class="math inline">\(psi_{al}\)</span> has given us a sense of the relative probability of being age <span class="math inline">\(a\)</span> given length <span class="math inline">\(l\)</span>. (It looks like <span class="math inline">\(l = 28cm\)</span> is most likely a fish of age 7 or 8).</p>
+<p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+To put this all together, we need to compute the dot-product of the selectivity-at-length and the expected distribution of length-at-age.</p>
+<p>In math:
+<span class="math display">\[
+Sel_a = \sum_l Sel_l \cdot \psi_{al}
+\]</span>
+In words: for each length bin <span class="math inline">\(l\)</span>, multiply the selectivity at that length times the probability of being at age <span class="math inline">\(a\)</span> given length <span class="math inline">\(l\)</span>. Sum these quantities across all length bins for each age bin.</p>
+<p>In pictures: let’s say we are interested in <span class="math inline">\(a = 5\)</span>. We are going to multiply each point on the length-selectivity by its corresponding point on the probability of length-at-age-5 plot, then sum the results.
+<img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-6-1.png" width="672" /><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<p>In code (still using <span class="math inline">\(a = 5\)</span> as an example):</p>
+<pre class="r"><code># longPal %&gt;% filter(age_bins == 5) %&gt;% select(age_bins, len, value)
+
+sel_age &lt;- merge(longPal,data.frame(cbind(length_selex,length_bins)),
+                 by.x = &#39;len&#39;, by.y = &#39;length_bins&#39;) %&gt;%
+  ## inner product for each age-length combo
+  mutate(prod1 = length_selex*value) %&gt;% 
+  group_by(age_bins, len) %&gt;%
+  summarise(dotProd = sum(prod1)) %&gt;%
+  ungroup() %&gt;%
+  group_by(age_bins) %&gt;%
+  summarise(dotProdsum = sum(dotProd))
+
+ggplot(sel_age,
+       aes(x = age_bins, y = dotProdsum)) +
+  geom_line(lwd = 1.1, col = &#39;seagreen4&#39;) +
+  labs(x = &#39;age&#39;, y= &#39;proportion selected&#39;, 
+       main = &#39;Converted from length-at-age&#39;)</code></pre>
+<p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>

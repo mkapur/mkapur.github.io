@@ -1,3 +1,4 @@
+
 ---
 title: Sneaking Up on a Well-Specified Model; Quantitative Seminar, May 15, 2020
 summary: The fourth chapter of my disseration, 1 year after presenting the project proposal at Think Tank. The code is still private as we are nearing submission for peer-preview, but will be released ASAP.
@@ -31,5 +32,6 @@ url_slides: "slides/sneak_quantsem"
 url_video: ""
 
 ---
+
 
 

@@ -1,5 +1,5 @@
 ---
-title: Maia S Kapur General Exam, 02 June 2020
+title: Maia S Kapur General Exam, June 02, 2020
 summary: Overview of Doctoral Dissertation Proposal
 
 # Talk start and end times.

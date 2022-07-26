@@ -140,6 +140,8 @@ ggplot() +
 ```
 To put this all together, we need to compute the dot-product of the selectivity-at-length and the expected distribution of length-at-age.
 
+
+
 In math, we're doing this:
 $$
 Sel_a = \sum_l Sel_l \cdot \psi_{al}
@@ -165,7 +167,9 @@ ggplot(data.frame(cbind(length_selex,length_bins))%>% mutate(ID = 1:nrow(.)),
   scale_color_grey() +
   geom_text(aes(x = length_bins, y = length_selex,  label = ID,col = factor(length_bins)))+
   labs(x = 'length', y= 'proportion selected' )
+```
 
+```{r echo = FALSE}
 ggplot() +
   labs(y= 'P(length|age)',
        color = 'Age', x = 'Length')+
@@ -176,11 +180,10 @@ ggplot() +
   geom_vline(xintercept = 28, lty = 'dotted')
 ```
 
+
 In code (still using $a = 5$ as an example):
 
-```{r message = FALSE, warning = FALSE}
-# longPal %>% filter(age_bins == 5) %>% select(age_bins, len, value)
-
+```{r message = FALSE, warning = FALSE} 
 sel_age <- merge(longPal,data.frame(cbind(length_selex,length_bins)),
                  by.x = 'len', by.y = 'length_bins') %>%
   ## inner product for each age-length combo

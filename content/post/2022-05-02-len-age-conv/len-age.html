@@ -111,11 +111,10 @@ Sel_a = \int_L Sel_L  \psi_{aL} dL
 \]</span></p>
 <p>In words: for each length bin <span class="math inline">\(l\)</span>, multiply the selectivity at that length times the probability of being at age <span class="math inline">\(a\)</span> given length <span class="math inline">\(l\)</span>. Sum these quantities across all length bins for each age bin.</p>
 <p>In pictures: let’s say we are interested in <span class="math inline">\(a = 5\)</span>. We are going to multiply each point on the length-selectivity by its corresponding point (by color and ID number) on the probability of length-at-age-5 plot, then sum the results.</p>
-<p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-6-1.png" width="672" /><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>In code (still using <span class="math inline">\(a = 5\)</span> as an example):</p>
-<pre class="r"><code># longPal %&gt;% filter(age_bins == 5) %&gt;% select(age_bins, len, value)
-
-sel_age &lt;- merge(longPal,data.frame(cbind(length_selex,length_bins)),
+<pre class="r"><code>sel_age &lt;- merge(longPal,data.frame(cbind(length_selex,length_bins)),
                  by.x = &#39;len&#39;, by.y = &#39;length_bins&#39;) %&gt;%
   ## inner product for each age-length combo
   mutate(prod1 = length_selex*value) %&gt;% 
@@ -130,4 +129,4 @@ ggplot(sel_age,
   geom_line(lwd = 1.1, col = &#39;grey22&#39;) +
   labs(x = &#39;age&#39;, y= &#39;proportion selected&#39;, 
        main = &#39;Converted from length-at-age&#39;)</code></pre>
-<p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>

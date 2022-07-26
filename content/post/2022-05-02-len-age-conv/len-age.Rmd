@@ -96,7 +96,7 @@ $$
 \end{align}
 $$
 
-Where $l$ is the length bin in question, $\tilde l$ is the observed length-at-age, and  $\sigma$ is the variation in growth.
+Where $l$ is the length bin in question, $\tilde l$ is the observed length-at-age, and  $\sigma$ is the variation in growth. If we simply used a "lookup" method (which I have certainly done in a pinch!), and assigned the selectivity at age $a$ to the selectivity at the expected length at age $a$, we'd be introducing bias. 
 
 
 ```{r message = FALSE, warning = FALSE}
@@ -126,7 +126,7 @@ longPal <- data.frame(PAL) %>%
   reshape2::melt(id = 'age_bins') %>% 
   mutate(len =as.numeric(gsub("X","",variable))) 
 ```
-Here's a subset of what $\psi_{al}$ looks like for ages 5-10. Notice (again) how length = 28cm crosses multiple age curves. The good news is, $psi_{al}$ has given us a sense of the relative probability of being age $a$ given length $l$. (It looks like $l = 28cm$ is most likely a fish of age 7 or 8).
+Here's a subset of what $\psi_{al}$ looks like for ages 5-10. Notice (again) how length = 28cm crosses multiple age curves. The good news is, $\psi_{al}$ has given us a sense of the relative probability of being age $a$ given length $l$. (It looks like $l = 28cm$ is most likely a fish of age 7 or 8).
 
 ```{r echo = F}
 ggplot() +
@@ -140,32 +140,44 @@ ggplot() +
 ```
 To put this all together, we need to compute the dot-product of the selectivity-at-length and the expected distribution of length-at-age.
 
-In math:
+In math, we're doing this:
 $$
 Sel_a = \sum_l Sel_l \cdot \psi_{al}
 $$
+
+
+
+
+Which is really just a cheap way of approximating the correct estimator of the expected selectivity of an animal at age $a$: 
+
+$$
+Sel_a = \int_L Sel_L  \psi_{aL} dL
+$$
+
 In words: for each length bin $l$, multiply the selectivity at that length times the probability of being at age $a$ given length $l$. Sum these quantities across all length bins for each age bin.
 
-In pictures: let's say we are interested in $a = 5$. We are going to multiply each point on the length-selectivity by its corresponding point on the probability of length-at-age-5 plot, then sum the results. 
-```{r, echo = FALSE}
-ggplot(data.frame(cbind(length_selex,length_bins)),
+In pictures: let's say we are interested in $a = 5$. We are going to multiply each point on the length-selectivity by its corresponding point (by color and ID number) on the probability of length-at-age-5 plot, then sum the results. 
+
+```{r echo = FALSE}
+ggplot(data.frame(cbind(length_selex,length_bins))%>% mutate(ID = 1:nrow(.)),
        aes(x = length_bins, y = length_selex)) +
   theme(legend.position = 'none')+
   scale_color_grey() +
-  geom_point(aes(x = length_bins, y = length_selex, col = factor(length_bins)))+ 
+  geom_text(aes(x = length_bins, y = length_selex,  label = ID,col = factor(length_bins)))+
   labs(x = 'length', y= 'proportion selected' )
 
 ggplot() +
-  labs(y= 'P(length|age)',  
+  labs(y= 'P(length|age)',
        color = 'Age', x = 'Length')+
   theme(legend.position = 'none')+
-  scale_color_grey() + 
-  geom_point(data = subset(longPal, age_bins ==5), 
-             aes(x = len, y = value, col = factor(len) )) +
+  scale_color_grey() +
+  geom_text(data = subset(longPal, age_bins ==5) %>% mutate(ID = 1:nrow(.)),
+            aes(x = len, y = value, label = ID, col = factor(len) )) +
   geom_vline(xintercept = 28, lty = 'dotted')
 ```
 
 In code (still using $a = 5$ as an example):
+
 ```{r message = FALSE, warning = FALSE}
 # longPal %>% filter(age_bins == 5) %>% select(age_bins, len, value)
 
@@ -181,7 +193,7 @@ sel_age <- merge(longPal,data.frame(cbind(length_selex,length_bins)),
 
 ggplot(sel_age,
        aes(x = age_bins, y = dotProdsum)) +
-  geom_line(lwd = 1.1, col = 'seagreen4') +
+  geom_line(lwd = 1.1, col = 'grey22') +
   labs(x = 'age', y= 'proportion selected', 
        main = 'Converted from length-at-age')
 

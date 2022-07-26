@@ -17,6 +17,7 @@ image:
 projects: []
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>This is in the category of “stuff I thought I understood” until I didn’t.</p>
@@ -64,14 +65,14 @@ ggplot(length_at_age,
 <p><strong>Notice how the horizontal line at 28cm corresponds to multiple ages within the confidence interval?</strong> How do we account for the fact that there is a chance that the the selectivity applicable to a given age can be characterized by the selectivity at several lengths, and how do we weight the applicability of that selectivity value given what we know about growth? Enter <span class="math inline">\(\psi_{l,a}\)</span>, the probability of being in length bin <span class="math inline">\(l\)</span> at age <span class="math inline">\(a\)</span>, a.k.a. the normal distribution <span class="math inline">\(\phi\)</span> of size-at-age.</p>
 <p><span class="math display">\[
 \begin{align}
-\psi_{al} &amp;= \begin{array} 
+\psi_{al} &amp;= \begin{array}
    &amp; \Phi (1,\tilde l_{a}, \sigma)) &amp; if \space l = 0cm \\
    \Phi (l+1,\tilde l_{a}, \sigma)) - \Phi (l,\tilde l, \sigma))&amp; if \space 0cm, &lt; l &lt; L+ \\
    1-\Phi (l,\tilde l_{a}, \sigma)) &amp; if \space l = L+\\
 \end{array}
 \end{align}
 \]</span></p>
-<p>Where <span class="math inline">\(l\)</span> is the length bin in question, <span class="math inline">\(\tilde l\)</span> is the observed length-at-age, and <span class="math inline">\(\sigma\)</span> is the variation in growth.</p>
+<p>Where <span class="math inline">\(l\)</span> is the length bin in question, <span class="math inline">\(\tilde l\)</span> is the observed length-at-age, and <span class="math inline">\(\sigma\)</span> is the variation in growth. If we simply used a “lookup” method (which I have certainly done in a pinch!), and assigned the selectivity at age <span class="math inline">\(a\)</span> to the selectivity at the expected length at age <span class="math inline">\(a\)</span>, we’d be introducing bias.</p>
 <pre class="r"><code>## this function returns the distribution of expected length-at-age 
 ## given a bin and observed length-at-age
 getP_al &lt;- function(len_bin, len_obs, length_sigma){
@@ -97,16 +98,20 @@ longPal &lt;- data.frame(PAL) %&gt;%
   mutate(age_bins) %&gt;%
   reshape2::melt(id = &#39;age_bins&#39;) %&gt;% 
   mutate(len =as.numeric(gsub(&quot;X&quot;,&quot;&quot;,variable))) </code></pre>
-<p>Here’s a subset of what <span class="math inline">\(\psi_{al}\)</span> looks like for ages 5-10. Notice (again) how length = 28cm crosses multiple age curves. The good news is, <span class="math inline">\(psi_{al}\)</span> has given us a sense of the relative probability of being age <span class="math inline">\(a\)</span> given length <span class="math inline">\(l\)</span>. (It looks like <span class="math inline">\(l = 28cm\)</span> is most likely a fish of age 7 or 8).</p>
+<p>Here’s a subset of what <span class="math inline">\(\psi_{al}\)</span> looks like for ages 5-10. Notice (again) how length = 28cm crosses multiple age curves. The good news is, <span class="math inline">\(\psi_{al}\)</span> has given us a sense of the relative probability of being age <span class="math inline">\(a\)</span> given length <span class="math inline">\(l\)</span>. (It looks like <span class="math inline">\(l = 28cm\)</span> is most likely a fish of age 7 or 8).</p>
 <p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 To put this all together, we need to compute the dot-product of the selectivity-at-length and the expected distribution of length-at-age.</p>
-<p>In math:
+<p>In math, we’re doing this:
 <span class="math display">\[
 Sel_a = \sum_l Sel_l \cdot \psi_{al}
-\]</span>
-In words: for each length bin <span class="math inline">\(l\)</span>, multiply the selectivity at that length times the probability of being at age <span class="math inline">\(a\)</span> given length <span class="math inline">\(l\)</span>. Sum these quantities across all length bins for each age bin.</p>
-<p>In pictures: let’s say we are interested in <span class="math inline">\(a = 5\)</span>. We are going to multiply each point on the length-selectivity by its corresponding point on the probability of length-at-age-5 plot, then sum the results.
-<img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-6-1.png" width="672" /><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+\]</span></p>
+<p>Which is really just a cheap way of approximating the correct estimator of the expected selectivity of an animal at age <span class="math inline">\(a\)</span>:</p>
+<p><span class="math display">\[
+Sel_a = \int_L Sel_L  \psi_{aL} dL
+\]</span></p>
+<p>In words: for each length bin <span class="math inline">\(l\)</span>, multiply the selectivity at that length times the probability of being at age <span class="math inline">\(a\)</span> given length <span class="math inline">\(l\)</span>. Sum these quantities across all length bins for each age bin.</p>
+<p>In pictures: let’s say we are interested in <span class="math inline">\(a = 5\)</span>. We are going to multiply each point on the length-selectivity by its corresponding point (by color and ID number) on the probability of length-at-age-5 plot, then sum the results.</p>
+<p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-6-1.png" width="672" /><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
 <p>In code (still using <span class="math inline">\(a = 5\)</span> as an example):</p>
 <pre class="r"><code># longPal %&gt;% filter(age_bins == 5) %&gt;% select(age_bins, len, value)
 
@@ -122,7 +127,7 @@ sel_age &lt;- merge(longPal,data.frame(cbind(length_selex,length_bins)),
 
 ggplot(sel_age,
        aes(x = age_bins, y = dotProdsum)) +
-  geom_line(lwd = 1.1, col = &#39;seagreen4&#39;) +
+  geom_line(lwd = 1.1, col = &#39;grey22&#39;) +
   labs(x = &#39;age&#39;, y= &#39;proportion selected&#39;, 
        main = &#39;Converted from length-at-age&#39;)</code></pre>
 <p><img src="/post/2022-05-02-len-age-conv/len-age_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>

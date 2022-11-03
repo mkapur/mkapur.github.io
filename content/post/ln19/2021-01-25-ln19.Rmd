@@ -71,7 +71,7 @@ Given this syntax you'll see how we would never really need to correct for  $a_{
 
 Two notes: 
 
-1. Sometimes to ease model fitting, we will simplify the above equation by substituting $\delta$ in place of the denominator ($a_{95} - a_{50}$), or estimate $\delta$ as $\frac{ln(19)}{a_{95} - a_{50}}$.
+1. Sometimes to ease model fitting, we will simplify the above equation by substituting $\delta$ in place of the denominator ($a_{95} - a_{50}$), or estimate $\delta$ as $\frac{ln(19)}{a_{95} - a_{50}}$. (Specifically, if you have the $a_{50}$ and  $\delta$ values from, say, a Stock Synthesis model, you can solve for $a_{95}$ via $a_{95} = \frac{-ln(19)}{\delta}+a_{50}$).
 
 2. If you'd want to use the something like $a_{75}$, you'd need to update the log odds via $log(\frac{0.75}{0.25})$ or ~ $log(3)$. Note that this ensures that you are getting a 75% selectivity at the corresponding age, but provides a distinct curve from before.
 

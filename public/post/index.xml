@@ -5,12 +5,36 @@
     <link>https://mkapur.netlify.app/post/</link>
       <atom:link href="https://mkapur.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 20 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 10 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://mkapur.netlify.app/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
       <link>https://mkapur.netlify.app/post/</link>
     </image>
+    
+    <item>
+      <title>Leveraging try_again() for error catching in MSEs</title>
+      <link>https://mkapur.netlify.app/post/testthat-mse/</link>
+      <pubDate>Sat, 10 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://mkapur.netlify.app/post/testthat-mse/</guid>
+      <description>
+&lt;script src=&#34;https://mkapur.netlify.app/post/testthat-mse/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;This post is not a full breakdown of how to structure code for Management Strategy Evaluation (MSE) work. I’m certainly not a pro software engineer. Instead, I was pleased to find a clean way to deal with errors in the hierarchical nature of my MSE workflow that may be of use to others, or to future-me.&lt;/p&gt;
+&lt;p&gt;Here’s a schematic of what’s happening in my MSE:
+&lt;img src=&#34;mse_schematic.jpg&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As anyone who’s done this type of work before knows, we definitely expect a subset of our simulation runs to ‘fail’ - that is, for the unique simulated data set (which differs here based upon what I’m calling &lt;span class=&#34;math inline&#34;&gt;\(r\)&lt;/span&gt;)in year &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, the estimation procedure doesn’t pass whatever criteria we’ve set (could be convergence, a &lt;code&gt;NaN&lt;/code&gt; gradient, etc).&lt;/p&gt;
+&lt;p&gt;A simple &lt;code&gt;break&lt;/code&gt; won’t help us here, since that would kill the loop mid-run and require us to manually re-start the higher-level function. A &lt;code&gt;tryCatch&lt;/code&gt; also seems appealing, but this would still require recursion (since we’d have to embded a call to &lt;code&gt;run_MSE()&lt;/code&gt; in the &lt;code&gt;Catch&lt;/code&gt; wrapper, within &lt;code&gt;run_MSE()&lt;/code&gt; itself…not ideal).&lt;/p&gt;
+&lt;p&gt;Our desired behavior would have us hit play once on the &lt;code&gt;run_MSE()&lt;/code&gt; function, and trust that any estimation model that fails will be safely handled:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;#39;C:/users/mkapur/dropbox/other projects/mkapur.github.io/content/post/2022-12-10-leveraging-testthat-for-my-mse-simulations/mse_schematic2.jpg&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;mse_schematic2.jpg&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I was able to accomplish this elegantly using &lt;code&gt;testthat::try_again()&lt;/code&gt;. I simply indicated the number of times I wanted to attempt my &lt;code&gt;run_MSE()&lt;/code&gt; function, and included a &lt;code&gt;stop()&lt;/code&gt; argument inside &lt;code&gt;check_model()&lt;/code&gt; (so that a true error is thrown when the estimator fails).&lt;/p&gt;
+&lt;p&gt;When &lt;code&gt;testthat::try_again()&lt;/code&gt; detects this failure, it restarts the &lt;code&gt;run_MSE()&lt;/code&gt; function, which increments along a vector of random seeds, until it hits something functional. This can be adapted to lots of purposes, and one could readily keep track of the identity/quantity of estimators that failed.&lt;/p&gt;
+&lt;p&gt;Even better, I can pop this into a one-line call to &lt;code&gt;replicate&lt;/code&gt;, which functionally requests a total number of sucesses equal to &lt;code&gt;nReplicates&lt;/code&gt;. A key for this to work is to ensure whatever will be incremented along for each call to &lt;code&gt;run_MSE()&lt;/code&gt; (in my case, the vector of seeds) is long enough to account for every attempted replicate times the potential number of tries. In the example below, this would be 99 tries x 100 &lt;code&gt;nReplicates&lt;/code&gt; = 9900 seeds.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sim &amp;lt;- replicate(nReplicates, {try_again(99,run_MSE(nprojyrs, spaceID))})&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Simulation Pinball Machine</title>
@@ -387,6 +411,7 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
       <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
       <guid>https://mkapur.netlify.app/post/ln19/why-ln19/</guid>
       <description>
+&lt;script src=&#34;https://mkapur.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Have you ever noticed that sneaky &lt;span class=&#34;math inline&#34;&gt;\(log(19)\)&lt;/span&gt; in your logistic equation for maturity or selectivity? What is up with that?&lt;/p&gt;
@@ -396,12 +421,13 @@ R_{expected,y} = R_{det,y}exp(dev_y-\sigma^2/2)
 S_a = \langle 1+exp(-log(19)*\frac{a-a_{50}}{a_{95}-a_{50}}) \rangle ^{-1}
 \]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ln19/2021-01-25-ln19_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Note how nicely these values extend between zero and one (on the y axis)? That’s because we’re really interested in working with the odds of being captured. Based on our parameter definitions, we need to ensure that the logistic function equals 0.95 when &lt;span class=&#34;math inline&#34;&gt;\(a = a_{95}\)&lt;/span&gt; (and similarly equals 0.5 at &lt;span class=&#34;math inline&#34;&gt;\(a_{50}\)&lt;/span&gt;). To achieve this, we recognize the exponent of the log odds equals the odds ratio. You can think of the odds ratio as the probability of your event (getting captured) happening over the probability of it not happening. We can leverage this to force the logistic equation to scale the way we want.&lt;/p&gt;
+&lt;p&gt;Note how nicely these values extend between zero and one (on the y axis)? That’s because we’re really interested in working with the odds of being captured. Based on our parameter definitions, we need to ensure that the logistic function equals 0.95 when &lt;span class=&#34;math inline&#34;&gt;\(a = a_{95}\)&lt;/span&gt; (and similarly equals 0.5 at &lt;span class=&#34;math inline&#34;&gt;\(a_{50}\)&lt;/span&gt;).
+To achieve this, we recognize the exponent of the log odds equals the odds ratio. You can think of the odds ratio as the probability of your event (getting captured) happening over the probability of it not happening. We can leverage this to force the logistic equation to scale the way we want.&lt;/p&gt;
 &lt;p&gt;Since we’ve already defined &lt;span class=&#34;math inline&#34;&gt;\(a_{95}\)&lt;/span&gt; as the age at which we have a 95% probability of getting captured, the log-odds can be defined as &lt;span class=&#34;math inline&#34;&gt;\(log(\frac{0.95}{0.05})\)&lt;/span&gt;. This could be rewritten as &lt;span class=&#34;math inline&#34;&gt;\(log(\frac{19/20}{1/20})\)&lt;/span&gt; and simplifies to &lt;span class=&#34;math inline&#34;&gt;\(log(19)\)&lt;/span&gt;. This ensures that when &lt;span class=&#34;math inline&#34;&gt;\(a = a_{95}\)&lt;/span&gt;, the equation up top indeed returns 0.95, which is the logistic function evaluated at an odds ratio of 95%.&lt;/p&gt;
 &lt;p&gt;Given this syntax you’ll see how we would never really need to correct for &lt;span class=&#34;math inline&#34;&gt;\(a_{50}\)&lt;/span&gt;, since the odds ratio of two events with 50% probability is actually zero (plug in 0.5 to see for yourself).&lt;/p&gt;
 &lt;p&gt;Two notes:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Sometimes to ease model fitting, we will simplify the above equation by substituting &lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; in place of the denominator (&lt;span class=&#34;math inline&#34;&gt;\(a_{95} - a_{50}\)&lt;/span&gt;), or estimate &lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; as &lt;span class=&#34;math inline&#34;&gt;\(\frac{ln(19)}{a_{95} - a_{50}}\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sometimes to ease model fitting, we will simplify the above equation by substituting &lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; in place of the denominator (&lt;span class=&#34;math inline&#34;&gt;\(a_{95} - a_{50}\)&lt;/span&gt;), or estimate &lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; as &lt;span class=&#34;math inline&#34;&gt;\(\frac{ln(19)}{a_{95} - a_{50}}\)&lt;/span&gt;. (Specifically, if you have the &lt;span class=&#34;math inline&#34;&gt;\(a_{50}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; values from, say, a Stock Synthesis model, you can solve for &lt;span class=&#34;math inline&#34;&gt;\(a_{95}\)&lt;/span&gt; via &lt;span class=&#34;math inline&#34;&gt;\(a_{95} = \frac{-ln(19)}{\delta}+a_{50}\)&lt;/span&gt;).&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;If you’d want to use the something like &lt;span class=&#34;math inline&#34;&gt;\(a_{75}\)&lt;/span&gt;, you’d need to update the log odds via &lt;span class=&#34;math inline&#34;&gt;\(log(\frac{0.75}{0.25})\)&lt;/span&gt; or ~ &lt;span class=&#34;math inline&#34;&gt;\(log(3)\)&lt;/span&gt;. Note that this ensures that you are getting a 75% selectivity at the corresponding age, but provides a distinct curve from before.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://mkapur.netlify.app/post/ln19/2021-01-25-ln19_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;

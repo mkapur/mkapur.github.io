@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2021-01-04">
 
-<title>mk2 - Maia Sosa Kapur</title>
+<title>mk2 - Why do we use ln(19)?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,39 +59,10 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -102,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">mk2</span>
     </a>
   </div>
@@ -112,11 +82,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link" href="../../index.html">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
+    <a class="nav-link" href="../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -131,21 +101,32 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Maia Sosa Kapur</h1>
-<p class="subtitle lead">XXX</p>
+<h1 class="title">Why do we use ln(19)?</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p> </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 4, 2021</p>
+    </div>
+  </div>
   
     
   </div>
@@ -153,45 +134,34 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Have you ever noticed that sneaky <span class="math inline">\(log(19)\)</span> in your logistic equation for maturity or selectivity? What is up with that?</p>
+<p>Let’s take the example of a basic selectivity-at-age function, which uses the parameters <span class="math inline">\(a_{50}\)</span> and <span class="math inline">\(a_{95}\)</span>. These represent the ages where a fish has a probability 50% or 95% chance of being captured. <em>Read that again carefully.</em> I took these parameters for granted, but the meaning of them is intertwined with the use of <span class="math inline">\(ln(19)\)</span>, and if they change, so does the logged value.</p>
+<p>Here’s a selectivity plot with some made up numbers. The selectivity function I’m using is:</p>
+<p><span class="math display">\[
+S_a = \langle 1+exp(-log(19)*\frac{a-a_{50}}{a_{95}-a_{50}}) \rangle ^{-1}
+\]</span></p>
 <div class="cell">
+<div class="cell-output-display">
+<p><img src="2021-01-25-ln19_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Note how nicely these values extend between zero and one (on the y axis)? That’s because we’re really interested in working with the odds of being captured. Based on our parameter definitions, we need to ensure that the logistic function equals 0.95 when <span class="math inline">\(a = a_{95}\)</span> (and similarly equals 0.5 at <span class="math inline">\(a_{50}\)</span>). To achieve this, we recognize the exponent of the log odds equals the odds ratio. You can think of the odds ratio as the probability of your event (getting captured) happening over the probability of it not happening. We can leverage this to force the logistic equation to scale the way we want.</p>
+<p>Since we’ve already defined <span class="math inline">\(a_{95}\)</span> as the age at which we have a 95% probability of getting captured, the log-odds can be defined as <span class="math inline">\(log(\frac{0.95}{0.05})\)</span>. This could be rewritten as <span class="math inline">\(log(\frac{19/20}{1/20})\)</span> and simplifies to <span class="math inline">\(log(19)\)</span>. This ensures that when <span class="math inline">\(a = a_{95}\)</span>, the equation up top indeed returns 0.95, which is the logistic function evaluated at an odds ratio of 95%.</p>
+<p>Given this syntax you’ll see how we would never really need to correct for <span class="math inline">\(a_{50}\)</span>, since the odds ratio of two events with 50% probability is actually zero (plug in 0.5 to see for yourself).</p>
+<p>Two notes:</p>
+<ol type="1">
+<li><p>Sometimes to ease model fitting, we will simplify the above equation by substituting <span class="math inline">\(\delta\)</span> in place of the denominator (<span class="math inline">\(a_{95} - a_{50}\)</span>), or estimate <span class="math inline">\(\delta\)</span> as <span class="math inline">\(\frac{ln(19)}{a_{95} - a_{50}}\)</span>. (Specifically, if you have the <span class="math inline">\(a_{50}\)</span> and <span class="math inline">\(\delta\)</span> values from, say, a Stock Synthesis model, you can solve for <span class="math inline">\(a_{95}\)</span> via <span class="math inline">\(a_{95} = \frac{-ln(19)}{\delta}+a_{50}\)</span>).</p></li>
+<li><p>If you’d want to use the something like <span class="math inline">\(a_{75}\)</span>, you’d need to update the log odds via <span class="math inline">\(log(\frac{0.75}{0.25})\)</span> or ~ <span class="math inline">\(log(3)\)</span>. Note that this ensures that you are getting a 75% selectivity at the corresponding age, but provides a distinct curve from before.</p></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="2021-01-25-ln19_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
-</div>
 
 
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="" data-listing-date-sort="1609747200000" data-listing-file-modified-sort="1684259455459" data-listing-reading-time-sort="3.19">
-<a href="./posts/2021-01-25_why_ln19/2021-01-25-ln19.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Why do we use ln(19)?
-</h5>
-<div class="listing-categories">
-
-</div>
-<div class="card-text listing-description">
-Have you ever noticed that sneaky <span class="math inline">\(log(19)\)</span> in your logistic equation for maturity or selectivity? What is up with that?
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Jan 4, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

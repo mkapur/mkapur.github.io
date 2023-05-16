@@ -1,0 +1,29 @@
+---
+title: How I Keep Up With the Literature
+author: ''
+date: '2021-02-10'
+slug: how-i-keep-up-with-the-literature
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-02-10T11:00:50-08:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+My lab recently had a meeting where we discussed the nuts &amp; bolts of performing a peer-review for a journal article, which got everyone talking about their preferred methods of reading a scientific paper. Luckily, we aren't in bio-medicine or particle physics, but the volume of articles that emerge monthly in our field is still large, and it takes strategy to efficiently extract and scrutinize the information from a scientific article. 
+
+One of my favorite specimens of PhD advice comes from the <a href="http://www.chemistry-blog.com/wp-content/uploads/2010/06/Gassman-and-Meyers.pdf">Gassman and Meyers memos</a>, which posess the perfect melange of condecision, tough love and "kids these days" angst -- the advice, nonetheless, is great. It sticks because it stings a bit. Gassman writes:
+<blockquote>It is a consistent observation on my part that people have more ideas about their research when they are writing their thesis than at any other time. This is generally due to the fact that they are finally doing the literature work they should have done early in their thesis work only at the time that they are trying to complete their dissertations. -- P.G. Gassman</blockquote>
+So, don't let that be you. Here is how I approach the literature, which has proved helpful for the last few years.
+<ol>
+	<li>Have a method to centralize new articles. I used the tips on the <a href="https://fraserlab.com/2013/09/28/The-Fraser-Lab-method-of-following-the-scientific-literature/">Fraser Lab website</a> to set up a Feedly account (there are lots of other options) and subscribed to the four main journals in my field, plus Science, Nature, and PNAS. The algorithm learns your preferences quite quickly, and your queue will show articles that fit your niche after you 'check' them off.</li>
+	<li>Check your centralizer every morning, and save the articles whose abstracts seem relevant as soon as you see them. It's fine to save articles on-the-fly, but I recommend scheduling 'deep reading' periods of no less than one hour.</li>
+	<li>Go beyond highlighting/sticky notes. I use a set of spreadsheets, stored in Google Drive and sorted by topic, to ensure that I'm actually engaged with what I'm reading. They all follow the same format. One example  comes from my spreadsheet for studies of spatial model structure and general model mis-specification. The headings are hard to read in the screenshot, but they are <strong>Citation, Species, Mis-specification, Methods, Performance Measures, Conclusions, Similarities and Differences.</strong> These can be tailored to your field or project, but the last two are the most crucial. In those columns, I compare the study to my thesis work, making it easy as I write my introductions/discussions to state who has done similar studies, and where the research gaps lie.</li>
+</ol>
+

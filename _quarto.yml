@@ -9,6 +9,9 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - publications.qmd
+      - href: https://scholar.google.com/citations?user=H6AeRamFmxUC&hl=en
+        text: Google Scholar
 
 format:
   html:

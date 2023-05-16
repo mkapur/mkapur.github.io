@@ -3,13 +3,13 @@ title: "Maia Sosa Kapur"
 subtitle: "Stock Assessor, Ecologist, Runner"
 
 website:
-    navbar: 
+  navbar: 
+    left:
       - href: index.qmd
         text: Home 
       - about.qmd
-      - href: https://scholar.google.com/citations?user=H6AeRamFmxUC&hl=en
-        text: GoogleScholar
-        
+      - publications.qmd
+      
 listing:
   feed: true
   contents: posts
@@ -21,7 +21,6 @@ listing:
   categories: true
 # page-layout: full
 # title-block-banner: true
-image: avatar.jpg
 ---
 
 ```{r write-redirects}

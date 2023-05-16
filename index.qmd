@@ -1,6 +1,6 @@
 ---
 title: "Maia Sosa Kapur"
-subtitle: "Stock Assessor, Ecologist, Runner"
+subtitle: "Stock Assessment Scientist, Ecologist, Runner"
 
 website:
   navbar: 

@@ -1,5 +1,10 @@
 ---
 title: "About"
+image: avatar.jpg
+about:
+  template: trestles
+  image-width: 10em
+  image-shape: round
 ---
 
 About this site

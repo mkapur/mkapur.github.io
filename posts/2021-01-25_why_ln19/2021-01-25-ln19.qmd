@@ -1,5 +1,6 @@
 ---
 title: Why do we use ln(19)?
+author: MSK
 date: '2021-01-04'
 slug: why-ln19
 categories: []

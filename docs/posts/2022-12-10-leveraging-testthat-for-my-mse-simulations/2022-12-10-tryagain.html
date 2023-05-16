@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="MSK">
+<meta name="dcterms.date" content="2022-12-10">
 
-<title>Maia Sosa Kapur - About</title>
+<title>Maia Sosa Kapur - Leveraging try_again() for error catching in MSEs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,21 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -58,18 +61,19 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Maia Sosa Kapur</span>
     </a>
   </div>
@@ -79,15 +83,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
+    <a class="nav-link" href="../../index.html">
  <span class="menu-text">Home &amp; Blog Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page">
+    <a class="nav-link" href="../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html">
+    <a class="nav-link" href="../../publications.html">
  <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
@@ -104,41 +108,64 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="avatar.jpg" class="about-image
-  rounded " style="width: 20em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Leveraging try_again() for error catching in MSEs</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p> </p>
+          </div>
   </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 10, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
 </header>
-    <div class="about-links">
-  <a href="https://twitter.com/kapurmaia" class="about-link">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">twitter</span>
-  </a>
-  <a href="https://github.com/mkapur" class="about-link">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://scholar.google.com/citations?user=H6AeRamFmxUC&amp;hl=en" class="about-link">
-    <i class="bi bi-fa-google-scholar"></i>
-     <span class="about-link-text">Google Scholar</span>
-  </a>
+
+<p>This post is not a full breakdown of how to structure code for Management Strategy Evaluation (MSE) work. I’m certainly not a pro software engineer. Instead, I was pleased to find a clean way to deal with errors in the hierarchical nature of my MSE workflow that may be of use to others, or to future-me.</p>
+<p>Here’s a schematic of what’s happening in my MSE:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mse_schematic.jpg" class="img-fluid figure-img"></p>
+</figure>
 </div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>I am currently both a federal Research Mathematical Statistician at the Alaska Fisheries Science Center (NOAA, Seattle) and a PhD Candidate at the School of Aquatic and Fisheries Science at the University of Washington in the <a href="http://puntlab.washington.edu/maia-kapur/">Punt Lab</a>. My research is supported by a <a href="https://seagrant.noaa.gov/News/Article/ArtMID/1660/ArticleID/2750/NOAA-Sea-Grant-and-Fisheries-announce-2019-Ecosystem-and-Population-Dynamics-Fellows">NMFS-Sea Grant Population Dynamics Fellowship</a>. Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.</p>
+<p>As anyone who’s done this type of work before knows, we definitely expect a subset of our simulation runs to ‘fail’ - that is, for the unique simulated data set (which differs here based upon what I’m calling <span class="math inline">\(r\)</span>)in year <span class="math inline">\(y\)</span>, the estimation procedure doesn’t pass whatever criteria we’ve set (could be convergence, a <code>NaN</code> gradient, etc).</p>
+<p>A simple <code>break</code> won’t help us here, since that would kill the loop mid-run and require us to manually re-start the higher-level function. A <code>tryCatch</code> also seems appealing, but this would still require recursion (since we’d have to embded a call to <code>run_MSE()</code> in the <code>Catch</code> wrapper, within <code>run_MSE()</code> itself…not ideal).</p>
+<p>Our desired behavior would have us hit play once on the <code>run_MSE()</code> function, and trust that any estimation model that fails will be safely handled:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mse_schematic2.jpg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>I was able to accomplish this elegantly using <code>testthat::try_again()</code>. I simply indicated the number of times I wanted to attempt my <code>run_MSE()</code> function, and included a <code>stop()</code> argument inside <code>check_model()</code> (so that a true error is thrown when the estimator fails).</p>
+<p>When <code>testthat::try_again()</code> detects this failure, it restarts the <code>run_MSE()</code> function, which increments along a vector of random seeds, until it hits something functional. This can be adapted to lots of purposes, and one could readily keep track of the identity/quantity of estimators that failed.</p>
+<p>Even better, I can pop this into a one-line call to <code>replicate</code>, which functionally requests a total number of sucesses equal to <code>nReplicates</code>. A key for this to work is to ensure whatever will be incremented along for each call to <code>run_MSE()</code> (in my case, the vector of seeds) is long enough to account for every attempted replicate times the potential number of tries. In the example below, this would be 99 tries x 100 <code>nReplicates</code> = 9900 seeds.</p>
+<p><code>sim &lt;- replicate(nReplicates, {try_again(99,run_MSE(nprojyrs, spaceID))})</code></p>
 
 
-</main></div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -159,6 +186,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;

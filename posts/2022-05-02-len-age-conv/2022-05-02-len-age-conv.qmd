@@ -8,6 +8,7 @@ tags: []
 subtitle: ''
 summary: '' 
 lastmod: '2022-05-02T13:58:32-07:00'
+image: lenage-img.jpg
 ---
 
 This is in the category of "stuff I thought I understood" until I didn't.

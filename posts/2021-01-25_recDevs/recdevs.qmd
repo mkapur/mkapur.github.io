@@ -11,19 +11,22 @@ summary: ''
 authors: []
 lastmod: '2021-01-20T15:36:27-07:00'
 featured: yes
+image: recdev-img.jpg
 ---
- 
+
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 options(knitr.table.format = function() {
   if (knitr::is_latex_output()) 'latex' else 'pandoc'
 })
 ```
-For an in-depth description of the theory and math behind recruitment deviations in assessment models, check out Methot, R.D., Taylor, I.G., Chen, Y., 2011. Adjusting for bias due to variability of estimated recruitments in fishery assessment models. Can. J. Fish. Aquat. Sci. 68, 1744–1760. https://doi.org/10.1139/f2011-092.
+
+For an in-depth description of the theory and math behind recruitment deviations in assessment models, check out Methot, R.D., Taylor, I.G., Chen, Y., 2011. Adjusting for bias due to variability of estimated recruitments in fishery assessment models. Can. J. Fish. Aquat. Sci. 68, 1744--1760. https://doi.org/10.1139/f2011-092.
 
 Here I want to jot down the practical implementation behind the recruitment deviate for those working in Stock Synthesis or building their own models from scratch. The main topics to discuss are 1) The meaning of a recruitment deviate (abbreviated here to "rec-dev"), 2) how it plays in your dynamics equations, and 3) keeping an eye out for lognormal bias correction.
 
 # What is a rec-dev?
+
 A recruitment deviate is how much a given year's recruitment *deviates* from what you'd expect given a stock-recruit relationship (in this post I'll use the Beverton-Holt as an example). The idea is that there could be many reasons for a stock to produce a number of recruits which is different from the deterministic value defined by the current stock size (among other parameters). Reasons for this deviation could be environmental, and are generally unexplained -- which is why the time series of rec devs is often interpreted as process error in your system (all the extra natural noise our model can't capture).
 
 Let's quickly refresh what we're talking about when we say the "mean" or expected recruitment level. Again, using the Bev-Holt as an example:
@@ -106,7 +109,6 @@ ggplot(recdf, aes(x = b, y = detRec)) +
                linetype = 'dotted')
 ```
 
-
 Let's think for a second. If we deal in absolutes, the raw (absolute) value of a deviate at high biomass is going to be much larger than the deviate at low biomass. This isn't very helpful if we're trying to quantify the degree to which our stock's recruitment in year $y$ is diverging from expectation. For that reason, we are interested in modeling the errors, or deviates, as *lognormally distributed*. Equation-wise, here's what that looks like. Note that $R_{det}$ is simply the deterministic value of recruitment, which could come from a Bev-Holt, Ricker, you name it.
 
 $$
@@ -116,8 +118,8 @@ $$
 Now we'll quickly refresh the idea behind the lognormal distribution and explain what's up with that $-\sigma^2/2$.
 
 # Refreshing the lognormal distribution.
-If our devs are normally distributed with mean zero, $exp(\mu = 0)$ is *lognormally* distributed, shown in blue below:
 
+If our devs are normally distributed with mean zero, $exp(\mu = 0)$ is *lognormally* distributed, shown in blue below:
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 sigma = 1
@@ -139,7 +141,7 @@ legend('topright',
        legend = c('X','exp(X)'))
 ```
 
-If $X ~ N(\mu,\theta)$ and $Y = e^X$, the expected value of $X$ is $\mu$, and the expected value of $Y$ will be $e^{\mu+\theta/2}$, *not* $e^{\mu}$. 
+If $X ~ N(\mu,\theta)$ and $Y = e^X$, the expected value of $X$ is $\mu$, and the expected value of $Y$ will be $e^{\mu+\theta/2}$, *not* $e^{\mu}$.
 
 Note that $exp(X)$ is 1) never less than zero and 2) pretty asymmetrical. What this means mathematically is that the mean of $exp(X)$ *is in fact not the same* as $exp(mean(X))$. Confirm this for yourself by testing the following. They've been added to the plots above as vertical dashed lines.
 
@@ -151,7 +153,8 @@ exp(mu+sigma/2) ##... in fact, the expected value of exp(X) is ~exp(mu+sigma/2)
 ```
 
 # Bias correction to the rescue
-Back to the recruitment example, we can pretend that $X$ here is our vector of recruitment deviates. We set the mean for  $dev_y$ to 0 in hopes that, on an "average" year, we'll be multiplying $R_{det,y}$ (deterministic recruitment) by $exp(0) = 1$, and get the expected value back. However, because we've discovered that $exp(dev_y)$ is not symmetrical, we need to perform a *bias correction* to confirm that we *approximately* return the deterministic value when $dev_y$ is zero. In other words, we are adjusting how we back-transform the deviates to confirm that the mean of those deviates is roughly one, on a normal scale.
+
+Back to the recruitment example, we can pretend that $X$ here is our vector of recruitment deviates. We set the mean for $dev_y$ to 0 in hopes that, on an "average" year, we'll be multiplying $R_{det,y}$ (deterministic recruitment) by $exp(0) = 1$, and get the expected value back. However, because we've discovered that $exp(dev_y)$ is not symmetrical, we need to perform a *bias correction* to confirm that we *approximately* return the deterministic value when $dev_y$ is zero. In other words, we are adjusting how we back-transform the deviates to confirm that the mean of those deviates is roughly one, on a normal scale.
 
 Check it out:
 
@@ -178,10 +181,9 @@ exp(mean(X)) ## should be close to 1, as above
 mean(exp(X-1^2/2)) ## with bias correction, closer to 1 again!
 ```
 
-One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above). 
+One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above).
 
 Imagining we had a time series of data which encompassed all the different $SB$ values corresponding to the gold points above, we could plot the deviates through time (I randomly reordered the values):
-
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 require(dplyr)
@@ -202,5 +204,3 @@ ggplot(recdfsamp, aes(x = Year, y = dev)) +
 ```
 
 So now, the horizontal line at zero represents the deterministic or expected recruitment, and the points are the log deviations from that mean. Now you can interpret this plot intuitively, where values below zero were "worse than average years", and vice versa. What's more, because we are working in log space you can also get a quantitative sense of how divergent from expectation the recruits were in this year *regardless of the stock size at hand*.
-
-

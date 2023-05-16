@@ -7,7 +7,7 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Home & Blog Posts
       - about.qmd
       - publications.qmd
       - href: https://scholar.google.com/citations?user=H6AeRamFmxUC&hl=en
@@ -15,7 +15,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: solar
     css: styles.css
     toc: true
 

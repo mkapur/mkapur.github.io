@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "mk2"
+  title: "Maia Sosa Kapur"
   navbar:
     left:
       - href: index.qmd

@@ -1,10 +1,18 @@
 ---
 title: "About"
-image: avatar.jpg
 about:
   template: trestles
-  image-width: 10em
-  image-shape: round
+  image: avatar.jpg
+  links:
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com/kapurmaia
+    - icon: github
+      text: Github
+      href: https://github.com/mkapur
+    - icon: fa-google-scholar
+      text: Google Scholar
+      href: https://scholar.google.com/citations?user=H6AeRamFmxUC&hl=en
 ---
 
 About this site

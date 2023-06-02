@@ -8,7 +8,7 @@ Because much of my work directly informs the management of industrial fisheries 
 
 **Stock Assessments Used for Fisheries Management**
 
-1.	**Kapur, M.** and Monnohan, C. Assessment of the Flathead Sole Stock in the Gulf of Alaska. North Pacific Fishery Management Council, 2022. [https://apps-afsc.fisheries.noaa.gov/Plan_Team/2022/GOAflathead.pdf]
+1.	**Kapur, M.** and Monnohan, C. Assessment of the Flathead Sole Stock in the Gulf of Alaska. North Pacific Fishery Management Council, 2022. [https://apps-afsc.fisheries.noaa.gov/Plan_Team/2022/GOAflathead.pdf]()
 
 2.	**Kapur, M.** Assessment of the Flathead Sole-Bering flounder Stock in the Bering Sea and Aleutian Islands. North Pacific Fishery Management Council, 2022. [https://apps-afsc.fisheries.noaa.gov/Plan_Team/2022/BSAIflathead.pdf]() 
 

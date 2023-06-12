@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="MSK">
+<meta name="dcterms.date" content="2023-06-08">
+
+<title>Maia Sosa Kapur - Ageing Error Matrices - some notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Maia Sosa Kapur</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Home &amp; Blog Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html">
+ <span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=H6AeRamFmxUC&amp;hl=en">
+ <span class="menu-text">Google Scholar</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#this-post" id="toc-this-post" class="nav-link active" data-scroll-target="#this-post">This post</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#ageing-error-vector-setup-stock-synthesis-syntax" id="toc-ageing-error-vector-setup-stock-synthesis-syntax" class="nav-link" data-scroll-target="#ageing-error-vector-setup-stock-synthesis-syntax">Ageing Error Vector Setup (Stock Synthesis syntax)</a></li>
+  <li><a href="#ageing-error-matrix-setup" id="toc-ageing-error-matrix-setup" class="nav-link" data-scroll-target="#ageing-error-matrix-setup">Ageing Error Matrix Setup</a>
+  <ul class="collapse">
+  <li><a href="#populating-the-matrix" id="toc-populating-the-matrix" class="nav-link" data-scroll-target="#populating-the-matrix">Populating the Matrix</a></li>
+  </ul></li>
+  <li><a href="#moving-backwards" id="toc-moving-backwards" class="nav-link" data-scroll-target="#moving-backwards">Moving Backwards</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Ageing Error Matrices - some notes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p> </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 8, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="this-post" class="level1">
+<h1>This post</h1>
+<p>I revisit the inclusion of ageing error matrices frequently enough that I wanted to consolidate some notes here. None of this is new information; it is a resource for myself to get things straight, particularly when moving between the Stock Synthesis ageing error syntax and other setups like those used in our bespoke ADMB/TMB models. For this post, <span class="math inline">\(a\)</span> will index true ages, <span class="math inline">\(\tilde a\)</span> indexes read ages.</p>
+<p>In this post, I will talk through the math behind the ageing error matrix, and show how one can develop such a matrix (with R code) given parameters concerning the bias and imprecision of their age reads.</p>
+</section>
+<section id="background" class="level1">
+<h1>Background</h1>
+<ul>
+<li><p>Ageing error concerns the imprecision that arises from misreading the annuli of a fish’s otolith. A given reader might mistakenly read an age-5 fish to be age-4 or age-6. This introduces a distortion in your observations, so we account for it within our models in hopes of lining things up with reality, given imprecision in the age-read process.</p></li>
+<li><p>The <em>mean</em> divergence from the true age is called the “bias” in the SS3 manual. Setting this to -1 or [true value]+0.5 results in identical behavior, whereby there is no bias. This assumes that, on average, the read age <span class="math inline">\(\tilde a\)</span> would be identical to the true age <span class="math inline">\(a\)</span> .</p></li>
+<li><p>Even in the absence of bias, there might be a spread of imprecision in the reads (‘uncertainty at age’ in SS speak). This can be represented as the standard deviation of <span class="math inline">\(\tilde a\)</span> given <span class="math inline">\(a\)</span>, assuming a normal distribution.</p></li>
+<li><p>Since lots of annuli are generally harder to distinguish than few, we’d expect precision to decline with age (but check with your life history program to get the specifics for your species). Regardless whether this is true, we would expect bias and precision to vary with age, which is why we typically deal with a set of vectors or a matrix, with unique values for each combination of <span class="math inline">\(a\)</span>, <span class="math inline">\(\tilde a\)</span>.</p></li>
+<li><p>A dataset might be comprised of reads from multiple readers with non-systematic bias among them, hence the need for intercalibration. Check out an example for <a href="https://mkapur-noaa.github.io/goa-fhs-2022/AgeingError_Writeup_Static.html">GOA Flathead Sole</a> using the Punt et. al.&nbsp;(2008) approach.</p></li>
+</ul>
+</section>
+<section id="ageing-error-vector-setup-stock-synthesis-syntax" class="level1">
+<h1>Ageing Error Vector Setup (Stock Synthesis syntax)</h1>
+<p>Let’s pretend we’re working with 10 age bins ranging from 1 to 10 years. For simplicity we will assume that the data reads are also assigned to these same bins; anything read over age 10 will be accumulated into 10+ as a plus group.</p>
+<p>I’m going to posit vectors of values like you might see in the <code>data.ss</code> file of a Stock Synthesis, continuing with the assumption that the ability to precisely read an otolith gets harder with more rings. Thus, both the bias vector and the precision vector increase as a function of <span class="math inline">\(a\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>bias_a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.1873</span>, <span class="fl">2.2105</span>, <span class="fl">3.23844</span>,    <span class="fl">4.27116</span>,    <span class="fl">5.30867</span>,    <span class="fl">6.351</span>,  <span class="fl">7.39816</span>,    <span class="fl">8.45019</span>,    <span class="fl">9.5071</span>, <span class="fl">10.6357</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sd_a <span class="ot">&lt;-</span> <span class="fu">c</span>(  <span class="fl">0.001</span>, <span class="fl">0.0716628</span>,   <span class="fl">0.142271</span>,   <span class="fl">0.212825</span>,   <span class="fl">0.283324</span>,   <span class="fl">0.353768</span>,   <span class="fl">0.424158</span>,   <span class="fl">0.494494</span>,   <span class="fl">0.564775</span>,<span class="fl">0.635002</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>( <span class="dv">1</span><span class="sc">:</span>abins,bias_a, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">xlab =</span> <span class="st">'true age'</span>, <span class="at">ylab =</span> <span class="st">'bias'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>( <span class="dv">1</span><span class="sc">:</span>abins, sd_a, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">xlab =</span> <span class="st">'true age'</span>, <span class="at">ylab =</span> <span class="st">'sd'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-06-08-ageingError_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>These plots aren’t super helpful, but they give us a sense of how we’d expect the resultant matrix to behave.</p>
+</section>
+<section id="ageing-error-matrix-setup" class="level1">
+<h1>Ageing Error Matrix Setup</h1>
+<p>We’ll build an empty matrix <span class="math inline">\(\mathbf P\)</span> with dims <span class="math inline">\(a\)</span> x <span class="math inline">\(\tilde a\)</span>. In practice this might be an array if you’re dealing with reads from multiple labs/fleets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>P_aa <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> abins, <span class="at">ncol =</span> abins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Each entry in <span class="math inline">\(\mathbf P\)</span> is described as “the probability of being read at age <span class="math inline">\(\tilde a\)</span> given true age <span class="math inline">\(a\)</span>”. If there were zero bias and zero imprecision (perfect age readers), we’d expect <span class="math inline">\(\mathbf P\)</span> to be the identity matrix; a 100% chance that an otolith of true age 5 gets read as age 5, etc.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+ [1,]    1    0    0    0    0    0    0    0    0     0
+ [2,]    0    1    0    0    0    0    0    0    0     0
+ [3,]    0    0    1    0    0    0    0    0    0     0
+ [4,]    0    0    0    1    0    0    0    0    0     0
+ [5,]    0    0    0    0    1    0    0    0    0     0
+ [6,]    0    0    0    0    0    1    0    0    0     0
+ [7,]    0    0    0    0    0    0    1    0    0     0
+ [8,]    0    0    0    0    0    0    0    1    0     0
+ [9,]    0    0    0    0    0    0    0    0    1     0
+[10,]    0    0    0    0    0    0    0    0    0     1</code></pre>
+</div>
+</div>
+<p>But, that’s rarely the case. The vectors we described above are the parameters of the (normal) distribution <span class="math inline">\(\Phi\)</span> that underlies the assumed imprecision in ageing reads for each true age <span class="math inline">\(a\)</span>, as in:</p>
+<p><span class="math display">\[
+P_{\gamma,a,\tilde a}=
+\begin{cases}
+\Phi  (\theta_2 ,a, \sigma_{a} ) &amp; \tilde a = 1 \\
+\Phi  (\theta_{a+1} ,a, \sigma_{a} )-\Phi  (\theta_2 ,a, \sigma_{a} ) &amp;  1 &lt; \tilde a &lt; A \\
+1-\Phi  (\theta_A ,a, \sigma_{A} ) &amp;  \tilde a = A
+\end{cases}
+\]</span></p>
+<p>In this notation, <span class="math inline">\(\theta_a\)</span> is the lower limit of age bin <span class="math inline">\(a\)</span> and <span class="math inline">\(A\)</span> is the plus group. In words, we’re asking, “given that at true age <span class="math inline">\(a\)</span> we expect a mean observation <span class="math inline">\(\tilde a\)</span>, what is the chance of observing a value within bin <span class="math inline">\(\theta_a\)</span> to <span class="math inline">\(\theta_{a+1}\)</span>?</p>
+<p>Here’s a function that will take these arguments and return a singular probability value (<span class="math inline">\(P_{a,\tilde a}\)</span>). You could also accomplish this via <code>dnorm()</code>, but note that we are using discrete bins.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>getP_al <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, aa, sigma, maxage){</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  pal <span class="ot">=</span> <span class="cn">NA</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(theta <span class="sc">==</span> <span class="dv">1</span>){</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    pal <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(theta, aa, sigma)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (theta <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> theta <span class="sc">&lt;</span> maxage){</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    pal <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(theta<span class="sc">+</span><span class="dv">1</span>, aa, sigma) <span class="sc">-</span> <span class="fu">pnorm</span>(theta, aa, sigma)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (theta <span class="sc">==</span> maxage){</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    pal <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(theta, aa, sigma)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  pal</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You’ll notice this is exactly how I calculated the probability of length-at-age in my post about converting between measurement types <a href="https://mkapur.github.io/posts/2022-05-02-len-age-conv/2022-05-02-len-age-conv.html">here</a>.</p>
+<section id="populating-the-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="populating-the-matrix">Populating the Matrix</h2>
+<p>Continuing our example, let’s pass the bias and imprecision vectors we established above to see how <span class="math inline">\(\mathbf P\)</span> responds. I’m filling each element of <span class="math inline">\(\mathbf P\)</span> one at a time. Sometimes you will need to make an assumption about the first age group to avoid a zero.</p>
+<div class="cell">
+
+</div>
+<p>You’ll want to sanity check that the columns sum to one; in other words, are all possible true ages <span class="math inline">\(a\)</span> accounted for under each read age <span class="math inline">\(\tilde a\)</span>? Normalization, and occasionally some rounding to several decimals, are reasonable steps here.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(a_obs <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>abins){</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  P_aa[,a_obs] <span class="ot">&lt;-</span> P_aa[,a_obs]<span class="sc">/</span><span class="fu">sum</span>(P_aa[,a_obs])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(<span class="fu">round</span>(<span class="fu">colSums</span>(P_aa))<span class="sc">==</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Now let’s confirm that the shape of the probabilities looks reasonable. Generally, I expect to see what I call a “slumpy worm”: values with higher, narrow peaks at early ages, slumping to flatter, shallower peaks at older ages. The slumpy worm corresponds to the notion that it’s more likely for a reader to get a precise read on a young fish (it’s easy to count a small handful of annuli), whereas it’s harder to age an older fish (many annuli tend to get blurry and bunched up, but **check with your life history program!*).</p>
+<p>There should be a spike at the ends for the plus group and age-0, if applicable.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="2023-06-08-ageingError_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>And here’s what the actual populated matrix looks like:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="2023-06-08-ageingError_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="moving-backwards" class="level1">
+<h1>Moving Backwards</h1>
+<p>What if you’re in a situation where you’ve inherited a bespoke model and have the values for <span class="math inline">\(\mathbf P\)</span> but need the vector-style inputs for Stock Synthesis?</p>
+<p>Generally, you can leverage the fact that the error matrix is normally distributed to back out the <em>approximate</em> mean and sd from your matrix. Even with a high number of bins this is not very precise, so the <strong>best practice is to go back to your original data</strong> and re-estimate the values (see the GOA FHS link <a href="https://mkapur-noaa.github.io/goa-fhs-2022/AgeingError_Writeup_Static.html">here</a> for a worked example). This will require individual age-reads, will take more time, and runs the risk that your resultant bias and precision estimates aren’t exactly the same as whatever was used inside your bespoke model. As an aside, this is why the SS syntax is preferable for conserving model integrity across years. If the original code to develop your bespoke matrix is lost, there really isn’t a guarantee you can retrieve the parameters to re-generate it.</p>
+<p>Here’s an example with a single vector of 50 age bins; you could embed this in a loop for your matrix (see below). Note that whatever imprecision occurs in the estimation of <span class="math inline">\(\mu\)</span> will be carried forward to <span class="math inline">\(\sigma\)</span>, so we would not expect precise results. Other ideas could be bootstrapping from the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the known mean and standard deviation</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>n_bins <span class="ot">=</span> <span class="dv">50</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>known_mean <span class="ot">&lt;-</span> n_bins<span class="sc">*</span><span class="fl">0.45</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>known_sd <span class="ot">&lt;-</span> n_bins<span class="sc">*</span><span class="fl">0.1</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the probabilities from a normal distribution</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Set seed for reproducibility</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>probs <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_bins, <span class="at">mean =</span> known_mean, <span class="at">sd =</span> known_sd)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>probs <span class="ot">&lt;-</span> probs <span class="sc">/</span> <span class="fu">sum</span>(probs)  <span class="co"># Normalize probabilities to sum to 1</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the estimated mean and standard deviation</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>mean_est <span class="ot">&lt;-</span> <span class="fu">sum</span>(probs <span class="sc">*</span> (<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(probs)))</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>sd_est <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(probs <span class="sc">*</span> ((<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(probs)) <span class="sc">-</span> mean_est)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the estimated mean and standard deviation</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"True Mean:"</span>,known_mean, <span class="st">"Estimated Mean:"</span>, mean_est, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True Mean: 22.5 Estimated Mean: 25.43766 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"True SD:"</span>,known_sd,<span class="st">"Estimated Standard Deviation:"</span>, sd_est, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True SD: 5 Estimated Standard Deviation: 14.56367 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the comparison</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(probs), probs, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="st">"blue"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Index"</span>, <span class="at">ylab =</span> <span class="st">"Probabilities"</span>, <span class="at">main =</span> <span class="st">"True vs Estimated Mean and Standard Deviation"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> mean_est, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> known_mean, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"True Mean"</span>, <span class="st">"Estimated Mean"</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"red"</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">pch =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-06-08-ageingError_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Here’s some code to do this within an optimization routine, but it’s not perfect – some assumptions have to be made about <span class="math inline">\(\sigma\)</span>, among other things.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the probability matrix</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>n_rows <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>n_cols <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>true_means <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span>abins)<span class="sc">+</span><span class="fl">0.25</span>  <span class="co"># True means for each column </span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>true_sds <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="at">length.out =</span> n_cols)  <span class="co"># True standard deviations for each column</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>probs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> n_rows, <span class="at">ncol =</span> n_cols)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_cols) { </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  probs[, j] <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="dv">1</span><span class="sc">:</span>n_rows, <span class="at">mean =</span> true_means[j], <span class="at">sd =</span> true_sds[j])</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  probs[, j] <span class="ot">&lt;-</span> probs[, j] <span class="sc">/</span> <span class="fu">sum</span>(probs[, j])  <span class="co"># Normalize probabilities to sum to 1</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the means for each column</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>means_est <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n_cols)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_cols) {</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  init_mean <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># Initial mean value for optimization</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define the objective function for the current column</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  objective_col <span class="ot">&lt;-</span> <span class="cf">function</span>(mean) { </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    random_vals <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="dv">1</span><span class="sc">:</span>n_rows, <span class="at">mean =</span> mean, <span class="at">sd =</span> true_sds[j])</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    random_vals <span class="ot">&lt;-</span> random_vals <span class="sc">/</span> <span class="fu">sum</span>(random_vals)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    sum_sq_diff <span class="ot">&lt;-</span> <span class="fu">sum</span>((probs[, j] <span class="sc">-</span> random_vals)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(sum_sq_diff)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  optim_result <span class="ot">&lt;-</span> <span class="fu">optimize</span>(<span class="at">f =</span> objective_col, <span class="at">interval =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  means_est[j] <span class="ot">&lt;-</span> optim_result<span class="sc">$</span>minimum</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the standard deviations for each column</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>sds_est <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n_cols)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_cols) {</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define the objective function for the current column</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  objective_sd <span class="ot">&lt;-</span> <span class="cf">function</span>(sd) {</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    random_vals <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="dv">1</span><span class="sc">:</span>n_rows, <span class="at">mean =</span> means_est[j], <span class="at">sd =</span> sd)</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    random_vals <span class="ot">&lt;-</span> random_vals <span class="sc">/</span> <span class="fu">sum</span>(random_vals)</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    sum_sq_diff <span class="ot">&lt;-</span> <span class="fu">sum</span>((probs[, j] <span class="sc">-</span> random_vals)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(sum_sq_diff)</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>  optim_result_sd <span class="ot">&lt;-</span> <span class="fu">optimize</span>(<span class="at">f =</span> objective_sd, <span class="at">interval =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">maximum =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>  sds_est[j] <span class="ot">&lt;-</span> optim_result_sd<span class="sc">$</span>minimum</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the estimated means and standard deviations</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(means_est, true_means)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               [,1]     [,2]     [,3]     [,4]     [,5]    [,6]     [,7] [,8]
+means_est  1.250016 2.249981 3.250001 4.250001 5.250003 6.25002 7.249997 8.25
+true_means 1.250000 2.250000 3.250000 4.250000 5.250000 6.25000 7.250000 8.25
+               [,9]     [,10]
+means_est  9.250002  9.999926
+true_means 9.250000 10.250000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(sds_est, true_sds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              [,1]      [,2]      [,3]      [,4]      [,5]     [,6]     [,7]
+sds_est  0.4999724 0.6111238 0.7222188 0.8333514 0.9444489 1.055568 1.166661
+true_sds 0.5000000 0.6111111 0.7222222 0.8333333 0.9444444 1.055556 1.166667
+             [,8]     [,9]    [,10]
+sds_est  1.277761 1.388888 1.351293
+true_sds 1.277778 1.388889 1.500000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot true vs estimated means</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span>n_cols, true_means, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fu">min</span>(true_means, means_est, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="dv">1</span>, <span class="fu">max</span>(true_means, means_est, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Column"</span>, <span class="at">ylab =</span> <span class="st">"Mean"</span>, <span class="at">main =</span> <span class="st">"True vs Estimated Means"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span><span class="sc">:</span>n_cols, means_est, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"True"</span>, <span class="st">"Estimated"</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"blue"</span>), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot true vs estimated standard deviations</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span>n_cols, true_sds, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fu">min</span>(true_sds, sds_est, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fl">0.5</span>, <span class="fu">max</span>(true_sds, sds_est, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fl">0.5</span>),</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Column"</span>, <span class="at">ylab =</span> <span class="st">"Standard Deviation"</span>, <span class="at">main =</span> <span class="st">"True vs Estimated Standard Deviations"</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span><span class="sc">:</span>n_cols, sds_est, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"True"</span>, <span class="st">"Estimated"</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"blue"</span>), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-06-08-ageingError_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

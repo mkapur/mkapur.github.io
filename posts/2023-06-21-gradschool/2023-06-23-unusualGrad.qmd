@@ -1,0 +1,62 @@
+---
+title: "Unusual Grad School Advice"
+author: "MSK"
+date: '2023-06-23'
+slug: unusual-gradschool
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2023-06-08T11:30:27-07:00'
+featured: yes
+image: https://southsoundpropertygroup.com/files/2022/01/On-Native-Land_3.jpg
+---
+I've been ambivalent about writing graduate school "advice", given that 1) I'm barely out of it and 2) tons of others have done so. What could I add?
+
+Instead, I wanted to share some "unusual" advice -- things I haven't heard much in the discourse. These are more relevant to the US doctoral experience.
+
+How to approach this list, and perhaps a piece of meta-advice in itself, is that the *point is not to make you the world's best, or even a better, graduate student*. The ideas below have an undercurrent of revisiting that which enriches and preserves all aspects of you, aspects that existed before and will continue to exist after your time in school.
+
+## Recall the "Ph" part of the "PhD"
+Regardless the topic you're doing your dissertation on, don't neglect Philosophy. It doesn't have to be Socrates - but expose yourself to the words and works of deep thinkers (used broadly), especially those far afield. I am blessed to have spent my grad school years in the intellectual company of activists, journalists, artificial intelligence ethicists, climate lawyers, poets, ultra-runners, fantasy novelists, and many others - through their writings, performances, and YouTube videos. Why do this? I hesitate to say that engaging regularly with others' ideas will make you a better writer and critical thinker (it will), but that is not the point. The time you spend uncovering knowledge about your PhD topic should not be at the expense of your **deepening relationship to your own ways of knowing**, your sense of justice, creativity, and purpose. Do not let these parts of you lie frozen during your 20's or 30's; let them grow with you.
+
+## You are aging
+This is not "advice", exactly, rather a few things to consider on at least a quarterly basis. You have precious few years on this earth. If you allow it to, the stress of your degree will accelerate the aging process. What are you willing to sacrifice on the altar of this degree? Starting a family? Your partnership? Living somewhere you like? Retirement savings? Are you certain that the rewards from completing your degree will merit these sacrifices? When you graduate, you will be a certain number of years older than you are now. What do you want to be doing regularly in service of that future self? What if you were to receive a terminal diagnosis this month, or in the month of your defense; would you still find this endeavor worth it? **Do not view your graduate education as a dalliance, a detour, or a prolonged undergrad experience**. These are (likely) the healthiest, freest, most impactful years (financially and otherwise) of your only life. If that burden discomforts you, find out why.
+
+## Economize, don't capitalize
+
+Through my extra-curricular readings, I came upon the idea of *internalized capitalism*: where we conceive of ourselves as efficiency machines and work to claw back productivity from every cranny of our day. Endless self-help titles implore us to wake up earlier, automate our mundane tasks, and hustle ourselves into "successful" oblivion. My time with thinkers old & new taught me that self-capitalization is a fallacy that benefits the economy but diseases and alienates us. My experience as a mother taught me how ridiculous it is to try to milk "more" from the time given to us in a day. So, resist the temptation to spend endless hours in the office, or to implement gimmicky apps/techniques to maximize your productivity. **The best and only way to get things done is to remove distractions**, and I recommend you achieve this in as blunt a way as possible. I have my distracting websites fully blocked on my work computer, and there was a time I would unplug my web router at home to ensure progress was made. You will be shocked how much of a frenzy you're in on a normal workday.
+
+## Get your adviser relationship straight
+Endless ink has been spilled about the risks of studying under a toxic PI (this was fortunately not my case). Virtually everyone I know has experienced some degree of emotional distress from their advisor and/or committee relationship, pain that can linger sometimes years after defending. Why is this the case? Why is it so normal to have "bad bosses" in many other professions (to the point that comedic TV shows, books and social norms are built around this assumption), but folks in the sciences find the experience so damaging and all-consuming? It has to do with structural issues, mainly the fact that under the US system the PI has near-total control over your present work-life and job prospects. This is even more crushing if you don't have family wealth nor support, or are on a visa. What you can control is how much emotional power you hand to your supervisor. Do not allow them to take the place of your parent or inner self-critic. **How your boss treats you has no correlation with your worthiness**.
+
+## Impostor syndrome is a scam
+
+This [commencement address](https://www.youtube.com/watch?v=EP-4rhB-KWo) and [article](https://www.glamour.com/story/impostor-syndrome-isnt-a-syndrome-its-a-scheme) by Reshma Saujani explain: Impostor Syndrome is a myth, a distraction, a "scheme". By pathologizing our insecurities we waste too much time trying to think our way into a better state of feeling, and more importantly, direct our focus at our own shortcomings instead of the structural problems that work against our own sense of belonging. The **very core of professional-level scientific inquiry is based upon an assumption of ignorance**. We *should* feel uninformed, ignorant and curious most of the time, but the impostor syndrome industry wants that healthy awareness of our temporary *intellectual* shortcomings to metastasize into generalized *personal* insecurity and doubt. Which becomes yet another problem for us to solve. So, avoid using shorthand for your experiences. Instead of "I'm suffering from Impostor Syndrome" try "I found this problem set really hard, and didn't feel supported by the professor when I asked for help". Then you can disentangle the aspects you can control from those that are structural. This also enables us, future mentors, teachers, and scientific professionals, to ask ourselves: **how would this institution look if it were built to support someone like me**?
+
+## "You finish graduate school when you are ready to be done"
+
+A close mentor of mine shared this with me in late 2019 at an international conference. I didn't really get it at the time, and at first thought it was wrong-headed (i.e., "I'm ready to be done right now, but nobody else agrees!" and "Being ready isn't the same as the analyses going well..."). In retrospect, they were right. At least 80% of my dissertation progress happened within <30% of the five years I spent in graduate school. The rest of the time, I was working on side projects, dealing with illness, raising my child, taking in family during the pandemic, or performing duties for my main full-time job. The final burst of effort that brought me over the finish line was largely inspired by the looming deadline my work had imposed, and a difficult family situation the preceding fall which reminded me how important it was that I finished, ASAP. The point is that it *is* a challenge of the US doctoral system that the deadlines and project goals are amorphous and flexible. Most people struggle in that context, and it's totally unlike the rest of the working world. So, create a hard stop for yourself - "I'm moving in August" (and start making arrangements), "I want to start my family next year" (and start making arrangements), "I'm applying for my dream job in six months" (and start writing the application). This might be the nudge you need to make things happen.
+
+## References
+
+Some books, art, philosophy and things that moved me deeply or simply helped during graduate school
+
++ [How to Do Nothing](https://a.co/d/6XB4h2I) and [Saving Time: Discovering a Life Beyond the Clock](https://a.co/d/gIrteOG), both by Jenny Odell. She is an exemplary interdisciplinary thinker and opened my mind to new ways of being.
+
++ [Run to be Visible - Lydia Jennings (YouTube)](https://www.youtube.com/watch?v=xrLTUUPugIc) A stunning representation of the difficulties of completing a degree during the pandemic, and the parallels between long-distance running and getting a PhD in a world not built for your success.
+
++ [Alma (YouTube)](https://www.youtube.com/watch?v=aXcneuk8TYY) - Instrumental piece by Omar Sosa. 
+
++ [Alma (YouTube)](https://www.youtube.com/watch?v=d52m8DReO9s) - Song by El Caribefunk (see translated lyrics if non-Spanish speaking)
+
++ [On Native Land](https://southsoundpropertygroup.com/on-native-land) exhibit at the Tacoma Art Museum, particularly  *Galiano Island* by Barbara Boldt (below). This seemingly straightforward landscape contains much about the passage of time and the consequences of sacrifice. Does the water shape the rocks, or do the rocks shape the water? Do the conditions of our life define us, or do we shape conditions to our subconscious selves? Could both be true?
+
+![](https://southsoundpropertygroup.com/files/2022/01/On-Native-Land_3.jpg){width=400, fig-align="center"}
+ 
+
++ All books by [Cal Newport](https://calnewport.com/), particularly "Deep Work" (see minimizing distraction above).
+
++ [Gabor Maté - Chronic Illness and Stress (YouTube)](https://www.youtube.com/watch?v=Rik5E7wey0w&pp=ygURZ2Fib3IgbWF0ZSBzdHJlc3M%3D) Our habits program our neuro-physio-immunological experiences. See "You are aging" above.
+ 

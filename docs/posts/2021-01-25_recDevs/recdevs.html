@@ -215,7 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>For an in-depth description of the theory and math behind recruitment deviations in assessment models, check out Methot, R.D., Taylor, I.G., Chen, Y., 2011. Adjusting for bias due to variability of estimated recruitments in fishery assessment models. Can. J. Fish. Aquat. Sci. 68, 1744–1760. <a href="https://doi.org/10.1139/f2011-092">https://doi.org/10.1139/f2011-092</a>.</p>
+<p>For an in-depth description of the theory and math behind recruitment deviations in assessment models, check out Methot, R.D., Taylor, I.G., Chen, Y., 2011. Adjusting for bias due to variability of estimated recruitments in fishery assessment models. Can. J. Fish. Aquat. Sci. 68, 1744–1760. <a href="https://doi.org/10.1139/f2011-092" class="uri">https://doi.org/10.1139/f2011-092</a>.</p>
 <p>Here I want to jot down the practical implementation behind the recruitment deviation for those working in Stock Synthesis or building their own models from scratch. The main topics to discuss are 1) The meaning of a recruitment deviation (abbreviated here to “rec-dev”), 2) how it plays in your dynamics equations, and 3) keeping an eye out for lognormal bias correction.</p>
 <section id="what-is-a-rec-dev" class="level1">
 <h1>What is a rec-dev?</h1>
@@ -259,34 +259,35 @@ R_{expected,y} = R_{det,y}e^{(dev_y-\sigma^2/2)}
 <p><img src="recdevs_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>If <span class="math inline">\(r_y \sim N(\mu=0,\sigma=1)\)</span> and <span class="math inline">\(Y = e^X\)</span>, the expected value of <span class="math inline">\(r_y\)</span> is <span class="math inline">\(\mu\)</span> (zero), and the expected value of <span class="math inline">\(Y\)</span> will be <span class="math inline">\(e^{\mu+\sigma^2/2}\)</span> (1.6487213), <em>not</em> <span class="math inline">\(e^{\mu}\)</span>.</p>
-<p>Note that <span class="math inline">\(exp(\vec r)\)</span>, the blue values above, are 1) never less than zero and 2) asymmetrically distributed. This means mathematically is that the expected value, or mean, of <span class="math inline">\(exp(\vec r)\)</span> (blue dashed line above) <em>is in fact not the same</em> as <span class="math inline">\(exp(mean(\vec r))\)</span>. Confirm this for yourself below.</p>
+<p>If <span class="math inline">\(r_y \sim N(\mu=0,\sigma=1)\)</span> and <span class="math inline">\(Y = e^{r_y}\)</span>, the expected value of <span class="math inline">\(r_y\)</span> is <span class="math inline">\(\mu\)</span> (zero), and the expected value of <span class="math inline">\(Y\)</span> will be <span class="math inline">\(e^{\mu+\sigma^2/2}\)</span> (1.6487213), <em>not</em> <span class="math inline">\(e^{\mu}\)</span>.</p>
+<p>Note that <span class="math inline">\(e^{r_y}\)</span>, the blue values above, are 1) never less than zero and 2) asymmetrically distributed. This means mathematically is that the expected value, or mean, of <span class="math inline">\(e^{r_y}\)</span> (blue dashed line above) <em>is in fact not the same</em> as <span class="math inline">\(exp(mean(r_y))\)</span>. Confirm this for yourself below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## should be close to 0</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(X) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.006616609</code></pre>
+<pre><code>[1] -0.002514139</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## should be close to 1</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">mean</span>(X))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.006639</code></pre>
+<pre><code>[1] 0.997489</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## yet the mean of the blue distribution is lager...</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## yet the mean of the blue distribution is larger...</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">exp</span>(X)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.656343</code></pre>
+<pre><code>[1] 1.642814</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(mu<span class="sc">+</span>sigma<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span>) <span class="do">##... in fact, the expected value of exp(X) is ~exp(mu+sigma/2)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">##... in fact, the expected value of exp(X) is ~exp(mu+sigma/2)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(mu<span class="sc">+</span>sigma<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.648721</code></pre>
 </div>
 </div>
-<p>That’s fine statistically, but makes for a problem if we calculate our annual recruitment by multiplying <span class="math inline">\(R_{det}\)</span> by <span class="math inline">\(exp(X)\)</span>: we would end up with inflated average recruitments because we would be multiplying by values <em>typically</em> greater than 1.</p>
+<p>That’s fine statistically, but makes for a problem if we calculate our annual recruitment by multiplying <span class="math inline">\(R_{det}\)</span> by <span class="math inline">\(exp(r_y)\)</span>: we would end up with inflated average recruitments because we would be multiplying by values <em>typically</em> greater than 1.</p>
 </section>
 <section id="bias-correction-to-the-rescue" class="level1">
 <h1>Bias correction to the rescue</h1>
-<p>We set the mean for <span class="math inline">\(X\)</span> to 0 in hopes that, on an “average” year, we’ll be multiplying <span class="math inline">\(R_{det,y}\)</span> (deterministic recruitment) by <span class="math inline">\(exp(0) = 1\)</span>, and get the expected value back. However, because we’ve discovered that <span class="math inline">\(exp(\vec r)\)</span> is not symmetrical, we need to perform a <em>bias correction</em> to confirm that we <em>approximately</em> return the <span class="math inline">\(R_{det,y}\)</span> when <span class="math inline">\(r_y\)</span> is zero. In other words, we back-transform the deviations to confirm that the mean of those deviations is roughly one, on a normal scale (after exponentiation).</p>
+<p>We set the mean for <span class="math inline">\(X\)</span> to 0 in hopes that, on an “average” year, we’ll be multiplying <span class="math inline">\(R_{det,y}\)</span> (deterministic recruitment in year <em>y</em>) by <span class="math inline">\(exp(0) = 1\)</span>, and get the expected value back. However, because we’ve discovered that <span class="math inline">\(exp(r_y)\)</span> is not symmetrical, we need to perform a <em>bias correction</em> to confirm that we <em>approximately</em> return the <span class="math inline">\(R_{det,y}\)</span> when <span class="math inline">\(r_y\)</span> is zero. In other words, we back-transform the deviations to confirm that the mean of those deviations is roughly one, on a normal scale (after exponentiation).</p>
 <p>Check it out:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -297,16 +298,16 @@ R_{expected,y} = R_{det,y}e^{(dev_y-\sigma^2/2)}
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## as above, the mean is close to 1 without adjustment</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">mean</span>(X)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.006639</code></pre>
+<pre><code>[1] 0.997489</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ...though the actual mean is greater, by a factor of sigma^2/2</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">exp</span>(X)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.656343</code></pre>
+<pre><code>[1] 1.642814</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">exp</span>(X<span class="dv">-1</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span>)) <span class="do">## with bias correction, closer to 1 again!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.004623</code></pre>
+<pre><code>[1] 0.996417</code></pre>
 </div>
 </div>
 <p>One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above).</p>
@@ -320,7 +321,8 @@ R_{expected,y} = R_{det,y}e^{(dev_y-\sigma^2/2)}
 </section>
 <section id="bonus-why-this-isnt-perfect" class="level1">
 <h1>Bonus: why this isn’t perfect</h1>
-<p>This came up on my General Exam for my PhD. I was asked to walk through the basic logic of the recruitment deviation and why we apply bias correction. Then I was asked, “why is this wrong?” Part of the answer lies in the fact that this is a conscious decision made by <em>fisheries population dynamicists</em> to make parts of our models behave in the way we want. Specifically, after applying our bias adjustment factor, the resulting recruitment timeseries will have a median value that is less than the deterministic curve shown above. In the Methot &amp; Taylor paper linked up top, they mention that this is sensible since the average recruitment is most representative of a recruitment event’s long-term contribution to the population, “because most of the population biomass comes from the numerous recruits in the upper tail of the lognormal distribution”. If you’re working with a different data type or hope to gain information from the <em>median</em> behavior of this process, such an adjustment is not for you.</p>
+<p>This came up on my General Exam for my PhD. I was asked to walk through the basic logic of the recruitment deviation and why we apply bias correction. Then I was asked, “why is this wrong?”.</p>
+<p>Part of the answer lies in the fact that this is a conscious decision made by <em>fisheries population dynamicists</em> to make parts of our models behave in the way we want. Specifically, after applying our bias adjustment factor, the resulting recruitment timeseries will have a median value that is less than the deterministic curve shown above. In the Methot &amp; Taylor paper linked up top, they mention that this is sensible since the average recruitment is most representative of a recruitment event’s long-term contribution to the population, “because most of the population biomass comes from the numerous recruits in the upper tail of the lognormal distribution”. If you’re working with a different data type or hope to gain information from the <em>median</em> behavior of this process, such an adjustment is not for you.</p>
 
 
 </section>

@@ -249,22 +249,20 @@ This came up on my General Exam for my PhD. I was asked to walk through the basi
 
 Part of the answer lies in the fact that this is a conscious decision made by *fisheries population dynamicists* to make parts of our models behave in the way we want. Specifically, after applying our bias adjustment factor, the resulting recruitment timeseries will have a median value that is less than the deterministic curve shown above. In the Methot & Taylor paper linked up top, they mention that this is sensible since the average recruitment is most representative of a recruitment event's long-term contribution to the population, "because most of the population biomass comes from the numerous recruits in the upper tail of the lognormal distribution". If you're working with a different data type or hope to gain information from the *median* behavior of this process, such an adjustment is not for you.
 
-
 # Bonus 2: A note on lognormal CVs
-This came up during some work on VAST. f you have low log-SDs (i.e., <0.1), then the log-SD is basically identical to CV -- log-SD is the SD of the index in log-space, and makes sense if you're fitting the index as a lognormal distribution. **Here's how to convert a log-normal mean and standard deviation to a CV on the normal scale**, otherwise.
 
-Consider a random variable X that follows a lognormal distribution:
-$X \sim Lognormal(μ, σ)$ 
+This came up during some work on VAST. f you have low log-SDs (i.e., \<0.1), then the log-SD is basically identical to CV -- log-SD is the SD of the index in log-space, and makes sense if you're fitting the index as a lognormal distribution. **Here's how to convert a log-normal mean and standard deviation to a CV on the normal scale**, otherwise.
 
-We know that when converting into non-log space, the mean of $X$ should be $μ_X = e(μ + (σ^2)/2)$ and the standard deviation is $σ_X = \sqrt{e^{σ^2-1}} e^{μ + σ^2/2}$ (check the [lognormal wiki](https://en.wikipedia.org/wiki/Log-normal_distribution#Probability_in_different_domains) page under "Arithmetic Moments" for details).
+Consider a random variable X that follows a lognormal distribution: $X \sim Lognormal(μ, σ)$
 
-The coefficient of variation (CV) on the original scale is defined as the ratio of the standard deviation to the mean of the random variable X:
-$CV_{original} = \frac{σ_X}{μ_X}$
+We know that when converting into non-log space, the mean of $X$ should be $μ_X = e(μ + (σ^2)/2)$ and the standard deviation is $σ_X = \sqrt{(e^{σ^2}-1)} e^{μ + σ^2/2}$ (check the [lognormal wiki](https://en.wikipedia.org/wiki/Log-normal_distribution#Probability_in_different_domains) page under "Arithmetic Moments" for details).
+
+The coefficient of variation (CV) on the original scale is defined as the ratio of the standard deviation to the mean of the random variable X: $CV_{original} = \frac{σ_X}{μ_X}$
 
 Via substitution:
 
-$\frac{\sqrt{e^{σ^2-1}}e^{μ + σ^2/2}} {e^{μ + σ^2/2}}$
+$\frac{\sqrt{(e^{σ^2}-1)}e^{μ + σ^2/2}} {e^{μ + σ^2/2}}$
 
-Cancel out the common term ($e^{μ + σ^2/2}$) in the numerator and denominator,  leaving:
+Cancel out the common term ($e^{μ + σ^2/2}$) in the numerator and denominator, leaving:
 
-$\sqrt{e^{σ^2-1}}$
+$\sqrt{e^{σ^2}-1}$

@@ -266,17 +266,17 @@ R_{expected,y} = R_{det,y}e^{(dev_y-\sigma^2/2)}
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## should be close to 0</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(X) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.02280342</code></pre>
+<pre><code>[1] 0.04794604</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## should be close to 1</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">mean</span>(X))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.023065</code></pre>
+<pre><code>[1] 1.049114</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## yet the mean of the blue distribution is larger...</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">exp</span>(X)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.735731</code></pre>
+<pre><code>[1] 1.797997</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">##... in fact, the expected value of exp(X) is ~exp(mu+sigma/2)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(mu<span class="sc">+</span>sigma<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -299,16 +299,16 @@ R_{expected,y} = R_{det,y}e^{(dev_y-\sigma^2/2)}
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## as above, the mean is close to 1 without adjustment</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">mean</span>(X)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.023065</code></pre>
+<pre><code>[1] 1.049114</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ...though the actual mean is greater, by a factor of sigma^2/2</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">exp</span>(X)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.735731</code></pre>
+<pre><code>[1] 1.797997</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">exp</span>(X<span class="dv">-1</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span>)) <span class="do">## with bias correction, closer to 1 again!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.052774</code></pre>
+<pre><code>[1] 1.09054</code></pre>
 </div>
 </div>
 <p>One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above).</p>
@@ -329,12 +329,12 @@ R_{expected,y} = R_{det,y}e^{(dev_y-\sigma^2/2)}
 <h1>Bonus 2: A note on lognormal CVs</h1>
 <p>This came up during some work on VAST. f you have low log-SDs (i.e., &lt;0.1), then the log-SD is basically identical to CV – log-SD is the SD of the index in log-space, and makes sense if you’re fitting the index as a lognormal distribution. <strong>Here’s how to convert a log-normal mean and standard deviation to a CV on the normal scale</strong>, otherwise.</p>
 <p>Consider a random variable X that follows a lognormal distribution: <span class="math inline">\(X \sim Lognormal(μ, σ)\)</span></p>
-<p>We know that when converting into non-log space, the mean of <span class="math inline">\(X\)</span> should be <span class="math inline">\(μ_X = e(μ + (σ^2)/2)\)</span> and the standard deviation is <span class="math inline">\(σ_X = \sqrt{e^{σ^2-1}} e^{μ + σ^2/2}\)</span> (check the <a href="https://en.wikipedia.org/wiki/Log-normal_distribution#Probability_in_different_domains">lognormal wiki</a> page under “Arithmetic Moments” for details).</p>
+<p>We know that when converting into non-log space, the mean of <span class="math inline">\(X\)</span> should be <span class="math inline">\(μ_X = e(μ + (σ^2)/2)\)</span> and the standard deviation is <span class="math inline">\(σ_X = \sqrt{(e^{σ^2}-1)} e^{μ + σ^2/2}\)</span> (check the <a href="https://en.wikipedia.org/wiki/Log-normal_distribution#Probability_in_different_domains">lognormal wiki</a> page under “Arithmetic Moments” for details).</p>
 <p>The coefficient of variation (CV) on the original scale is defined as the ratio of the standard deviation to the mean of the random variable X: <span class="math inline">\(CV_{original} = \frac{σ_X}{μ_X}\)</span></p>
 <p>Via substitution:</p>
-<p><span class="math inline">\(\frac{\sqrt{e^{σ^2-1}}e^{μ + σ^2/2}} {e^{μ + σ^2/2}}\)</span></p>
+<p><span class="math inline">\(\frac{\sqrt{(e^{σ^2}-1)}e^{μ + σ^2/2}} {e^{μ + σ^2/2}}\)</span></p>
 <p>Cancel out the common term (<span class="math inline">\(e^{μ + σ^2/2}\)</span>) in the numerator and denominator, leaving:</p>
-<p><span class="math inline">\(\sqrt{e^{σ^2-1}}\)</span></p>
+<p><span class="math inline">\(\sqrt{e^{σ^2}-1}\)</span></p>
 
 
 </section>

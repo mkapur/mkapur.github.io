@@ -1,75 +1,23 @@
 ---
 title: "Maia Sosa Kapur"
-subtitle: "Stock Assessment Scientist, Quantitative Ecologist, Long-distance Runner"
-
-website:
-  navbar: 
-    left:
-      - href: index.qmd
-        text: Home and Blog Posts
-      - about.qmd
-      - publications.qmd
-
-listing:
-  feed: false
-  contents: posts
-  sort: "date desc"
-  type: grid
-  grid-columns: 3
-  image-height: 250px
-  page-size: 100
-  categories: true
-# page-layout: full
-# title-block-banner: true
+subtitle: "Stock assessment scientist, quantitative ecologist, Long-distance runner"
+website: 
+    search: true
+about:
+  template: trestles
+  image: avatar.jpg
+  links:
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com/kapurmaia
+    - icon: github
+      text: Github
+      href: https://github.com/mkapur
+    - icon: fa-google-scholar
+      text: Google Scholar
+      href: https://scholar.google.com/citations?user=H6AeRamFmxUC&hl=en
 ---
 
-```{r write-redirects}
-#| echo: false
-# list names of post folders
-posts <- list.dirs(
-  path = here::here("posts"),
-  full.names = FALSE,
-  recursive = FALSE
-)
+I am a federal Research Mathematical Statistician at the Alaska Fisheries Science Center (NOAA, Seattle). I received my PhD from the the School of Aquatic and Fisheries Science at the University of Washington in the [Punt Lab](http://puntlab.washington.edu/maia-kapur/). My research was supported by a [NMFS-Sea Grant Population Dynamics Fellowship](https://seagrant.noaa.gov/News/Article/ArtMID/1660/ArticleID/2750/NOAA-Sea-Grant-and-Fisheries-announce-2019-Ecosystem-and-Population-Dynamics-Fellows) awarded in 2019.
 
-# extract the slugs
-slugs <- gsub("^.*_", "", posts)
-
-# lines to insert to a netlify _redirect file
-post_redirects <- paste0("/", slugs, " ", "/posts/", posts)
-
-# function to extract post categories from index.qmd files
-get_post_categories <- function(post) {
-  file <- here::here("posts", post) |> fs::path("index.qmd")
-  if(!fs::file_exists(file)) {
-    return(character(0))
-  }
-  file |>
-    readLines() |> 
-    stringr::str_subset("^categories:") |>
-    stringr::str_extract("\\[.*\\]") |> 
-    stringr::str_remove_all("[\\[\\]]") |>
-    stringr::str_split(", ") |> 
-    unlist()
-}
-
-# extract the categories
-categories <- purrr::map(posts, get_post_categories) |> 
-  unlist() |> 
-  unique()
-
-# extract categories in nice form
-keys <- categories |> 
-  stringr::str_to_lower() |>
-  stringr::str_replace_all(" ", "-")
-
-# extract categories in ugly form
-values <- categories |>
-  stringr::str_replace_all(" ", "%20")
-
-# category redirects
-category_redirects <- paste0("/category/", keys, " ", "/#category=", values)
-
-# write the _redirect file
-writeLines(c(post_redirects, category_redirects), here::here("_site", "_redirects"))
-```
+Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.

@@ -3,12 +3,13 @@ project:
   output-dir: docs
 
 website:
-  title: "Maia Sosa Kapur"
+  title: "Maia Sosa Kapur" 
   navbar:
     left:
       - href: index.qmd
-        text: Home & Blog Posts
-      - about.qmd
+        text: About
+      - href: posts.qmd
+        text: Blog Posts
       - publications.qmd
       - href: https://scholar.google.com/citations?user=H6AeRamFmxUC&hl=en
         text: Google Scholar

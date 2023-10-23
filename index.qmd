@@ -11,7 +11,7 @@ website:
       - publications.qmd
 
 listing:
-  feed: true
+  feed: false
   contents: posts
   sort: "date desc"
   type: grid

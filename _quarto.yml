@@ -11,7 +11,7 @@ website:
       - href: posts.qmd
         text: Blog Posts
       - publications.qmd
-      - href: https://scholar.google.com/citations?user=H6AeRamFmxUC&hl=en
+      - href: https://scholar.google.com/citations?hl=en&user=5OsRPbgAAAAJ&view_op=list_works&sortby=pubdate
         text: Google Scholar
 
 format:

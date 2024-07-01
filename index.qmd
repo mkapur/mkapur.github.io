@@ -12,10 +12,10 @@ about:
       href: https://twitter.com/kapurmaia
     - icon: github
       text: Github
-      href: https://github.com/mkapur
+      href: https://github.com/mkapur-noaa
     - icon: fa-google-scholar
       text: Google Scholar
-      href: https://scholar.google.com/citations?user=H6AeRamFmxUC&hl=en
+      href: https://scholar.google.com/citations?user=5OsRPbgAAAAJ&hl=en
 ---
 
 I am a federal Research Mathematical Statistician at the Alaska Fisheries Science Center (NOAA, Seattle). I received my PhD from the the School of Aquatic and Fisheries Science at the University of Washington in the [Punt Lab](http://puntlab.washington.edu/maia-kapur/). My research was supported by a [NMFS-Sea Grant Population Dynamics Fellowship](https://seagrant.noaa.gov/News/Article/ArtMID/1660/ArticleID/2750/NOAA-Sea-Grant-and-Fisheries-announce-2019-Ecosystem-and-Population-Dynamics-Fellows) awarded in 2019.

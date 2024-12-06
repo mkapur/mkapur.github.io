@@ -55,17 +55,7 @@ for(b in 1:100){
   recdf[b,'b'] <- b
   recdf[b,'detRec'] <- bh(ssb = b, 
                           h = 0.6,
-                      r0 = 150, ssb0 = 75)
-  
-  ## non-corrected errors around the curve
-  ## recall that logN errors are multiplicative
-  # https://influentialpoints.com/Training/log_normal_confidence_intervals.htm
-  # recdf[b,'lci'] <- recdf[b,'detRec']+1.96*exp(SDR)
-  # recdf[b,'uci'] <- recdf[b,'detRec']-1.96*exp(SDR)
-  # C <- exp(1.96*SDR*log(recdf[b,'detRec']))
-  # C = 1.96*sqrt(exp(sd_log^2-1)*exp(2*mu_log+sd_log^2))
-  # recdf[b,'lci'] <- recdf[b,'detRec']-C ## otherwise D/C assuming D is in log space
-  # recdf[b,'uci'] <- recdf[b,'detRec']+C ## otherwise DC if D in log space
+                          r0 = 150, ssb0 = 75)
   # Generate error values following a lognormal distribution
   dev_raw<- rnorm(1, mean = mu_log, sd = exp(sd_log))
   error_values <- dev_raw*exp(-sd_log^2/2)
@@ -77,21 +67,9 @@ for(b in 1:100){
   # Calculate upper and lower bounds of confidence interval
   recdf[b,'lci']  <- recdf[b,'detRec'] * error_multiplier
   recdf[b,'uci'] <- recdf[b,'detRec'] / error_multiplier
-  
-  ## draw from a normal distribution with mean detRec and sigma
-  # recdf[b,'rand'] <- ifelse(b %% 5 == 0, rnorm(1,mean = recdf[b,'detRec'], sd = SDR  ),NA)
-  # recdf[b,'dev'] <- recdf[b,'rand']-recdf[b,'detRec'] ## raw difference in values
-  # recdf[b,'corr'] <- recdf[b,'detRec']*exp( recdf[b,'dev']-SDR^2/2) ## should return rand
-  
-  ## draw from a normal distribution with mean detRec and sigma
-  # recdf[b,'dev'] <- ifelse(b %% 5 == 0, rnorm(1,mean = mu_log, sd = sd_log),NA)
-    # recdf[b,'corr'] <- recdf[b,'detRec']*exp(recdf[b,'dev']-sd_log^2/2) 
-   recdf[b,'dev'] <- error_values
-     recdf[b,'dev_wrong'] <- unadjusted_error_values
-  # recdf[b,'dev'] <- ifelse(b %% 5 == 0, rlnorm(1, meanlog = mu_log, sdlog = sd_log),NA)
+  recdf[b,'dev'] <- error_values
+  recdf[b,'dev_wrong'] <- unadjusted_error_values
   recdf[b,'corr'] <- recdf[b,'detRec'] * exp(  recdf[b,'dev'] )
-
-  
 }
 
 ggplot(recdf, aes(x = b, y = detRec)) +

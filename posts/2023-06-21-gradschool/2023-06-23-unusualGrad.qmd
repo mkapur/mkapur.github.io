@@ -10,7 +10,7 @@ summary: ''
 authors: []
 lastmod: '2023-06-08T11:30:27-07:00'
 featured: no
-image: https://southsoundpropertygroup.com/files/2022/01/On-Native-Land_3.jpg
+image: https://ih1.redbubble.net/image.5518081870.7911/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg
 ---
 I've been ambivalent about writing graduate school "advice", given that 1) I'm barely out of it and 2) tons of others have done so. What could I add?
 
@@ -53,7 +53,7 @@ Some books, art, philosophy and things that moved me deeply or simply helped dur
 
 + [On Native Land](https://southsoundpropertygroup.com/on-native-land) exhibit at the Tacoma Art Museum, particularly  *Galiano Island* by Barbara Boldt (below). This seemingly straightforward landscape contains much about the passage of time and the consequences of sacrifice. Does the water shape the rocks, or do the rocks shape the water? Do the conditions of our life define us, or do we shape conditions to our subconscious selves? Could both be true? 
 
-![](https://southsoundpropertygroup.com/files/2022/01/On-Native-Land_3.jpg){width=400, fig-align="center"}
+![](https://ih1.redbubble.net/image.5518081870.7911/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg){fig-align="center"}
 And also: Can equilibrium exist on any real timescale, whether within a human's life, or the geological life of a beach break? How might this relate to the reliability of a population model that exchanges individuals among areas? I spent many hours on the bench before this painting in March of 2023 while my MSE simulations ran on the server. My dissertation findings regarding "cryptic depletion" (of a vulnerable fish population) was directly informed by my perception of the hidden, holey crags causing the froth at the waterside.
 
 + All books by [Cal Newport](https://calnewport.com/), particularly "Deep Work" (see minimizing distraction above).

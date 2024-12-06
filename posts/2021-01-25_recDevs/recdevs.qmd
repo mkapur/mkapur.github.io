@@ -131,21 +131,24 @@ Now we'll quickly refresh the idea behind the lognormal distribution and explain
 
 # Refreshing the lognormal distribution.
 
-Check out [towardsdatascience.com](https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c) for a good background read on this topic.
+Check out [towardsdatascience.com](https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c) for a good background read on this topic, which is not specific to recruitment deviations but rather a general property of the lognormal distribution.
 
 If our deviations vector $\vec r$ is normally distributed with mean zero, $exp(\vec r)$ is *lognormally* distributed, shown in blue below:
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 sigma = 1
 mu = 0
-X <- rnorm(1000,mu,sigma)
-hist(X, ylim = c(0,300), 
+X <- rnorm(100000,mu,sigma)
+hist(X, 
+     yaxt = 'n',
+     ylab = '',
+     ylim = c(0,25000),
      main = '',
      xlab = '',
      xlim = c(-5,30),
      col  = alpha('grey22',0.5))
 hist(exp(X), add = TRUE,
-     breaks = seq(0,100,0.5),
+     breaks = seq(0,ceiling(max(exp(X))),0.5),
      col = alpha('blue',0.5))
 abline(v =exp(mean(X)) , lty = 2, lwd = 2, col = 'grey22', add = T )
 abline(v =mean(exp(X)) , lty = 2, lwd = 2, col = 'blue', add = T )
@@ -163,32 +166,35 @@ If $r_y \sim N(\mu=0,\sigma=1)$ and $Y = e^{r_y}$, the expected value of $r_y$ i
 Note that $e^{r_y}$, the blue values above, are 1) never less than zero and 2) asymmetrically distributed. This means mathematically is that the expected value, or mean, of $e^{r_y}$ (blue dashed line above) *is in fact not the same* as $exp(mean(r_y))$. Confirm this for yourself below.
 
 ```{r, echo = TRUE, warning = FALSE}
-## should be close to 0
+## the mean of X should be close to 0
 mean(X) 
-## should be close to 1
+## that value exponentiated should therefore be close to 1
 exp(mean(X))
-## yet the mean of the blue distribution is larger...
+## yet the mean of the blue distribution is larger than 1...
 mean(exp(X)) 
 ##... in fact, the expected value of exp(X) is ~exp(mu+sigma/2)
 exp(mu+sigma^2/2)
 ```
 
-That's fine statistically, but makes for a problem if we calculate our annual recruitment by multiplying $R_{det}$ by $exp(r_y)$: we would end up with inflated average recruitments because we would be multiplying by values *typically* greater than 1.
+This statistical reality makes for a problem if we calculate our annual recruitment by multiplying $R_{det}$ by $exp(r_y)$. If we don't account for it, we end up with inflated annual recruitments because we would be multiplying by values *typically* greater than 1.
 
 # Bias correction to the rescue
 
-We set the mean for $X$ to 0 in hopes that, on an "average" year, we'll be multiplying $R_{det,y}$ (deterministic recruitment in year *y*) by $exp(0) = 1$, and get the expected value back. However, because we've discovered that $exp(r_y)$ is not symmetrical, we need to perform a *bias correction* to confirm that we *approximately* return the $R_{det,y}$ when $r_y$ is zero. In other words, we back-transform the deviations to confirm that the mean of those deviations is roughly one, on a normal scale (after exponentiation).
+The simple idea here is that we are applying a correction to the deviations so that when a year is "average" we'll be multiplying $R_{det,y}$ (deterministic recruitment in year *y*) by $exp(0) = 1$, and get back the mean or expected value (the black curve in the first figure). Because we've discovered that $exp(r_y)$ is not symmetrical, we need to perform a *bias correction* to confirm that we *approximately* return the $R_{det,y}$ when $r_y$ is zero. 
 
 Check it out:
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-hist(X, ylim = c(0,500), 
-     xlim = c(-5,30),
-     xlab = '',
+hist(X, 
+     yaxt = 'n',
+     ylab = '',
+     ylim = c(0,50000),
      main = '',
+     xlab = '',
+     xlim = c(-5,30),
      col  = alpha('grey22',0.5))
 hist(exp(X), add = TRUE,
-     breaks = seq(0,100,0.5),
+     breaks = seq(0,ceiling(max(exp(X))),0.5),
      col = alpha('blue',0.5))
 hist(exp(X-sigma^2/2), add = TRUE,
      breaks = seq(0,100,0.5),
@@ -209,31 +215,20 @@ mean(exp(X))
 mean(exp(X-1^2/2)) ## with bias correction, closer to 1 again!
 ```
 
-One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above).
-
-Imagining we had a time series of data which encompassed all the different $SB$ values corresponding to the gold points above, we could plot the deviations through time (I randomly reordered the values):
+One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above). The horizontal line at zero represents the deterministic or expected recruitment, and the points are the log deviations from that mean. Now you can interpret this plot intuitively, where values below zero were "worse than average years", and vice versa. What's more, because we are working in log space you can also get a quantitative sense of how divergent from expectation the recruits were in this year *regardless of the stock size at hand*. You can also see that the blue point we saw in the earlier figures was not actually as great of an outlier as the original plot suggested
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-require(dplyr)
-
-recdfsamp <- 
-  sample_n(data.frame(recdf[!is.na(recdf$dev),]),
-           size = nrow(recdf[!is.na(recdf$dev),]),
-           replace = TRUE) %>%
-  mutate(Year = 1:nrow(recdf[!is.na(recdf$dev),]))
-
-ggplot(recdfsamp, aes(x = Year)) +
+recdf$logdev <- recdf$dev - sd_log^2/2
+ggplot(recdf, aes(x = b, y =logdev)) + 
   theme_sleek() +
-  labs(x = 'Year', y = 'log Recruitment deviation') +
-  # geom_point(aes(y = dev_wrong), color = 'red') +
-  geom_point(aes(y = dev)) +
-  geom_line(linetype = 'dotted', aes(y = dev)) +
-  # geom_segment(aes(xend = Year, yend = 0),linetype = 'dotted') +
-  geom_hline(yintercept = 0)
-
+  labs(x = 'SB', y = 'Recruitment') +
+  scale_y_continuous(limits = c(-2,2))+
+  geom_hline(yintercept = 0,color = 'grey50', linetype = 'dotted')+
+  geom_line( col = 'goldenrod', lwd = 1)+
+  geom_point(data = recdf[which.max(recdf$corr),],  pch =8, col = 'blue') 
 ```
 
-So now, the horizontal line at zero represents the deterministic or expected recruitment, and the points are the log deviations from that mean. Now you can interpret this plot intuitively, where values below zero were "worse than average years", and vice versa. What's more, because we are working in log space you can also get a quantitative sense of how divergent from expectation the recruits were in this year *regardless of the stock size at hand*.
+
 
 # Bonus: why this isn't perfect
 
@@ -241,20 +236,20 @@ This came up on my General Exam for my PhD. I was asked to walk through the basi
 
 Part of the answer lies in the fact that this is a conscious decision made by *fisheries population dynamicists* to make parts of our models behave in the way we want. Specifically, after applying our bias adjustment factor, the resulting recruitment timeseries will have a median value that is less than the deterministic curve shown above. In the Methot & Taylor paper linked up top, they mention that this is sensible since the average recruitment is most representative of a recruitment event's long-term contribution to the population, "because most of the population biomass comes from the numerous recruits in the upper tail of the lognormal distribution". If you're working with a different data type or hope to gain information from the *median* behavior of this process, such an adjustment is not for you.
 
-# Bonus 2: A note on lognormal CVs
+<!-- # Bonus 2: A note on lognormal CVs -->
 
-This came up during some work on VAST. f you have low log-SDs (i.e., \<0.1), then the log-SD is basically identical to CV -- log-SD is the SD of the index in log-space, and makes sense if you're fitting the index as a lognormal distribution. **Here's how to convert a log-normal mean and standard deviation to a CV on the normal scale**, otherwise.
+<!-- This came up during some work on VAST. f you have low log-SDs (i.e., \<0.1), then the log-SD is basically identical to CV -- log-SD is the SD of the index in log-space, and makes sense if you're fitting the index as a lognormal distrsibution. **Here's how to convert a log-normal mean and standard deviation to a CV on the normal scale**, otherwise. -->
 
-Consider a random variable X that follows a lognormal distribution: $X \sim Lognormal(μ, σ)$
+<!-- Consider a random variable X that follows a lognormal distribution: $X \sim Lognormal(μ, σ)$ -->
 
-We know that when converting into non-log space, the mean of $X$ should be $μ_X = e(μ + (σ^2)/2)$ and the standard deviation is $σ_X = \sqrt{(e^{σ^2}-1)} e^{μ + σ^2/2}$ (check the [lognormal wiki](https://en.wikipedia.org/wiki/Log-normal_distribution#Probability_in_different_domains) page under "Arithmetic Moments" for details).
+<!-- We know that when converting into non-log space, the mean of $X$ should be $μ_X = e(μ + (σ^2)/2)$ and the standard deviation is $σ_X = \sqrt{(e^{σ^2}-1)} e^{μ + σ^2/2}$ (check the [lognormal wiki](https://en.wikipedia.org/wiki/Log-normal_distribution#Probability_in_different_domains) page under "Arithmetic Moments" for details). -->
 
-The coefficient of variation (CV) on the original scale is defined as the ratio of the standard deviation to the mean of the random variable X: $CV_{original} = \frac{σ_X}{μ_X}$
+<!-- The coefficient of variation (CV) on the original scale is defined as the ratio of the standard deviation to the mean of the random variable X: $CV_{original} = \frac{σ_X}{μ_X}$ -->
 
-Via substitution:
+<!-- Via substitution: -->
 
-$\frac{\sqrt{(e^{σ^2}-1)}e^{μ + σ^2/2}} {e^{μ + σ^2/2}}$
+<!-- $\frac{\sqrt{(e^{σ^2}-1)}e^{μ + σ^2/2}} {e^{μ + σ^2/2}}$ -->
 
-Cancel out the common term ($e^{μ + σ^2/2}$) in the numerator and denominator, leaving:
+<!-- Cancel out the common term ($e^{μ + σ^2/2}$) in the numerator and denominator, leaving: -->
 
-$\sqrt{e^{σ^2}-1}$
+<!-- $\sqrt{e^{σ^2}-1}$ -->

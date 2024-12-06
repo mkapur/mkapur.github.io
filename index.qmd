@@ -22,4 +22,4 @@ I am a federal Research Mathematical Statistician at the Alaska Fisheries Scienc
 
 Previously I worked as an Assessment Specialist at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.
 
-My current research interests include: how evolution and ecology conspire to bias survey data; how to incorporate spatial heterogeniety into the assessment process; and the reliability of commonly-used model diagnostics.
+My current research interests include: application and development of AI tools for scientific management; how evolution and climate change conspire to bias data and assessment outputs; and how spatial statistics can be used to tackle uncertainties in our scientific management.

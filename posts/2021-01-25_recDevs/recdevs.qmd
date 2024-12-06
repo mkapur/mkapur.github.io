@@ -131,7 +131,7 @@ Now we'll quickly refresh the idea behind the lognormal distribution and explain
 
 # Refreshing the lognormal distribution.
 
-Check out (towardsdatascience.com)\[https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c\] for a good background read.
+Check out [towardsdatascience.com](https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c) for a good background read on this topic.
 
 If our deviations vector $\vec r$ is normally distributed with mean zero, $exp(\vec r)$ is *lognormally* distributed, shown in blue below:
 

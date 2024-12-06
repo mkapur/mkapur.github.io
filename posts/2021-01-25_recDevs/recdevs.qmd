@@ -1,5 +1,5 @@
 ---
-title: "How Do Recruitment deviations Work?"
+title: "How Do Recruitment Deviations Work?"
 author: "MSK"
 editor: visual
 date: '2021-01-25'
@@ -21,21 +21,21 @@ options(knitr.table.format = function() {
 })
 ```
 
-For an in-depth description of the theory and math behind recruitment deviations in assessment models, check out Methot, R.D., Taylor, I.G., Chen, Y., 2011. Adjusting for bias due to variability of estimated recruitments in fishery assessment models. Can. J. Fish. Aquat. Sci. 68, 1744--1760. <https://doi.org/10.1139/f2011-092>.
+For an in-depth description of the theory and math behind recruitment deviations in assessment models, check out: Methot, R.D., Taylor, I.G., Chen, Y., 2011. *Adjusting for bias due to variability of estimated recruitments in fishery assessment models.* Can. J. Fish. Aquat. Sci. 68, 1744--1760. <https://doi.org/10.1139/f2011-092>.
 
-Here I want to jot down the practical implementation behind the recruitment deviation for those working in Stock Synthesis or building their own models from scratch. The main topics to discuss are 1) The meaning of a recruitment deviation (abbreviated here to "rec-dev"), 2) how it plays in your dynamics equations, and 3) keeping an eye out for lognormal bias correction.
+Here I want to jot down the practical implementation behind the recruitment deviation. The topics covered here are 1) The meaning of a recruitment deviation (abbreviated here to "rec-dev"), 2) the common mathematical syntax for these values, and 3) the practical meaning of lognormal bias correction. This post will *not* address advanced implementation topics, such as likelihood penalties and bias correction ramps.
 
 # What is a rec-dev?
 
-A recruitment deviation is how much a given year's recruitment *deviates* from what you'd expect given a stock-recruit relationship (in this post I'll use the Beverton-Holt as an example). The idea is that there could be many reasons for a stock to produce fewer or greater recruits than you'd expect based on the current stock size. Reasons for this deviation could be environmental, and are generally unexplained -- which is why the time series of rec-devs is often interpreted as process error in your system (all the extra natural noise our model can't capture).
+A recruitment deviation is how much a given year's recruitment *deviates* from what you'd expect from average. This could be a static value (e.g., unfished recruitment), or the deterministic value given by a stock-recruit relationship (in this post I'll use the Beverton-Holt [1957] as an example). The idea is that stock productivity is likely not the same every single year, and we need a flexible method to capture that variation in our model fitting procedures. Reasons for these *deviations* could be environmental, and are generally unexplained -- which is why the time series of rec-devs is often interpreted as process error in your system (extra noise in the system not captured by other processes).
 
-Let's quickly refresh what we're talking about when we say the "mean" or expected recruitment level. Again, using the Bev-Holt as an example:
+Let's quickly refresh what we're talking about when we say the mean or expected recruitment level. Again, using the Bev-Holt as an example, this equation describes the expected number of recruits given a stock spawning biomass (SSB). (This syntax is what's commonly used in Stock Synthesis models: check out my post on [recruitment algebra](https://mkapur.github.io/posts/2020-05-21-recAlg/2020-05-21-recAlg.html#bonus-round-stock-synthesis-recruitment-syntax) for the derivation).
 
 $$ 
 R_{expected} = \frac{SSB 4hR_0}{SSB_0(1-h)+ SSB(5h-1)} 
 $$
 
-$h$ is steepness, or the expected proportion of $R_0$ anticipated at $0.2SSB_0$; $R_0$ and $SSB_0$ are virgin recruitment and spawning biomass, respectively. Given known (likely estimated) values for these parameters, the "mean" or expected recruitment level is what you'd get by plugging in those numbers to the values and reading off the curve:
+$h$ is steepness, or the expected proportion of $R_0$ anticipated at $0.2SSB_0$; $R_0$ and $SSB_0$ are unfished recruitment and unfished spawning biomass, respectively. Given values for these parameters, the "mean" or "expected recruitment" level is what you'd get by plugging in those numbers to the values and reading off the curve:
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 bh <- function(ssb,h,r0,ssb0){
@@ -48,12 +48,13 @@ bh <- function(ssb,h,r0,ssb0){
 require(ggplot2)
 require(ggsidekick)
 
-sd_log <- log(0.3)
+sd_log <- log(0.8)
 mu_log <- 0
 recdf <- data.frame()
 for(b in 1:100){
   recdf[b,'b'] <- b
-  recdf[b,'detRec'] <- bh(ssb = b, h = 0.6,
+  recdf[b,'detRec'] <- bh(ssb = b, 
+                          h = 0.6,
                       r0 = 150, ssb0 = 75)
   
   ## non-corrected errors around the curve
@@ -116,17 +117,30 @@ ggplot(recdf, aes(x = b, y = detRec)) +
 
 <!-- ``` -->
 
-Yet observed recruitment in a given year may *deviate* from the black curve. The new, observed recruitments are shown as gold points; the dotted line separating each point from the expected value is the **raw** value of the deviation itself (in numbers).
+However, the recruitment in a given year may *deviate* from the black curve. We can visualize these in two ways.  On the bottom left, I've invented a series of new recruitment values shown as gold points; the dotted line separating each point from the expected value is the **raw** value of the deviation itself (in numbers). A time series of these values is shown on the right. The blue point on both plots is the highest year -- and you can see that since this is plotted in natural (not log) space it's fairly hard to distinguish the smaller points from one another.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-ggplot(recdf, aes(x = b, y = detRec)) +
+p1 <- ggplot(recdf, aes(x = b, y = detRec)) +
   geom_line(lwd = 1) +
+
   theme_sleek() +
   labs(x = 'SB', y = 'Recruitment') +
   # geom_ribbon(aes(ymin = lci, ymax = uci), alpha = 0.2) +
-  geom_point(aes(y = corr), col = 'goldenrod') +
+  geom_point(data = recdf[-which.max(recdf$corr),], aes(y = corr), col = 'goldenrod') +
+  geom_point(data = recdf[which.max(recdf$corr),], aes(y = corr), pch =8, col = 'blue') +
   geom_segment(aes(xend = b, yend = corr),
                linetype = 'dotted')
+
+p2 <- ggplot(recdf, aes(x = b, y =corr)) + 
+  theme_sleek() +
+  labs(x = 'SB', y = 'Recruitment') +
+  # scale_y_continuous(limits = c(0,300))+
+  geom_line(aes(y = corr), col = 'goldenrod', lwd = 1) +
+  geom_point(data = recdf[which.max(recdf$corr),], aes(y = corr), pch =8, col = 'blue') +
+  geom_segment(aes(xend = b, yend = corr),
+               linetype = 'dotted')
+
+Rmisc::multiplot(plotlist = list(p1,p2),cols = 2)
 ```
 
 Let's think for a second. If we deal in absolutes, the raw (absolute) value of a deviation at high biomass is going to be much larger than the deviation at low biomass. This isn't very helpful if we're trying to quantify the degree to which our stock's recruitment in year $y$ is diverging from expectation. For that reason, we are interested in modeling the errors, or deviations, as *lognormally distributed*. Equation-wise, here's what that looks like. Note that $R_{det}$ is simply the deterministic value of recruitment, which could come from a Bev-Holt, Ricker, you name it.

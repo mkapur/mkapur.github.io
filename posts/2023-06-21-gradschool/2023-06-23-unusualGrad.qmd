@@ -9,7 +9,7 @@ subtitle: ''
 summary: ''
 authors: []
 lastmod: '2023-06-08T11:30:27-07:00'
-featured: yes
+featured: no
 image: https://southsoundpropertygroup.com/files/2022/01/On-Native-Land_3.jpg
 ---
 I've been ambivalent about writing graduate school "advice", given that 1) I'm barely out of it and 2) tons of others have done so. What could I add?

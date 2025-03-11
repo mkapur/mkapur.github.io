@@ -1,0 +1,189 @@
+---
+title: "Simulating the Climate and Multivariate Responses"
+author: "MSK"
+date: '2025-03-11'
+slug: climate-multivariate
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2025-03-10T11:30:27-07:00'
+featured: yes
+---
+
+# The dream
+There are lots of real-life processes that we know are driven by the environment, and exhibit covariance amongst the parameters we use to model them. People interested in forecasting are deeply curious about how to best model these processes, but I find that folks (especially in ecology) tend to overthink this stuff. We build highly complex agent-based models to represent relationships between the environment, demographic traits, and population dynamics, without considering simpler ways of representing these relationships. *These approaches have their place*, but shouldn't be the default tool when we want to investigate high-level questions regarding management and policy outcomes. Even if we aren't 100% certain on the *mechanism*, or even the *magnitude*, of these connections, **building cleaner & quicker simulations is the ticket to knowledge-building**.
+
+In this post, I discuss an intuitive way for us to work with co-varying process parameters that *avoids* building a complex mechanistic model, and the considerations when selecting values that are "as extreme as" your underlying spatial/environmental process. 
+
+![](process.png)
+
+ 
+# The example
+We'll work with a classical von Bertalanffy growth curve representing fish weight-at-age. This is a classical concept in fisheries biology and is backed by bio-energetics theory. That matters because we have ample evidence & rationale for weight-at-age to vary according to environmental conditions (temperature, for example.) S/O to Grant Adams who helped develop some of the multivariate simluation code used in the first part here as part of our [growthForecast R package](https://github.com/grantdadams/GrowthForecast/tree/main).
+
+## Multivariate Simulation
+This first step illustrates how we'd generate a "cloud" of values corresponding to $W_\infty$ (asymptotic weight), $k$ (growth rate) and $t_0$ (age at zero weight, which could be negative), and display the resultant curves. We need to specify $mu_\theta$, mean values for each of these parameters, and $\Sigma$, the covariance matrix. It'll be a square matrix with dimensions given by the length of $\theta$.
+
+To briefly review:
+ $$
+ \Sigma = \begin{bmatrix} var(\theta_1) & Cov(\theta_2,\theta_1) &  Cov(\theta_n,\theta_1) \\
+ Cov(\theta_2,\theta_1) & var(\theta_2) &  Cov(\theta_2,\theta_3)  \\
+  Cov(\theta_3,\theta_1) &   Cov(\theta_3,\theta_2)&  var(\theta_2)   \\
+ \end{bmatrix}
+ $$
+ 
+The diagonal elements $var(\theta_n)$ represent the variance of an individual parameter. The off-diagonal elements are the covariances: a representation of the directional relationship, or *joint* variability, of two random variables. Large values mean that the two parameters tend to mirror each other well (if positive) or inversely (if negative). Values closer to zero mean they are less responsive to one another.
+
+We can leverage the covariance matrix to ensure that when we generate random draws representing our von B parameters, we're conserving the biological fact that $W_\infty$ and $k$ exhibit negative correlation. The example below gives a very explict walkthrough of how these values could be drummed up from scratch; in practice you'd likely use empirical data or a meta-analytic tool like FishLife.
+
+
+```{r}
+mu_theta <- c(5, 0.3, -0.5) ## Winf, K, t0
+vcov <- diag(c(0.05, 0.05, 0.2)) # Variance-covariance of mu_theta
+
+# Define the variances of each parameter 
+var1 <- 0.05
+var2 <- 0.05
+var3 <- 0.05
+
+# Define the covariances
+cov12 <- sqrt(var1 * var2) * -0.2  #  negative correlation
+cov13 <- sqrt(var1 * var3) * 0.1   # Weak positive correlation
+cov23 <- sqrt(var2 * var3) * 0.1   # Weak positive correlation
+
+# Construct the variance-covariance matrix
+vcov_matrix <- matrix(c(var1, cov12, cov13,
+                        cov12, var2, cov23,
+                        cov13, cov23, var3), nrow = 3, byrow = TRUE) 
+
+## simulate random draws of the parameters
+sim <- MASS::mvrnorm(1e3, mu_theta, vcov_matrix)
+
+
+```
+
+```{r, warning = FALSE, message=FALSE, echo = FALSE}
+library(ggplot2)
+library(Rmisc)
+## sort them by woo to facilitate plotting
+sim <- data.frame(sim[order(sim[,1]),])
+
+## vectorized function to return the associated curves for ages 1:10
+waa <- function(pars){
+  winf = pars[1]
+  k = pars[2]
+  t0 = pars[3]
+  waa <- winf*(1-exp(-k*(1:10-t0)))
+  return(waa)
+}
+
+simwaa <- apply(sim,1,waa)
+ 
+p1 <- ggplot(sim, aes(x = X1, y = X2, color= X1 )) +
+  geom_point(alpha = 0.5, stroke = NA, size = 2) +
+    scale_color_viridis_c()+
+  labs(x = 'Woo', y = 'k', title = '1000 simulated parameter draws')+
+  theme_minimal()+  theme(legend.position = 'none')
+
+
+p2 <- ggplot( reshape2::melt(simwaa[,runif(10,1,1000)]), aes(x = Var1, y = value, color= Var2, group = Var2 )) +
+  geom_line(lwd = 1) +
+  ylim(c(0,6))+
+  scale_color_viridis_c()+
+  labs(x = 'age', y = 'weight', title = 'Simulated curves')+
+  theme_minimal()+  theme(legend.position = 'none')
+
+Rmisc::multiplot(plotlist = list(p1,p2), cols = 2)
+```
+
+## Linking to a spatial process
+Now let's imagine that we have some environmental forcing on $W_\infty$ and want to ensure we are working with corresponding values for $k$ and $t0$ in the appropriate "zone" of the multivariate distribution.
+
+In statistical terms, it's straightforward to re-simulate values of $\theta_n$ conditional on one parameter, $\theta_1$. We just re-define the new mean and covariance using the values from our matrix:
+
+$$
+E(\theta_n  | \theta_1 ) \sim  N(\mu_{\theta_n  | \theta_1 } , \sigma_{\theta_n  | \theta_1 }) 
+$$
+
+$$
+\mu_{\theta_n  | \theta_1 } = \mu_{\theta_n} + cov(\theta_n  , \theta_1 ) \frac{var_{\theta_n}}{var_{\theta_1}} (x - \mu_{\theta_1}) 
+$$
+
+$$
+\sigma_{\theta_n  | \theta_1 } = var_{\theta_n}  \sqrt{1 - cov(\theta_n , \theta_1 )^2 } 
+$$
+Here's what the map & associated deviations might look like. The red circles are highlighting a specific point in space, and the associated value of the spatial process (on the right). The probability associated with this observation is what we'll use to determine new values of our parameters.
+
+![](process_devs.png)
+
+```{r,echo = FALSE, message = FALSE, include = FALSE}
+library(geoR)
+pars_sims <- matrix(5,1,ncol = 2, byrow = TRUE) ## sigma, phi by scenario
+border_mat <- matrix(c(5,0,0,5,0,0,5,5),ncol = 2, byrow = FALSE) ## domain
+
+sims <- data.frame()
+
+
+tmp <- grf(1e3, grid = 'reg', 
+           mean = 0,
+           cov.pars=c(5,1),
+           borders = border_mat)
+# cov.pars = pars_sims[isim,] )
+sims = data.frame(tmp)
+
+## visualize outputs
+ 
+ggplot(sims, aes(x = factor(X1), y= factor(X2), fill = data, color =data)) +
+  geom_raster()+
+  coord_equal() +
+  scale_color_viridis_c()+
+  scale_fill_viridis_c()+ 
+  theme_void() + 
+  scale_y_discrete(expand = c(0,0))+
+  scale_x_discrete(expand = c(0,0))+
+  theme(legend.position = 'none', strip.text = element_blank())
+```
+
+
+We can either do this by specifying a fixed, specific value of $W_\infty$ corresponding to the quantile of the environmental deviation circled above. This approach is shown in the vertical strip of points on the left-hand plot below. Alternatively, we can use the probability contours -- recall that any given interval will be defined by an ellipse for 2d data. The latter can be accomplished via `mnormt::dmnorm()` and is shown on the right-hand plot below.
+
+*This is an important distinction*, because when we think of 'extreme' outcomes in a purely statistical sense, we are really describing extreme *curves*: realizations of the weight-at-age relationship that are characterized by unlikely *combinations* of parameters, not necessarily by unusually large values for individual parameters. This can be seen in the ring of red points below; many of them represent pretty typical (average) values of each parameter.
+
+```{r, warning = FALSE, message = FALSE, echo = FALSE}
+## specific value of winf_new
+winf_new <- 5.3
+k_sim_fixed <- cbind(X1=winf_new,X2= rnorm(1e3, mu_theta[2] + cov12 * var2 / var1 * (winf_new - mu_theta[1]), var2 * sqrt(1 - cov12^2)))
+
+library(mnormt)
+sim2 <- cbind(sim,X4= dmnorm(sim[1:2], mu_theta[1:2], vcov[1:2,1:2])) 
+
+p1 <- ggplot(sim2, aes(x = X1, y = X2, color= X1 )) +
+  geom_point(alpha = 0.5, stroke = NA, size = 2) +
+    scale_color_viridis_c()+
+  geom_point(data = k_sim_fixed, color = 'red',alpha = 0.5)+  
+  labs(x = 'Woo', y = 'k', title = paste0('Option 1: Simulating k conditional on p(Woo)=p(process)'))+
+  theme_minimal()+    theme(legend.position = 'none',
+        title = element_text(size = 6)
+        )
+
+p2 <- ggplot(sim2, aes(x = X1, y = X2, color= X1  )) +
+    scale_color_viridis_c()+
+  geom_density_2d(data = sim2[sim2$X4<0.5 & sim2$X4>1,], aes(z= X4), alpha = 0.7, color = 'red')+
+  geom_point(alpha = 1, stroke = NA, size = 2) +
+  geom_point(data = sim2[sim2$X4>0.5 & sim2$X4<1,],stroke = NA,  color = 'red') +
+  labs(x = 'Woo', y = 'k',
+       title = paste0('Option 2: Finding low-probability parameter combinations '))+
+  theme_minimal() + 
+  theme(legend.position = 'none',
+        title = element_text(size = 6)
+        )
+
+Rmisc::multiplot(plotlist = list(p1,p2), cols = 2)
+```
+
+With this approach, the researcher now has more explicit control about how to represent the linkage between the spatial (environmental) process and the parameter "lookup". In either case, the extremity of a climate process (in this case obtained using the marginal distribution) at a certain point can be used to determine either a) the marginal probability of an individual parameter, as in the first option above, or b) the joint probability of two or more parameters, as in the second option.
+
+The second option is more thorough -- characterizing all the possible combinations that meet your statistical threshold -- but the first option might be the better choice for simulation studies because it *allows us to represent environmental impacts in an intuitive, directional manner*.
+

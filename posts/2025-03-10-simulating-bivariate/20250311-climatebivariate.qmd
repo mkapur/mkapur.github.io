@@ -10,6 +10,7 @@ summary: ''
 authors: []
 lastmod: '2025-03-10T11:30:27-07:00'
 featured: yes
+image: single_process.png
 ---
 
 # The dream

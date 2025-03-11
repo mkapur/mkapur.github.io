@@ -1,5 +1,5 @@
 ---
-title: "Simulating the Climate and Multivariate Responses"
+title: "Linking Spatial Processes to Covarying Paramters"
 author: "MSK"
 date: '2025-03-11'
 slug: climate-multivariate

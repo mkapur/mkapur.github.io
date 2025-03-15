@@ -6,13 +6,7 @@ website:
 about:
   template: trestles
   image: avatar.jpg
-  links:
-    - icon: twitter
-      text: twitter
-      href: https://twitter.com/kapurmaia
-    - icon: bluesky
-      text: bluesky
-      href: https://bsky.app/profile/kapurmaia.bsky.social
+  links:  
     - icon: github
       text: Github
       href: https://github.com/mkapur-noaa

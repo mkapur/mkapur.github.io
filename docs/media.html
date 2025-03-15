@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Publications – Maia Sosa Kapur</title>
+<title>Media &amp; Talks – Maia Sosa Kapur</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -66,7 +68,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -97,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Blog Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./publications.html" aria-current="page"> 
+    <a class="nav-link" href="./publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
@@ -105,8 +165,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Google Scholar</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./media.html"> 
-<span class="menu-text">Media</span></a>
+    <a class="nav-link active" href="./media.html" aria-current="page"> 
+<span class="menu-text">Media &amp; Talks</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -119,15 +179,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Publications</h1>
+<h1 class="title">Media &amp; Talks</h1>
 </div>
 
 
@@ -144,50 +204,167 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>You can find an up-to-date list of my peer-reviewed publications on <a href="https://scholar.google.com/citations?user=5OsRPbgAAAAJ&amp;hl=en">Google Scholar</a>.</p>
-<p>Because much of my work directly informs the management of industrial fisheries in the United States and international waters, a large body of my research is contained in grey literature: technical memoranda and formal stock assessment reports submitted to regional fishery management organizations. A list of these publications, and links (where available), is provided below.</p>
-<p><strong>Stock Assessments Used for Fisheries Management</strong></p>
-<ol type="1">
-<li><p>Spies, I., Kapur, M., Barbeaux, S., Haltuch, M., Hulson, P., Ortiz, I., Spencer, L., and Lowe, S. Assessment of the Pacific Cod stock in the Aleutian Islands. North Pacific Fishery Management Council, 2024. https://www.npfmc.org/wp-content/PDFdocuments/SAFE/2024/AIpcod.pdf</p></li>
-<li><p>Kapur, M. Assessment of the Flathead Sole Stock in the Gulf of Alaska. North Pacific Fishery Management Council, 2024. https://www.npfmc.org/wp-content/PDFdocuments/SAFE/2024/GOAflathead.pdf</p></li>
-<li><p>Kapur, M. Assessment of the Flathead Sole-Bering flounder Stock in the Bering Sea and Aleutian Islands. North Pacific Fishery Management Council, 2024. https://www.npfmc.org/wp-content/PDFdocuments/SAFE/2024/BSAIflathead.pdf</p></li>
-<li><p>Kapur, M., Hulson, P. and Williams, B. Assessment of the Pacific Ocean Perch Stock in the Gulf of Alaska. North Pacific Fishery Management Council, 2023. https://www.npfmc.org/wp-content/PDFdocuments/SAFE/2023/GOApop.pdf</p></li>
-<li><p>Kapur, M. Assessment of the Flathead Sole Stock in the Gulf of Alaska. North Pacific Fishery Management Council, 2023. https://www.npfmc.org/wp-content/PDFdocuments/SAFE/2023/GOAflathead.pdf</p></li>
-<li><p>Kapur, M. Assessment of the Flathead Sole-Bering flounder Stock in the Bering Sea and Aleutian Islands. North Pacific Fishery Management Council, 2023. https://www.npfmc.org/wp-content/PDFdocuments/SAFE/2023/BSAIflathead.pdf</p></li>
-<li><p>Kapur, M. and Monnahan, C. Assessment of the Flathead Sole Stock in the Gulf of Alaska. North Pacific Fishery Management Council, 2022. https://apps-afsc.fisheries.noaa.gov/Plan_Team/2022/GOAflathead.pdf</p></li>
-<li><p>Kapur, M. Assessment of the Flathead Sole-Bering flounder Stock in the Bering Sea and Aleutian Islands. North Pacific Fishery Management Council, 2022. https://apps-afsc.fisheries.noaa.gov/Plan_Team/2022/BSAIflathead.pdf</p></li>
-<li><p>Kapur, M. Assessment of the Flathead Sole Stock in the Gulf of Alaska. North Pacific Fishery Management Council, 2021. https://apps-afsc.fisheries.noaa.gov/Plan_Team/2021/GOAflathead.pdf</p></li>
-<li><p>Kapur, M. Assessment of the Flathead Sole-Bering flounder Stock in the Bering Sea and Aleutian Islands. North Pacific Fishery Management Council, 2021. https://apps-afsc.fisheries.noaa.gov/Plan_Team/2021/BSAIflathead.pdf</p></li>
-<li><p>Kapur, M., Lee, Q., Haltuch, M., Gertserva, V., and Hamel, O. Status update of the U.S. sablefish stock in 2021. Pacific Fisheries Management Council, 7700 Ambassador Place NE, Suite 200, Portland, OR. https://www.pcouncil.org/documents/2021/06/g-5-attachment-5-draft-status-of-sablefish-anoplopoma-fimbria-along-the-us-west-coast-in-2021-electronic-only.pdf/ 108 p.</p></li>
-<li><p>Haltuch, M., Johnson, K., Tolimieri, N, Kapur, M., and Castillo-Jordán, C. Status of the sablefish stock in U.S. waters in 2019. Pacific Fisheries Management Council, 7700 Ambassador Place NE, Suite 200, Portland, OR. 398 p.&nbsp;https://www.pcouncil.org/wp-content/uploads/2019/10/sablefish_20191022.pdf</p></li>
-<li><p>Kapur, M., Hamel, O. Catch-only update for China Rockfish in 2019.</p></li>
-<li><p>Adams, G. D., Kapur, M., McQuaw, K., Thurner, S., Hamel, O.S., Stephens, A. &amp; Wetzel, C. R. 2019. Stock Assessment Update: Status of Widow Rockfish (Sebastes entomelas) Along the U.S. West Coast in 2019. Pacific Fishery Management Council, Portland, Oregon. https://www.pcouncil.org/wp-content/uploads/2019/10/2019WidowUpdate_final_clean.pdf</p></li>
-<li><p>Hamel, O. Kapur, M., Catch-only update for Blackgill Rockfish in 2019.</p></li>
-<li><p>Kapur, M., Fitchett, M., Yau, A., Carvalho F. 2019. 2018 Benchmark Stock Assessment of Main Hawaiian Islands Kona Crab. NOAA Tech Memo. NMFS-PIFSC-77, 114 p.&nbsp;https://doi.org/10.25923/7wf2-f040 Available at: https://www.fisheries.noaa.gov/resource/document/2018-benchmark-stock-assessment-main-hawaiian-islands-kona-crab</p></li>
-<li><p>ISC, 2019 (contributor). 2019 Benchmark stock assessment and future projections for the Western and Central North Pacific striped marlin. Honolulu, Hawaii, USA. Available at: http://isc.fra.go.jp/pdf/ISC19/ISC19_ANNEX11_Stock_Assessment_Report_for_Striped_Marlin.pdf</p></li>
-<li><p>ISC, 2018 (contributor). Stock Assessment of Shortfin Mako Shark in the North Pacific Ocean Through 2016 (No.&nbsp;ISC/18/ANNEX/15). Yeosu, Republic of Korea. Available at: http://isc.fra.go.jp/pdf/ISC18/ISC_18_ANNEX_15_Shortfin_Mako_Shark_Stock_Assessment_FINAL.pdf</p></li>
-<li><p>Langseth, B., Syslo, J., Yau, A., Kapur, M., Brodziak, J., 2018. Stock assessment for the main Hawaiian Islands Deep 7 bottomfish complex in 2018, with catch projections through 2022. NOAA Tech. Memo. NMFS-PIFSC 69, 217. Available at: https://repository.library.noaa.gov/view/noaa/17252</p></li>
-<li><p>Winker, H., Carvalho, F., Kapur, M., Parker, D., Kerwath, S., 2017. JABBA goes IOTC: Just Another Bayesian Biomass Assessment for Indian Ocean Blue shark and swordfish (No.&nbsp;IOTC-2017-WPB15-INF02). Available at: https://www.iotc.org/sites/default/files/documents/2017/10/IOTC-2017-WPM08-11_Rev_1.pdf</p></li>
-</ol>
-<p><strong>Technical Documents Submitted to Fisheries Management Organizations</strong></p>
-<ol type="1">
-<li><p>ICES (contributor), 2024. Joint ICES-SEAwise Workshop to Quality Assure Methods to Incorporate Environmental Factors and Quantifying Ecological Considerations in Management Strategy Evaluation Tools (WKEcoMSE). ICES Scientific Reports. https://doi.org/10.17895/ICES.PUB.26661457</p></li>
-<li><p>Hamel, O., Punt, A.E., Kapur, M. and Maunder, M. 2023. Natural Mortality: Theory, Estimation, and Application in Fishery Stock Assessment Models. U.S. Department of Commerce, NOAA Processed Report NMFSNWFSC-PR-2023-02. https://doi.org/10.25923/xqv2-2g73</p></li>
-<li><p>Kapur, M., Connors, B., DeVore, J., Fenske, K., Haltuch, M., Key, M. 2021. Transboundary Sablefish Management Strategy Evaluation (MSE) Workshop Report. Pacific Fishery Management Council, Supplemental Informational Report 5. https://www.pcouncil.org/documents/2021/06/supplemental-informational-report-5-council-sponsors-successful-sablefish-management-strategy-evaluation-workshop.pdf/</p></li>
-<li><p>Carvalho, F., Kapur, M., Ijima, H. 2019. Comparison between Preliminary Stock Synthesis Models for the 2019 WCNPO Striped Marlin Stock Assessment. http://isc.fra.go.jp/pdf/BILL/ISC19_BILL_2/ISC19_BILLWG2_WP4.pdf</p></li>
-<li><p>Fenske, K. H., Berger, A. M., Connors, B., Cope, J.M., Cox, S. P., Haltuch, M. A., Hanselman, D. H., Kapur, M., Lacko, L., Lunsford , C., Rodgveller, C., and Williams, B. 2019. Report on the 2018 International Sablefish Workshop. U.S. Dep. Commer., NOAA Tech. Memo. NMFS-AFSC-387, 107 p.&nbsp;Available at: https://www.afsc.noaa.gov/Publications/AFSC-TM/NOAA-TM-AFSC-387.pdf</p></li>
-<li><p>Sculley, M., Kapur, M., Yau, A., 2018. Size composition for swordfish Xiphias gladius in the Hawaii-based pelagic longline fishery for 1995-2016 (No.&nbsp;WP-18-003). https://doi.org/10.7289/V5/WP-PIFSC-18-003</p></li>
-<li><p>Sculley, M., Yau, A., Kapur, M., 2018. Standardization of the swordfish Xiphias gladius catch per unit effort data caught by the Hawaii-based longline fishery from 1994-2016 using generalized linear models. (No.&nbsp;WP-18-001). https://doi.org/10.7289/V5/WP-PIFSC-18-001</p></li>
-<li><p>Winker, H., Carvalho, F., Thorson, J.T., Kapur, M., Parker, D., Kerwath, S., Booth, A.J., Kell, L., 2017. Performance evaluation of JABBA-Select against an age-structured simulator and estimation model (No.&nbsp;MARAM/IWS/2017/Linefish/P3 Performance). Cape Town, South Africa. Available at: https://drupalupload.uct.ac.za/maram/Documents/pub/2017/IWS 2017/MARAM_IWS_2017_Linefish_P3.pdf</p></li>
-<li><p>Winker, H., Carvalho, F., Thorson, J.T., Kapur, M., Parker, D., Kerwath, S., Booth, A.J., Kell, L., 2017. JABBA-Select: an alternative surplus production model to account for changes in selectivity and relative mortality from multiple fisheries (No.&nbsp;MARAM/IWS/2017/Linefish/P2). Cape Town, South Africa. Available at: https://drupalupload.uct.ac.za/maram/Documents/pub/2017/IWS 2017/MARAM_IWS_2017_Linefish_P2.pdf</p></li>
-<li><p>Kapur, M., Yau, A., 2018. Size Compositions and Sex Ratios of Oceanic Whitetip Sharks and Giant Manta Rays for Longline Fisheries in the Pacific Islands Region (DR-18-012). Honolulu, HI. https://doi.org/10.25923/67hf-bn93</p></li>
-<li><p>Kapur, M., Brodziak, J.A., Fletcher, E.J., Yau, A.J., 2017. Summary of Life History and Stock Assessment Results for Pacific Blue Marlin, Western and Central North Pacific Striped Marlin, and North Pacific Swordfish. (No.&nbsp;WP-17-004). 10.7289/V5/WP-PIFSC-17-004 Available at: http://www.pifsc.noaa.gov/library/pubs/WP-17-004.pdf</p></li>
-<li><p>Sculley, M.S., Brodziak, J.A., Yau, A.J., Kapur, M., 2017. An Exploratory Analysis of Trends in Swordfish (Xiphias gladius) Length Composition Data from the Hawaiian Longline Fishery (No.&nbsp;WP-17-002). 10.7289/V5/WP-PIFSC-17-002. Available at: https://repository.library.noaa.gov/view/noaa/14862/noaa_14862_DS1.pdf</p></li>
-</ol>
 
 
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1717484400000" data-listing-file-modified-sort="1742014836976" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="35">
+<a href="./media/2024-06-04-sablefishPR/sablefishpr.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./media/2024-06-04-sablefishPR/150146.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Sablefish MSE Editor’s Choice &amp; Featured Story for NOAA Fisheries
+</h5>
+<div class="card-text listing-description">
+Our sablefish MSE was included as a Feature Story on NOAA fisheries – check it out (here)[https://www.stemworkshawaii.org/gis-training]. The associated…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Jun 4, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1716879600000" data-listing-file-modified-sort="1742014856265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26">
+<a href="./media/2024-05-28-quantsem/quantsem.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./media/2024-05-28-quantsem/logo.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Video: Quantitative Seminar 2024
+</h5>
+<div class="card-text listing-description">
+This talk describes the work we’re doing with ev-OSMOSE, an agent-based multispecies ecosystem model that accounts for genetic processes under future emissions scenarios.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+May 28, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1715756400000" data-listing-file-modified-sort="1742015030163" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="96">
+<a href="./media/05-12-2024-fisheriespod/fisheriespod.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./media/05-12-2024-fisheriespod/Wave_Logo6djbh.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+My Interview on the ‘Fisheries Podcast’
+</h5>
+<div class="card-text listing-description">
+This week The Fisheries Podcast chats with Dr.&nbsp;Maia Sosa Kapur, a Research Mathematical Statistician with the NOAA Alaska Fisheries Science Center. Listen in to hear how…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+May 15, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1698735600000" data-listing-file-modified-sort="1742015004844" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="25">
+<a href="./media/10-31-2023-PSL/psl.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./media/10-31-2023-PSL/220234.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Video: Invited talk to the Policy Simulation Library
+</h5>
+<div class="card-text listing-description">
+Here’s a talk I gave on JABBA to the Policy Simulation Library, a collection of models and other software for public-policy decisionmaking.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Oct 31, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-date-sort="1512374400000" data-listing-file-modified-sort="1742013967435" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
+<a href="./media/12-04-2017-JABBA/jabba.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./media/12-04-2017-JABBA/1280_sGrCEJf7Kf21.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+JABBA Bayesian Model Makes International News
+</h5>
+<div class="card-text listing-description">
+The impacts of the JABBA model<sup>1</sup> are gaining widespread attention, with recent press releases close to home with NOAA Fisheries and as far as South Africa with (this feature…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Dec 4, 2017
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-date-sort="1449820800000" data-listing-file-modified-sort="1742014451963" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
+<a href="./media/12-11-2015-STEMWorksHI/stemworks.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./media/12-11-2015-STEMWorksHI/STEM-logo-fin.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Video: Interview with STEMworks HI
+</h5>
+<div class="card-text listing-description">
+STEMworks™ helps prepare Hawai‘i students for rewarding and sustainable career opportunities and promoting GIS awareness and education. We offer annual GIS training programs…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Dec 11, 2015
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

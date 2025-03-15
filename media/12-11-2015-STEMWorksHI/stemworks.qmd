@@ -1,0 +1,14 @@
+---
+title: "Video: Interview with STEMworks HI"
+image: STEM-logo-fin.png
+date: "2015-12-11"
+---
+{{< video https://vimeo.com/148701960 >}}
+
+[STEMworks™](https://www.stemworkshawaii.org/gis-training) helps prepare Hawai'i students for rewarding and sustainable career opportunities and promoting GIS awareness and education. We offer annual GIS training programs for teachers and students in November and at our Hawaii STEM Conference.  Students also explore GIS through our annual 6-week STEMworks™ Summer Internship program.
+
+Geographic Information Systems (GIS)  is becoming an integral skill set for the 21st century employee. The Department of Labor estimates that 10 million jobs will utilize GIS technologies over the next 10 years. From government to private industry, GIS is utilized in industries such as agriculture, defense, surveying, retail, marketing, conservation, telecommunications, law enforcement, public health, airports and aviation, education, and much more.
+
+Professionals share how they use GIS in their respective fields. Visit the K-12 Hawai'i GIS Hub to stay connected to Hawai'i’s GIS community!
+
+---

@@ -13,6 +13,8 @@ website:
       - publications.qmd
       - href: https://scholar.google.com/citations?hl=en&user=5OsRPbgAAAAJ&view_op=list_works&sortby=pubdate
         text: Google Scholar
+      - href: media.qmd
+        text: Media & Talks
 
 format:
   html:

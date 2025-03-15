@@ -1,0 +1,11 @@
+---
+title: "Video: Quantitative Seminar 2024"
+editor: visual
+image: logo.png
+date: "2024-05-28"
+---
+
+
+{{< video https://www.youtube.com/watch?v=ilYkRkoxDZk >}}
+
+This talk describes the work we're doing with ev-OSMOSE, an agent-based multispecies ecosystem model that accounts for genetic processes under future emissions scenarios.

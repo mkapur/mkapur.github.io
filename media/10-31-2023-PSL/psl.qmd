@@ -1,0 +1,11 @@
+---
+title: "Video: Invited talk to the Policy Simulation Library"
+editor: visual
+date: "2023-10-31"
+image: 220234.png
+---
+
+
+{{< video https://www.youtube.com/watch?v=tnaV0iXIvwk >}}
+
+Here's a talk I gave on JABBA to the [Policy Simulation Library](https://pslmodels.org/about.html), a collection of models and other software for public-policy decisionmaking.

@@ -1,0 +1,8 @@
+---
+title: "Sablefish MSE Editor's Choice & Featured Story for NOAA Fisheries"
+date: "2024-06-04"
+editor: visual
+image: 150146.png
+---
+
+Our sablefish MSE was included as a Feature Story on NOAA fisheries -- check it out [here](https://www.stemworkshawaii.org/gis-training). The associated [publication](https://cdnsciencepub.com/doi/abs/10.1139/cjfas-2024-0008?journalCode=cjfas) was also selected for Editor's Choice by the Canadian Journal of Fisheries and Aquatic Sciences.

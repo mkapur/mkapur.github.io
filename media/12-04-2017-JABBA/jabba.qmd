@@ -1,0 +1,12 @@
+---
+title: "JABBA Bayesian Model Makes International News"
+editor: visual
+date: "12-04-2017"
+image: 1280_sGrCEJf7Kf21.png
+---
+
+
+The impacts of the JABBA model[^1] are gaining widespread attention, with recent press releases close to home with NOAA Fisheries and as far as South Africa with [this feature story](https://www.pressreader.com/south-africa/cape-times/20171204/281865823798799) from Cape Town News.
+
+
+[^1]:Winker, H., Carvalho, F., Kapur, M., 2018. JABBA: Just Another Bayesian Biomass Assessment. Fish. Res. 204, 275–288. https://doi.org/10.1016/j.fishres.2018.03.010  

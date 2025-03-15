@@ -22,4 +22,4 @@ I am an applied scientist (mathematical statistician) at the Alaska Fisheries Sc
 
 Previously I worked as a data scientist in the assessment program at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.
 
-My current research interests include: application and development of AI tools for scientific management; how evolution and climate change conspire to bias data and assessment outputs; and how spatial statistics can be used to tackle uncertainties in our scientific management.
+My current research interests include: how to rapidly develop and deploy AI tools to improve resource management; how complex ecological forcings conspire to bias data and statistical estimation models; and how geospatial approaches can be used to build sustainability tools for connected systems.

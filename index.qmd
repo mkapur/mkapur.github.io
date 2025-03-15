@@ -7,10 +7,13 @@ about:
   template: trestles
   image: avatar.jpg
   links:  
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/maiakapur/
     - icon: github
       text: Github
       href: https://github.com/mkapur-noaa
-    - icon: fa-google-scholar
+    - icon: google
       text: Google Scholar
       href: https://scholar.google.com/citations?user=5OsRPbgAAAAJ&hl=en
 ---

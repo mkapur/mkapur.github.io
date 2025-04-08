@@ -4,9 +4,10 @@ editor: source
 ---
 You can find an up-to-date list of my peer-reviewed publications on [Google Scholar](https://scholar.google.com/citations?user=5OsRPbgAAAAJ&hl=en). 
 
-Because much of my work directly informs the management of industrial fisheries in the United States and international waters, a large body of my research is contained in grey literature: technical memoranda and formal stock assessment reports submitted to regional fishery management organizations. A list of these publications, and links (where available), is provided below.
 
-**Stock Assessments Used for Fisheries Management**
+Because much of my work involves risk assessment for and informs the management of industrial resources in the United States and international waters, a large body of my research is contained in grey literature: technical memoranda and formal reports. A list of these publications, and links (where available), is provided below.
+
+**Risk and Status Assessments Used for Indusrial Fisheries Management**
 
 1.	Spies, I., Kapur, M., Barbeaux, S., Haltuch, M., Hulson, P., Ortiz, I., Spencer, L., and Lowe, S. Assessment of the Pacific Cod stock in the Aleutian Islands. North Pacific Fishery Management Council, 2024. https://www.npfmc.org/wp-content/PDFdocuments/SAFE/2024/AIpcod.pdf 
 

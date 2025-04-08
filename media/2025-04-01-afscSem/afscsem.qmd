@@ -1,5 +1,5 @@
 ---
-title: "Video: Quantitative Seminar 2024"
+title: "Video: AFSC Science Seminar 2025"
 editor: visual
 image: logo.jpg
 date: "2025-04-01"

@@ -1,0 +1,10 @@
+---
+title: "Video: Quantitative Seminar 2024"
+editor: visual
+image: logo.jpg
+date: "2025-04-01"
+---
+
+{{< video https://players.brightcove.net/659677166001/4b3c8a9e-7bf7-43dd-b693-2614cc1ed6b7_default/index.html?videoId=6371229043112 >}}
+
+This is a joint seminar I gave with my colleage Grant Adams on our efforts to implement data science principles in applying AI/ML tools for demographic projections.

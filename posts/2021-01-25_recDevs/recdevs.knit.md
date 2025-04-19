@@ -14,12 +14,9 @@ featured: yes
 image: recdev-img.jpg
 ---
 
-```{r, setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-options(knitr.table.format = function() {
-  if (knitr::is_latex_output()) 'latex' else 'pandoc'
-})
-```
+
+
+
 
 For an in-depth description of the theory and math behind recruitment deviations in assessment models, check out: Methot, R.D., Taylor, I.G., Chen, Y., 2011. *Adjusting for bias due to variability of estimated recruitments in fishery assessment models.* Can. J. Fish. Aquat. Sci. 68, 1744--1760. <https://doi.org/10.1139/f2011-092>.
 
@@ -37,47 +34,15 @@ $$
 
 $h$ is steepness, or the expected proportion of $R_0$ anticipated at $0.2SSB_0$; $R_0$ and $SSB_0$ are unfished recruitment and unfished spawning biomass, respectively. Given values for these parameters, the "mean" or "expected recruitment" level is what you'd get by plugging in those numbers to the values and reading off the curve:
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-bh <- function(ssb,h,r0,ssb0){
-  num = ssb*4*h*r0
-  denom1 = ssb0*(1-h)
-  denom2 = ssb*(5*h-1)
-  ans = num/(denom1+denom2)
-  return(ans)
-}
-require(ggplot2)
-require(ggsidekick)
 
-sd_log <- log(0.8)
-mu_log <- 0
-recdf <- data.frame()
-for(b in 1:100){
-  recdf[b,'b'] <- b
-  recdf[b,'detRec'] <- bh(ssb = b, 
-                          h = 0.6,
-                          r0 = 150, ssb0 = 75)
-  # Generate error values following a lognormal distribution
-  dev_raw<- rnorm(1, mean = mu_log, sd = exp(sd_log))
-  error_values <- dev_raw*exp(-sd_log^2/2)
-  unadjusted_error_values <- dev_raw
-  # Calculate confidence interval
-  z_value <- qnorm(1 - (1 - 0.5) / 2)
-  error_multiplier <- exp(z_value * sd_log)  # Multiplier for error values
-  
-  # Calculate upper and lower bounds of confidence interval
-  recdf[b,'lci']  <- recdf[b,'detRec'] * error_multiplier
-  recdf[b,'uci'] <- recdf[b,'detRec'] / error_multiplier
-  recdf[b,'dev'] <- error_values
-  recdf[b,'dev_wrong'] <- unadjusted_error_values
-  recdf[b,'corr'] <- recdf[b,'detRec'] * exp(  recdf[b,'dev'] )
-}
 
-ggplot(recdf, aes(x = b, y = detRec)) +
-  geom_line(lwd = 1) +
-  ggsidekick::theme_sleek() +
-  labs(x = 'SB', y = 'Recruitment')
+::: {.cell}
+::: {.cell-output-display}
+![](recdevs_files/figure-html/unnamed-chunk-1-1.png){width=672}
+:::
+:::
 
-```
+
 
 <!-- Cool. Now let's consider that we have some notion of error around this deterministic value; this error could arise from uncertainty in the parameters of the stock recruit curve. Here, the shaded zone is the 95% confidence interval around our expected recruitment. 95% of recruitment values in a given year at a given SB should fall within that zone. -->
 
@@ -97,29 +62,15 @@ ggplot(recdf, aes(x = b, y = detRec)) +
 
 However, the recruitment in a given year may *deviate* from the black curve. We can visualize these in two ways. On the bottom left, I've invented a series of new recruitment values shown as gold points; the dotted line separating each point from the expected value is the **raw** value of the deviation itself (in numbers). A time series of these values is shown on the right. The blue point on both plots is the highest year -- and you can see that since this is plotted in natural (not log) space it's fairly hard to distinguish the smaller points from one another.
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-p1 <- ggplot(recdf, aes(x = b, y = detRec)) +
-  geom_line(lwd = 1) +
 
-  ggsidekick::theme_sleek() +
-  labs(x = 'SB', y = 'Recruitment') +
-  # geom_ribbon(aes(ymin = lci, ymax = uci), alpha = 0.2) +
-  geom_point(data = recdf[-which.max(recdf$corr),], aes(y = corr), col = 'goldenrod') +
-  geom_point(data = recdf[which.max(recdf$corr),], aes(y = corr), pch =8, col = 'blue') +
-  geom_segment(aes(xend = b, yend = corr),
-               linetype = 'dotted')
 
-p2 <- ggplot(recdf, aes(x = b, y =corr)) + 
-  ggsidekick::theme_sleek() +
-  labs(x = 'SB', y = 'Recruitment') +
-  # scale_y_continuous(limits = c(0,300))+
-  geom_line(aes(y = corr), col = 'goldenrod', lwd = 1) +
-  geom_point(data = recdf[which.max(recdf$corr),], aes(y = corr), pch =8, col = 'blue') +
-  geom_segment(aes(xend = b, yend = corr),
-               linetype = 'dotted')
+::: {.cell}
+::: {.cell-output-display}
+![](recdevs_files/figure-html/unnamed-chunk-2-1.png){width=672}
+:::
+:::
 
-Rmisc::multiplot(plotlist = list(p1,p2),cols = 2)
-```
+
 
 Let's think for a second. If we deal in absolutes, the raw (absolute) value of a deviation at high biomass is going to be much larger than the deviation at low biomass. This isn't very helpful if we're trying to quantify the degree to which our stock's recruitment in year $y$ is diverging from expectation. For that reason, we are interested in modeling the errors, or deviations, as *lognormally distributed*. Equation-wise, here's what that looks like. Note that $R_{det}$ is simply the deterministic value of recruitment, which could come from a Bev-Holt, Ricker, you name it.
 
@@ -135,46 +86,82 @@ Check out [towardsdatascience.com](https://towardsdatascience.com/log-normal-dis
 
 If our deviations vector $\vec r$ is normally distributed with mean zero, $exp(\vec r)$ is *lognormally* distributed, shown in blue below:
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-sigma = 1
-mu = 0
-X <- rnorm(100000,mu,sigma)
-hist(X, 
-     yaxt = 'n',
-     ylab = '',
-     ylim = c(0,25000),
-     main = '',
-     xlab = '',
-     xlim = c(-5,30),
-     col  = alpha('grey22',0.5))
-hist(exp(X), add = TRUE,
-     breaks = seq(0,ceiling(max(exp(X))),0.5),
-     col = alpha('blue',0.5))
-abline(v =exp(mean(X)) , lty = 2, lwd = 2, col = 'grey22', add = T )
-abline(v =mean(exp(X)) , lty = 2, lwd = 2, col = 'blue', add = T )
-legend('topright',
-       lty = 1, lwd = 5,
-       col = c(alpha('grey22',0.5),
-               alpha('blue',0.5),
-               'grey22', 'blue'),
-       legend = c('X~N(0,1)','Y = exp(X)',
-                  'exp(mean(X))','mean(Y)'))
-```
 
-If $r_y \sim N(\mu=0,\sigma=1)$ and $Y = e^{r_y}$, the expected value of $r_y$ is $\mu$ (zero), and the expected value of $Y$ will be $e^{\mu+\sigma^2/2}$ (`r exp(0+sigma^2/2)`), *not* $e^{\mu}$.
+
+::: {.cell}
+::: {.cell-output-display}
+![](recdevs_files/figure-html/unnamed-chunk-3-1.png){width=672}
+:::
+:::
+
+
+
+If $r_y \sim N(\mu=0,\sigma=1)$ and $Y = e^{r_y}$, the expected value of $r_y$ is $\mu$ (zero), and the expected value of $Y$ will be $e^{\mu+\sigma^2/2}$ (1.6487213), *not* $e^{\mu}$.
 
 Note that $e^{r_y}$, the blue values above, are 1) never less than zero and 2) asymmetrically distributed. This means mathematically is that the expected value, or mean, of $e^{r_y}$ (blue dashed line above) *is in fact not the same* as $exp(mean(r_y))$. Confirm this for yourself below.
 
-```{r, echo = TRUE, warning = FALSE}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 ## the mean of X should be close to 0
 mean(X) 
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] -0.005742354
+```
+
+
+:::
+
+```{.r .cell-code}
 ## that value exponentiated should therefore be close to 1
 exp(mean(X))
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 0.9942741
+```
+
+
+:::
+
+```{.r .cell-code}
 ## yet the mean of the blue distribution is larger than 1...
 mean(exp(X)) 
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 1.639648
+```
+
+
+:::
+
+```{.r .cell-code}
 ##... in fact, the expected value of exp(X) is ~exp(mu+sigma/2)
 exp(mu+sigma^2/2)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 1.648721
+```
+
+
+:::
+:::
+
+
 
 This statistical reality makes for a problem if we calculate our annual recruitment by multiplying $R_{det}$ by $exp(r_y)$. If we don't account for it, we end up with inflated annual recruitments because we would be multiplying by values *typically* greater than 1.
 
@@ -184,49 +171,71 @@ The simple idea here is that we are applying a correction to the deviations so t
 
 Check it out:
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-hist(X, 
-     yaxt = 'n',
-     ylab = '',
-     ylim = c(0,50000),
-     main = '',
-     xlab = '',
-     xlim = c(-5,30),
-     col  = alpha('grey22',0.5))
-hist(exp(X), add = TRUE,
-     breaks = seq(0,ceiling(max(exp(X))),0.5),
-     col = alpha('blue',0.5))
-hist(exp(X-sigma^2/2), add = TRUE,
-     breaks = seq(0,100,0.5),
-     col = alpha('red',0.5))
-legend('topright',
-       lty = 1, lwd = 5,
-       col = c(alpha('grey22',0.5),
-               alpha('blue',0.5),
-               alpha('red',0.5)),
-       legend = c('X~N(0,1)','Y=exp(X)', 'Bias Adjusted'))
-```
 
-```{r, echo = T, warning = FALSE}
+
+::: {.cell}
+::: {.cell-output-display}
+![](recdevs_files/figure-html/unnamed-chunk-5-1.png){width=672}
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 ## as above, the mean is close to 1 without adjustment
 exp(mean(X)) 
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 0.9942741
+```
+
+
+:::
+
+```{.r .cell-code}
 ## ...though the actual mean is greater, by a factor of sigma^2/2
 mean(exp(X)) 
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 1.639648
+```
+
+
+:::
+
+```{.r .cell-code}
 mean(exp(X-1^2/2)) ## with bias correction, closer to 1 again!
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 0.9944967
+```
+
+
+:::
+:::
+
+
+
 One last thing. Normally we present a time series of rec-devs, and leave them in log space (to get around the scale issue I mentioned above). The horizontal line at zero represents the deterministic or expected recruitment, and the points are the log deviations from that mean. Now you can interpret this plot intuitively, where values below zero were "worse than average years", and vice versa. What's more, because we are working in log space you can also get a quantitative sense of how divergent from expectation the recruits were in this year *regardless of the stock size at hand*. You can also see that the blue point we saw in the earlier figures was not actually as great of an outlier as the original plot suggested
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-recdf$logdev <- recdf$dev - sd_log^2/2
-ggplot(recdf, aes(x = b, y =logdev)) + 
-  ggsidekick::theme_sleek() +
-  labs(x = 'SB', y = 'Recruitment') +
-  scale_y_continuous(limits = c(-2,2))+
-  geom_hline(yintercept = 0,color = 'grey50', linetype = 'dotted')+
-  geom_line( col = 'goldenrod', lwd = 1)+
-  geom_point(data = recdf[which.max(recdf$corr),],  pch =8, col = 'blue') 
-```
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](recdevs_files/figure-html/unnamed-chunk-7-1.png){width=672}
+:::
+:::
+
+
 
 # Bonus: why this isn't perfect
 
@@ -251,3 +260,4 @@ Part of the answer lies in the fact that this is a conscious decision made by *f
 <!-- Cancel out the common term ($e^{μ + σ^2/2}$) in the numerator and denominator, leaving: -->
 
 <!-- $\sqrt{e^{σ^2}-1}$ -->
+

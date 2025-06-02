@@ -2,7 +2,7 @@
 title: "Applied Science"
 editor: source
 ---
-You can find an up-to-date list of my peer-reviewed publications on [Google Scholar](https://scholar.google.com/citations?user=5OsRPbgAAAAJ&hl=en). 
+You can find an up-to-date list of my peer-reviewed publications on [Google Scholar](https://scholar.google.com/citations?user=BobRqMkAAAAJ&hl=en). 
 
 
 Because much of my work involves risk assessment for and informs the management of industrial resources in the United States and international waters, a large body of my research is contained in grey literature: technical memoranda and formal reports. A list of these publications, and links (where available), is provided below.

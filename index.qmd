@@ -1,6 +1,6 @@
 ---
 title: "Maia Sosa Kapur"
-subtitle: "risk, decisionmaking, and sustainability science"
+subtitle: "ai & data science for the earth"
 website: 
     search: true
 about:
@@ -12,14 +12,16 @@ about:
       href: https://www.linkedin.com/in/maiakapur/
     - icon: github
       text: Github
-      href: https://github.com/mkapur-noaa
+      href: https://github.com/mkapur
     - icon: google
       text: Google Scholar
       href: https://scholar.google.com/citations?user=BobRqMkAAAAJ&hl=en
 ---
 
-I am an applied scientist (mathematical statistician) at the Alaska Fisheries Science Center (NOAA, Seattle). I received my PhD from the the School of Aquatic and Fisheries Science at the University of Washington in the [Punt Lab](http://puntlab.washington.edu/maia-kapur/). My research was supported by a [NMFS-Sea Grant Population Dynamics Fellowship](https://seagrant.noaa.gov/News/Article/ArtMID/1660/ArticleID/2750/NOAA-Sea-Grant-and-Fisheries-announce-2019-Ecosystem-and-Population-Dynamics-Fellows) awarded in 2019.
+I am  a data scientist at the **Pacific Northwest National Laboratory**, where I combine my earth & environmental science foundations with cutting‑edge simulation, AI, and geospatial tools to drive environmental discovery. 
 
-Previously I worked as a data scientist in the assessment program at the Joint Institute for Marine and Atmospheric Research at PIFSC (NOAA) in Honolulu and completed my MSc at the Hawaii Institute of Marine Biology. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at UC Berkeley.
+My path began with a passion for understanding earth systems from above, mapping and modeling systems at multiple scales.  Previously I worked at **NOAA** (in Honolulu and Seattle) on decision making under uncertainty, risk forecasting and climate scenario resilience for industrial fisheries management. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at **UC Berkeley**.
 
-My current research interests include: how to rapidly develop and deploy AI tools to improve resource management; how complex ecological forcings conspire to bias data and statistical estimation models; and how geospatial tools can inform risk management and decision science tools for connected systems impacted by climate.
+I received my PhD from the the School of Aquatic and Fisheries Science at the **University of Washington** in the [Punt Lab](http://puntlab.washington.edu/maia-kapur/). My research was supported by a [NMFS-Sea Grant Population Dynamics Fellowship](https://seagrant.noaa.gov/News/Article/ArtMID/1660/ArticleID/2750/NOAA-Sea-Grant-and-Fisheries-announce-2019-Ecosystem-and-Population-Dynamics-Fellows) awarded in 2019.
+
+My current research interests include: how to rapidly develop and deploy AI tools to improve ecological insights and forecasts; how complex ecological forcings conspire to bias data and statistical estimation models; and how geospatial techniques can improve data workflows for connected systems impacted by climate.

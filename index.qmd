@@ -18,9 +18,9 @@ about:
       href: https://scholar.google.com/citations?user=BobRqMkAAAAJ&hl=en
 ---
 
-I am  a data scientist at the **Pacific Northwest National Laboratory**, where I combine my earth & environmental science foundations with cutting‑edge simulation, AI, and geospatial tools to drive environmental discovery. 
+I am  a data scientist who combines earth & environmental science foundations with cutting‑edge simulation, AI, and geospatial tools to drive environmental discovery. 
 
-My path began with a passion for understanding earth systems from above, mapping and modeling systems at multiple scales.  Previously I worked at **NOAA** (in Honolulu and Seattle) on decision making under uncertainty, risk forecasting and climate scenario resilience for industrial fisheries management. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at **UC Berkeley**.
+My path began with a passion for understanding earth systems from above, mapping and modeling systems at multiple scales.  Previously I worked at **NOAA** (in Honolulu and later Seattle) on decision making under uncertainty, risk forecasting and climate scenario resilience for industrial fisheries management. I have also worked in the Florida Keys and studied at the Smithsonian Tropical Research Institute in Bocas Del Toro, Panama while completing my BSc in Environmental Science at **UC Berkeley**.
 
 I received my PhD from the the School of Aquatic and Fisheries Science at the **University of Washington** in the [Punt Lab](http://puntlab.washington.edu/maia-kapur/). My research was supported by a [NMFS-Sea Grant Population Dynamics Fellowship](https://seagrant.noaa.gov/News/Article/ArtMID/1660/ArticleID/2750/NOAA-Sea-Grant-and-Fisheries-announce-2019-Ecosystem-and-Population-Dynamics-Fellows) awarded in 2019.
 

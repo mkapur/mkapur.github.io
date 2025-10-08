@@ -5,7 +5,7 @@ website:
     search: true
 about:
   template: trestles
-  image: 2025_bg_vert.png
+  image: 2025_headshot_grey.jpeg
   links:  
     - icon: linkedin
       text: LinkedIn

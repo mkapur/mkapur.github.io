@@ -1,0 +1,10 @@
+---
+title: "Video: NOAA Library National Assessment Seminar 2022"
+editor: visual
+image: logo.png
+date: "2022-07-07"
+---
+
+{{< video https://www.youtube.com/watch?v=Wc-DcfMLLj8 >}}
+
+This was a National Stock Assessment Science Seminar I gave on our exciting new paper that presented a new method for calculating reference points for spatial assessments.

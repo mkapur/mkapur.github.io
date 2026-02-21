@@ -24,4 +24,4 @@ My path began with a passion for understanding earth systems from above, mapping
 
 I received my PhD from the the School of Aquatic and Fisheries Science at the **University of Washington** in the [Punt Lab](http://puntlab.washington.edu/maia-kapur/). My research was supported by a [NMFS-Sea Grant Population Dynamics Fellowship](https://seagrant.noaa.gov/News/Article/ArtMID/1660/ArticleID/2750/NOAA-Sea-Grant-and-Fisheries-announce-2019-Ecosystem-and-Population-Dynamics-Fellows) awarded in 2019.
 
-My current research interests include: how to rapidly develop and deploy AI tools to improve ecological insights and forecasts; how complex ecological forcings conspire to bias data and statistical estimation models; and how geospatial techniques can improve data workflows for connected systems impacted by climate.
+My current work involves: building systems to ensure scientific rigor in the ways that AI agents access, infer, and discover data; uncertainty quantification (UQ) for human/AI-driven high throughput scientific workflows; and how to architect pipelines to improve insights and forecasts that drive bio-economic futures.

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Maia Kapur">
+<meta name="dcterms.date" content="2026-01-01">
+
+<title>Calibration curves for simulation-based inference: bringing ML diagnostics to fisheries stock assessment – Maia Sosa Kapur</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-facd30bd6cd4d5c9567c8a5b7d77199b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Maia Sosa Kapur</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts.html"> 
+<span class="menu-text">Blog Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../media.html"> 
+<span class="menu-text">Media &amp; Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Applied Science</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=BobRqMkAAAAJ&amp;hl=en"> 
+<span class="menu-text">Google Scholar</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link active" data-scroll-target="#why-this-matters">Why this matters</a></li>
+  <li><a href="#calibration-a-framework-for-communicating-uncertainty" id="toc-calibration-a-framework-for-communicating-uncertainty" class="nav-link" data-scroll-target="#calibration-a-framework-for-communicating-uncertainty">Calibration: a framework for communicating uncertainty</a>
+  <ul class="collapse">
+  <li><a href="#probability-calibration-in-ml-modeling" id="toc-probability-calibration-in-ml-modeling" class="nav-link" data-scroll-target="#probability-calibration-in-ml-modeling">Probability Calibration in ML modeling</a></li>
+  </ul></li>
+  <li><a href="#applying-aiml-uncertainty-approaches-to-fisheries-models" id="toc-applying-aiml-uncertainty-approaches-to-fisheries-models" class="nav-link" data-scroll-target="#applying-aiml-uncertainty-approaches-to-fisheries-models">Applying AI/ML Uncertainty Approaches to Fisheries Models</a>
+  <ul class="collapse">
+  <li><a href="#example-1-coverage-calibration" id="toc-example-1-coverage-calibration" class="nav-link" data-scroll-target="#example-1-coverage-calibration">Example 1: Coverage Calibration</a></li>
+  <li><a href="#example-2-continuous-calibration" id="toc-example-2-continuous-calibration" class="nav-link" data-scroll-target="#example-2-continuous-calibration">Example 2: Continuous Calibration</a></li>
+  <li><a href="#example-3-calibration-for-forecast-or-predictive-intervals" id="toc-example-3-calibration-for-forecast-or-predictive-intervals" class="nav-link" data-scroll-target="#example-3-calibration-for-forecast-or-predictive-intervals">Example 3: Calibration for Forecast or Predictive Intervals</a></li>
+  <li><a href="#example-4-putting-it-together-mixed-calibration" id="toc-example-4-putting-it-together-mixed-calibration" class="nav-link" data-scroll-target="#example-4-putting-it-together-mixed-calibration">Example 4: Putting It Together — Mixed Calibration</a>
+  <ul class="collapse">
+  <li><a href="#simulation-details" id="toc-simulation-details" class="nav-link" data-scroll-target="#simulation-details">Simulation details</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Calibration curves for simulation-based inference: bringing ML diagnostics to fisheries stock assessment</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Maia Kapur </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="why-this-matters" class="level1">
+<h1>Why this matters</h1>
+<p>Fisheries science leans heavily on simulation and estimation, and deserves a shared way to communicate the tradeoffs between model performance and confidence. We also need a framework to capture the common yet less-discussed situation of an unbiased estimator with correctly-specified standard errors that <strong>still produce mis-calibrated confidence intervals</strong>.</p>
+<p>This post introduces the calibration concept as commonly implemented in AI/ML to the fisheries science audience, and presents three key ways (coverage probabilities, ‘true’ calibration, forecast intervals) that we can start talking about and communicating process-estimation certainty from our models, borrowing from the uncertainty quantification techniques leveraged in AI/ML.</p>
+<p>None of these techniques are brand-new, but I’m writing this blog specifically because I’ve seen confusion in the literature about how to talk about this.</p>
+<p>Looking at a simple bias-variance tradeoff plot won’t get us there.</p>
+</section>
+<section id="calibration-a-framework-for-communicating-uncertainty" class="level1">
+<h1>Calibration: a framework for communicating uncertainty</h1>
+<p>The statistical concept of “Calibration” asks: <strong>do our probabilistic statements match reality?</strong> We make such statements implicitly in fisheries when we present confidence intervals around parameter estimates or time-series of derived quantities (past or future).</p>
+<p>However, there’s a subtle difference between what most ML modelers think of as calibration, which I’ll call here <em>probability calibration</em>, and the familiar metrics we apply to parameter-estimation exercises, which is better described as <em>coverage calibration</em>.</p>
+<p>Understanding the distinction between these can help us see a) what it is we’re actually communicating with these various approach and b) what the fish-sci/assessment communities could gain by leveraging or integrating other approaches.</p>
+<section id="probability-calibration-in-ml-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="probability-calibration-in-ml-modeling">Probability Calibration in ML modeling</h2>
+<p>In ML, a “calibration curve” is a visual representation of the tradeoffs between model confidence and accuracy. These are trivially straightforward to produce for common ML frameworks like classifiers, because the <em>model’s confidence in its prediction and the prediction itself are one and the same</em>.</p>
+<p>We can then compare the model’s prediction to the empirical truth and construct a <strong>calibration curve</strong>, whereby the 1:1 line (‘perfectly calibrated’) satisfies <span class="math inline">\(P(event |model \space predicts \space p) = p\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cset_curves.png" class="img-fluid figure-img"></p>
+<figcaption>Source: https://cset.georgetown.edu/wp-content/uploads/CSET-Key-Concepts-in-AI-Safety-Reliable-Uncertainty-Quantification-in-Machine-Learning.pdf</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="applying-aiml-uncertainty-approaches-to-fisheries-models" class="level1">
+<h1>Applying AI/ML Uncertainty Approaches to Fisheries Models</h1>
+<p>In this section, we’ll walk through some visualizations of how familiar fishery model estimates can be mapped to ML uncertainty approaches: the nominal coverage curve, ‘true’ calibration via the CDF, and a cool one that applies the same idea to forecasted data.</p>
+<p>The bridge to fisheries science requires recognition of two things:</p>
+<ol type="1">
+<li><p>we are normally working in a simulation-estimation setting, and therefore are often describing a sub-class of cabliration called <em>coverage</em>, and</p></li>
+<li><p>most quantities in the ecological sciences are continuous, and therefore can’t lean upon the simple bin-style approaches used elsewhere in ML.</p></li>
+</ol>
+<section id="example-1-coverage-calibration" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-coverage-calibration">Example 1: Coverage Calibration</h2>
+<p>In parameter estimation we more commonly think about bias, standard error, and (sometimes) <strong>confidence interval coverage</strong>, In practice, this can mean running a simulation experiment to demonstrate that the 95% confidence interval (obtained by your estimation method) will actually contain the true value 95% of the time, e.g.,</p>
+<p><span class="math display">\[
+\hat{c}(\alpha) = \frac{1}{S}\sum_{s=1}^{S}\mathbf{1}[\theta_{\text{true}} \in \widehat{CI}_s(\alpha)]
+\]</span> Where <span class="math inline">\(S\)</span> is the number of simulation replicates on hand, <span class="math inline">\(\theta_{true}\)</span> is the real parameter of interest, and <span class="math inline">\(\alpha\)</span> is a pre-specified nominal CI level or bin that you’d like to examine (e.g.&nbsp;50% CI, 80% CI, 95% CI). In a figure, this could look something like the following:</p>
+<p>We can visualize the full calibration curve across the entire range of <span class="math inline">\(\alpha\)</span>. A well-calibrated estimator tracks the 1:1 line: the reported 80% CI truly contains the truth 80% of the time. A model with underestimated standard errors (here SE <span class="math inline">\(= 0.35\hat{\sigma}\)</span>) deflects sharply below that line, revealing that stated coverage is nominal in name only.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="example1_coverage_calibration.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Figure 1.</strong> Left: empirical coverage at 50%, 80%, and 95% nominal CI levels for a well-calibrated model (reported SE = <span class="math inline">\(\sigma\)</span>) versus an overconfident model (reported SE <span class="math inline">\(= 0.35\sigma\)</span>), across 100 simulation replicates. Right: full coverage calibration curve sweeping all nominal levels from 0–100%; the dashed 1:1 line indicates perfect calibration.</figcaption>
+</figure>
+</div>
+<p>I’ve seen at least four different ways of showing this information, often in bar chart form, which don’t actually tell me about the precision of the model – just that the CI was wide enough to capture the truth. These binned curves are more satisfying.</p>
+</section>
+<section id="example-2-continuous-calibration" class="level2">
+<h2 class="anchored" data-anchor-id="example-2-continuous-calibration">Example 2: Continuous Calibration</h2>
+<p>If we didn’t love the binning approach and wanted to handle a continuous parameter explicitly (biomass, recruitment, etc) we can use the predictive distribution <span class="math inline">\(F\)</span> (the CDF of each simulation replicate): <span class="math inline">\(u = F(\theta_{true})\)</span> a.k.a. the probability integral transform. If the model is well calibrated, then <span class="math inline">\(u~Uniform(0,1)\)</span>, which can be checked by plotting a histogram of all <span class="math inline">\(u\)</span> values (should be flat). If it’s u-shaped, our intervals are probably too narrow; if there’s a hump in the middle, they’re probably too wide. This is commonly used in fields like weather and general bayesian approaches, but I haven’t seen it much in fisheries.</p>
+<p><strong>This collapses a huge amount of simulation output into a single diagnostic distribution</strong>, which is exactly why it’s popular in ML. Each replicate contributes one <span class="math inline">\(u_s\)</span> value regardless of the dimensionality of <span class="math inline">\(\theta\)</span>, making the approach trivially scalable to multivariate assessments. Systematic departures are immediately readable: a U-shaped histogram flags intervals that are too narrow (the truth escapes to the tails of the predictive distribution), while a hump-shaped histogram flags intervals that are too wide.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="example2_PIT_histogram.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Figure 2.</strong> PIT histograms for 100 simulation replicates of <span class="math inline">\(R_0\)</span>, where <span class="math inline">\(u_s = F_s(\theta_{\text{true}}) = \Phi\left(\frac{\theta_{\text{true}} - \hat{\theta}_s}{\hat{\sigma}_s}\right)\)</span>. The dashed horizontal line marks the expected uniform frequency. Left: well-calibrated model — flat distribution as expected under <span class="math inline">\(u \sim \text{Uniform}(0,1)\)</span>. Right: overconfident model — U-shaped distribution, reflecting that the truth frequently falls in the tails of the narrow predictive distribution.</figcaption>
+</figure>
+</div>
+</section>
+<section id="example-3-calibration-for-forecast-or-predictive-intervals" class="level2">
+<h2 class="anchored" data-anchor-id="example-3-calibration-for-forecast-or-predictive-intervals">Example 3: Calibration for Forecast or Predictive Intervals</h2>
+<p>When I produce a stock assessment, I typically spend more time examining the CIs of my time series data than my static parameter estimates. We can apply the same calibration approaches to forecasted intervals. In fisheries, we more commonly look at metrics like MARE (mean average relative error) as a measure of estimation performance in the future – a fine visualization tool, but <strong>not a mathematical check that our models are behaving as we are assuming in projections</strong>. Kind of an important consideration, no?</p>
+<p>Here’s what this could look like in practice. For each nominal level <span class="math inline">\(\alpha\)</span> and forecast year <span class="math inline">\(y\)</span>, we compute <span class="math inline">\(\hat{c}(\alpha, y) = \frac{1}{S}\sum_s \mathbf{1}[B_y^{\text{true}} \in \widehat{CI}_{sy}(\alpha)]\)</span> and compare it against <span class="math inline">\(\alpha\)</span>. Panel A averages this over all 20 projection years to produce a single calibration curve; panel B breaks coverage out by forecast year, revealing whether calibration holds stably across the full projection horizon or drifts.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="example3_forecast_calibration.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Figure 3.</strong> Left: calibration curve for forecast biomass, averaging empirical coverage over all 20 projection years. Right: empirical coverage by forecast year for 50%, 80%, and 95% nominal CI levels; solid lines = well-calibrated, long-dashed lines = poorly-calibrated (overconfident). Horizontal dashed references mark the nominal targets. The well-calibrated traces hover near their targets while the overconfident traces sit systematically below theirs across the entire projection horizon.</figcaption>
+</figure>
+</div>
+</section>
+<section id="example-4-putting-it-together-mixed-calibration" class="level2">
+<h2 class="anchored" data-anchor-id="example-4-putting-it-together-mixed-calibration">Example 4: Putting It Together — Mixed Calibration</h2>
+<p>A key insight easily overlooked in simulation-estimation work is that calibration is <em>quantity-specific</em>: the same model can simultaneously exhibit well-calibrated parameter estimates, overconfident state estimates, and underconfident forecast intervals. This is not a contradiction, rather it reflects that different outputs are composed from different combinations of model components, each with its own effective uncertainty propagation. Standard diagnostics like MARE or estimation bias, computed separately per quantity, will not reveal this cross-quantity inconsistency.</p>
+<p>Here we demonstrate this by holding the point estimates and true estimation error constant, but manipulating the <em>reported</em> standard errors for three distinct outputs: <span class="math inline">\(R_0\)</span> (correct SE <span class="math inline">\(= \sigma\)</span>), historical biomass (SE <span class="math inline">\(= 0.35\sigma\)</span>, overconfident), and forecast biomass (SE <span class="math inline">\(= 2.5\sigma\)</span>, underconfident). The resulting PIT histograms tell three different calibration stories from the same underlying model: flat, U-shaped, and hump-shaped.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="example4_mixed_calibration.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Figure 4.</strong> PIT histograms illustrating mixed calibration from a single model applied to three different output types. <strong>A:</strong> <span class="math inline">\(R_0\)</span> parameter with correct SE — flat distribution (well-calibrated, <span class="math inline">\(u \sim \text{Uniform}\)</span>). <strong>B:</strong> Historical biomass with underestimated SE — U-shaped (overconfident; truth escapes to the tails of the too-narrow predictive distribution). <strong>C:</strong> Forecast biomass with overestimated SE — hump-shaped (underconfident; truth concentrates near the center of the too-wide predictive distribution). The dashed line marks the expected uniform frequency; histograms are pooled across all replicates and years within each block.</figcaption>
+</figure>
+</div>
+<section id="simulation-details" class="level3">
+<h3 class="anchored" data-anchor-id="simulation-details">Simulation details</h3>
+<p>Using 100 replicates of a simple simulated population (fixed true R0 and a logistic biomass trajectory) with 30 “historical” and 20 “future” years. I didn’t truly step through an operating and estimation model. Claude-assisted code available <a href="">here</a>.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

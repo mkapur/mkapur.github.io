@@ -90,4 +90,4 @@ Here we demonstrate this by holding the point estimates and true estimation erro
 
 ### Simulation details
 
-Using 100 replicates of a simple simulated population (fixed true R0 and a logistic biomass trajectory) with 30 "historical" and 20 "future" years. I didn't truly step through an operating and estimation model. Claude-assisted code available [here]().
+Using 100 replicates of a simple simulated population (fixed true R0 and a logistic biomass trajectory) with 30 "historical" and 20 "future" years. I didn't truly step through an operating and estimation model. Claude-assisted code available [here](https://github.com/mkapur/mkapur.github.io/blob/master/posts/2026-03-12-calibration-fisheries/calibration_companion_script.r).
